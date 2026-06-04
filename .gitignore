@@ -1,0 +1,43 @@
+# WordPress core — download from wordpress.org
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+
+# Sensitive — never commit
+/wp-config.php
+*.sql
+*.sql.gz
+
+# Large binaries
+*.zip
+*.tar.gz
+
+# Media uploads (too large, environment-specific)
+/wp-content/uploads/
+
+# Cache & generated
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup-db/
+
+# Local dev
+/settings.local.json
+/.claude/
+
+# OS
+.DS_Store
+Thumbs.db

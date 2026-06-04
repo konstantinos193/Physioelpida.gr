@@ -1,0 +1,796 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Bdevs Toolkit\n"
+"POT-Creation-Date: 2021-11-07 10:49+0600\n"
+"PO-Revision-Date: 2021-11-07 10:49+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: bdevs-toolkit.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: inc/bdevs-member-post.php:36 inc/bdevs-member-post.php:37
+#: inc/bdevs-member-post.php:51
+msgid "Member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:38
+msgid "Parent member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:39
+msgid "All  Members"
+msgstr ""
+
+#: inc/bdevs-member-post.php:40
+msgid "View  Member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:41 inc/bdevs-member-post.php:42
+msgid "Add New  member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:43
+msgid "Edit  Member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:44
+msgid "Update  Member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:45
+msgid "Search  Member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:46 inc/bdevs-portfolio-post.php:43
+#: inc/bdevs-price-tables-post.php:27 inc/bdevs-routine-post.php:25
+#: inc/bdevs-service-post.php:45
+msgid "Not found"
+msgstr ""
+
+#: inc/bdevs-member-post.php:47 inc/bdevs-portfolio-post.php:44
+#: inc/bdevs-price-tables-post.php:28 inc/bdevs-routine-post.php:26
+#: inc/bdevs-service-post.php:46
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/bdevs-member-post.php:52
+msgid "Create and manage all bdevs member"
+msgstr ""
+
+#: inc/bdevs-member-post.php:81 inc/bdevs-portfolio-post.php:78
+#: inc/bdevs-price-tables-post.php:62 inc/bdevs-routine-post.php:60
+#: inc/bdevs-service-post.php:80
+#, php-format
+msgid "Search %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:82 inc/bdevs-portfolio-post.php:79
+#: inc/bdevs-price-tables-post.php:63 inc/bdevs-routine-post.php:61
+#: inc/bdevs-service-post.php:81
+#, php-format
+msgid "All %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:83 inc/bdevs-member-post.php:84
+#: inc/bdevs-portfolio-post.php:80 inc/bdevs-portfolio-post.php:81
+#: inc/bdevs-price-tables-post.php:64 inc/bdevs-price-tables-post.php:65
+#: inc/bdevs-routine-post.php:62 inc/bdevs-routine-post.php:63
+#: inc/bdevs-service-post.php:82 inc/bdevs-service-post.php:83
+#, php-format
+msgid "Parent  %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:85 inc/bdevs-portfolio-post.php:82
+#: inc/bdevs-price-tables-post.php:66 inc/bdevs-routine-post.php:64
+#: inc/bdevs-service-post.php:84
+#, php-format
+msgid "Edit  %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:86 inc/bdevs-portfolio-post.php:83
+#: inc/bdevs-price-tables-post.php:67 inc/bdevs-routine-post.php:65
+#: inc/bdevs-service-post.php:85
+#, php-format
+msgid "Update %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:87 inc/bdevs-portfolio-post.php:84
+#: inc/bdevs-price-tables-post.php:68 inc/bdevs-routine-post.php:66
+#: inc/bdevs-service-post.php:86
+#, php-format
+msgid "Add New %s:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:88 inc/bdevs-portfolio-post.php:85
+#: inc/bdevs-price-tables-post.php:69 inc/bdevs-routine-post.php:67
+#: inc/bdevs-service-post.php:87
+#, php-format
+msgid "New  %s Name:"
+msgstr ""
+
+#: inc/bdevs-member-post.php:108
+msgid "Member Details Info"
+msgstr ""
+
+#: inc/bdevs-member-post.php:112
+msgid "Designation"
+msgstr ""
+
+#: inc/bdevs-member-post.php:117
+msgid "Member Map Lat "
+msgstr ""
+
+#: inc/bdevs-member-post.php:122
+msgid "Member Map Long "
+msgstr ""
+
+#: inc/bdevs-member-post.php:145
+msgid "Educational in details"
+msgstr ""
+
+#: inc/bdevs-member-post.php:148
+msgid "Educational Extra Info"
+msgstr ""
+
+#: inc/bdevs-member-post.php:149 inc/bdevs-routine-post.php:100
+msgid "Add Another Entry"
+msgstr ""
+
+#: inc/bdevs-member-post.php:150 inc/bdevs-routine-post.php:101
+msgid "Remove Entry"
+msgstr ""
+
+#: inc/bdevs-member-post.php:158
+msgid "Subject Icon"
+msgstr ""
+
+#: inc/bdevs-member-post.php:165
+msgid "Subject Name"
+msgstr ""
+
+#: inc/bdevs-member-post.php:172
+msgid "Institute Name"
+msgstr ""
+
+#: inc/bdevs-member-post.php:184
+msgid "Social Profiles"
+msgstr ""
+
+#: inc/bdevs-member-post.php:188 inc/bdevs-meta-boxes.php:91
+msgid "Facebook Url"
+msgstr ""
+
+#: inc/bdevs-member-post.php:193 inc/bdevs-meta-boxes.php:96
+msgid "Twitter Url"
+msgstr ""
+
+#: inc/bdevs-member-post.php:198
+msgid "Behance Url"
+msgstr ""
+
+#: inc/bdevs-member-post.php:203
+msgid "Pinterest Url"
+msgstr ""
+
+#: inc/bdevs-member-post.php:208
+msgid "LinkedIn Url"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:10
+msgid "Page Info"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:15
+msgid "Is it invisible breadcrumb?"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:20
+msgid "Enable Secondary Logo"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:25
+msgid "Header Top Color"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:30
+msgid "Header Top Background"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:36
+msgid "Header Style"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:41 inc/bdevs-meta-boxes.php:56
+msgid "Default"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:42
+msgid "Header Style 1"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:43
+msgid "Header Style 2"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:44
+msgid "Header Style 3"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:45
+msgid "Header Style 4"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:46
+msgid "Header Style 5"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:47
+msgid "Header Style 6"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:51
+msgid "Footer Style"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:57
+msgid "Footer Style 1"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:58
+msgid "Footer Style 2"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:59
+msgid "Footer Style 3"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:60
+msgid "Footer Style 4"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:61
+msgid "Footer Style 5"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:65
+msgid "Footer Background"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:87
+msgid "Profile Media links"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:101
+msgid "Google Plus Url"
+msgstr ""
+
+#: inc/bdevs-meta-boxes.php:106
+msgid "Instagram Url"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:33 inc/bdevs-portfolio-post.php:34
+#: inc/bdevs-portfolio-post.php:48
+msgid "Portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:35
+msgid "Parent portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:36
+msgid "All  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:37
+msgid "View  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:38 inc/bdevs-portfolio-post.php:39
+msgid "Add New  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:40
+msgid "Edit  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:41
+msgid "Update  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:42
+msgid "Search  portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:49
+msgid "Create and manage all bdevs portfolio"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:108
+msgid "Portfolio Info"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:112
+msgid "Date"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:117
+msgid "Company Name"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:122
+msgid "Company Location"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:127
+msgid "Gallery Image"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:132
+msgid "Project URL"
+msgstr ""
+
+#: inc/bdevs-portfolio-post.php:137
+msgid "Details Image"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:16 inc/bdevs-price-tables-post.php:17
+#: inc/bdevs-price-tables-post.php:18 inc/bdevs-price-tables-post.php:32
+msgid "Price Tables"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:19
+msgid "Parent Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:20
+msgid "All  Price Tables"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:21
+msgid "View  Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:22 inc/bdevs-price-tables-post.php:23
+msgid "Add New  Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:24
+msgid "Edit  Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:25
+msgid "Update  Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:26
+msgid "Search  Price Table"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:33
+msgid "Create and manage all bdevs biography"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:90
+msgid "Pricing Info Detials"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:95
+msgid "Price"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:100
+msgid "Info Text"
+msgstr ""
+
+#: inc/bdevs-price-tables-post.php:105
+msgid "Button Url"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:14 inc/bdevs-routine-post.php:16
+msgid "Routines"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:15 inc/bdevs-routine-post.php:30
+msgid "Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:17
+msgid "Parent Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:18
+msgid "All  Routines"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:19
+msgid "View  Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:20 inc/bdevs-routine-post.php:21
+msgid "Add New  Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:22
+msgid "Edit  Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:23
+msgid "Update  Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:24
+msgid "Search  Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:31
+msgid "Create and manage all BDevs Routine"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:96
+msgid "Routine in details"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:99
+msgid "Routine Extra Info"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:109
+msgid "Dr. Name"
+msgstr ""
+
+#: inc/bdevs-routine-post.php:116
+msgid "Time Period"
+msgstr ""
+
+#: inc/bdevs-service-post.php:35 inc/bdevs-service-post.php:36
+#: inc/bdevs-service-post.php:50
+msgid "Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:37
+msgid "Parent Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:38
+msgid "All  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:39
+msgid "View  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:40 inc/bdevs-service-post.php:41
+msgid "Add New  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:42
+msgid "Edit  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:43
+msgid "Update  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:44
+msgid "Search  Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:51
+msgid "Create and manage all bdevs Service"
+msgstr ""
+
+#: inc/bdevs-service-post.php:110
+msgid "Service Details Image"
+msgstr ""
+
+#: inc/bdevs-service-post.php:114
+msgid "Service Subtitle"
+msgstr ""
+
+#: inc/bdevs-service-post.php:119
+msgid "Service Category"
+msgstr ""
+
+#: inc/bdevs-service-post.php:124
+msgid "Service Icon Image"
+msgstr ""
+
+#: inc/bdevs-service-post.php:129
+msgid "Service Image"
+msgstr ""
+
+#: inc/bdevs-service-post.php:134
+msgid "Extra Title"
+msgstr ""
+
+#: inc/bdevs-service-post.php:139
+msgid "Extra Icon"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:19
+msgid "Home 1"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:20
+msgid "home"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:25
+msgid "Home 2"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:26
+msgid "home-2"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:31
+msgid "Home 3"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:32
+msgid "home-3"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:37
+msgid "Home 4"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:38
+msgid "home-4"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:43
+msgid "Home 5"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:44
+msgid "home-5"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:49
+msgid "Home 6"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:50
+msgid "home-6"
+msgstr ""
+
+#: inc/class-ocdi-importer.php:75
+msgid ""
+"After you import this demo, you will have to setup the slider separately."
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:21
+msgid "Medidove About"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:22
+msgid "Medidove About Widget"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:110
+msgid "Name:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:115
+#: widgets/bdevs-company-profile-widget.php:97
+#: widgets/bdevs-info-widget.php:117
+#: widgets/bdevs-profile-number-widget.php:116
+#: widgets/bdevs-profile-widget.php:109
+msgid "Short Description:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:124
+#: widgets/bdevs-company-profile-widget.php:111
+#: widgets/bdevs-extra-info.php:146 widgets/bdevs-info-widget.php:133
+msgid "Facebook:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:130
+#: widgets/bdevs-company-profile-widget.php:117
+#: widgets/bdevs-extra-info.php:152 widgets/bdevs-info-widget.php:138
+msgid "Twitter:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:135
+#: widgets/bdevs-company-profile-widget.php:122
+msgid "Behance:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:139
+#: widgets/bdevs-company-profile-widget.php:126
+#: widgets/bdevs-extra-info.php:161
+msgid "Youtube:"
+msgstr ""
+
+#: widgets/bdevs-author-profile-widget.php:144
+#: widgets/bdevs-company-profile-widget.php:131
+#: widgets/bdevs-extra-info.php:166
+msgid "Pinterest:"
+msgstr ""
+
+#: widgets/bdevs-company-profile-widget.php:21
+msgid "Medidove Info Center"
+msgstr ""
+
+#: widgets/bdevs-company-profile-widget.php:22
+msgid "Medidove Info Center Full Widget"
+msgstr ""
+
+#: widgets/bdevs-company-profile-widget.php:93 widgets/bdevs-extra-info.php:126
+#: widgets/bdevs-info-widget.php:97 widgets/bdevs-menu-widget.php:70
+#: widgets/bdevs-profile-number-widget.php:104
+#: widgets/bdevs-profile-widget.php:89
+#: widgets/bdevs-service-request-widget.php:61
+#: widgets/bdevs-subscriber-widget.php:83
+msgid "Title:"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:21
+msgid "MediDove Extra Info"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:22
+msgid "MediDove Extra Info Widget"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:57
+msgid "do you have a question?"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:72
+msgid "socials network"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:131
+msgid "Time :"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:136 widgets/bdevs-info-widget.php:128
+#: widgets/bdevs-profile-number-widget.php:144
+msgid "Phone Number:"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:141 widgets/bdevs-info-widget.php:123
+#: widgets/bdevs-profile-number-widget.php:123
+#: widgets/bdevs-profile-widget.php:116
+msgid "Email Address:"
+msgstr ""
+
+#: widgets/bdevs-extra-info.php:157
+msgid "Instagram:"
+msgstr ""
+
+#: widgets/bdevs-info-widget.php:21
+msgid "MediDove Footer Info"
+msgstr ""
+
+#: widgets/bdevs-info-widget.php:22
+msgid "MediDove Footer Info Widget"
+msgstr ""
+
+#: widgets/bdevs-info-widget.php:143
+msgid "instagram:"
+msgstr ""
+
+#: widgets/bdevs-info-widget.php:147
+msgid "google_plus:"
+msgstr ""
+
+#: widgets/bdevs-latest-posts-sidebar.php:62 widgets/bdevs-recent-post.php:58
+#: widgets/bdevs-service-categories.php:57
+msgid "3"
+msgstr ""
+
+#: widgets/bdevs-latest-posts-sidebar.php:63 widgets/bdevs-recent-post.php:59
+#: widgets/bdevs-service-categories.php:58
+msgid "DESC"
+msgstr ""
+
+#: widgets/bdevs-menu-widget.php:21
+msgid "Medidove Footer Menu"
+msgstr ""
+
+#: widgets/bdevs-menu-widget.php:22
+msgid "Medidove Footer Menu Widget"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:23
+msgid "Medidove Info Number Widget"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:24
+msgid "Medidove Profile Number Widget"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:128
+#: widgets/bdevs-profile-widget.php:121
+msgid "Website Link:"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:133
+#: widgets/bdevs-profile-widget.php:126
+msgid "Address info:"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:138
+msgid "Phone Label:"
+msgstr ""
+
+#: widgets/bdevs-profile-number-widget.php:149
+msgid "Phone Number Two:"
+msgstr ""
+
+#: widgets/bdevs-profile-widget.php:21
+msgid "Medidove Info Widget"
+msgstr ""
+
+#: widgets/bdevs-profile-widget.php:22
+msgid "Medidove Profile Widget"
+msgstr ""
+
+#: widgets/bdevs-recent-post-without-img.php:9
+msgid "Siniko Recent Posts"
+msgstr ""
+
+#: widgets/bdevs-recent-post-without-img.php:10
+msgid "Add Recent Post Widget"
+msgstr ""
+
+#: widgets/bdevs-service-request-widget.php:21
+msgid "MediDove Request Info"
+msgstr ""
+
+#: widgets/bdevs-service-request-widget.php:22
+msgid "MediDove Request Info Widget"
+msgstr ""
+
+#: widgets/bdevs-service-request-widget.php:66
+#: widgets/bdevs-subscriber-widget.php:100
+msgid "Mailchimp Shortcode:"
+msgstr ""
+
+#: widgets/bdevs-subscriber-widget.php:21
+msgid "MediDove Subscriber"
+msgstr ""
+
+#: widgets/bdevs-subscriber-widget.php:22
+msgid "MediDove Subscriber Widget"
+msgstr ""
+
+#: widgets/bdevs-subscriber-widget.php:95
+msgid "Hide Logo : "
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Bdevs Toolkit"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://bdevs.net/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Bdevs Toolkit Plugin"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "BDevs"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://bdevs.net"
+msgstr ""

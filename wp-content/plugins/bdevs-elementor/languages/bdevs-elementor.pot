@@ -1,0 +1,2793 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Bdevs Elementor\n"
+"POT-Creation-Date: 2021-11-07 10:48+0600\n"
+"PO-Revision-Date: 2021-11-07 10:47+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: bdevs-elementor.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. translators: 1: Plugin name 2: Elementor
+#: bdevs-elementor.php:178
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: bdevs-elementor.php:179 bdevs-elementor.php:203 bdevs-elementor.php:228
+#: bdevs-elementor.php:243
+msgid "Bdevs Elementor"
+msgstr ""
+
+#: bdevs-elementor.php:180 bdevs-elementor.php:204
+msgid "Elementor"
+msgstr ""
+
+#. translators: 1: Plugin name 2: Elementor 3: Required Elementor version
+#. translators: 1: Plugin name 2: PHP 3: Required PHP version
+#: bdevs-elementor.php:202 bdevs-elementor.php:227
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: bdevs-elementor.php:229
+msgid "PHP"
+msgstr ""
+
+#: includes/helper.php:7 widgets/about-info-widget.php:86
+#: widgets/about-widget.php:88 widgets/analaysis-tab-widget.php:86
+#: widgets/analysis-widget.php:86 widgets/appointment-widget.php:86
+#: widgets/challenge-widget.php:86 widgets/contact-info-widget.php:86
+#: widgets/contact-widget.php:86 widgets/counter-widget.php:86
+#: widgets/cta-widget.php:86 widgets/experience-widget.php:86
+#: widgets/faq-widget.php:86 widgets/features-widget.php:86
+#: widgets/heading-widget.php:87 widgets/iconbox-widget.php:86
+#: widgets/map-widget.php:87 widgets/medical-widget.php:86
+#: widgets/member-list-widget.php:86 widgets/mission-widget.php:86
+#: widgets/premium-membership-widget.php:86 widgets/pricing-widget.php:86
+#: widgets/slider-widget.php:92 widgets/subscribe-widget.php:86
+#: widgets/testimonial-widget.php:86 widgets/video-content-widget.php:86
+#: widgets/whatwedo-widget.php:86 widgets/why-choose-widget.php:86
+msgid "Default"
+msgstr ""
+
+#: includes/helper.php:8 widgets/about-info-widget.php:87
+#: widgets/about-widget.php:89 widgets/analaysis-tab-widget.php:87
+#: widgets/analysis-widget.php:87 widgets/appointment-widget.php:87
+#: widgets/challenge-widget.php:87 widgets/contact-info-widget.php:87
+#: widgets/contact-widget.php:87 widgets/counter-widget.php:87
+#: widgets/cta-widget.php:87 widgets/experience-widget.php:87
+#: widgets/faq-widget.php:87 widgets/features-widget.php:87
+#: widgets/heading-widget.php:88 widgets/iconbox-widget.php:87
+#: widgets/map-widget.php:88 widgets/medical-widget.php:87
+#: widgets/member-list-widget.php:87 widgets/mission-widget.php:87
+#: widgets/premium-membership-widget.php:87 widgets/pricing-widget.php:87
+#: widgets/slider-widget.php:93 widgets/subscribe-widget.php:87
+#: widgets/testimonial-widget.php:87 widgets/video-content-widget.php:87
+#: widgets/whatwedo-widget.php:87 widgets/why-choose-widget.php:87
+msgid "Top Left"
+msgstr ""
+
+#: includes/helper.php:9 widgets/about-info-widget.php:88
+#: widgets/about-widget.php:90 widgets/analaysis-tab-widget.php:88
+#: widgets/analysis-widget.php:88 widgets/appointment-widget.php:88
+#: widgets/challenge-widget.php:88 widgets/contact-info-widget.php:88
+#: widgets/contact-widget.php:88 widgets/counter-widget.php:88
+#: widgets/cta-widget.php:88 widgets/experience-widget.php:88
+#: widgets/faq-widget.php:88 widgets/features-widget.php:88
+#: widgets/heading-widget.php:89 widgets/iconbox-widget.php:88
+#: widgets/map-widget.php:89 widgets/medical-widget.php:88
+#: widgets/member-list-widget.php:88 widgets/mission-widget.php:88
+#: widgets/premium-membership-widget.php:88 widgets/pricing-widget.php:88
+#: widgets/slider-widget.php:94 widgets/subscribe-widget.php:88
+#: widgets/testimonial-widget.php:88 widgets/video-content-widget.php:88
+#: widgets/whatwedo-widget.php:88 widgets/why-choose-widget.php:88
+msgid "Top Center"
+msgstr ""
+
+#: includes/helper.php:10 widgets/about-info-widget.php:89
+#: widgets/about-widget.php:91 widgets/analaysis-tab-widget.php:89
+#: widgets/analysis-widget.php:89 widgets/appointment-widget.php:89
+#: widgets/challenge-widget.php:89 widgets/contact-info-widget.php:89
+#: widgets/contact-widget.php:89 widgets/counter-widget.php:89
+#: widgets/cta-widget.php:89 widgets/experience-widget.php:89
+#: widgets/faq-widget.php:89 widgets/features-widget.php:89
+#: widgets/heading-widget.php:90 widgets/iconbox-widget.php:89
+#: widgets/map-widget.php:90 widgets/medical-widget.php:89
+#: widgets/member-list-widget.php:89 widgets/mission-widget.php:89
+#: widgets/premium-membership-widget.php:89 widgets/pricing-widget.php:89
+#: widgets/slider-widget.php:95 widgets/subscribe-widget.php:89
+#: widgets/testimonial-widget.php:89 widgets/video-content-widget.php:89
+#: widgets/whatwedo-widget.php:89 widgets/why-choose-widget.php:89
+msgid "Top Right"
+msgstr ""
+
+#: includes/helper.php:11 widgets/about-info-widget.php:90
+#: widgets/about-info-widget.php:384 widgets/about-widget.php:92
+#: widgets/about-widget.php:475 widgets/analaysis-tab-widget.php:90
+#: widgets/analysis-widget.php:90 widgets/analysis-widget.php:187
+#: widgets/appointment-widget.php:90 widgets/appointment-widget.php:237
+#: widgets/blog-post-widget.php:252 widgets/brands-widget.php:193
+#: widgets/carousel-widget.php:211 widgets/challenge-widget.php:90
+#: widgets/challenge-widget.php:242 widgets/contact-info-widget.php:90
+#: widgets/contact-info-widget.php:182 widgets/contact-widget.php:90
+#: widgets/contact-widget.php:191 widgets/counter-widget.php:90
+#: widgets/counter-widget.php:287 widgets/cta-widget.php:90
+#: widgets/cta-widget.php:208 widgets/doctor-routine-widget.php:186
+#: widgets/experience-widget.php:90 widgets/experience-widget.php:190
+#: widgets/fact-widget.php:204 widgets/faq-widget.php:90
+#: widgets/faq-widget.php:229 widgets/features-widget.php:90
+#: widgets/features-widget.php:263 widgets/heading-widget.php:91
+#: widgets/heading-widget.php:184 widgets/iconbox-widget.php:90
+#: widgets/iconbox-widget.php:232 widgets/map-widget.php:91
+#: widgets/map-widget.php:152 widgets/medical-widget.php:90
+#: widgets/medical-widget.php:236 widgets/member-list-widget.php:90
+#: widgets/member-list-widget.php:333 widgets/member-post-widget.php:253
+#: widgets/mission-widget.php:90 widgets/mission-widget.php:235
+#: widgets/portfolio-widget.php:203 widgets/premium-membership-widget.php:90
+#: widgets/premium-membership-widget.php:269 widgets/pricing-widget.php:90
+#: widgets/pricing-widget.php:190 widgets/service-post-widget.php:280
+#: widgets/service-post-widget.php:345 widgets/slider-widget.php:96
+#: widgets/subscribe-widget.php:90 widgets/subscribe-widget.php:186
+#: widgets/testimonial-widget.php:90 widgets/testimonial-widget.php:286
+#: widgets/video-content-widget.php:90 widgets/whatwedo-widget.php:90
+#: widgets/whatwedo-widget.php:217 widgets/why-choose-widget.php:90
+#: widgets/why-choose-widget.php:237
+msgid "Center"
+msgstr ""
+
+#: includes/helper.php:12 widgets/about-info-widget.php:91
+#: widgets/about-widget.php:93 widgets/analaysis-tab-widget.php:91
+#: widgets/analysis-widget.php:91 widgets/appointment-widget.php:91
+#: widgets/challenge-widget.php:91 widgets/contact-info-widget.php:91
+#: widgets/contact-widget.php:91 widgets/counter-widget.php:91
+#: widgets/cta-widget.php:91 widgets/experience-widget.php:91
+#: widgets/faq-widget.php:91 widgets/features-widget.php:91
+#: widgets/heading-widget.php:92 widgets/iconbox-widget.php:91
+#: widgets/map-widget.php:92 widgets/medical-widget.php:91
+#: widgets/member-list-widget.php:91 widgets/mission-widget.php:91
+#: widgets/premium-membership-widget.php:91 widgets/pricing-widget.php:91
+#: widgets/slider-widget.php:97 widgets/subscribe-widget.php:91
+#: widgets/testimonial-widget.php:91 widgets/video-content-widget.php:91
+#: widgets/whatwedo-widget.php:91 widgets/why-choose-widget.php:91
+msgid "Center Left"
+msgstr ""
+
+#: includes/helper.php:13 widgets/about-info-widget.php:92
+#: widgets/about-widget.php:94 widgets/analaysis-tab-widget.php:92
+#: widgets/analysis-widget.php:92 widgets/appointment-widget.php:92
+#: widgets/challenge-widget.php:92 widgets/contact-info-widget.php:92
+#: widgets/contact-widget.php:92 widgets/counter-widget.php:92
+#: widgets/cta-widget.php:92 widgets/experience-widget.php:92
+#: widgets/faq-widget.php:92 widgets/features-widget.php:92
+#: widgets/heading-widget.php:93 widgets/iconbox-widget.php:92
+#: widgets/map-widget.php:93 widgets/medical-widget.php:92
+#: widgets/member-list-widget.php:92 widgets/mission-widget.php:92
+#: widgets/premium-membership-widget.php:92 widgets/pricing-widget.php:92
+#: widgets/slider-widget.php:98 widgets/subscribe-widget.php:92
+#: widgets/testimonial-widget.php:92 widgets/video-content-widget.php:92
+#: widgets/whatwedo-widget.php:92 widgets/why-choose-widget.php:92
+msgid "Center Right"
+msgstr ""
+
+#: includes/helper.php:14 widgets/about-info-widget.php:93
+#: widgets/about-widget.php:95 widgets/analaysis-tab-widget.php:93
+#: widgets/analysis-widget.php:93 widgets/appointment-widget.php:93
+#: widgets/challenge-widget.php:93 widgets/contact-info-widget.php:93
+#: widgets/contact-widget.php:93 widgets/counter-widget.php:93
+#: widgets/cta-widget.php:93 widgets/experience-widget.php:93
+#: widgets/faq-widget.php:93 widgets/features-widget.php:93
+#: widgets/heading-widget.php:94 widgets/iconbox-widget.php:93
+#: widgets/map-widget.php:94 widgets/medical-widget.php:93
+#: widgets/member-list-widget.php:93 widgets/mission-widget.php:93
+#: widgets/premium-membership-widget.php:93 widgets/pricing-widget.php:93
+#: widgets/slider-widget.php:99 widgets/subscribe-widget.php:93
+#: widgets/testimonial-widget.php:93 widgets/video-content-widget.php:93
+#: widgets/whatwedo-widget.php:93 widgets/why-choose-widget.php:93
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/helper.php:15 widgets/about-info-widget.php:94
+#: widgets/about-widget.php:96 widgets/analaysis-tab-widget.php:94
+#: widgets/analysis-widget.php:94 widgets/appointment-widget.php:94
+#: widgets/challenge-widget.php:94 widgets/contact-info-widget.php:94
+#: widgets/contact-widget.php:94 widgets/counter-widget.php:94
+#: widgets/cta-widget.php:94 widgets/experience-widget.php:94
+#: widgets/faq-widget.php:94 widgets/features-widget.php:94
+#: widgets/heading-widget.php:95 widgets/iconbox-widget.php:94
+#: widgets/map-widget.php:95 widgets/medical-widget.php:94
+#: widgets/member-list-widget.php:94 widgets/mission-widget.php:94
+#: widgets/premium-membership-widget.php:94 widgets/pricing-widget.php:94
+#: widgets/slider-widget.php:100 widgets/subscribe-widget.php:94
+#: widgets/testimonial-widget.php:94 widgets/video-content-widget.php:94
+#: widgets/whatwedo-widget.php:94 widgets/why-choose-widget.php:94
+msgid "Bottom Center"
+msgstr ""
+
+#: includes/helper.php:16 widgets/about-info-widget.php:95
+#: widgets/about-widget.php:97 widgets/analaysis-tab-widget.php:95
+#: widgets/analysis-widget.php:95 widgets/appointment-widget.php:95
+#: widgets/challenge-widget.php:95 widgets/contact-info-widget.php:95
+#: widgets/contact-widget.php:95 widgets/counter-widget.php:95
+#: widgets/cta-widget.php:95 widgets/experience-widget.php:95
+#: widgets/faq-widget.php:95 widgets/features-widget.php:95
+#: widgets/heading-widget.php:96 widgets/iconbox-widget.php:95
+#: widgets/map-widget.php:96 widgets/medical-widget.php:95
+#: widgets/member-list-widget.php:95 widgets/mission-widget.php:95
+#: widgets/premium-membership-widget.php:95 widgets/pricing-widget.php:95
+#: widgets/slider-widget.php:101 widgets/subscribe-widget.php:95
+#: widgets/testimonial-widget.php:95 widgets/video-content-widget.php:95
+#: widgets/whatwedo-widget.php:95 widgets/why-choose-widget.php:95
+msgid "Bottom Right"
+msgstr ""
+
+#: widgets/about-info-widget.php:44
+msgid "About Info"
+msgstr ""
+
+#: widgets/about-info-widget.php:105 widgets/why-choose-widget.php:105
+msgid "About Info Style"
+msgstr ""
+
+#: widgets/about-info-widget.php:113 widgets/about-widget.php:114
+#: widgets/appointment-widget.php:113 widgets/blog-post-widget.php:153
+#: widgets/brands-widget.php:127 widgets/carousel-widget.php:95
+#: widgets/counter-widget.php:145 widgets/cta-widget.php:116
+#: widgets/experience-widget.php:116 widgets/faq-widget.php:113
+#: widgets/features-widget.php:114 widgets/heading-widget.php:115
+#: widgets/iconbox-widget.php:106 widgets/member-list-widget.php:106
+#: widgets/member-post-widget.php:154 widgets/portfolio-widget.php:123
+#: widgets/pricing-widget.php:159 widgets/service-post-widget.php:195
+#: widgets/slider-widget.php:118 widgets/testimonial-widget.php:158
+#: widgets/video-content-widget.php:113
+msgid "Chose Style"
+msgstr ""
+
+#: widgets/about-info-widget.php:116
+msgid "Full Width"
+msgstr ""
+
+#: widgets/about-info-widget.php:117
+msgid "Blox Layout"
+msgstr ""
+
+#: widgets/about-info-widget.php:128
+msgid "Left About"
+msgstr ""
+
+#: widgets/about-info-widget.php:135 widgets/about-info-widget.php:254
+#: widgets/about-widget.php:192 widgets/about-widget.php:1239
+#: widgets/why-choose-widget.php:112
+msgid "About Image"
+msgstr ""
+
+#: widgets/about-info-widget.php:138 widgets/about-info-widget.php:257
+#: widgets/why-choose-widget.php:115
+msgid "Add About Image"
+msgstr ""
+
+#: widgets/about-info-widget.php:145 widgets/about-info-widget.php:264
+#: widgets/about-widget.php:131 widgets/blog-post-widget.php:95
+#: widgets/brands-widget.php:95 widgets/carousel-widget.php:108
+#: widgets/challenge-widget.php:115 widgets/counter-widget.php:113
+#: widgets/cta-widget.php:132 widgets/experience-widget.php:130
+#: widgets/faq-widget.php:126 widgets/features-widget.php:129
+#: widgets/heading-widget.php:137 widgets/medical-widget.php:113
+#: widgets/member-post-widget.php:95 widgets/mission-widget.php:124
+#: widgets/portfolio-widget.php:93 widgets/premium-membership-widget.php:113
+#: widgets/pricing-widget.php:113 widgets/service-post-widget.php:94
+#: widgets/testimonial-widget.php:113 widgets/whatwedo-widget.php:111
+#: widgets/why-choose-widget.php:122
+msgid "Sub Heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:147 widgets/about-info-widget.php:266
+#: widgets/about-widget.php:133 widgets/features-widget.php:131
+#: widgets/mission-widget.php:126 widgets/slider-widget.php:305
+#: widgets/why-choose-widget.php:124
+msgid "Enter your sub heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:148 widgets/about-info-widget.php:267
+#: widgets/about-widget.php:134 widgets/blog-post-widget.php:97
+#: widgets/brands-widget.php:99 widgets/carousel-widget.php:112
+#: widgets/counter-widget.php:115 widgets/cta-widget.php:134
+#: widgets/experience-widget.php:132 widgets/features-widget.php:132
+#: widgets/member-post-widget.php:100 widgets/mission-widget.php:127
+#: widgets/premium-membership-widget.php:116 widgets/testimonial-widget.php:116
+#: widgets/why-choose-widget.php:125
+msgid "It is sub heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:159 widgets/about-info-widget.php:278
+#: widgets/about-widget.php:142 widgets/about-widget.php:153
+#: widgets/analysis-widget.php:122 widgets/blog-post-widget.php:106
+#: widgets/brands-widget.php:106 widgets/carousel-widget.php:119
+#: widgets/challenge-widget.php:125 widgets/counter-widget.php:124
+#: widgets/counter-widget.php:246 widgets/cta-widget.php:143
+#: widgets/experience-widget.php:141 widgets/faq-widget.php:136
+#: widgets/features-widget.php:140 widgets/heading-widget.php:147
+#: widgets/iconbox-widget.php:165 widgets/medical-widget.php:123
+#: widgets/member-list-widget.php:178 widgets/member-post-widget.php:107
+#: widgets/mission-widget.php:112 widgets/portfolio-widget.php:104
+#: widgets/premium-membership-widget.php:124 widgets/pricing-widget.php:123
+#: widgets/service-post-widget.php:105 widgets/testimonial-widget.php:124
+#: widgets/whatwedo-widget.php:121 widgets/why-choose-widget.php:133
+msgid "Heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:161 widgets/about-info-widget.php:280
+#: widgets/about-widget.php:144 widgets/about-widget.php:155
+#: widgets/analysis-widget.php:124 widgets/brands-widget.php:98
+#: widgets/carousel-widget.php:111 widgets/challenge-widget.php:127
+#: widgets/fact-widget.php:106 widgets/faq-widget.php:138
+#: widgets/features-widget.php:142 widgets/heading-widget.php:149
+#: widgets/iconbox-widget.php:167 widgets/medical-widget.php:125
+#: widgets/member-list-widget.php:180 widgets/member-post-widget.php:97
+#: widgets/mission-widget.php:114 widgets/portfolio-widget.php:106
+#: widgets/premium-membership-widget.php:115 widgets/pricing-widget.php:125
+#: widgets/service-post-widget.php:107 widgets/service-post-widget.php:117
+#: widgets/slider-widget.php:316 widgets/testimonial-widget.php:115
+#: widgets/whatwedo-widget.php:123 widgets/why-choose-widget.php:135
+msgid "Enter your heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:162 widgets/about-info-widget.php:281
+#: widgets/about-widget.php:145 widgets/analysis-widget.php:125
+#: widgets/challenge-widget.php:128 widgets/faq-widget.php:139
+#: widgets/features-widget.php:143 widgets/heading-widget.php:150
+#: widgets/iconbox-widget.php:168 widgets/medical-widget.php:126
+#: widgets/member-list-widget.php:181 widgets/member-post-widget.php:112
+#: widgets/mission-widget.php:115 widgets/portfolio-widget.php:107
+#: widgets/premium-membership-widget.php:127
+#: widgets/service-post-widget.php:108 widgets/service-post-widget.php:118
+#: widgets/testimonial-widget.php:127 widgets/whatwedo-widget.php:124
+#: widgets/why-choose-widget.php:136
+msgid "It is Heading"
+msgstr ""
+
+#: widgets/about-info-widget.php:170 widgets/about-info-widget.php:289
+#: widgets/about-widget.php:644 widgets/experience-widget.php:152
+#: widgets/iconbox-widget.php:176 widgets/medical-widget.php:201
+#: widgets/member-list-widget.php:199 widgets/premium-membership-widget.php:180
+#: widgets/premium-membership-widget.php:238 widgets/slider-widget.php:506
+#: widgets/subscribe-widget.php:137 widgets/testimonial-widget.php:231
+#: widgets/why-choose-widget.php:144
+msgid "Description"
+msgstr ""
+
+#: widgets/about-info-widget.php:172 widgets/about-info-widget.php:291
+#: widgets/iconbox-widget.php:178 widgets/member-list-widget.php:201
+#: widgets/mission-widget.php:139 widgets/why-choose-widget.php:146
+msgid "Enter your about text"
+msgstr ""
+
+#: widgets/about-info-widget.php:173 widgets/about-info-widget.php:292
+#: widgets/iconbox-widget.php:179 widgets/member-list-widget.php:202
+#: widgets/mission-widget.php:140 widgets/why-choose-widget.php:147
+msgid "About Content Here"
+msgstr ""
+
+#: widgets/about-info-widget.php:180 widgets/about-info-widget.php:299
+#: widgets/about-widget.php:427 widgets/appointment-widget.php:187
+#: widgets/blog-post-widget.php:120 widgets/blog-post-widget.php:217
+#: widgets/challenge-widget.php:138 widgets/contact-widget.php:154
+#: widgets/cta-widget.php:157 widgets/features-widget.php:223
+#: widgets/iconbox-widget.php:186 widgets/member-list-widget.php:209
+#: widgets/member-post-widget.php:119 widgets/service-post-widget.php:163
+#: widgets/service-post-widget.php:293 widgets/why-choose-widget.php:154
+msgid "Link Text"
+msgstr ""
+
+#: widgets/about-info-widget.php:182 widgets/about-info-widget.php:301
+#: widgets/about-widget.php:429 widgets/iconbox-widget.php:188
+#: widgets/member-list-widget.php:211 widgets/member-post-widget.php:121
+#: widgets/why-choose-widget.php:156
+msgid "Type Link Text Here..."
+msgstr ""
+
+#: widgets/about-info-widget.php:183 widgets/about-info-widget.php:302
+#: widgets/about-widget.php:430 widgets/iconbox-widget.php:189
+#: widgets/member-list-widget.php:212 widgets/why-choose-widget.php:157
+msgid "Learn More"
+msgstr ""
+
+#: widgets/about-info-widget.php:191 widgets/about-info-widget.php:310
+#: widgets/about-widget.php:438 widgets/appointment-widget.php:166
+#: widgets/blog-post-widget.php:128 widgets/challenge-widget.php:145
+#: widgets/contact-widget.php:136 widgets/counter-widget.php:183
+#: widgets/cta-widget.php:165 widgets/fact-widget.php:113
+#: widgets/features-widget.php:231 widgets/iconbox-widget.php:197
+#: widgets/member-list-widget.php:220 widgets/member-post-widget.php:130
+#: widgets/service-post-widget.php:142 widgets/why-choose-widget.php:165
+msgid "Link"
+msgstr ""
+
+#: widgets/about-info-widget.php:193 widgets/about-info-widget.php:312
+#: widgets/about-widget.php:440 widgets/appointment-widget.php:168
+#: widgets/blog-post-widget.php:130 widgets/challenge-widget.php:147
+#: widgets/contact-widget.php:138 widgets/counter-widget.php:185
+#: widgets/cta-widget.php:167 widgets/fact-widget.php:115
+#: widgets/iconbox-widget.php:199 widgets/member-list-widget.php:222
+#: widgets/member-post-widget.php:132 widgets/service-post-widget.php:144
+#: widgets/video-content-widget.php:138 widgets/why-choose-widget.php:167
+msgid "https://your-link.com"
+msgstr ""
+
+#: widgets/about-info-widget.php:212
+msgid "Left Lists"
+msgstr ""
+
+#: widgets/about-info-widget.php:223 widgets/about-info-widget.php:341
+#: widgets/about-widget.php:291 widgets/why-choose-widget.php:194
+msgid "List Item"
+msgstr ""
+
+#: widgets/about-info-widget.php:227 widgets/about-info-widget.php:345
+#: widgets/about-widget.php:295 widgets/why-choose-widget.php:198
+msgid "List #1"
+msgstr ""
+
+#: widgets/about-info-widget.php:233 widgets/about-info-widget.php:351
+#: widgets/about-widget.php:254 widgets/about-widget.php:301
+#: widgets/about-widget.php:560 widgets/analaysis-tab-widget.php:149
+#: widgets/appointment-widget.php:141 widgets/blog-post-widget.php:173
+#: widgets/carousel-widget.php:157 widgets/challenge-widget.php:194
+#: widgets/challenge-widget.php:203 widgets/contact-info-widget.php:134
+#: widgets/contact-info-widget.php:143 widgets/contact-widget.php:124
+#: widgets/fact-widget.php:95 widgets/fact-widget.php:167
+#: widgets/faq-widget.php:191 widgets/features-widget.php:206
+#: widgets/medical-widget.php:190 widgets/member-post-widget.php:175
+#: widgets/portfolio-widget.php:160 widgets/premium-membership-widget.php:171
+#: widgets/service-post-widget.php:233 widgets/slider-widget.php:191
+#: widgets/slider-widget.php:422 widgets/subscribe-widget.php:115
+#: widgets/testimonial-widget.php:223 widgets/whatwedo-widget.php:163
+#: widgets/why-choose-widget.php:204
+msgid "Title"
+msgstr ""
+
+#: widgets/about-info-widget.php:247
+msgid "Right About"
+msgstr ""
+
+#: widgets/about-info-widget.php:331
+msgid "Right Lists"
+msgstr ""
+
+#: widgets/about-info-widget.php:369 widgets/about-widget.php:460
+#: widgets/analaysis-tab-widget.php:196 widgets/analysis-widget.php:172
+#: widgets/appointment-widget.php:222 widgets/blog-post-widget.php:237
+#: widgets/brands-widget.php:178 widgets/carousel-widget.php:196
+#: widgets/challenge-widget.php:227 widgets/contact-info-widget.php:167
+#: widgets/contact-widget.php:176 widgets/counter-widget.php:272
+#: widgets/cta-widget.php:193 widgets/doctor-routine-widget.php:171
+#: widgets/experience-widget.php:175 widgets/fact-widget.php:189
+#: widgets/faq-widget.php:214 widgets/features-widget.php:248
+#: widgets/heading-widget.php:169 widgets/iconbox-widget.php:217
+#: widgets/map-widget.php:137 widgets/medical-widget.php:221
+#: widgets/member-list-widget.php:318 widgets/member-post-widget.php:238
+#: widgets/mission-widget.php:220 widgets/portfolio-widget.php:188
+#: widgets/premium-membership-widget.php:254 widgets/pricing-widget.php:175
+#: widgets/service-post-widget.php:330 widgets/subscribe-widget.php:171
+#: widgets/testimonial-widget.php:271 widgets/whatwedo-widget.php:202
+#: widgets/why-choose-widget.php:222
+msgid "Layout"
+msgstr ""
+
+#: widgets/about-info-widget.php:376 widgets/about-widget.php:467
+#: widgets/analysis-widget.php:179 widgets/appointment-widget.php:229
+#: widgets/blog-post-widget.php:244 widgets/brands-widget.php:185
+#: widgets/carousel-widget.php:203 widgets/challenge-widget.php:234
+#: widgets/contact-info-widget.php:174 widgets/contact-widget.php:183
+#: widgets/counter-widget.php:279 widgets/cta-widget.php:200
+#: widgets/doctor-routine-widget.php:178 widgets/experience-widget.php:182
+#: widgets/fact-widget.php:196 widgets/faq-widget.php:221
+#: widgets/features-widget.php:255 widgets/heading-widget.php:176
+#: widgets/iconbox-widget.php:224 widgets/map-widget.php:144
+#: widgets/medical-widget.php:228 widgets/member-list-widget.php:325
+#: widgets/member-post-widget.php:245 widgets/mission-widget.php:227
+#: widgets/portfolio-widget.php:195 widgets/premium-membership-widget.php:261
+#: widgets/pricing-widget.php:182 widgets/service-post-widget.php:337
+#: widgets/subscribe-widget.php:178 widgets/testimonial-widget.php:278
+#: widgets/whatwedo-widget.php:209 widgets/why-choose-widget.php:229
+msgid "Alignment"
+msgstr ""
+
+#: widgets/about-info-widget.php:380 widgets/about-widget.php:471
+#: widgets/analysis-widget.php:183 widgets/appointment-widget.php:233
+#: widgets/blog-post-widget.php:248 widgets/brands-widget.php:189
+#: widgets/carousel-widget.php:207 widgets/challenge-widget.php:238
+#: widgets/contact-info-widget.php:178 widgets/contact-widget.php:187
+#: widgets/counter-widget.php:283 widgets/cta-widget.php:204
+#: widgets/doctor-routine-widget.php:182 widgets/experience-widget.php:186
+#: widgets/fact-widget.php:200 widgets/faq-widget.php:225
+#: widgets/features-widget.php:259 widgets/heading-widget.php:180
+#: widgets/iconbox-widget.php:228 widgets/map-widget.php:148
+#: widgets/medical-widget.php:232 widgets/member-list-widget.php:329
+#: widgets/member-post-widget.php:249 widgets/mission-widget.php:231
+#: widgets/portfolio-widget.php:199 widgets/premium-membership-widget.php:265
+#: widgets/pricing-widget.php:186 widgets/service-post-widget.php:279
+#: widgets/service-post-widget.php:341 widgets/subscribe-widget.php:182
+#: widgets/testimonial-widget.php:282 widgets/whatwedo-widget.php:213
+#: widgets/why-choose-widget.php:233
+msgid "Left"
+msgstr ""
+
+#: widgets/about-info-widget.php:388 widgets/about-widget.php:479
+#: widgets/analysis-widget.php:191 widgets/appointment-widget.php:241
+#: widgets/blog-post-widget.php:256 widgets/brands-widget.php:197
+#: widgets/carousel-widget.php:215 widgets/challenge-widget.php:246
+#: widgets/contact-info-widget.php:186 widgets/contact-widget.php:195
+#: widgets/counter-widget.php:291 widgets/cta-widget.php:212
+#: widgets/doctor-routine-widget.php:190 widgets/experience-widget.php:194
+#: widgets/fact-widget.php:208 widgets/faq-widget.php:233
+#: widgets/features-widget.php:267 widgets/heading-widget.php:188
+#: widgets/iconbox-widget.php:236 widgets/map-widget.php:156
+#: widgets/medical-widget.php:240 widgets/member-list-widget.php:337
+#: widgets/member-post-widget.php:257 widgets/mission-widget.php:239
+#: widgets/portfolio-widget.php:207 widgets/premium-membership-widget.php:273
+#: widgets/pricing-widget.php:194 widgets/service-post-widget.php:281
+#: widgets/service-post-widget.php:349 widgets/subscribe-widget.php:190
+#: widgets/testimonial-widget.php:290 widgets/whatwedo-widget.php:221
+#: widgets/why-choose-widget.php:241
+msgid "Right"
+msgstr ""
+
+#: widgets/about-info-widget.php:392 widgets/about-widget.php:483
+#: widgets/analysis-widget.php:195 widgets/appointment-widget.php:245
+#: widgets/blog-post-widget.php:260 widgets/brands-widget.php:201
+#: widgets/carousel-widget.php:219 widgets/challenge-widget.php:250
+#: widgets/contact-info-widget.php:190 widgets/contact-widget.php:199
+#: widgets/counter-widget.php:295 widgets/cta-widget.php:216
+#: widgets/doctor-routine-widget.php:194 widgets/experience-widget.php:198
+#: widgets/fact-widget.php:212 widgets/faq-widget.php:237
+#: widgets/features-widget.php:271 widgets/heading-widget.php:192
+#: widgets/iconbox-widget.php:240 widgets/map-widget.php:160
+#: widgets/medical-widget.php:244 widgets/member-list-widget.php:341
+#: widgets/member-post-widget.php:261 widgets/mission-widget.php:243
+#: widgets/portfolio-widget.php:211 widgets/premium-membership-widget.php:277
+#: widgets/pricing-widget.php:198 widgets/service-post-widget.php:353
+#: widgets/subscribe-widget.php:194 widgets/testimonial-widget.php:294
+#: widgets/whatwedo-widget.php:225 widgets/why-choose-widget.php:245
+msgid "Justified"
+msgstr ""
+
+#: widgets/about-info-widget.php:405 widgets/why-choose-widget.php:258
+msgid "Show Left Title"
+msgstr ""
+
+#: widgets/about-info-widget.php:414 widgets/why-choose-widget.php:267
+msgid "Show Left Sub Title"
+msgstr ""
+
+#: widgets/about-info-widget.php:423 widgets/why-choose-widget.php:276
+msgid "Show Left Image"
+msgstr ""
+
+#: widgets/about-info-widget.php:433 widgets/why-choose-widget.php:285
+msgid "Show Left Content"
+msgstr ""
+
+#: widgets/about-info-widget.php:442
+msgid "Show Right Title"
+msgstr ""
+
+#: widgets/about-info-widget.php:451
+msgid "Show Right Sub Title"
+msgstr ""
+
+#: widgets/about-info-widget.php:460
+msgid "Show Right Image"
+msgstr ""
+
+#: widgets/about-info-widget.php:470
+msgid "Show Right Content"
+msgstr ""
+
+#: widgets/about-info-widget.php:482 widgets/analaysis-tab-widget.php:260
+#: widgets/analysis-widget.php:240 widgets/appointment-widget.php:289
+#: widgets/blog-post-widget.php:323 widgets/brands-widget.php:237
+#: widgets/carousel-widget.php:253 widgets/challenge-widget.php:311
+#: widgets/contact-info-widget.php:233 widgets/contact-widget.php:259
+#: widgets/counter-widget.php:329 widgets/cta-widget.php:260
+#: widgets/experience-widget.php:232 widgets/fact-widget.php:255
+#: widgets/faq-widget.php:299 widgets/features-widget.php:411
+#: widgets/heading-widget.php:235 widgets/iconbox-widget.php:266
+#: widgets/medical-widget.php:306 widgets/member-list-widget.php:367
+#: widgets/member-post-widget.php:323 widgets/mission-widget.php:287
+#: widgets/portfolio-widget.php:281 widgets/premium-membership-widget.php:341
+#: widgets/pricing-widget.php:285 widgets/service-post-widget.php:423
+#: widgets/subscribe-widget.php:228 widgets/testimonial-widget.php:358
+#: widgets/whatwedo-widget.php:329 widgets/why-choose-widget.php:297
+msgid "Custom Typography"
+msgstr ""
+
+#: widgets/about-info-widget.php:489 widgets/analaysis-tab-widget.php:267
+#: widgets/analysis-widget.php:247 widgets/appointment-widget.php:296
+#: widgets/blog-post-widget.php:330 widgets/brands-widget.php:244
+#: widgets/carousel-widget.php:260 widgets/challenge-widget.php:318
+#: widgets/contact-info-widget.php:240 widgets/contact-widget.php:266
+#: widgets/counter-widget.php:336 widgets/cta-widget.php:267
+#: widgets/experience-widget.php:239 widgets/fact-widget.php:262
+#: widgets/faq-widget.php:306 widgets/features-widget.php:418
+#: widgets/heading-widget.php:242 widgets/iconbox-widget.php:273
+#: widgets/medical-widget.php:313 widgets/member-list-widget.php:374
+#: widgets/member-post-widget.php:330 widgets/mission-widget.php:294
+#: widgets/portfolio-widget.php:288 widgets/premium-membership-widget.php:348
+#: widgets/pricing-widget.php:292 widgets/service-post-widget.php:430
+#: widgets/subscribe-widget.php:235 widgets/testimonial-widget.php:365
+#: widgets/whatwedo-widget.php:336 widgets/why-choose-widget.php:304
+msgid "Sub Heading Font Size"
+msgstr ""
+
+#: widgets/about-info-widget.php:491 widgets/about-info-widget.php:526
+#: widgets/about-info-widget.php:562 widgets/analaysis-tab-widget.php:269
+#: widgets/analaysis-tab-widget.php:304 widgets/analaysis-tab-widget.php:340
+#: widgets/analysis-widget.php:249 widgets/analysis-widget.php:284
+#: widgets/analysis-widget.php:320 widgets/appointment-widget.php:298
+#: widgets/appointment-widget.php:333 widgets/appointment-widget.php:369
+#: widgets/blog-post-widget.php:332 widgets/blog-post-widget.php:367
+#: widgets/blog-post-widget.php:403 widgets/brands-widget.php:246
+#: widgets/brands-widget.php:281 widgets/brands-widget.php:317
+#: widgets/carousel-widget.php:262 widgets/carousel-widget.php:297
+#: widgets/carousel-widget.php:333 widgets/challenge-widget.php:320
+#: widgets/challenge-widget.php:355 widgets/challenge-widget.php:391
+#: widgets/contact-info-widget.php:242 widgets/contact-info-widget.php:277
+#: widgets/contact-info-widget.php:313 widgets/contact-widget.php:268
+#: widgets/contact-widget.php:303 widgets/counter-widget.php:338
+#: widgets/counter-widget.php:373 widgets/counter-widget.php:409
+#: widgets/cta-widget.php:269 widgets/cta-widget.php:304
+#: widgets/cta-widget.php:340 widgets/experience-widget.php:241
+#: widgets/experience-widget.php:276 widgets/experience-widget.php:312
+#: widgets/fact-widget.php:264 widgets/fact-widget.php:299
+#: widgets/fact-widget.php:335 widgets/faq-widget.php:308
+#: widgets/faq-widget.php:343 widgets/features-widget.php:420
+#: widgets/features-widget.php:455 widgets/features-widget.php:491
+#: widgets/heading-widget.php:244 widgets/heading-widget.php:279
+#: widgets/heading-widget.php:315 widgets/iconbox-widget.php:275
+#: widgets/iconbox-widget.php:310 widgets/iconbox-widget.php:346
+#: widgets/medical-widget.php:315 widgets/medical-widget.php:350
+#: widgets/medical-widget.php:386 widgets/member-list-widget.php:376
+#: widgets/member-list-widget.php:411 widgets/member-list-widget.php:447
+#: widgets/member-post-widget.php:332 widgets/member-post-widget.php:367
+#: widgets/member-post-widget.php:403 widgets/mission-widget.php:296
+#: widgets/mission-widget.php:331 widgets/portfolio-widget.php:290
+#: widgets/portfolio-widget.php:325 widgets/portfolio-widget.php:361
+#: widgets/premium-membership-widget.php:350
+#: widgets/premium-membership-widget.php:385
+#: widgets/premium-membership-widget.php:421 widgets/pricing-widget.php:294
+#: widgets/pricing-widget.php:329 widgets/pricing-widget.php:365
+#: widgets/service-post-widget.php:432 widgets/service-post-widget.php:467
+#: widgets/service-post-widget.php:503 widgets/subscribe-widget.php:237
+#: widgets/subscribe-widget.php:272 widgets/subscribe-widget.php:308
+#: widgets/testimonial-widget.php:367 widgets/testimonial-widget.php:402
+#: widgets/testimonial-widget.php:438 widgets/whatwedo-widget.php:338
+#: widgets/whatwedo-widget.php:373 widgets/whatwedo-widget.php:409
+#: widgets/why-choose-widget.php:306 widgets/why-choose-widget.php:341
+#: widgets/why-choose-widget.php:377
+msgid "Enter font size here"
+msgstr ""
+
+#: widgets/about-info-widget.php:499 widgets/analaysis-tab-widget.php:277
+#: widgets/analysis-widget.php:257 widgets/appointment-widget.php:306
+#: widgets/blog-post-widget.php:340 widgets/brands-widget.php:254
+#: widgets/carousel-widget.php:270 widgets/challenge-widget.php:328
+#: widgets/contact-info-widget.php:250 widgets/contact-widget.php:276
+#: widgets/counter-widget.php:346 widgets/cta-widget.php:277
+#: widgets/experience-widget.php:249 widgets/fact-widget.php:272
+#: widgets/faq-widget.php:316 widgets/features-widget.php:428
+#: widgets/heading-widget.php:252 widgets/iconbox-widget.php:283
+#: widgets/medical-widget.php:323 widgets/member-list-widget.php:384
+#: widgets/member-post-widget.php:340 widgets/mission-widget.php:304
+#: widgets/portfolio-widget.php:298 widgets/premium-membership-widget.php:358
+#: widgets/pricing-widget.php:302 widgets/service-post-widget.php:440
+#: widgets/subscribe-widget.php:245 widgets/testimonial-widget.php:375
+#: widgets/whatwedo-widget.php:346 widgets/why-choose-widget.php:314
+msgid "Sub Heading Line Height"
+msgstr ""
+
+#: widgets/about-info-widget.php:501 widgets/about-info-widget.php:536
+#: widgets/analaysis-tab-widget.php:279 widgets/analaysis-tab-widget.php:314
+#: widgets/analysis-widget.php:259 widgets/analysis-widget.php:294
+#: widgets/appointment-widget.php:308 widgets/appointment-widget.php:343
+#: widgets/blog-post-widget.php:342 widgets/blog-post-widget.php:377
+#: widgets/brands-widget.php:256 widgets/brands-widget.php:291
+#: widgets/carousel-widget.php:272 widgets/carousel-widget.php:307
+#: widgets/challenge-widget.php:330 widgets/challenge-widget.php:365
+#: widgets/contact-info-widget.php:252 widgets/contact-info-widget.php:287
+#: widgets/contact-widget.php:278 widgets/contact-widget.php:313
+#: widgets/counter-widget.php:348 widgets/counter-widget.php:383
+#: widgets/cta-widget.php:279 widgets/cta-widget.php:314
+#: widgets/experience-widget.php:251 widgets/experience-widget.php:286
+#: widgets/fact-widget.php:274 widgets/fact-widget.php:309
+#: widgets/faq-widget.php:318 widgets/faq-widget.php:353
+#: widgets/features-widget.php:430 widgets/features-widget.php:465
+#: widgets/heading-widget.php:254 widgets/heading-widget.php:289
+#: widgets/iconbox-widget.php:285 widgets/iconbox-widget.php:320
+#: widgets/medical-widget.php:325 widgets/medical-widget.php:360
+#: widgets/member-list-widget.php:386 widgets/member-list-widget.php:421
+#: widgets/member-post-widget.php:342 widgets/member-post-widget.php:377
+#: widgets/mission-widget.php:306 widgets/mission-widget.php:341
+#: widgets/portfolio-widget.php:300 widgets/portfolio-widget.php:335
+#: widgets/premium-membership-widget.php:360
+#: widgets/premium-membership-widget.php:395 widgets/pricing-widget.php:304
+#: widgets/pricing-widget.php:339 widgets/service-post-widget.php:442
+#: widgets/service-post-widget.php:477 widgets/subscribe-widget.php:247
+#: widgets/subscribe-widget.php:282 widgets/testimonial-widget.php:377
+#: widgets/testimonial-widget.php:412 widgets/whatwedo-widget.php:348
+#: widgets/whatwedo-widget.php:383 widgets/why-choose-widget.php:316
+#: widgets/why-choose-widget.php:351
+msgid "Enter Line Height here"
+msgstr ""
+
+#: widgets/about-info-widget.php:508 widgets/analaysis-tab-widget.php:286
+#: widgets/analysis-widget.php:266 widgets/appointment-widget.php:315
+#: widgets/blog-post-widget.php:349 widgets/brands-widget.php:263
+#: widgets/carousel-widget.php:279 widgets/challenge-widget.php:337
+#: widgets/contact-info-widget.php:259 widgets/contact-widget.php:285
+#: widgets/counter-widget.php:355 widgets/cta-widget.php:286
+#: widgets/experience-widget.php:258 widgets/fact-widget.php:281
+#: widgets/faq-widget.php:325 widgets/features-widget.php:437
+#: widgets/heading-widget.php:261 widgets/iconbox-widget.php:292
+#: widgets/medical-widget.php:332 widgets/member-list-widget.php:393
+#: widgets/member-post-widget.php:349 widgets/mission-widget.php:313
+#: widgets/portfolio-widget.php:307 widgets/premium-membership-widget.php:367
+#: widgets/pricing-widget.php:311 widgets/service-post-widget.php:449
+#: widgets/subscribe-widget.php:254 widgets/testimonial-widget.php:384
+#: widgets/whatwedo-widget.php:355 widgets/why-choose-widget.php:323
+msgid "Sub Heading Color"
+msgstr ""
+
+#: widgets/about-info-widget.php:510 widgets/about-info-widget.php:545
+#: widgets/about-info-widget.php:571 widgets/analaysis-tab-widget.php:288
+#: widgets/analaysis-tab-widget.php:323 widgets/analaysis-tab-widget.php:349
+#: widgets/analysis-widget.php:268 widgets/analysis-widget.php:303
+#: widgets/analysis-widget.php:329 widgets/appointment-widget.php:317
+#: widgets/appointment-widget.php:352 widgets/appointment-widget.php:378
+#: widgets/blog-post-widget.php:351 widgets/blog-post-widget.php:386
+#: widgets/blog-post-widget.php:412 widgets/brands-widget.php:265
+#: widgets/brands-widget.php:300 widgets/brands-widget.php:326
+#: widgets/carousel-widget.php:281 widgets/carousel-widget.php:316
+#: widgets/carousel-widget.php:342 widgets/challenge-widget.php:339
+#: widgets/challenge-widget.php:374 widgets/challenge-widget.php:400
+#: widgets/contact-info-widget.php:261 widgets/contact-info-widget.php:296
+#: widgets/contact-info-widget.php:322 widgets/contact-widget.php:287
+#: widgets/contact-widget.php:322 widgets/counter-widget.php:357
+#: widgets/counter-widget.php:392 widgets/counter-widget.php:418
+#: widgets/cta-widget.php:288 widgets/cta-widget.php:323
+#: widgets/cta-widget.php:349 widgets/experience-widget.php:260
+#: widgets/experience-widget.php:295 widgets/experience-widget.php:321
+#: widgets/fact-widget.php:283 widgets/fact-widget.php:318
+#: widgets/fact-widget.php:344 widgets/faq-widget.php:327
+#: widgets/faq-widget.php:362 widgets/features-widget.php:439
+#: widgets/features-widget.php:474 widgets/features-widget.php:500
+#: widgets/heading-widget.php:263 widgets/heading-widget.php:298
+#: widgets/heading-widget.php:324 widgets/iconbox-widget.php:294
+#: widgets/iconbox-widget.php:329 widgets/iconbox-widget.php:355
+#: widgets/medical-widget.php:334 widgets/medical-widget.php:369
+#: widgets/medical-widget.php:395 widgets/member-list-widget.php:395
+#: widgets/member-list-widget.php:430 widgets/member-list-widget.php:456
+#: widgets/member-post-widget.php:351 widgets/member-post-widget.php:386
+#: widgets/member-post-widget.php:412 widgets/mission-widget.php:315
+#: widgets/mission-widget.php:350 widgets/portfolio-widget.php:309
+#: widgets/portfolio-widget.php:344 widgets/portfolio-widget.php:370
+#: widgets/premium-membership-widget.php:369
+#: widgets/premium-membership-widget.php:404
+#: widgets/premium-membership-widget.php:430 widgets/pricing-widget.php:313
+#: widgets/pricing-widget.php:348 widgets/pricing-widget.php:374
+#: widgets/service-post-widget.php:451 widgets/service-post-widget.php:486
+#: widgets/service-post-widget.php:512 widgets/subscribe-widget.php:256
+#: widgets/subscribe-widget.php:291 widgets/subscribe-widget.php:317
+#: widgets/testimonial-widget.php:386 widgets/testimonial-widget.php:421
+#: widgets/testimonial-widget.php:447 widgets/whatwedo-widget.php:357
+#: widgets/whatwedo-widget.php:392 widgets/whatwedo-widget.php:418
+#: widgets/why-choose-widget.php:325 widgets/why-choose-widget.php:360
+#: widgets/why-choose-widget.php:386
+msgid "Enter Color Code"
+msgstr ""
+
+#: widgets/about-info-widget.php:524 widgets/analaysis-tab-widget.php:302
+#: widgets/analysis-widget.php:282 widgets/appointment-widget.php:331
+#: widgets/blog-post-widget.php:365 widgets/brands-widget.php:279
+#: widgets/carousel-widget.php:295 widgets/challenge-widget.php:353
+#: widgets/contact-info-widget.php:275 widgets/contact-widget.php:301
+#: widgets/counter-widget.php:371 widgets/cta-widget.php:302
+#: widgets/experience-widget.php:274 widgets/fact-widget.php:297
+#: widgets/faq-widget.php:341 widgets/features-widget.php:453
+#: widgets/heading-widget.php:277 widgets/iconbox-widget.php:308
+#: widgets/medical-widget.php:348 widgets/member-list-widget.php:409
+#: widgets/member-post-widget.php:365 widgets/mission-widget.php:329
+#: widgets/portfolio-widget.php:323 widgets/premium-membership-widget.php:383
+#: widgets/pricing-widget.php:327 widgets/service-post-widget.php:465
+#: widgets/subscribe-widget.php:270 widgets/testimonial-widget.php:400
+#: widgets/whatwedo-widget.php:371 widgets/why-choose-widget.php:339
+msgid "Heading Font Size"
+msgstr ""
+
+#: widgets/about-info-widget.php:534 widgets/analaysis-tab-widget.php:312
+#: widgets/analysis-widget.php:292 widgets/appointment-widget.php:341
+#: widgets/blog-post-widget.php:375 widgets/brands-widget.php:289
+#: widgets/carousel-widget.php:305 widgets/challenge-widget.php:363
+#: widgets/contact-info-widget.php:285 widgets/contact-widget.php:311
+#: widgets/counter-widget.php:381 widgets/cta-widget.php:312
+#: widgets/experience-widget.php:284 widgets/fact-widget.php:307
+#: widgets/faq-widget.php:351 widgets/features-widget.php:463
+#: widgets/heading-widget.php:287 widgets/iconbox-widget.php:318
+#: widgets/medical-widget.php:358 widgets/member-list-widget.php:419
+#: widgets/member-post-widget.php:375 widgets/mission-widget.php:339
+#: widgets/portfolio-widget.php:333 widgets/premium-membership-widget.php:393
+#: widgets/pricing-widget.php:337 widgets/service-post-widget.php:475
+#: widgets/subscribe-widget.php:280 widgets/testimonial-widget.php:410
+#: widgets/whatwedo-widget.php:381 widgets/why-choose-widget.php:349
+msgid "Heading Line Height"
+msgstr ""
+
+#: widgets/about-info-widget.php:543 widgets/analaysis-tab-widget.php:321
+#: widgets/analysis-widget.php:301 widgets/appointment-widget.php:350
+#: widgets/blog-post-widget.php:384 widgets/brands-widget.php:298
+#: widgets/carousel-widget.php:314 widgets/challenge-widget.php:372
+#: widgets/contact-info-widget.php:294 widgets/contact-widget.php:320
+#: widgets/counter-widget.php:390 widgets/cta-widget.php:321
+#: widgets/experience-widget.php:293 widgets/fact-widget.php:316
+#: widgets/faq-widget.php:360 widgets/features-widget.php:472
+#: widgets/heading-widget.php:296 widgets/iconbox-widget.php:327
+#: widgets/medical-widget.php:367 widgets/member-list-widget.php:428
+#: widgets/member-post-widget.php:384 widgets/mission-widget.php:348
+#: widgets/portfolio-widget.php:342 widgets/premium-membership-widget.php:402
+#: widgets/pricing-widget.php:346 widgets/service-post-widget.php:484
+#: widgets/subscribe-widget.php:289 widgets/testimonial-widget.php:419
+#: widgets/whatwedo-widget.php:390 widgets/why-choose-widget.php:358
+msgid "Heading Color"
+msgstr ""
+
+#: widgets/about-info-widget.php:560 widgets/analaysis-tab-widget.php:338
+#: widgets/analysis-widget.php:318 widgets/appointment-widget.php:367
+#: widgets/blog-post-widget.php:401 widgets/brands-widget.php:315
+#: widgets/carousel-widget.php:331 widgets/challenge-widget.php:389
+#: widgets/contact-info-widget.php:311 widgets/counter-widget.php:407
+#: widgets/cta-widget.php:338 widgets/experience-widget.php:310
+#: widgets/fact-widget.php:333 widgets/features-widget.php:489
+#: widgets/heading-widget.php:313 widgets/iconbox-widget.php:344
+#: widgets/medical-widget.php:384 widgets/member-list-widget.php:445
+#: widgets/member-post-widget.php:401 widgets/portfolio-widget.php:359
+#: widgets/premium-membership-widget.php:419 widgets/pricing-widget.php:363
+#: widgets/service-post-widget.php:501 widgets/subscribe-widget.php:306
+#: widgets/testimonial-widget.php:436 widgets/whatwedo-widget.php:407
+#: widgets/why-choose-widget.php:375
+msgid "Description Font Size"
+msgstr ""
+
+#: widgets/about-info-widget.php:569 widgets/analaysis-tab-widget.php:347
+#: widgets/analysis-widget.php:327 widgets/appointment-widget.php:376
+#: widgets/blog-post-widget.php:410 widgets/brands-widget.php:324
+#: widgets/carousel-widget.php:340 widgets/challenge-widget.php:398
+#: widgets/contact-info-widget.php:320 widgets/counter-widget.php:416
+#: widgets/cta-widget.php:347 widgets/experience-widget.php:319
+#: widgets/fact-widget.php:342 widgets/features-widget.php:498
+#: widgets/heading-widget.php:322 widgets/iconbox-widget.php:353
+#: widgets/medical-widget.php:393 widgets/member-list-widget.php:454
+#: widgets/member-post-widget.php:410 widgets/portfolio-widget.php:368
+#: widgets/premium-membership-widget.php:428 widgets/pricing-widget.php:372
+#: widgets/service-post-widget.php:510 widgets/subscribe-widget.php:315
+#: widgets/testimonial-widget.php:445 widgets/whatwedo-widget.php:416
+#: widgets/why-choose-widget.php:384
+msgid "Description Color"
+msgstr ""
+
+#: widgets/about-widget.php:46 widgets/about-widget.php:107
+msgid "About"
+msgstr ""
+
+#: widgets/about-widget.php:117
+msgid "About With Author"
+msgstr ""
+
+#: widgets/about-widget.php:118
+msgid "About With List"
+msgstr ""
+
+#: widgets/about-widget.php:119
+msgid "About With Video"
+msgstr ""
+
+#: widgets/about-widget.php:120
+msgid "About With BG"
+msgstr ""
+
+#: widgets/about-widget.php:121
+msgid "About Author Singnature"
+msgstr ""
+
+#: widgets/about-widget.php:122
+msgid "About With Icon"
+msgstr ""
+
+#: widgets/about-widget.php:156
+msgid "It is content"
+msgstr ""
+
+#: widgets/about-widget.php:164
+msgid "Phone Number"
+msgstr ""
+
+#: widgets/about-widget.php:166
+msgid "Enter your phone number"
+msgstr ""
+
+#: widgets/about-widget.php:167
+msgid "It is phone number"
+msgstr ""
+
+#: widgets/about-widget.php:178
+msgid "Phone Icon"
+msgstr ""
+
+#: widgets/about-widget.php:181
+msgid "Add Phone Icon Image"
+msgstr ""
+
+#: widgets/about-widget.php:195
+msgid "Add Your About Image"
+msgstr ""
+
+#: widgets/about-widget.php:205 widgets/service-post-widget.php:173
+#: widgets/testimonial-widget.php:135
+msgid "Overlay Image"
+msgstr ""
+
+#: widgets/about-widget.php:208 widgets/service-post-widget.php:176
+#: widgets/testimonial-widget.php:138
+msgid "Add Your Overlay Image"
+msgstr ""
+
+#: widgets/about-widget.php:221 widgets/fact-widget.php:131
+#: widgets/mission-widget.php:172
+msgid "Facts"
+msgstr ""
+
+#: widgets/about-widget.php:231 widgets/fact-widget.php:138
+#: widgets/mission-widget.php:179
+msgid "Fact Items"
+msgstr ""
+
+#: widgets/about-widget.php:235 widgets/fact-widget.php:142
+#: widgets/mission-widget.php:183
+msgid "Fact #1"
+msgstr ""
+
+#: widgets/about-widget.php:236 widgets/about-widget.php:240
+#: widgets/analaysis-tab-widget.php:117 widgets/analaysis-tab-widget.php:121
+#: widgets/fact-widget.php:143 widgets/fact-widget.php:147
+#: widgets/mission-widget.php:184 widgets/mission-widget.php:188
+#: widgets/slider-widget.php:152 widgets/whatwedo-widget.php:145
+#: widgets/whatwedo-widget.php:149
+msgid "I am item content. Click edit button to change this text."
+msgstr ""
+
+#: widgets/about-widget.php:239 widgets/fact-widget.php:146
+#: widgets/mission-widget.php:187
+msgid "Fact #2"
+msgstr ""
+
+#: widgets/about-widget.php:246 widgets/fact-widget.php:160
+#: widgets/features-widget.php:399 widgets/mission-widget.php:158
+#: widgets/mission-widget.php:194 widgets/premium-membership-widget.php:165
+msgid "Icon"
+msgstr ""
+
+#: widgets/about-widget.php:250 widgets/counter-widget.php:224
+#: widgets/mission-widget.php:198
+msgid "Upload Icon from here"
+msgstr ""
+
+#: widgets/about-widget.php:257
+msgid "It is Heading."
+msgstr ""
+
+#: widgets/about-widget.php:262 widgets/analaysis-tab-widget.php:163
+#: widgets/analysis-widget.php:157 widgets/carousel-widget.php:167
+#: widgets/challenge-widget.php:212 widgets/contact-info-widget.php:152
+#: widgets/counter-widget.php:256 widgets/fact-widget.php:174
+#: widgets/faq-widget.php:199 widgets/features-widget.php:215
+#: widgets/medical-widget.php:198 widgets/mission-widget.php:202
+#: widgets/slider-widget.php:205 widgets/whatwedo-widget.php:177
+msgid "Content"
+msgstr ""
+
+#: widgets/about-widget.php:281
+msgid "Lists"
+msgstr ""
+
+#: widgets/about-widget.php:304
+msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do."
+msgstr ""
+
+#: widgets/about-widget.php:321
+msgid "Author Info"
+msgstr ""
+
+#: widgets/about-widget.php:330
+msgid "Author Image"
+msgstr ""
+
+#: widgets/about-widget.php:333
+msgid "Add Your Groth Image"
+msgstr ""
+
+#: widgets/about-widget.php:341 widgets/about-widget.php:343
+msgid "Author Name"
+msgstr ""
+
+#: widgets/about-widget.php:344
+msgid "Rosalina D. Williamson"
+msgstr ""
+
+#: widgets/about-widget.php:352 widgets/about-widget.php:354
+msgid "Author Designation"
+msgstr ""
+
+#: widgets/about-widget.php:355
+msgid "Founder"
+msgstr ""
+
+#: widgets/about-widget.php:363 widgets/about-widget.php:365
+msgid "Author Description"
+msgstr ""
+
+#: widgets/about-widget.php:366
+msgid "Description content here"
+msgstr ""
+
+#: widgets/about-widget.php:379
+msgid "Video Section"
+msgstr ""
+
+#: widgets/about-widget.php:388
+msgid "Preview Image"
+msgstr ""
+
+#: widgets/about-widget.php:391
+msgid "Add Preview Image"
+msgstr ""
+
+#: widgets/about-widget.php:399 widgets/video-content-widget.php:136
+msgid "Video Link"
+msgstr ""
+
+#: widgets/about-widget.php:401
+msgid "Enter vidoe link"
+msgstr ""
+
+#: widgets/about-widget.php:402
+msgid "https://www.youtube.com/watch?v=I3u3lFA9GX4"
+msgstr ""
+
+#: widgets/about-widget.php:417
+msgid "Link Info"
+msgstr ""
+
+#: widgets/about-widget.php:496
+msgid "Show List"
+msgstr ""
+
+#: widgets/about-widget.php:505 widgets/iconbox-widget.php:253
+#: widgets/member-list-widget.php:354
+msgid "Show Shape"
+msgstr ""
+
+#: widgets/about-widget.php:514
+msgid "Show Shape Circle"
+msgstr ""
+
+#: widgets/about-widget.php:527 widgets/slider-widget.php:389
+msgid "Title / Content"
+msgstr ""
+
+#: widgets/about-widget.php:535 widgets/slider-widget.php:397
+msgid "Content Padding"
+msgstr ""
+
+#: widgets/about-widget.php:568 widgets/about-widget.php:610
+#: widgets/about-widget.php:652 widgets/slider-widget.php:430
+#: widgets/slider-widget.php:472 widgets/slider-widget.php:514
+msgid "Bottom Spacing"
+msgstr ""
+
+#: widgets/about-widget.php:580 widgets/about-widget.php:622
+#: widgets/about-widget.php:664 widgets/about-widget.php:760
+#: widgets/about-widget.php:792 widgets/slider-widget.php:442
+#: widgets/slider-widget.php:484 widgets/slider-widget.php:526
+#: widgets/slider-widget.php:622 widgets/slider-widget.php:654
+msgid "Text Color"
+msgstr ""
+
+#: widgets/about-widget.php:602 widgets/slider-widget.php:464
+msgid "Subtitle"
+msgstr ""
+
+#: widgets/about-widget.php:686 widgets/features-widget.php:379
+#: widgets/pricing-widget.php:251 widgets/slider-widget.php:337
+#: widgets/slider-widget.php:548 widgets/whatwedo-widget.php:306
+msgid "Button"
+msgstr ""
+
+#: widgets/about-widget.php:694 widgets/slider-widget.php:556
+msgid "Padding"
+msgstr ""
+
+#: widgets/about-widget.php:723 widgets/slider-widget.php:585
+msgid "Border Radius"
+msgstr ""
+
+#: widgets/about-widget.php:753 widgets/slider-widget.php:615
+msgid "Normal"
+msgstr ""
+
+#: widgets/about-widget.php:772 widgets/about-widget.php:803
+#: widgets/slider-widget.php:634 widgets/slider-widget.php:665
+msgid "Background Color"
+msgstr ""
+
+#: widgets/about-widget.php:785 widgets/slider-widget.php:647
+msgid "Hover"
+msgstr ""
+
+#: widgets/about-widget.php:814 widgets/slider-widget.php:676
+msgid "Border Color"
+msgstr ""
+
+#: widgets/about-widget.php:997 widgets/analaysis-tab-widget.php:467
+#: widgets/blog-post-widget.php:489 widgets/blog-post-widget.php:647
+#: widgets/counter-widget.php:486 widgets/counter-widget.php:515
+#: widgets/counter-widget.php:547 widgets/cta-widget.php:448
+#: widgets/cta-widget.php:519 widgets/fact-widget.php:399
+#: widgets/member-post-widget.php:540
+msgid "+"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:44 widgets/analaysis-tab-widget.php:105
+msgid "Analysis Tab"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:112
+msgid "Analysis Tab Items"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:116 widgets/analaysis-tab-widget.php:120
+msgid "Analysis #1"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:127
+msgid "Analysis Menu"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:130
+msgid "Industry analysis"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:135
+msgid "Tab Icon Image"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:141 widgets/appointment-widget.php:130
+#: widgets/contact-widget.php:113 widgets/fact-widget.php:104
+#: widgets/slider-widget.php:174 widgets/subscribe-widget.php:126
+#: widgets/whatwedo-widget.php:155
+msgid "Sub Title"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:144 widgets/member-post-widget.php:99
+#: widgets/whatwedo-widget.php:158
+msgid "Its Sub Title"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:152 widgets/appointment-widget.php:144
+#: widgets/contact-widget.php:127 widgets/member-post-widget.php:111
+#: widgets/whatwedo-widget.php:166
+msgid "Its Title"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:157 widgets/iconbox-widget.php:139
+#: widgets/medical-widget.php:206 widgets/member-list-widget.php:165
+#: widgets/mission-widget.php:148 widgets/premium-membership-widget.php:216
+#: widgets/slider-widget.php:199 widgets/whatwedo-widget.php:171
+msgid "Image"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:166 widgets/whatwedo-widget.php:180
+msgid "Its Content"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:171 widgets/whatwedo-widget.php:185
+msgid "Link Left Button"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:181 widgets/appointment-widget.php:184
+#: widgets/blog-post-widget.php:117 widgets/challenge-widget.php:135
+#: widgets/contact-widget.php:151 widgets/cta-widget.php:154
+#: widgets/features-widget.php:389 widgets/pricing-widget.php:133
+#: widgets/pricing-widget.php:146 widgets/pricing-widget.php:261
+#: widgets/service-post-widget.php:160 widgets/slider-widget.php:224
+#: widgets/slider-widget.php:228 widgets/slider-widget.php:265
+#: widgets/slider-widget.php:357 widgets/whatwedo-widget.php:316
+msgid "Button Text"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:184 widgets/analaysis-tab-widget.php:185
+#: widgets/appointment-widget.php:186 widgets/challenge-widget.php:137
+#: widgets/contact-widget.php:153 widgets/fact-widget.php:399
+#: widgets/member-post-widget.php:122 widgets/slider-widget.php:359
+#: widgets/slider-widget.php:360
+msgid "Make Appointment"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:203 widgets/analysis-widget.php:208
+#: widgets/appointment-widget.php:258 widgets/brands-widget.php:214
+#: widgets/carousel-widget.php:232 widgets/challenge-widget.php:272
+#: widgets/contact-info-widget.php:203 widgets/contact-widget.php:212
+#: widgets/cta-widget.php:229 widgets/experience-widget.php:211
+#: widgets/fact-widget.php:225 widgets/faq-widget.php:250
+#: widgets/medical-widget.php:257 widgets/member-post-widget.php:274
+#: widgets/mission-widget.php:256 widgets/premium-membership-widget.php:290
+#: widgets/subscribe-widget.php:207 widgets/testimonial-widget.php:307
+#: widgets/whatwedo-widget.php:238
+msgid "Show Title"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:212 widgets/appointment-widget.php:267
+#: widgets/blog-post-widget.php:282 widgets/brands-widget.php:223
+#: widgets/carousel-widget.php:241 widgets/contact-widget.php:221
+#: widgets/counter-widget.php:317 widgets/cta-widget.php:238
+#: widgets/experience-widget.php:220 widgets/fact-widget.php:234
+#: widgets/member-post-widget.php:283 widgets/mission-widget.php:265
+#: widgets/subscribe-widget.php:216 widgets/whatwedo-widget.php:247
+msgid "Show Sub Title"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:221 widgets/challenge-widget.php:263
+#: widgets/faq-widget.php:269 widgets/features-widget.php:293
+#: widgets/heading-widget.php:205 widgets/medical-widget.php:276
+#: widgets/portfolio-widget.php:233 widgets/premium-membership-widget.php:301
+#: widgets/pricing-widget.php:212 widgets/service-post-widget.php:375
+#: widgets/testimonial-widget.php:317 widgets/whatwedo-widget.php:256
+msgid "Show Sub Heading"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:230 widgets/challenge-widget.php:281
+#: widgets/faq-widget.php:278 widgets/features-widget.php:284
+#: widgets/heading-widget.php:214 widgets/medical-widget.php:285
+#: widgets/portfolio-widget.php:242 widgets/pricing-widget.php:221
+#: widgets/service-post-widget.php:384 widgets/whatwedo-widget.php:265
+msgid "Show Heading"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:239 widgets/analysis-widget.php:217
+#: widgets/faq-widget.php:287 widgets/features-widget.php:302
+#: widgets/heading-widget.php:223 widgets/medical-widget.php:294
+#: widgets/portfolio-widget.php:251
+msgid "Show Image"
+msgstr ""
+
+#: widgets/analaysis-tab-widget.php:248 widgets/features-widget.php:347
+#: widgets/whatwedo-widget.php:293
+msgid "Show Button"
+msgstr ""
+
+#: widgets/analysis-widget.php:44 widgets/analysis-widget.php:105
+msgid "Analysis"
+msgstr ""
+
+#: widgets/analysis-widget.php:112
+msgid "Analysis Image"
+msgstr ""
+
+#: widgets/analysis-widget.php:115
+msgid "Add Your Analysis Image"
+msgstr ""
+
+#: widgets/analysis-widget.php:132
+msgid "Analysis Text"
+msgstr ""
+
+#: widgets/analysis-widget.php:134
+msgid "Enter your analysis text"
+msgstr ""
+
+#: widgets/analysis-widget.php:135 widgets/challenge-widget.php:118
+#: widgets/faq-widget.php:129 widgets/heading-widget.php:140
+#: widgets/medical-widget.php:116 widgets/portfolio-widget.php:96
+#: widgets/service-post-widget.php:97 widgets/whatwedo-widget.php:114
+msgid "Awesome Features"
+msgstr ""
+
+#: widgets/analysis-widget.php:144
+msgid "Analysis Items"
+msgstr ""
+
+#: widgets/analysis-widget.php:148 widgets/features-widget.php:166
+#: widgets/features-widget.php:174
+msgid "Focus On Email Marketing"
+msgstr ""
+
+#: widgets/analysis-widget.php:151 widgets/features-widget.php:170
+msgid "Support Content Marketing"
+msgstr ""
+
+#: widgets/analysis-widget.php:160 widgets/features-widget.php:218
+#: widgets/features-widget.php:226
+msgid "Feature Content"
+msgstr ""
+
+#: widgets/analysis-widget.php:227 widgets/challenge-widget.php:299
+#: widgets/contact-info-widget.php:212 widgets/faq-widget.php:260
+#: widgets/medical-widget.php:267
+msgid "Show Content"
+msgstr ""
+
+#: widgets/appointment-widget.php:44 widgets/appointment-widget.php:116
+msgid "Appointment"
+msgstr ""
+
+#: widgets/appointment-widget.php:106 widgets/blog-post-widget.php:88
+#: widgets/challenge-widget.php:106 widgets/contact-widget.php:106
+#: widgets/counter-widget.php:106 widgets/cta-widget.php:106
+#: widgets/experience-widget.php:106 widgets/heading-widget.php:131
+#: widgets/portfolio-widget.php:87 widgets/premium-membership-widget.php:106
+#: widgets/service-post-widget.php:88 widgets/subscribe-widget.php:106
+#: widgets/testimonial-widget.php:106 widgets/whatwedo-widget.php:105
+msgid "Section Heading"
+msgstr ""
+
+#: widgets/appointment-widget.php:117
+msgid "Quote Calculator"
+msgstr ""
+
+#: widgets/appointment-widget.php:118
+msgid "Appointment BG Image"
+msgstr ""
+
+#: widgets/appointment-widget.php:119
+msgid "Appointment Left Image"
+msgstr ""
+
+#: widgets/appointment-widget.php:120
+msgid "Appointment Full"
+msgstr ""
+
+#: widgets/appointment-widget.php:132 widgets/contact-widget.php:115
+#: widgets/subscribe-widget.php:128
+msgid "Enter your Subtitle Here..."
+msgstr ""
+
+#: widgets/appointment-widget.php:133 widgets/contact-widget.php:116
+msgid "Its sub title."
+msgstr ""
+
+#: widgets/appointment-widget.php:134 widgets/contact-widget.php:117
+msgid "Free Consultation."
+msgstr ""
+
+#: widgets/appointment-widget.php:143 widgets/contact-widget.php:126
+#: widgets/subscribe-widget.php:117
+msgid "Enter Title Here..."
+msgstr ""
+
+#: widgets/appointment-widget.php:145 widgets/contact-widget.php:128
+msgid "Get An Appointment"
+msgstr ""
+
+#: widgets/appointment-widget.php:153 widgets/service-post-widget.php:129
+msgid "Heading Info"
+msgstr ""
+
+#: widgets/appointment-widget.php:155 widgets/heading-widget.php:159
+#: widgets/service-post-widget.php:131
+msgid "Enter your info text"
+msgstr ""
+
+#: widgets/appointment-widget.php:156 widgets/experience-widget.php:154
+msgid "It is description"
+msgstr ""
+
+#: widgets/appointment-widget.php:197 widgets/brands-widget.php:141
+#: widgets/counter-widget.php:163 widgets/cta-widget.php:181
+#: widgets/doctor-routine-widget.php:96 widgets/experience-widget.php:163
+#: widgets/subscribe-widget.php:148
+msgid "Background Image"
+msgstr ""
+
+#: widgets/appointment-widget.php:200 widgets/mission-widget.php:161
+msgid "Add Your Mission Icon"
+msgstr ""
+
+#: widgets/appointment-widget.php:207 widgets/appointment-widget.php:210
+#: widgets/contact-widget.php:161 widgets/subscribe-widget.php:158
+msgid "Shortcode"
+msgstr ""
+
+#: widgets/appointment-widget.php:211 widgets/contact-widget.php:165
+msgid "Add Your shortcode here"
+msgstr ""
+
+#: widgets/appointment-widget.php:276 widgets/blog-post-widget.php:291
+#: widgets/contact-widget.php:230 widgets/cta-widget.php:247
+#: widgets/fact-widget.php:243 widgets/member-post-widget.php:292
+msgid "Show Link"
+msgstr ""
+
+#: widgets/blog-post-widget.php:44
+msgid "Latest Blog"
+msgstr ""
+
+#: widgets/blog-post-widget.php:98 widgets/counter-widget.php:116
+msgid "Enter your subheading here..."
+msgstr ""
+
+#: widgets/blog-post-widget.php:108 widgets/brands-widget.php:110
+#: widgets/carousel-widget.php:123 widgets/counter-widget.php:126
+#: widgets/cta-widget.php:145 widgets/experience-widget.php:143
+msgid "It is heading"
+msgstr ""
+
+#: widgets/blog-post-widget.php:109 widgets/counter-widget.php:127
+msgid "Enter your heading here..."
+msgstr ""
+
+#: widgets/blog-post-widget.php:119
+msgid "our blog"
+msgstr ""
+
+#: widgets/blog-post-widget.php:146
+msgid "Blog Post"
+msgstr ""
+
+#: widgets/blog-post-widget.php:156
+msgid "Latest Blog Style 1"
+msgstr ""
+
+#: widgets/blog-post-widget.php:157
+msgid "Latest Blog Style 2"
+msgstr ""
+
+#: widgets/blog-post-widget.php:158
+msgid "Latest Blog Style 3"
+msgstr ""
+
+#: widgets/blog-post-widget.php:159
+msgid "Latest Blog Style 4"
+msgstr ""
+
+#: widgets/blog-post-widget.php:160
+msgid "Latest Blog Style 5"
+msgstr ""
+
+#: widgets/blog-post-widget.php:169 widgets/member-post-widget.php:171
+#: widgets/portfolio-widget.php:156 widgets/service-post-widget.php:229
+msgid "Order By"
+msgstr ""
+
+#: widgets/blog-post-widget.php:172 widgets/member-post-widget.php:174
+#: widgets/portfolio-widget.php:159 widgets/service-post-widget.php:232
+msgid "Post ID"
+msgstr ""
+
+#: widgets/blog-post-widget.php:174 widgets/member-post-widget.php:176
+#: widgets/portfolio-widget.php:161 widgets/service-post-widget.php:234
+msgid "Date"
+msgstr ""
+
+#: widgets/blog-post-widget.php:175 widgets/member-post-widget.php:177
+#: widgets/portfolio-widget.php:162 widgets/service-post-widget.php:235
+msgid "Last Modified Date"
+msgstr ""
+
+#: widgets/blog-post-widget.php:176 widgets/member-post-widget.php:178
+#: widgets/portfolio-widget.php:163 widgets/service-post-widget.php:236
+msgid "Random Order"
+msgstr ""
+
+#: widgets/blog-post-widget.php:177 widgets/member-post-widget.php:179
+#: widgets/portfolio-widget.php:164 widgets/service-post-widget.php:237
+msgid "Popular Post"
+msgstr ""
+
+#: widgets/blog-post-widget.php:186 widgets/doctor-routine-widget.php:140
+#: widgets/member-post-widget.php:188 widgets/portfolio-widget.php:173
+#: widgets/service-post-widget.php:246
+msgid "Post Order"
+msgstr ""
+
+#: widgets/blog-post-widget.php:189 widgets/doctor-routine-widget.php:143
+#: widgets/member-post-widget.php:191 widgets/portfolio-widget.php:176
+#: widgets/service-post-widget.php:249
+msgid "ASC"
+msgstr ""
+
+#: widgets/blog-post-widget.php:190 widgets/doctor-routine-widget.php:144
+#: widgets/member-post-widget.php:192 widgets/portfolio-widget.php:177
+#: widgets/service-post-widget.php:250
+msgid "DESC"
+msgstr ""
+
+#: widgets/blog-post-widget.php:199 widgets/doctor-routine-widget.php:153
+#: widgets/member-post-widget.php:201 widgets/portfolio-widget.php:139
+#: widgets/service-post-widget.php:212
+msgid "Post Count"
+msgstr ""
+
+#: widgets/blog-post-widget.php:202 widgets/doctor-routine-widget.php:156
+#: widgets/member-post-widget.php:204 widgets/portfolio-widget.php:142
+#: widgets/service-post-widget.php:215
+msgid "3"
+msgstr ""
+
+#: widgets/blog-post-widget.php:203 widgets/doctor-routine-widget.php:158
+#: widgets/member-post-widget.php:206 widgets/portfolio-widget.php:143
+#: widgets/service-post-widget.php:216
+msgid "6"
+msgstr ""
+
+#: widgets/blog-post-widget.php:204 widgets/doctor-routine-widget.php:159
+#: widgets/member-post-widget.php:207 widgets/portfolio-widget.php:144
+#: widgets/service-post-widget.php:217
+msgid "9"
+msgstr ""
+
+#: widgets/blog-post-widget.php:205 widgets/doctor-routine-widget.php:160
+#: widgets/member-post-widget.php:208 widgets/portfolio-widget.php:145
+#: widgets/service-post-widget.php:218
+msgid "12"
+msgstr ""
+
+#: widgets/blog-post-widget.php:214
+msgid "Link text"
+msgstr ""
+
+#: widgets/blog-post-widget.php:216 widgets/features-widget.php:391
+#: widgets/features-widget.php:392 widgets/whatwedo-widget.php:318
+#: widgets/whatwedo-widget.php:319
+msgid "Read More"
+msgstr ""
+
+#: widgets/blog-post-widget.php:225 widgets/member-post-widget.php:226
+#: widgets/service-post-widget.php:266
+msgid "Category Slug"
+msgstr ""
+
+#: widgets/blog-post-widget.php:227
+msgid "Enter category slug here..."
+msgstr ""
+
+#: widgets/blog-post-widget.php:273 widgets/counter-widget.php:308
+msgid "Show title"
+msgstr ""
+
+#: widgets/blog-post-widget.php:300 widgets/blog-post-widget.php:310
+#: widgets/contact-widget.php:239 widgets/contact-widget.php:248
+#: widgets/features-widget.php:356 widgets/features-widget.php:366
+#: widgets/member-post-widget.php:301 widgets/member-post-widget.php:311
+#: widgets/portfolio-widget.php:260 widgets/portfolio-widget.php:269
+#: widgets/premium-membership-widget.php:310
+#: widgets/premium-membership-widget.php:320 widgets/pricing-widget.php:230
+#: widgets/pricing-widget.php:240 widgets/service-post-widget.php:401
+#: widgets/service-post-widget.php:411 widgets/testimonial-widget.php:327
+#: widgets/testimonial-widget.php:337 widgets/whatwedo-widget.php:274
+#: widgets/whatwedo-widget.php:284
+msgid "Section Title Image"
+msgstr ""
+
+#: widgets/brands-widget.php:44 widgets/brands-widget.php:120
+msgid "Brands"
+msgstr ""
+
+#: widgets/brands-widget.php:88 widgets/carousel-widget.php:88
+#: widgets/fact-widget.php:88 widgets/features-widget.php:106
+#: widgets/member-post-widget.php:88
+msgid "Heading Section"
+msgstr ""
+
+#: widgets/brands-widget.php:109 widgets/carousel-widget.php:122
+#: widgets/fact-widget.php:97 widgets/member-post-widget.php:109
+msgid "Type section title here"
+msgstr ""
+
+#: widgets/brands-widget.php:130
+msgid "Brand Style 1"
+msgstr ""
+
+#: widgets/brands-widget.php:131
+msgid "Brand Style 2"
+msgstr ""
+
+#: widgets/brands-widget.php:132
+msgid "Brand Style 3"
+msgstr ""
+
+#: widgets/brands-widget.php:144 widgets/doctor-routine-widget.php:99
+msgid "Add background image from here"
+msgstr ""
+
+#: widgets/brands-widget.php:151
+msgid "Brand Items"
+msgstr ""
+
+#: widgets/brands-widget.php:155
+msgid "Brand #1"
+msgstr ""
+
+#: widgets/brands-widget.php:156 widgets/challenge-widget.php:175
+#: widgets/challenge-widget.php:179 widgets/counter-widget.php:214
+msgid "Project Complate"
+msgstr ""
+
+#: widgets/brands-widget.php:162
+msgid "Brand Logo"
+msgstr ""
+
+#: widgets/brands-widget.php:166 widgets/medical-widget.php:186
+#: widgets/medical-widget.php:210
+msgid "Upload Brand Logo from here"
+msgstr ""
+
+#: widgets/carousel-widget.php:44
+msgid "Carousel"
+msgstr ""
+
+#: widgets/carousel-widget.php:98
+msgid "Carousel Style 1"
+msgstr ""
+
+#: widgets/carousel-widget.php:99
+msgid "Carousel Style 2"
+msgstr ""
+
+#: widgets/carousel-widget.php:133
+msgid "Gallery Slider"
+msgstr ""
+
+#: widgets/carousel-widget.php:141
+msgid "Tab Items"
+msgstr ""
+
+#: widgets/carousel-widget.php:145
+msgid "Tab #1"
+msgstr ""
+
+#: widgets/carousel-widget.php:151
+msgid "Tab Image"
+msgstr ""
+
+#: widgets/carousel-widget.php:160
+msgid "Title here...."
+msgstr ""
+
+#: widgets/carousel-widget.php:161
+msgid "Enter Title here...."
+msgstr ""
+
+#: widgets/carousel-widget.php:170
+msgid "Content here...."
+msgstr ""
+
+#: widgets/carousel-widget.php:171
+msgid "Enter Content here...."
+msgstr ""
+
+#: widgets/carousel-widget.php:177
+msgid "URL"
+msgstr ""
+
+#: widgets/carousel-widget.php:180 widgets/member-list-widget.php:247
+#: widgets/member-list-widget.php:261 widgets/member-list-widget.php:275
+#: widgets/member-list-widget.php:289
+msgid "#"
+msgstr ""
+
+#: widgets/carousel-widget.php:181
+msgid "URL here...."
+msgstr ""
+
+#: widgets/challenge-widget.php:44
+msgid "Challenge Area"
+msgstr ""
+
+#: widgets/challenge-widget.php:117 widgets/faq-widget.php:128
+#: widgets/heading-widget.php:139 widgets/medical-widget.php:115
+#: widgets/portfolio-widget.php:95 widgets/premium-membership-widget.php:126
+#: widgets/pricing-widget.php:115 widgets/service-post-widget.php:96
+#: widgets/testimonial-widget.php:126 widgets/whatwedo-widget.php:113
+msgid "Enter your prefix Heading"
+msgstr ""
+
+#: widgets/challenge-widget.php:162 widgets/counter-widget.php:138
+msgid "Counter"
+msgstr ""
+
+#: widgets/challenge-widget.php:170 widgets/counter-widget.php:209
+msgid "Counter Items"
+msgstr ""
+
+#: widgets/challenge-widget.php:174
+msgid "Fact One"
+msgstr ""
+
+#: widgets/challenge-widget.php:178
+msgid "Fact Two"
+msgstr ""
+
+#: widgets/challenge-widget.php:185
+msgid "Fact Number"
+msgstr ""
+
+#: widgets/challenge-widget.php:188
+msgid "1M"
+msgstr ""
+
+#: widgets/challenge-widget.php:197
+msgid "Satisfied Patients"
+msgstr ""
+
+#: widgets/challenge-widget.php:206
+msgid "fas fa-user"
+msgstr ""
+
+#: widgets/challenge-widget.php:215 widgets/contact-info-widget.php:155
+msgid "Counter Text"
+msgstr ""
+
+#: widgets/challenge-widget.php:290
+msgid "Show Number"
+msgstr ""
+
+#: widgets/contact-info-widget.php:44 widgets/contact-info-widget.php:106
+msgid "Contact Info"
+msgstr ""
+
+#: widgets/contact-info-widget.php:115
+msgid "Contact Items"
+msgstr ""
+
+#: widgets/contact-info-widget.php:119
+msgid "Contact One"
+msgstr ""
+
+#: widgets/contact-info-widget.php:120 widgets/contact-info-widget.php:124
+#: widgets/contact-info-widget.php:128
+msgid "Admin@BasicTheme.com"
+msgstr ""
+
+#: widgets/contact-info-widget.php:123
+msgid "Contact Two"
+msgstr ""
+
+#: widgets/contact-info-widget.php:127
+msgid "Contact Three"
+msgstr ""
+
+#: widgets/contact-info-widget.php:137
+msgid "fas fa-envelope"
+msgstr ""
+
+#: widgets/contact-info-widget.php:146
+msgid "Mail Here"
+msgstr ""
+
+#: widgets/contact-info-widget.php:221
+msgid "Show Icon"
+msgstr ""
+
+#: widgets/contact-widget.php:44
+msgid "Contact Form"
+msgstr ""
+
+#: widgets/contact-widget.php:164
+msgid "Contact Shortcode here"
+msgstr ""
+
+#: widgets/counter-widget.php:44
+msgid "Counter List"
+msgstr ""
+
+#: widgets/counter-widget.php:148
+msgid "Counter Style Black"
+msgstr ""
+
+#: widgets/counter-widget.php:149
+msgid "Counter Style White"
+msgstr ""
+
+#: widgets/counter-widget.php:150
+msgid "Counter Style Light Blue"
+msgstr ""
+
+#: widgets/counter-widget.php:151
+msgid "Counter Style 4"
+msgstr ""
+
+#: widgets/counter-widget.php:152
+msgid "Counter Style 5"
+msgstr ""
+
+#: widgets/counter-widget.php:153
+msgid "Counter Style 6"
+msgstr ""
+
+#: widgets/counter-widget.php:154
+msgid "Counter Style 7"
+msgstr ""
+
+#: widgets/counter-widget.php:166 widgets/subscribe-widget.php:151
+msgid "Add Background Image"
+msgstr ""
+
+#: widgets/counter-widget.php:173
+msgid "Logo Image"
+msgstr ""
+
+#: widgets/counter-widget.php:176
+msgid "Add Logo Image"
+msgstr ""
+
+#: widgets/counter-widget.php:198
+msgid "Video Play Icon"
+msgstr ""
+
+#: widgets/counter-widget.php:201
+msgid "Add Video Play Icon"
+msgstr ""
+
+#: widgets/counter-widget.php:213
+msgid "Counter #i"
+msgstr ""
+
+#: widgets/counter-widget.php:220
+msgid "Icon Image"
+msgstr ""
+
+#: widgets/counter-widget.php:228 widgets/pricing-widget.php:271
+#: widgets/slider-widget.php:232
+msgid "Icon Name"
+msgstr ""
+
+#: widgets/counter-widget.php:237 widgets/fact-widget.php:153
+#: widgets/features-widget.php:198
+msgid "Number"
+msgstr ""
+
+#: widgets/cta-widget.php:44
+msgid "Call To Action"
+msgstr ""
+
+#: widgets/cta-widget.php:119
+msgid "CTA Style 1"
+msgstr ""
+
+#: widgets/cta-widget.php:120
+msgid "CTA Style 2"
+msgstr ""
+
+#: widgets/cta-widget.php:121
+msgid "CTA Style 3"
+msgstr ""
+
+#: widgets/cta-widget.php:122
+msgid "CTA Style 4"
+msgstr ""
+
+#: widgets/cta-widget.php:135 widgets/experience-widget.php:133
+msgid "Enter your sub heading Here..."
+msgstr ""
+
+#: widgets/cta-widget.php:146 widgets/experience-widget.php:144
+msgid "Enter Heading Here..."
+msgstr ""
+
+#: widgets/cta-widget.php:156 widgets/subscribe-widget.php:139
+msgid "get a consultant"
+msgstr ""
+
+#: widgets/cta-widget.php:184 widgets/experience-widget.php:166
+#: widgets/premium-membership-widget.php:138
+msgid "Add Backgrond Image"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:44
+msgid "Routine Posts"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:89 widgets/doctor-routine-widget.php:106
+msgid "Table Heading Items"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:110
+msgid "Heading Item #1"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:116
+msgid "Table Heading"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:120
+msgid "Table Heading from here"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:133 widgets/member-post-widget.php:147
+msgid "Member Post"
+msgstr ""
+
+#: widgets/doctor-routine-widget.php:157 widgets/member-post-widget.php:205
+msgid "4"
+msgstr ""
+
+#: widgets/experience-widget.php:44
+msgid "Experience"
+msgstr ""
+
+#: widgets/experience-widget.php:119
+msgid "Experience Style 1"
+msgstr ""
+
+#: widgets/experience-widget.php:120
+msgid "Experience Style 2"
+msgstr ""
+
+#: widgets/experience-widget.php:155
+msgid "Enter Description Here..."
+msgstr ""
+
+#: widgets/fact-widget.php:44
+msgid "Fact"
+msgstr ""
+
+#: widgets/faq-widget.php:44
+msgid "FAQs"
+msgstr ""
+
+#: widgets/faq-widget.php:106 widgets/medical-widget.php:106
+msgid "Section Faq Heading"
+msgstr ""
+
+#: widgets/faq-widget.php:116
+msgid "FAQ Style 1"
+msgstr ""
+
+#: widgets/faq-widget.php:117
+msgid "FAQ Style 2"
+msgstr ""
+
+#: widgets/faq-widget.php:148 widgets/medical-widget.php:135
+msgid "FAQ"
+msgstr ""
+
+#: widgets/faq-widget.php:155 widgets/medical-widget.php:142
+msgid "Back Image"
+msgstr ""
+
+#: widgets/faq-widget.php:158 widgets/medical-widget.php:145
+msgid "Add Your FAQ Back Image"
+msgstr ""
+
+#: widgets/faq-widget.php:165 widgets/medical-widget.php:152
+msgid "Front Image"
+msgstr ""
+
+#: widgets/faq-widget.php:168 widgets/medical-widget.php:155
+msgid "Add Your FAQ Front Image"
+msgstr ""
+
+#: widgets/faq-widget.php:176 widgets/medical-widget.php:163
+msgid "FAQ Item"
+msgstr ""
+
+#: widgets/faq-widget.php:180 widgets/medical-widget.php:167
+msgid "FAQ One"
+msgstr ""
+
+#: widgets/faq-widget.php:181 widgets/faq-widget.php:185
+#: widgets/medical-widget.php:168
+msgid "FAQ Content"
+msgstr ""
+
+#: widgets/faq-widget.php:184
+msgid "FAQ Two"
+msgstr ""
+
+#: widgets/faq-widget.php:194 widgets/medical-widget.php:177
+#: widgets/medical-widget.php:193
+msgid "Faq Title"
+msgstr ""
+
+#: widgets/faq-widget.php:202
+msgid "Faq Content"
+msgstr ""
+
+#: widgets/features-widget.php:44
+msgid "Features List"
+msgstr ""
+
+#: widgets/features-widget.php:117
+msgid "Feature Style 1"
+msgstr ""
+
+#: widgets/features-widget.php:118
+msgid "Feature Style 2"
+msgstr ""
+
+#: widgets/features-widget.php:119
+msgid "Feature Style 3"
+msgstr ""
+
+#: widgets/features-widget.php:120
+msgid "Feature Style 4"
+msgstr ""
+
+#: widgets/features-widget.php:153
+msgid "Features"
+msgstr ""
+
+#: widgets/features-widget.php:161
+msgid "Feature Items"
+msgstr ""
+
+#: widgets/features-widget.php:165
+msgid "Feature One"
+msgstr ""
+
+#: widgets/features-widget.php:169
+msgid "Feature Two"
+msgstr ""
+
+#: widgets/features-widget.php:173
+msgid "Feature Three"
+msgstr ""
+
+#: widgets/features-widget.php:180
+msgid "Feature Icon"
+msgstr ""
+
+#: widgets/features-widget.php:186 widgets/features-widget.php:192
+msgid "Feature Icon BG"
+msgstr ""
+
+#: widgets/features-widget.php:201 widgets/features-widget.php:209
+msgid "Feature Title"
+msgstr ""
+
+#: widgets/features-widget.php:311
+msgid "Show BG Image"
+msgstr ""
+
+#: widgets/features-widget.php:320
+msgid "Show Tab Title"
+msgstr ""
+
+#: widgets/features-widget.php:329
+msgid "Show Tab Number"
+msgstr ""
+
+#: widgets/features-widget.php:338
+msgid "Show Tab Content"
+msgstr ""
+
+#: widgets/heading-widget.php:44
+msgid "Heading Text"
+msgstr ""
+
+#: widgets/heading-widget.php:108 widgets/iconbox-widget.php:115
+#: widgets/member-list-widget.php:115
+msgid "Design Style"
+msgstr ""
+
+#: widgets/heading-widget.php:118 widgets/iconbox-widget.php:118
+#: widgets/member-list-widget.php:118 widgets/slider-widget.php:162
+#: widgets/testimonial-widget.php:189 widgets/video-content-widget.php:116
+msgid "Style 1"
+msgstr ""
+
+#: widgets/heading-widget.php:119 widgets/slider-widget.php:163
+#: widgets/testimonial-widget.php:190 widgets/video-content-widget.php:117
+msgid "Style 2"
+msgstr ""
+
+#: widgets/heading-widget.php:157
+msgid "Heading Description"
+msgstr ""
+
+#: widgets/heading-widget.php:160 widgets/service-post-widget.php:132
+msgid "It is service description"
+msgstr ""
+
+#: widgets/iconbox-widget.php:44 widgets/iconbox-widget.php:132
+msgid "Icon Box"
+msgstr ""
+
+#: widgets/iconbox-widget.php:145 widgets/member-list-widget.php:171
+msgid "Add Image"
+msgstr ""
+
+#: widgets/iconbox-widget.php:152
+msgid "BG Image"
+msgstr ""
+
+#: widgets/iconbox-widget.php:158
+msgid "Add BG Image"
+msgstr ""
+
+#: widgets/map-widget.php:44
+msgid "Map"
+msgstr ""
+
+#: widgets/map-widget.php:108
+msgid "Map Info"
+msgstr ""
+
+#: widgets/map-widget.php:115
+msgid "Latitude"
+msgstr ""
+
+#: widgets/map-widget.php:117
+msgid "Enter your Latitude"
+msgstr ""
+
+#: widgets/map-widget.php:118
+msgid "23.5043"
+msgstr ""
+
+#: widgets/map-widget.php:125
+msgid "Longitude"
+msgstr ""
+
+#: widgets/map-widget.php:127
+msgid "Enter your Longitude"
+msgstr ""
+
+#: widgets/map-widget.php:128
+msgid "90.34535"
+msgstr ""
+
+#: widgets/medical-widget.php:44
+msgid "Medical"
+msgstr ""
+
+#: widgets/medical-widget.php:174
+msgid "Menu Title"
+msgstr ""
+
+#: widgets/medical-widget.php:182
+msgid "Menu Logo"
+msgstr ""
+
+#: widgets/member-list-widget.php:44
+msgid "Member List"
+msgstr ""
+
+#: widgets/member-list-widget.php:158
+msgid "Member Item"
+msgstr ""
+
+#: widgets/member-list-widget.php:189 widgets/member-list-widget.php:192
+#: widgets/premium-membership-widget.php:230
+msgid "Designation"
+msgstr ""
+
+#: widgets/member-list-widget.php:191
+msgid "Enter your designation"
+msgstr ""
+
+#: widgets/member-list-widget.php:237
+msgid "Member Social"
+msgstr ""
+
+#: widgets/member-list-widget.php:246
+msgid "Facebook"
+msgstr ""
+
+#: widgets/member-list-widget.php:248
+msgid "Add your facebook link"
+msgstr ""
+
+#: widgets/member-list-widget.php:260
+msgid "Twitter"
+msgstr ""
+
+#: widgets/member-list-widget.php:262
+msgid "Add your twitter link"
+msgstr ""
+
+#: widgets/member-list-widget.php:274
+msgid "Instagram"
+msgstr ""
+
+#: widgets/member-list-widget.php:276
+msgid "Add your instagram link"
+msgstr ""
+
+#: widgets/member-list-widget.php:288
+msgid "LinkedIn"
+msgstr ""
+
+#: widgets/member-list-widget.php:290
+msgid "Add your linkedin link"
+msgstr ""
+
+#: widgets/member-list-widget.php:302
+msgid "Youtube"
+msgstr ""
+
+#: widgets/member-list-widget.php:303
+msgid "Add your youtube link"
+msgstr ""
+
+#: widgets/member-post-widget.php:44
+msgid "Member Posts"
+msgstr ""
+
+#: widgets/member-post-widget.php:157
+msgid "Member Style 1"
+msgstr ""
+
+#: widgets/member-post-widget.php:158
+msgid "Member Style 2"
+msgstr ""
+
+#: widgets/member-post-widget.php:159
+msgid "Member Style 3"
+msgstr ""
+
+#: widgets/member-post-widget.php:160
+msgid "Member Style 4"
+msgstr ""
+
+#: widgets/member-post-widget.php:161
+msgid "Member Style 5"
+msgstr ""
+
+#: widgets/member-post-widget.php:162
+msgid "Member Style 6"
+msgstr ""
+
+#: widgets/member-post-widget.php:209 widgets/portfolio-widget.php:146
+#: widgets/service-post-widget.php:219
+msgid "15"
+msgstr ""
+
+#: widgets/member-post-widget.php:210 widgets/portfolio-widget.php:147
+#: widgets/service-post-widget.php:220
+msgid "All"
+msgstr ""
+
+#: widgets/mission-widget.php:44 widgets/mission-widget.php:105
+msgid "Mission"
+msgstr ""
+
+#: widgets/mission-widget.php:137
+msgid "About Text"
+msgstr ""
+
+#: widgets/mission-widget.php:151
+msgid "Add Your Mission Image"
+msgstr ""
+
+#: widgets/mission-widget.php:274
+msgid "Show icon Image"
+msgstr ""
+
+#: widgets/portfolio-widget.php:44
+msgid "Portfolio"
+msgstr ""
+
+#: widgets/portfolio-widget.php:116
+msgid "Portfolio Post"
+msgstr ""
+
+#: widgets/portfolio-widget.php:126
+msgid "Portfolio Two Collumn"
+msgstr ""
+
+#: widgets/portfolio-widget.php:127
+msgid "Portfolio Three Collumn"
+msgstr ""
+
+#: widgets/portfolio-widget.php:128
+msgid "Portfolio Three Collumn Btn"
+msgstr ""
+
+#: widgets/portfolio-widget.php:129
+msgid "Portfolio Without Heading"
+msgstr ""
+
+#: widgets/portfolio-widget.php:224 widgets/service-post-widget.php:366
+msgid "Show Service Link"
+msgstr ""
+
+#: widgets/portfolio-widget.php:446 widgets/portfolio-widget.php:523
+#: widgets/portfolio-widget.php:634 widgets/portfolio-widget.php:704
+msgid "Show all"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:44
+msgid "Premium Membership"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:135
+msgid "Background Map Image"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:147
+msgid "Membership"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:155
+msgid "Member Items"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:159
+msgid "Member #1"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:174
+#: widgets/premium-membership-widget.php:225 widgets/testimonial-widget.php:226
+#: widgets/testimonial-widget.php:243
+msgid "Jon Haris"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:183
+#: widgets/premium-membership-widget.php:241 widgets/testimonial-widget.php:234
+msgid "Description here...."
+msgstr ""
+
+#: widgets/premium-membership-widget.php:184
+#: widgets/premium-membership-widget.php:242 widgets/testimonial-widget.php:235
+msgid "Enter Description here...."
+msgstr ""
+
+#: widgets/premium-membership-widget.php:198 widgets/testimonial-widget.php:44
+#: widgets/testimonial-widget.php:151
+msgid "Testimonials"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:206 widgets/testimonial-widget.php:176
+msgid "Testimonial Items"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:210 widgets/testimonial-widget.php:180
+msgid "Testimonial #1"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:222 widgets/testimonial-widget.php:240
+msgid "Name"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:233 widgets/testimonial-widget.php:259
+msgid "Designer"
+msgstr ""
+
+#: widgets/premium-membership-widget.php:329
+msgid "Show Description"
+msgstr ""
+
+#: widgets/pricing-widget.php:44 widgets/pricing-widget.php:106
+msgid "Pricing"
+msgstr ""
+
+#: widgets/pricing-widget.php:116
+msgid "Our Plans"
+msgstr ""
+
+#: widgets/pricing-widget.php:126
+msgid "Pricing & Plans"
+msgstr ""
+
+#: widgets/pricing-widget.php:135 widgets/pricing-widget.php:136
+msgid "Price"
+msgstr ""
+
+#: widgets/pricing-widget.php:148 widgets/pricing-widget.php:149
+msgid "get appointment"
+msgstr ""
+
+#: widgets/pricing-widget.php:162
+msgid "Price Default"
+msgstr ""
+
+#: widgets/pricing-widget.php:163
+msgid "Price Black"
+msgstr ""
+
+#: widgets/pricing-widget.php:263 widgets/pricing-widget.php:264
+msgid "Select Plan"
+msgstr ""
+
+#: widgets/pricing-widget.php:273
+msgid "arrow-thin-right"
+msgstr ""
+
+#: widgets/pricing-widget.php:274
+msgid "Dripicons Fonts"
+msgstr ""
+
+#: widgets/pricing-widget.php:516 widgets/pricing-widget.php:627
+msgid "$"
+msgstr ""
+
+#: widgets/service-post-widget.php:44
+msgid "Post Services"
+msgstr ""
+
+#: widgets/service-post-widget.php:115
+msgid "Back Heading"
+msgstr ""
+
+#: widgets/service-post-widget.php:162
+msgid "more services "
+msgstr ""
+
+#: widgets/service-post-widget.php:188
+msgid "Section Service Post"
+msgstr ""
+
+#: widgets/service-post-widget.php:198
+msgid "Service Icon"
+msgstr ""
+
+#: widgets/service-post-widget.php:199
+msgid "Service Icon No BG"
+msgstr ""
+
+#: widgets/service-post-widget.php:200
+msgid "Service Thumb"
+msgstr ""
+
+#: widgets/service-post-widget.php:201
+msgid "Service Thumb BG"
+msgstr ""
+
+#: widgets/service-post-widget.php:202
+msgid "Service Thumb Doctor"
+msgstr ""
+
+#: widgets/service-post-widget.php:203
+msgid "Service Icon Border"
+msgstr ""
+
+#: widgets/service-post-widget.php:276
+msgid "Content Alignment"
+msgstr ""
+
+#: widgets/service-post-widget.php:290
+msgid "Service Button Text"
+msgstr ""
+
+#: widgets/service-post-widget.php:292
+msgid "Read More "
+msgstr ""
+
+#: widgets/service-post-widget.php:300
+msgid "Service btn Icon Name"
+msgstr ""
+
+#: widgets/service-post-widget.php:302
+msgid "fas fa-angle-double-right"
+msgstr ""
+
+#: widgets/service-post-widget.php:303
+msgid "icon name here"
+msgstr ""
+
+#: widgets/service-post-widget.php:310
+msgid "Service BTN Switch"
+msgstr ""
+
+#: widgets/service-post-widget.php:319
+msgid "Service icon Switch"
+msgstr ""
+
+#: widgets/service-post-widget.php:392
+msgid "Show Back Heading"
+msgstr ""
+
+#: widgets/slider-widget.php:50
+msgid "Slider"
+msgstr ""
+
+#: widgets/slider-widget.php:111
+msgid "Sliders"
+msgstr ""
+
+#: widgets/slider-widget.php:121
+msgid "Slider Default"
+msgstr ""
+
+#: widgets/slider-widget.php:122
+msgid "Slider Transparent"
+msgstr ""
+
+#: widgets/slider-widget.php:123
+msgid "Slider Content Box"
+msgstr ""
+
+#: widgets/slider-widget.php:124
+msgid "Slider Style 4"
+msgstr ""
+
+#: widgets/slider-widget.php:125
+msgid "Slider Style 5"
+msgstr ""
+
+#: widgets/slider-widget.php:147
+msgid "Slider Items"
+msgstr ""
+
+#: widgets/slider-widget.php:151
+msgid "Slide #1"
+msgstr ""
+
+#: widgets/slider-widget.php:153
+msgid "dddd"
+msgstr ""
+
+#: widgets/slider-widget.php:159 widgets/testimonial-widget.php:186
+msgid "Field condition"
+msgstr ""
+
+#: widgets/slider-widget.php:164 widgets/testimonial-widget.php:191
+msgid "Style 3"
+msgstr ""
+
+#: widgets/slider-widget.php:165 widgets/testimonial-widget.php:192
+msgid "Style 4"
+msgstr ""
+
+#: widgets/slider-widget.php:166 widgets/testimonial-widget.php:193
+msgid "Style 5"
+msgstr ""
+
+#: widgets/slider-widget.php:177
+msgid "Slide Sub Title"
+msgstr ""
+
+#: widgets/slider-widget.php:194
+msgid "Slide Title"
+msgstr ""
+
+#: widgets/slider-widget.php:208
+msgid "Slide Content"
+msgstr ""
+
+#: widgets/slider-widget.php:213 widgets/slider-widget.php:216
+msgid "Content List"
+msgstr ""
+
+#: widgets/slider-widget.php:236
+msgid "fal fa-plus"
+msgstr ""
+
+#: widgets/slider-widget.php:240
+msgid "Button URL"
+msgstr ""
+
+#: widgets/slider-widget.php:251
+msgid "Video URL"
+msgstr ""
+
+#: widgets/slider-widget.php:261
+msgid "Button Text 2"
+msgstr ""
+
+#: widgets/slider-widget.php:272
+msgid "Button URL 2"
+msgstr ""
+
+#: widgets/slider-widget.php:294
+msgid "Booking Section"
+msgstr ""
+
+#: widgets/slider-widget.php:303
+msgid "Booking Sub Heading"
+msgstr ""
+
+#: widgets/slider-widget.php:306
+msgid "We are here for you"
+msgstr ""
+
+#: widgets/slider-widget.php:314
+msgid "Booking Heading"
+msgstr ""
+
+#: widgets/slider-widget.php:317
+msgid "Find A Care Giver"
+msgstr ""
+
+#: widgets/slider-widget.php:324
+msgid "Booking Shortcode"
+msgstr ""
+
+#: widgets/slider-widget.php:326
+msgid "Enter shortcode"
+msgstr ""
+
+#: widgets/slider-widget.php:327
+msgid "shortcode"
+msgstr ""
+
+#: widgets/slider-widget.php:347
+msgid "Appointment Button Icon"
+msgstr ""
+
+#: widgets/slider-widget.php:349
+msgid "fas fa-plus"
+msgstr ""
+
+#: widgets/slider-widget.php:350 widgets/slider-widget.php:380
+msgid "Fontawesome Icon Fonts"
+msgstr ""
+
+#: widgets/slider-widget.php:367
+msgid "Button Right Text"
+msgstr ""
+
+#: widgets/slider-widget.php:369 widgets/slider-widget.php:370
+msgid "Our Services"
+msgstr ""
+
+#: widgets/slider-widget.php:377
+msgid "Video Icon"
+msgstr ""
+
+#: widgets/slider-widget.php:379
+msgid "fas fa-play"
+msgstr ""
+
+#: widgets/subscribe-widget.php:44
+msgid "Subscribe"
+msgstr ""
+
+#: widgets/subscribe-widget.php:118
+msgid "It is title"
+msgstr ""
+
+#: widgets/subscribe-widget.php:119 widgets/subscribe-widget.php:130
+msgid "Subscribe For Get Update"
+msgstr ""
+
+#: widgets/subscribe-widget.php:129
+msgid "It is subtitle"
+msgstr ""
+
+#: widgets/subscribe-widget.php:140
+msgid "Enter the content"
+msgstr ""
+
+#: widgets/subscribe-widget.php:141
+msgid "it is content"
+msgstr ""
+
+#: widgets/subscribe-widget.php:161
+msgid "Add Your Subscribe shortcode here"
+msgstr ""
+
+#: widgets/testimonial-widget.php:161
+msgid "Testimonial Style 1"
+msgstr ""
+
+#: widgets/testimonial-widget.php:162
+msgid "Testimonial Style 2"
+msgstr ""
+
+#: widgets/testimonial-widget.php:163
+msgid "Testimonial Style 3"
+msgstr ""
+
+#: widgets/testimonial-widget.php:164
+msgid "Testimonial Style 4"
+msgstr ""
+
+#: widgets/testimonial-widget.php:165
+msgid "Testimonial Style 5"
+msgstr ""
+
+#: widgets/testimonial-widget.php:166
+msgid "Testimonial Style 6"
+msgstr ""
+
+#: widgets/testimonial-widget.php:194
+msgid "Style 6"
+msgstr ""
+
+#: widgets/testimonial-widget.php:195
+msgid "Style 7"
+msgstr ""
+
+#: widgets/testimonial-widget.php:211
+msgid "Testimonial Image"
+msgstr ""
+
+#: widgets/testimonial-widget.php:217
+msgid "Testimonial Back Icon"
+msgstr ""
+
+#: widgets/testimonial-widget.php:248
+msgid "Designation Name "
+msgstr ""
+
+#: widgets/testimonial-widget.php:251
+msgid "Founder At"
+msgstr ""
+
+#: widgets/testimonial-widget.php:256
+msgid "Company name"
+msgstr ""
+
+#: widgets/testimonial-widget.php:346
+msgid "Testimonial BG Icon on/off"
+msgstr ""
+
+#: widgets/video-content-widget.php:44
+msgid "Video Box"
+msgstr ""
+
+#: widgets/video-content-widget.php:106
+msgid "Video"
+msgstr ""
+
+#: widgets/video-content-widget.php:126
+msgid "Image BG"
+msgstr ""
+
+#: widgets/video-content-widget.php:129
+msgid "Add icon Image"
+msgstr ""
+
+#: widgets/whatwedo-widget.php:44
+msgid "What We Do "
+msgstr ""
+
+#: widgets/whatwedo-widget.php:133
+msgid "Waht We Do"
+msgstr ""
+
+#: widgets/whatwedo-widget.php:140
+msgid "Waht We Do Items"
+msgstr ""
+
+#: widgets/whatwedo-widget.php:144 widgets/whatwedo-widget.php:148
+msgid "Waht We Do #1"
+msgstr ""
+
+#: widgets/why-choose-widget.php:44
+msgid "Why Choose"
+msgstr ""
+
+#: widgets/why-choose-widget.php:186
+msgid "Content Lists"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://bdevs.net/plugins/bdevs-elementor/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Create unlimited widgets with Elementor Page Builder."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nasir Uddin Mandal"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://bdevs.net"
+msgstr ""

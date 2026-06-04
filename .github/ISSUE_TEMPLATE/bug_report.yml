@@ -1,0 +1,71 @@
+name: Bug Report
+description: Something is broken. Tell us what.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a bug? Fill this out. The more detail, the faster we fix it.
+        If it's a **security vulnerability**, do NOT open an issue — email hello@adinfinity.gr instead.
+
+  - type: input
+    id: url
+    attributes:
+      label: Where is the bug?
+      description: URL or area of the site (e.g. homepage, booking form, contact page)
+      placeholder: https://physioelpida.gr/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you see? What did you expect?
+      placeholder: "The booking form submitted but I got no confirmation email and no appointment was created."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How do we make this happen?
+      placeholder: |
+        1. Go to /booking
+        2. Fill in the form
+        3. Click Submit
+        4. Nothing happens
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable. A picture is worth a thousand words and a lot of debugging time.

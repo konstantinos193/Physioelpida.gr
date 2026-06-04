@@ -1,0 +1,46 @@
+name: Feature Request
+description: Want something new? Here's how to ask.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got an idea? Great. Fill this out and we'll take a look.
+        Keep in mind this is a physiotherapy clinic website on shared hosting — "add a crypto payment gateway" is going to be a no.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the problem or need. Not the solution yet — the problem.
+      placeholder: "Patients don't know our clinic's opening hours without calling."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to see?
+      placeholder: "Add an opening hours widget to the homepage and contact page."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other ways to solve the problem you thought of?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this?
+      options:
+        - Nice to have
+        - Important
+        - Urgent (explain why in the description)
+    validations:
+      required: true
