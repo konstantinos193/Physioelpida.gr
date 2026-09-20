@@ -8,56 +8,75 @@
  * @package medidove-child
  */
 
+$physio_404_en = function_exists( 'physio_seo_is_en' ) && physio_seo_is_en();
+
+$physio_404_defaults = $physio_404_en
+	? array(
+		'title'   => 'Page not found',
+		'desc'    => 'The page you are looking for does not exist or has been moved. Head back to the homepage or use the links below.',
+		'cta'     => 'Back to home',
+		'cta2'    => 'Book an appointment',
+		'nav'     => 'Useful links',
+		'serv'    => 'Services',
+		'about'   => 'About us',
+		'contact' => 'Contact',
+		'help'    => 'Need help? Call us:',
+	)
+	: array(
+		'title'   => 'Η σελίδα δεν βρέθηκε',
+		'desc'    => 'Η σελίδα που αναζητάτε δεν υπάρχει ή έχει μετακινηθεί. Επιστρέψτε στην αρχική ή δείτε τις βασικές ενότητες του ιστότοπου.',
+		'cta'     => 'Αρχική σελίδα',
+		'cta2'    => 'Κλείστε ραντεβού',
+		'nav'     => 'Χρήσιμοι σύνδεσμοι',
+		'serv'    => 'Υπηρεσίες',
+		'about'   => 'Σχετικά με εμάς',
+		'contact' => 'Επικοινωνία',
+		'help'    => 'Χρειάζεστε βοήθεια; Καλέστε μας:',
+	);
+
+/** Return a theme mod, treating unset/stock-demo values as "use our default". */
+function physio_404_mod( $mod, $stock, $default ) {
+	$val = get_theme_mod( $mod, '' );
+	if ( '' === $val ) {
+		return $default;
+	}
+	$norm = mb_strtolower( trim( $val ) );
+	foreach ( (array) $stock as $s ) {
+		if ( $norm === $s ) {
+			return $default;
+		}
+	}
+	return $val;
+}
+
+$physio_404_title = physio_404_mod( 'medidove_error_title', array( 'page not found' ), $physio_404_defaults['title'] );
+$physio_404_desc  = physio_404_mod( 'medidove_error_desc', array(
+	'oops! the page you are looking for does not exist. it might have been moved or deleted.',
+	'oops! η σελίδα που ψάχνετε δεν υπάρχει.',
+), $physio_404_defaults['desc'] );
+$physio_404_cta   = physio_404_mod( 'medidove_error_link_text', array( 'back to home' ), $physio_404_defaults['cta'] );
+$physio_404_phone = defined( 'PHYSIO_PHONE' ) ? PHYSIO_PHONE : '+302681073248';
+$physio_404_phone_label = $physio_404_en ? '+30 26810 73248' : '26810 73248';
+
 get_header();
 ?>
 
-<div class="blog-area pt-120 pb-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-8 offset-xl-2">
-            	<?php
-            		if ( is_rtl() ) {
-			            $medidove_error_404_text = get_theme_mod('medidove_error_404_text_rtl','404 text');
-			         }
-			        else {
-			            $medidove_error_404_text = get_theme_mod('medidove_error_404_text','404 text');
-			        }
-
-			        if ( is_rtl() ) {
-			            $medidove_error_title = get_theme_mod('medidove_error_title_rtl','Page not found ');
-			         }
-			        else {
-			            $medidove_error_title = get_theme_mod('medidove_error_title','Page not found ');
-			        }
-
-			        if ( is_rtl() ) {
-			            $medidove_error_desc = get_theme_mod('medidove_error_desc_rtl','Oops! The page you are looking for does not exist. It might have been moved or deleted. ');
-			         }
-			        else {
-			            $medidove_error_desc = get_theme_mod('medidove_error_desc','Oops! The page you are looking for does not exist. It might have been moved or deleted. ');
-			        }
-
-
-            		$medidove_error_link_text = get_theme_mod('medidove_error_link_text','Back To Home ');
-
-            	?>
-				<div class="error-404 not-found mb-20">
-					<div class="page-content">
-	                    <div class="error-404-content text-center">
-	                        <h1 class="error-404-title"><?php print esc_html( $medidove_error_404_text ); ?></h1>
-	                        <h2 class="error-title"><?php print esc_html( $medidove_error_title ); ?></h2>
-	                        <div class="error-content">
-	                            <div class="error-text">
-	                                <span><?php print esc_html( $medidove_error_desc ); ?></span>
-	                            </div>
-	                            <div class="error-btn-bh">
-	                            	<a href="<?php print esc_url(home_url('/')); ?>" class="btn btn-icon ml-0"><span>+</span><?php print esc_html($medidove_error_link_text); ?></a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-				</div>
+<div class="p404">
+	<div class="container">
+		<div class="p404-inner">
+			<p class="p404-code" aria-hidden="true"><span class="p404-digit">4</span><span class="p404-badge"><i>+</i></span><span class="p404-digit">4</span></p>
+			<h1 class="p404-title"><?php print esc_html( $physio_404_title ); ?></h1>
+			<p class="p404-lead"><?php print esc_html( $physio_404_desc ); ?></p>
+			<div class="p404-actions">
+				<a href="<?php print esc_url( home_url( '/' ) ); ?>" class="p404-btn p404-btn-primary"><span>+</span><?php print esc_html( $physio_404_cta ); ?></a>
+				<a href="<?php print esc_url( home_url( '/rantevou/' ) ); ?>" class="p404-btn p404-btn-outline"><?php print esc_html( $physio_404_defaults['cta2'] ); ?></a>
 			</div>
+			<nav class="p404-links" aria-label="<?php print esc_attr( $physio_404_defaults['nav'] ); ?>">
+				<a href="<?php print esc_url( home_url( '/serv1/' ) ); ?>"><?php print esc_html( $physio_404_defaults['serv'] ); ?></a>
+				<a href="<?php print esc_url( home_url( '/about/' ) ); ?>"><?php print esc_html( $physio_404_defaults['about'] ); ?></a>
+				<a href="<?php print esc_url( home_url( '/contact/' ) ); ?>"><?php print esc_html( $physio_404_defaults['contact'] ); ?></a>
+			</nav>
+			<p class="p404-phone"><?php print esc_html( $physio_404_defaults['help'] ); ?> <a href="tel:<?php print esc_attr( $physio_404_phone ); ?>"><?php print esc_html( $physio_404_phone_label ); ?></a></p>
 		</div>
 	</div>
 </div>

@@ -32,6 +32,45 @@ Don't edit the dump. Add a small post-import step to `import-db.sh` that re-hash
 
 ---
 
+# SEO restructure 2026 — DB migration (`seo-restructure-2026.php`)
+
+**STATUS: applied to local DB, PENDING on live DB.**
+
+One-off WP-bootstrapped script. Deploys with the site via FTP; it requires a
+run key so it can't be triggered accidentally:
+
+- Local: `docker exec physioelpida-wordpress-1 php /var/www/html/seo-restructure-2026.php elpida2026`
+- Prod: open `https://physioelpida.gr/seo-restructure-2026.php?key=elpida2026`
+  once after deploy, confirm the `DONE` output, then **delete the file via FTP**
+  (a later deploy would also remove it, but don't leave it up).
+
+What it does (all idempotent — safe to re-run):
+
+- Renames `bdevs-member` slugs to Greek transliterations (equipment → `/therapeies/*`).
+- Renames `bdevs-service` slugs; moves `therapeutic-exercise`, `lymphatic-massage`,
+  `hand-massage`, `chiropractic` to `bdevs-member` (they're treatments, not services).
+- Trashes `footprint` (merged into `pelmatografima`), old `gym` and `bio` pages,
+  demo portfolio posts, cart/checkout/home-7 demo pages.
+- Creates: `paidiatriki-fysikotherapeia` service; hub pages `therapeies`,
+  `pathiseis`, `fysiotherapeftis`; condition pages under `/pathiseis/`;
+  clinician page `fysiotherapeftis/tsolas-dimitrios`; `omada`, `syxnes-erotiseis`;
+  4 Greek blog posts.
+- Converts the `serv1` page into the `/apokatastasi/` hub (keeps ID → old URL 301s).
+- Rewrites homepage Elementor data: real H1, removes the "οποιοδήποτε περιστατικό"
+  over-claim.
+- Rebuilds the main menu (#61 locally — resolved by name on prod).
+
+Redirects for every old URL live in `seo-2026.php` (PHP-level `template_redirect`
+301s — independent of .htaccess, TranslatePress-aware so `/en/` URLs redirect to
+`/en/` targets without double-prefixing).
+
+After running on prod: purge W3 Total Cache, then spot-check:
+`/serv1/` → 301 `/apokatastasi/`, `/bio/` → 301 `/fysiotherapeftis/tsolas-dimitrios/`,
+`/member/tecar-therapeia/` → 301 `/therapeies/tecar/`,
+`/en/member/tecar-therapeia/` → 301 `/en/therapeies/tecar/`.
+
+---
+
 # Production DB changes needed after deploy
 
 **STATUS (2026-09-20): APPLIED to live DB** via `live-db-update.php` (WP-bootstrapped
