@@ -1,0 +1,62 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Website
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+
+          # The site's document root on this hosting account
+          # (domain-specific htdocs, NOT the account-level one)
+          local-dir: ./
+          server-dir: ./physioelpida.gr/htdocs/
+
+          # Keep live-only and local-only paths out of sync scope.
+          # Anything excluded here is never uploaded AND never deleted
+          # from the server.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/*.sql
+            **/*.bak
+            **/*.zip
+            **/wp-content/debug.log
+            **/wp-content/uploads/**
+            **/wp-content/cache/**
+            **/wp-content/upgrade/**
+            **/wp-content/w3tc-config/**
+            **/wp-content/advanced-cache.php
+            **/.docker-local/**
+            **/docker-compose*.yml
+            **/docker-compose*.yaml
+            **/.claude/**
+            **/.ftp-live/**
+            **/README.md
+            **/CHANGELOG.md
+            **/CODE_OF_CONDUCT.md
+            **/CONTRIBUTING.md
+            **/SECURITY.md
+            **/LICENSE
