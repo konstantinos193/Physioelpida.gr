@@ -6,6 +6,7 @@ services:
     volumes:
       - ./:/var/www/html
       - ./.docker-local/wp-config.php:/var/www/html/wp-config.php
+      - ./.docker-local/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini:ro
     depends_on:
       db:
         condition: service_healthy
