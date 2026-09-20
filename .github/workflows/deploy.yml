@@ -121,15 +121,17 @@ jobs:
               "*.log",
               "docker-compose*.yml",
               "docker-compose*.yaml",
-              # Screenshot artifacts kept in the repo for reference —
-              # never belong on the webroot.
-              "home-*.png",
           )
 
           def excluded(path):
               path = path.replace("\\", "/")
 
               if path in excluded_exact:
+                  return True
+
+              # Root-level PNGs are screenshot artifacts — real site
+              # images always live under wp-content/.
+              if "/" not in path and path.endswith(".png"):
                   return True
 
               if path.startswith(excluded_prefixes):
