@@ -6,6 +6,12 @@ on:
       - main
   workflow_dispatch:
 
+# One deploy at a time — a new push cancels the running one instead of
+# competing for InfinityFree's limited concurrent FTP connections.
+concurrency:
+  group: deploy-infinityfree
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: Deploy Website
@@ -61,3 +67,14 @@ jobs:
             **/CONTRIBUTING.md
             **/SECURITY.md
             **/LICENSE
+
+      # The live site runs W3 Total Cache (plugin lives on the server only,
+      # excluded above) which serves stale static HTML after each deploy.
+      # Delete the remote cache dir so pages regenerate from the new code.
+      - name: Purge remote page cache (W3TC)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp >/dev/null
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
+            -e "set net:timeout 20; set net:max-retries 2; rm -r -f physioelpida.gr/htdocs/wp-content/cache; bye" \
+            "ftp://${{ secrets.FTP_SERVER }}" \
+            || echo "::warning::Remote cache purge failed — purge wp-content/cache manually if pages look stale"

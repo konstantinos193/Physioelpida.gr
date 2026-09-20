@@ -41,3 +41,24 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# --- hygiene ignores (auto-added) ---
+node_modules/
+dist/
+build/
+out/
+.next/
+target/
+vendor/
+__pycache__/
+.cache/
+coverage/
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+!.env.template
+.playwright-mcp/
+.playwright-cli/
+test-ledger/
