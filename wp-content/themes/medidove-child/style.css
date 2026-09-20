@@ -390,6 +390,16 @@ body.search-no-results > footer {
 	margin-left: 18px;
 }
 
+/* Align the hamburger with the site's blue accent (theme default is red). */
+.physio-nav .open-mobile-menu a {
+	border-radius: 4px;
+	background: #1071dc;
+}
+
+.physio-nav .open-mobile-menu a:hover {
+	background: #223645;
+}
+
 /* Sticky state (main.js adds .sticky-header to #header-sticky). main.css sets
  * position:fixed on .sticky-header, but the later-loaded .physio-menubar rule
  * wins on equal specificity — redeclare it here. Also drop the theme's 70px

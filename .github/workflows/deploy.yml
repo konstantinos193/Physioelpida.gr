@@ -5,6 +5,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      base:
+        # Diff override for replaying a failed deploy: the push path
+        # diffs event.before -> HEAD, so files from a run that failed
+        # mid-upload are never retried. Pass the last successfully
+        # deployed commit here to re-upload everything since.
+        description: 'Base commit to diff against (empty = event.before / HEAD^)'
+        required: false
+        type: string
 
 # One deploy at a time — a new push cancels the running one instead of
 # competing for InfinityFree's limited concurrent FTP connections.
@@ -41,9 +50,12 @@ jobs:
 
           mkdir -p .deploy
 
-          # For a push, GitHub tells us the commit that was live before.
-          # For a manual run (or first push), diff only the last commit.
-          if [[ "${{ github.event_name }}" == "push" ]] &&
+          # Manual runs can pin the diff base (replays missed uploads).
+          # On push, GitHub tells us the commit that was live before;
+          # fall back to the previous commit for a bare manual run.
+          if [[ -n "${{ inputs.base }}" ]]; then
+            BASE="${{ inputs.base }}"
+          elif [[ "${{ github.event_name }}" == "push" ]] &&
              [[ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]]; then
             BASE="${{ github.event.before }}"
           else
@@ -99,8 +111,6 @@ jobs:
               # LOCAL-DB-NOTES.md in particular contains credentials.
               "LOCAL-DB-NOTES.md",
               "update-plugins.sh",
-              "home-fixed.png",
-              "home-live.png",
           }
 
           excluded_patterns = (
@@ -111,6 +121,9 @@ jobs:
               "*.log",
               "docker-compose*.yml",
               "docker-compose*.yaml",
+              # Screenshot artifacts kept in the repo for reference —
+              # never belong on the webroot.
+              "home-*.png",
           )
 
           def excluded(path):
@@ -210,20 +223,18 @@ jobs:
 
           REMOTE="physioelpida.gr/htdocs"
 
+          # `open` lives inside the script: lftp parses arguments placed
+          # AFTER the positional URL as options to `open` (a trailing
+          # `-f script` became `open -f` and failed instantly).
+          # Heredoc lines sit at the block's base indent so they land
+          # flush-left in the file.
           cat > .lftp-script <<EOF
+          open -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER"
           set cmd:fail-exit yes
           set net:timeout 30
           set net:max-retries 3
           set ftp:passive-mode yes
-
-          mirror \
-            --reverse \
-            --parallel=2 \
-            --ignore-time \
-            --no-perms \
-            --verbose=1 \
-            .deploy \
-            ${REMOTE}
+          mirror --reverse --parallel=2 --ignore-time --no-perms --verbose=1 .deploy ${REMOTE}
           EOF
 
           # Remove files deleted/renamed in Git. rm -f won't error on
@@ -244,10 +255,10 @@ jobs:
 
           echo "bye" >> .lftp-script
 
-          lftp \
-            -u "$FTP_USERNAME,$FTP_PASSWORD" \
-            "ftp://$FTP_SERVER" \
-            -f .lftp-script
+          # Show the script for debugging, hiding the credentials line.
+          sed 's/^open -u.*/open -u ***/' .lftp-script
+
+          lftp -f .lftp-script
 
       # NOTE: no remote W3TC cache purge here — `rm -r wp-content/cache`
       # over FTP deletes hundreds of files one-by-one and dominates the
