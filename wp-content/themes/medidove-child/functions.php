@@ -14,6 +14,13 @@ add_action( 'after_setup_theme', 'medidove_child_theme_setup' );
 /** Enqueue the child theme stylesheet **/
 function medidove_child_enqueue_scripts() {
 	wp_enqueue_style( 'medidove-parent-style', get_template_directory_uri() . '/style.css' );
+
+	// Parent registers this child stylesheet as 'medidove-style' with the WP
+	// version as cache key — it never changes when the file does. Re-version
+	// by filemtime so edits actually reach browsers.
+	wp_dequeue_style( 'medidove-style' );
+	wp_deregister_style( 'medidove-style' );
+	wp_enqueue_style( 'medidove-style', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'medidove_child_enqueue_scripts', 100 );
 

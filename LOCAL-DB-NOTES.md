@@ -34,6 +34,12 @@ Don't edit the dump. Add a small post-import step to `import-db.sh` that re-hash
 
 # Production DB changes needed after deploy
 
+**STATUS (2026-09-20): APPLIED to live DB** via `live-db-update.php` (WP-bootstrapped
+script, FTP-uploaded, browser-run, deleted after). All steps below verified done on
+prod — same IDs as local (409/425–431, 462, 463, 1147 trashed; rantevou = #2929).
+Note: `easy-appointments` plugin files were FTP-uploaded manually (still untracked
+in git — commit them so future deploys don't wipe the plugin).
+
 Everything below lives in the **database**, so the FTP deploy (`.github/workflows/deploy.yml`) does NOT carry it over. Files deploy automatically; this list is what you must apply on the live DB once.
 
 ## 1. Trash junk/demo content (11 posts)
@@ -243,3 +249,41 @@ WHERE pm.meta_key='_elementor_element_cache' AND p.post_name='rantevou';
 - Worker select is hidden by CSS (child theme `style.css`), value stays 1.
 - A test booking writes a row to `wp_ea_appointments` and fires the
   confirmation mail via WP Mail SMTP (verify `wp_mail_smtp` config on prod).
+
+---
+
+# Local dev environment notes
+
+## Performance (added 2026-09-20)
+
+The whole repo is bind-mounted into the container via 9p (`./` → `/var/www/html`),
+which made every request ~15s. Mitigations in `docker-compose.local.yml`:
+
+- **OPcache enabled** via `.docker-local/opcache.ini` mounted into
+  `conf.d`. **`opcache.validate_timestamps=0`** — PHP file edits are NOT picked
+  up automatically. After editing any `.php` file, run:
+  `docker restart physioelpida-wordpress-1`
+  (CSS/JS/images serve fresh — only PHP is affected.)
+- **`wp-includes` and `wp-admin` are shadow-mounted** from named volumes
+  (`wp_includes`, `wp_admin`) populated from the `wordpress:7.1.1-php8.4-apache`
+  image. The container does NOT serve the repo copies of these dirs — they're
+  byte-identical, but if core files in the repo ever change, re-populate the
+  volumes or drop them from compose.
+
+Warm request ~4s (was 15-20s). Production hosting is unaffected — this is all
+local-only config in `.docker-local/` and the compose file.
+
+## Child stylesheet cache-busting
+
+`medidove-child/functions.php` dequeues/re-registers `medidove-style` with a
+`filemtime` version — the parent theme used the WP version (`?ver=7.1.1`), so
+browser caches never saw style.css edits. Any future CSS change now busts
+automatically. Deploys via FTP (it's a theme file, not DB).
+
+## EA plugin patch to remember
+
+`wp-content/plugins/easy-appointments/src/fields/tablecolumns.php` was patched:
+the option whitelist in `clear_settings_data_frontend()` strips all the new-UI
+`trans.*` keys (`trans.book-appointment`, `trans.available-times`, …), leaving
+the frontend in English. ~20 keys were added to the whitelist. **A plugin update
+will revert this** — re-apply or the booking form goes back to English headings.
