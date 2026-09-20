@@ -223,17 +223,206 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* -------------------------------------------------------------------------
  * Sticky footer — short pages (404, empty search) left the footer floating
- * mid-viewport. Flex-column body pins it to the bottom.
+ * mid-viewport. Flex-column body pins it to the bottom. Scoped to those
+ * templates only: making every body a flex container turns each direct
+ * child (header, overlays, sections) into a flex item site-wide.
  * ---------------------------------------------------------------------- */
-body {
+body.error404,
+body.search-no-results {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	min-height: 100dvh;
 }
 
-body > footer {
+body.error404 > footer,
+body.search-no-results > footer {
 	margin-top: auto;
+}
+
+/* -------------------------------------------------------------------------
+ * Header — rebuilt 2026 (see header.php). The parent's float-based header
+ * could not fit the expanded nav, so this is a flex row: logo left, then
+ * menu + social icons + mobile toggler on one line.
+ * ---------------------------------------------------------------------- */
+/* Topbar must paint above .logo-circle::before (the white circle pokes 35px
+ * up into the topbar and would otherwise cover the contact text). */
+.physio-topbar {
+	position: relative;
+	z-index: 10;
+}
+
+.physio-topbar .physio-topbar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.physio-topbar .header-info {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4px 28px;
+	padding: 10px 0;
+}
+
+.physio-topbar .header-info span {
+	margin-right: 0;
+}
+
+.physio-topbar-cta {
+	flex: none;
+}
+
+.physio-topbar-cta .btn {
+	border-radius: 4px;
+	padding: 16px 34px;
+	background: #1071dc;
+	box-shadow: none;
+}
+
+.physio-topbar-cta .btn:hover {
+	background: #223645;
+}
+
+.physio-menubar {
+	position: relative;
+	z-index: 9;
+	background: #fff;
+}
+
+.physio-menubar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.physio-logo {
+	flex: none;
+}
+
+.physio-logo img {
+	display: block;
+	max-width: 210px;
+	height: auto;
+}
+
+.physio-nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	min-width: 0;
+}
+
+/* Desktop menu — flex row, tighter item spacing than the stock 30px. */
+.physio-nav .header__menu .basic-menu {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.physio-nav .header__menu .basic-menu > li {
+	display: block;
+	float: none;
+	margin-left: 22px;
+}
+
+.physio-nav .header__menu .basic-menu > li:first-child {
+	margin-left: 0;
+}
+
+.physio-nav .header__menu .basic-menu > li > a {
+	padding: 38px 0;
+	font-size: 14px;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+/* Last item (ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ) renders as a compact CTA pill. */
+.physio-nav .header__menu .basic-menu > li:last-child > a {
+	margin-left: 4px;
+	padding: 12px 24px;
+	border-radius: 30px;
+	background: #1071dc;
+	color: #fff;
+}
+
+.physio-nav .header__menu .basic-menu > li:last-child:hover > a,
+.physio-nav .header__menu .basic-menu > li:last-child > a:hover {
+	background: #223645;
+	color: #fff;
+}
+
+/* Dropdown submenus keep working inside the flex row. */
+.physio-nav .header__menu .basic-menu > li > ul.submenu {
+	top: 100%;
+}
+
+.physio-header-social {
+	flex: none;
+	padding: 0 0 0 22px;
+}
+
+.physio-header-social ul {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.physio-header-social ul li a {
+	margin: 0 0 0 14px;
+	font-weight: 500;
+	color: #647589;
+}
+
+.physio-header-social ul li a:hover {
+	color: #1071dc;
+}
+
+.physio-nav .open-mobile-menu {
+	flex: none;
+	margin-left: 18px;
+}
+
+/* Sticky state (main.js adds .sticky-header to #header-sticky). main.css sets
+ * position:fixed on .sticky-header, but the later-loaded .physio-menubar rule
+ * wins on equal specificity — redeclare it here. Also drop the theme's 70px
+ * side padding; the inner .container handles gutters. */
+.physio-menubar.sticky-header {
+	position: fixed;
+	padding: 0;
+}
+
+/* Tighter menu spacing where the desktop menu is still shown but the
+ * container is 960px (lg: 992–1199). Social icons hide below xl already. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.physio-nav .header__menu .basic-menu > li {
+		margin-left: 14px;
+	}
+
+	.physio-nav .header__menu .basic-menu > li > a {
+		font-size: 13px;
+	}
+
+	.physio-nav .header__menu .basic-menu > li:last-child > a {
+		padding: 10px 18px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.physio-menubar-inner {
+		min-height: 80px;
+	}
+
+	.physio-logo img {
+		max-width: 160px;
+	}
 }
 
 /* -------------------------------------------------------------------------

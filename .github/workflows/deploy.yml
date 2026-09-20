@@ -16,65 +16,240 @@ jobs:
   deploy:
     name: Deploy Website
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
+          # Full history so `git diff` can compare against the commit
+          # that was live before this push.
+          fetch-depth: 0
 
-          # The site's document root on this hosting account
-          # (domain-specific htdocs, NOT the account-level one)
-          local-dir: ./
-          server-dir: ./physioelpida.gr/htdocs/
-
-          # Keep live-only and local-only paths out of sync scope.
-          # Anything excluded here is never uploaded AND never deleted
-          # from the server.
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/.env
-            **/.env.*
-            **/*.sql
-            **/*.bak
-            **/*.zip
-            **/wp-content/debug.log
-            **/wp-content/uploads/**
-            **/wp-content/cache/**
-            **/wp-content/upgrade/**
-            **/wp-content/w3tc-config/**
-            **/wp-content/advanced-cache.php
-            **/wp-content/plugins/w3-total-cache/**
-            **/.docker-local/**
-            **/docker-compose*.yml
-            **/docker-compose*.yaml
-            **/.claude/**
-            **/.ftp-live/**
-            **/README.md
-            **/CHANGELOG.md
-            **/CODE_OF_CONDUCT.md
-            **/CONTRIBUTING.md
-            **/SECURITY.md
-            **/LICENSE
-
-      # The live site runs W3 Total Cache (plugin lives on the server only,
-      # excluded above) which serves stale static HTML after each deploy.
-      # Delete the remote cache dir so pages regenerate from the new code.
-      - name: Purge remote page cache (W3TC)
+      - name: Install lftp
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq lftp >/dev/null
-          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
-            -e "set net:timeout 20; set net:max-retries 2; rm -r -f physioelpida.gr/htdocs/wp-content/cache; bye" \
-            "ftp://${{ secrets.FTP_SERVER }}" \
-            || echo "::warning::Remote cache purge failed — purge wp-content/cache manually if pages look stale"
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp >/dev/null
+
+      # Stage ONLY the files this push changed into .deploy/, so FTP
+      # transfers a handful of files instead of scanning ~11k tracked
+      # files on every commit.
+      - name: Prepare changed files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p .deploy
+
+          # For a push, GitHub tells us the commit that was live before.
+          # For a manual run (or first push), diff only the last commit.
+          if [[ "${{ github.event_name }}" == "push" ]] &&
+             [[ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]]; then
+            BASE="${{ github.event.before }}"
+          else
+            BASE="$(git rev-parse HEAD^)"
+          fi
+
+          echo "Deploying changes: $BASE -> $GITHUB_SHA"
+
+          export BASE
+
+          python3 <<'PY'
+          import os
+          import subprocess
+          import shutil
+          import fnmatch
+          from pathlib import Path
+
+          base = os.environ["BASE"]
+
+          # Same scope as the old FTP-Deploy-Action exclude list:
+          # excluded paths are never uploaded AND never deleted remotely.
+          excluded_prefixes = (
+              ".git/",
+              ".github/",
+              "node_modules/",
+              "wp-content/uploads/",
+              "wp-content/cache/",
+              "wp-content/upgrade/",
+              "wp-content/w3tc-config/",
+              "wp-content/plugins/w3-total-cache/",
+              ".docker-local/",
+              ".claude/",
+              ".ftp-live/",
+              ".playwright-mcp/",
+              ".playwright-cli/",
+          )
+
+          excluded_exact = {
+              ".env",
+              ".gitignore",
+              ".gitattributes",
+              ".editorconfig",
+              "wp-config.php",
+              "wp-content/debug.log",
+              "wp-content/advanced-cache.php",
+              "README.md",
+              "CHANGELOG.md",
+              "CODE_OF_CONDUCT.md",
+              "CONTRIBUTING.md",
+              "SECURITY.md",
+              "LICENSE",
+              # Local-only dev artifacts — never belong on the webroot.
+              # LOCAL-DB-NOTES.md in particular contains credentials.
+              "LOCAL-DB-NOTES.md",
+              "update-plugins.sh",
+              "home-fixed.png",
+              "home-live.png",
+          }
+
+          excluded_patterns = (
+              ".env.*",
+              "*.sql",
+              "*.bak",
+              "*.zip",
+              "*.log",
+              "docker-compose*.yml",
+              "docker-compose*.yaml",
+          )
+
+          def excluded(path):
+              path = path.replace("\\", "/")
+
+              if path in excluded_exact:
+                  return True
+
+              if path.startswith(excluded_prefixes):
+                  return True
+
+              name = Path(path).name
+
+              return any(
+                  fnmatch.fnmatch(path, pattern) or
+                  fnmatch.fnmatch(name, pattern)
+                  for pattern in excluded_patterns
+              )
+
+          result = subprocess.run(
+              ["git", "diff", "--name-status", "-M", "-z", base, "HEAD"],
+              check=True,
+              stdout=subprocess.PIPE,
+          )
+
+          parts = [
+              p for p in
+              result.stdout.decode("utf-8", errors="surrogateescape").split("\0")
+              if p
+          ]
+
+          uploads = []
+          deletes = []
+
+          i = 0
+          while i < len(parts):
+              status = parts[i]
+              i += 1
+
+              if status.startswith(("R", "C")):
+                  old = parts[i]
+                  new = parts[i + 1]
+                  i += 2
+
+                  if not excluded(old):
+                      deletes.append(old)
+                  if not excluded(new):
+                      uploads.append(new)
+              else:
+                  path = parts[i]
+                  i += 1
+
+                  if excluded(path):
+                      continue
+
+                  if status.startswith("D"):
+                      deletes.append(path)
+                  else:
+                      uploads.append(path)
+
+          deploy_root = Path(".deploy")
+
+          for filename in uploads:
+              src = Path(filename)
+              if not src.exists() or not src.is_file():
+                  continue
+
+              dest = deploy_root / src
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(src, dest)
+
+          with open(".deploy-deletes", "w", encoding="utf-8",
+                    errors="surrogateescape") as f:
+              for filename in deletes:
+                  f.write(filename + "\n")
+
+          print()
+          print(f"{len(uploads)} file(s) to upload")
+          print(f"{len(deletes)} file(s) to delete")
+
+          for f in uploads:
+              print("+", f)
+          for f in deletes:
+              print("-", f)
+          PY
+
+      # InfinityFree allows ~3 FTP connections per account and the
+      # control connection uses one — keep --parallel=2, not higher.
+      - name: Deploy changed files
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          REMOTE="physioelpida.gr/htdocs"
+
+          cat > .lftp-script <<EOF
+          set cmd:fail-exit yes
+          set net:timeout 30
+          set net:max-retries 3
+          set ftp:passive-mode yes
+
+          mirror \
+            --reverse \
+            --parallel=2 \
+            --ignore-time \
+            --no-perms \
+            --verbose=1 \
+            .deploy \
+            ${REMOTE}
+          EOF
+
+          # Remove files deleted/renamed in Git. rm -f won't error on
+          # already-missing paths. NOT mirror --delete: .deploy only
+          # holds changed files, so --delete would wipe the site.
+          python3 <<'PY' >> .lftp-script
+          from pathlib import Path
+
+          remote = "physioelpida.gr/htdocs"
+
+          p = Path(".deploy-deletes")
+          if p.exists():
+              for path in p.read_text(encoding="utf-8",
+                                      errors="surrogateescape").splitlines():
+                  path = path.replace("\\", "/").replace('"', '\\"')
+                  print(f'rm -f "{remote}/{path}"')
+          PY
+
+          echo "bye" >> .lftp-script
+
+          lftp \
+            -u "$FTP_USERNAME,$FTP_PASSWORD" \
+            "ftp://$FTP_SERVER" \
+            -f .lftp-script
+
+      # NOTE: no remote W3TC cache purge here — `rm -r wp-content/cache`
+      # over FTP deletes hundreds of files one-by-one and dominates the
+      # deploy time. Flush the cache from WP admin (Performance →
+      # purge all caches) after deploying changes that affect output.
