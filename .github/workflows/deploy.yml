@@ -14,6 +14,14 @@ on:
         description: 'Base commit to diff against (empty = event.before / HEAD^)'
         required: false
         type: string
+      delete:
+        # Escape hatch for remote cleanup — e.g. a file uploaded before
+        # it was added to the exclusion list. Excluded files can never
+        # reach the delete list via git diff, so this is the only way
+        # to remove them short of FTPing in by hand.
+        description: 'Extra remote paths to delete (comma-separated, repo-relative)'
+        required: false
+        type: string
 
 # One deploy at a time — a new push cancels the running one instead of
 # competing for InfinityFree's limited concurrent FTP connections.
@@ -45,6 +53,8 @@ jobs:
       # files on every commit.
       - name: Prepare changed files
         shell: bash
+        env:
+          DELETE_PATHS: ${{ inputs.delete }}
         run: |
           set -euo pipefail
 
@@ -185,6 +195,14 @@ jobs:
                       deletes.append(path)
                   else:
                       uploads.append(path)
+
+          # Manual-run extra deletes bypass the exclusion list on
+          # purpose — they exist to remove files the exclusions
+          # accidentally let through (or that predate them).
+          for p in os.environ.get("DELETE_PATHS", "").split(","):
+              p = p.strip().strip("/")
+              if p and p not in deletes:
+                  deletes.append(p)
 
           deploy_root = Path(".deploy")
 
