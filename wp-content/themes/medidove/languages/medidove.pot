@@ -1,0 +1,1140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Medidove\n"
+"POT-Creation-Date: 2019-06-21 10:22+0600\n"
+"PO-Revision-Date: 2019-06-21 10:22+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: 404.php:20
+msgid "404"
+msgstr ""
+
+#: 404.php:21
+msgid "Page not found"
+msgstr ""
+
+#: 404.php:24
+msgid ""
+"Oops! The page you are looking for does not exist. It might have been moved "
+"or deleted."
+msgstr ""
+
+#: 404.php:27
+msgid "Back To Home"
+msgstr ""
+
+#: comments.php:29
+msgid " Comments"
+msgstr ""
+
+#: comments.php:29
+msgid " Comment "
+msgstr ""
+
+#: comments.php:53
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:56
+msgid "&larr; Older "
+msgstr ""
+
+#: comments.php:59
+msgid "Newer &rarr;"
+msgstr ""
+
+#: functions.php:47
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:48
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:154
+msgid "Right Sidebar"
+msgstr ""
+
+#: functions.php:156
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:167
+msgid "Footer Widget"
+msgstr ""
+
+#: functions.php:169 functions.php:237
+msgid "Default Footer Widget"
+msgstr ""
+
+#: functions.php:182
+msgid "Footer Style 2 : Left"
+msgstr ""
+
+#: functions.php:184
+msgid "Footer 2 Column Widget"
+msgstr ""
+
+#: functions.php:195 functions.php:197
+msgid "Footer Style 2 : Center"
+msgstr ""
+
+#: functions.php:208 functions.php:210
+msgid "Footer Style 2 : Right"
+msgstr ""
+
+#: functions.php:222
+msgid "Footer Top"
+msgstr ""
+
+#: functions.php:224
+msgid "Footer Top Widget"
+msgstr ""
+
+#: functions.php:235
+msgid "Footer Style 3"
+msgstr ""
+
+#: functions.php:251
+msgid "Member Sidebar"
+msgstr ""
+
+#: functions.php:253
+msgid "Widgets in this area will be shown on Member Details Sidebar."
+msgstr ""
+
+#: functions.php:267
+msgid "Service Sidebar"
+msgstr ""
+
+#: functions.php:269
+msgid "Widgets in this area will be shown on Service Details Sidebar."
+msgstr ""
+
+#: functions.php:283
+msgid "Portfolio Sidebar"
+msgstr ""
+
+#: functions.php:285
+msgid "Widgets in this area will be shown on Portfolio Details Sidebar."
+msgstr ""
+
+#: functions.php:360
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:429
+msgid "Your Name...."
+msgstr ""
+
+#: functions.php:434
+msgid "Your Email...."
+msgstr ""
+
+#: functions.php:441 functions.php:454
+msgid "Your Comments...."
+msgstr ""
+
+#: functions.php:459
+msgid "Post Comment"
+msgstr ""
+
+#: functions.php:526
+msgid "medidove Demo Data"
+msgstr ""
+
+#: functions.php:531
+msgid ""
+"After you import this demo, you will have to setup the slider separately."
+msgstr ""
+
+#: functions.php:572
+msgid "Search"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:290 inc/medidove_add_plugin.php:91
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:291 inc/medidove_add_plugin.php:92
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/class-tgm-plugin-activation.php:293 inc/medidove_add_plugin.php:93
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/class-tgm-plugin-activation.php:295 inc/medidove_add_plugin.php:94
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:296 inc/medidove_add_plugin.php:95
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:299 inc/medidove_add_plugin.php:97
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:305 inc/medidove_add_plugin.php:102
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:311 inc/medidove_add_plugin.php:107
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:317 inc/medidove_add_plugin.php:112
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:323 inc/medidove_add_plugin.php:117
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:329 inc/medidove_add_plugin.php:122
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:334 inc/medidove_add_plugin.php:127
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:339 inc/medidove_add_plugin.php:132
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:344 inc/medidove_add_plugin.php:137
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:348 inc/medidove_add_plugin.php:141
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:349
+#: inc/class-tgm-plugin-activation.php:869
+#: inc/class-tgm-plugin-activation.php:2575
+#: inc/class-tgm-plugin-activation.php:3622
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:350
+#: inc/class-tgm-plugin-activation.php:3201 inc/medidove_add_plugin.php:142
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:351
+#: inc/class-tgm-plugin-activation.php:2994 inc/medidove_add_plugin.php:143
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:353 inc/medidove_add_plugin.php:144
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:355 inc/medidove_add_plugin.php:145
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: inc/class-tgm-plugin-activation.php:357 inc/medidove_add_plugin.php:146
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:358 inc/medidove_add_plugin.php:147
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:359 inc/medidove_add_plugin.php:148
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:360 inc/medidove_add_plugin.php:149
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:564
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:565
+msgid "Update Required"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:976
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:976
+#: inc/class-tgm-plugin-activation.php:979
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:979
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:1163
+#: inc/class-tgm-plugin-activation.php:2990
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: inc/class-tgm-plugin-activation.php:2024
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2315
+msgid "Required"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2318
+msgid "Recommended"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2334
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2337
+msgid "External Source"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2340
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2357
+msgid "Not Installed"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2361
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2363
+msgid "Active"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2369
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2372
+msgid "Requires Update"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2375
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: inc/class-tgm-plugin-activation.php:2384
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2430
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2434
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2438
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2442
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:2524
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2532
+msgid "Installed version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2540
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2552
+msgid "Available version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2575
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2589
+msgid "Plugin"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2590
+msgid "Source"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2591
+msgid "Type"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2595
+msgid "Version"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2596
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2645
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2650
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2656
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2726
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2759
+msgid "Install"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2765
+msgid "Update"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2768
+msgid "Activate"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2799
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2801
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2842
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2844
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2950
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2976
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3200
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3540
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/class-tgm-plugin-activation.php:3543
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3545
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3549
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3551
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3551
+#: inc/class-tgm-plugin-activation.php:3559
+msgid "Show Details"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3551
+#: inc/class-tgm-plugin-activation.php:3559
+msgid "Hide Details"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3552
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3554
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3557
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3559
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3560
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3562
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:29
+msgid "Elementor Page Builder"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:34
+msgid "Bdevs Toolkit "
+msgstr ""
+
+#: inc/medidove_add_plugin.php:41
+msgid "Bdevs Elementor "
+msgstr ""
+
+#: inc/medidove_add_plugin.php:48
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:53
+msgid "YITH WooCommerce Wishlist"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:58
+msgid "Contact Form 7"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:63
+msgid "Cmb2"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:68
+msgid "One Click Demo Import"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:73
+msgid "Mailchimp For WP"
+msgstr ""
+
+#: inc/medidove_customizer.php:153
+msgid "Yes"
+msgstr ""
+
+#: inc/medidove_customizer.php:154
+msgid "No"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:9
+msgid "Medidove Customizer"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:13
+msgid "Header Topbar Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:17
+msgid "Topbar Swicher"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:24 inc/template-helper.php:117
+msgid "Phone Number"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:31 inc/template-helper.php:105
+msgid "Email Address"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:39
+msgid "Show Button"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:46
+msgid "Button Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:48 inc/medidove_customizer_data.php:70
+msgid "Make Appointment"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:53
+msgid "Button Link"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:61
+msgid "Show Contact Button"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:68
+msgid "Contact Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:75
+msgid "Contact Link"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:83
+msgid "Show Call Button"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:90
+msgid "Call Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:92
+msgid "Make A Call"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:97
+msgid "Call Link"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:105 inc/medidove_customizer_data.php:213
+msgid "Facebook Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:112 inc/medidove_customizer_data.php:237
+msgid "Behance Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:119
+msgid "Youtube Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:126
+msgid "Linkin Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:133
+msgid "Pinterest Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:142
+msgid "Header Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:146
+msgid "Header Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:153
+msgid "Header White Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:160
+msgid "Header Retina Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:167
+msgid "Header Retina White Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:174
+msgid "Breadcrumb Background Image"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:181
+msgid "Show Language"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:190
+msgid "Footer Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:194
+msgid "Footer Switch"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:201
+msgid "Footer Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:207
+msgid "Footer Test"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:209
+msgid "Minimal & Crative Portfolio/CV/Biodata Solution in One Platform."
+msgstr ""
+
+#: inc/medidove_customizer_data.php:219
+msgid "Twitter Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:225
+msgid "Google Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:231
+msgid "Instagram Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:243 inc/medidove_customizer_data.php:245
+msgid "Footer Right Contact Info"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:249
+msgid "Copy Right"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:251
+msgid "Copyright &copy;2019 BasicTheme. All Rights Reserved Copyright"
+msgstr ""
+
+#: inc/medidove_navwalker.php:366 inc/template-helper.php:760
+msgid "Home"
+msgstr ""
+
+#: inc/template-functions.php:33
+msgid "Post Tags"
+msgstr ""
+
+#: inc/template-helper.php:93 inc/template-helper.php:198
+msgid "EN"
+msgstr ""
+
+#: inc/template-helper.php:102 inc/template-helper.php:114
+msgid "Icon"
+msgstr ""
+
+#: inc/template-helper.php:243
+msgid "USA"
+msgstr ""
+
+#: inc/template-helper.php:244
+msgid "UK"
+msgstr ""
+
+#: inc/template-helper.php:245
+msgid "CA"
+msgstr ""
+
+#: inc/template-helper.php:246
+msgid "AU"
+msgstr ""
+
+#: inc/template-helper.php:398
+msgid "+"
+msgstr ""
+
+#: inc/template-helper.php:586
+msgid "Copyright ©2019 BasicTheme. All Rights Reserved"
+msgstr ""
+
+#: inc/template-helper.php:606
+msgid "Blog"
+msgstr ""
+
+#: inc/template-helper.php:663
+msgid "Product Details"
+msgstr ""
+
+#: inc/template-helper.php:696
+msgid "Blog Details"
+msgstr ""
+
+#: inc/template-helper.php:735
+msgid "Search here..."
+msgstr ""
+
+#: inc/template-helper.php:771
+msgid "Archive for category"
+msgstr ""
+
+#: inc/template-helper.php:775
+msgid "Search results for"
+msgstr ""
+
+#: inc/template-helper.php:845
+msgid "Posts tagged"
+msgstr ""
+
+#: inc/template-helper.php:851
+msgid "Articles posted by"
+msgstr ""
+
+#: inc/template-helper.php:860 template-parts/content-page.php:9
+msgid "Page"
+msgstr ""
+
+#: search.php:24
+msgid "Search Results For:"
+msgstr ""
+
+#: single.php:37
+msgid "Prev Post"
+msgstr ""
+
+#: single.php:46
+msgid "Next Post"
+msgstr ""
+
+#: template-parts/content-audio.php:34 template-parts/content-gallery.php:37
+#: template-parts/content-image.php:35
+#: template-parts/content-left-sidebar.php:35 template-parts/content-page.php:5
+#: template-parts/content-search.php:35 template-parts/content-video.php:37
+#: template-parts/content.php:35
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-audio.php:70 template-parts/content-gallery.php:78
+#: template-parts/content-image.php:74
+#: template-parts/content-left-sidebar.php:74
+#: template-parts/content-search.php:74
+#: template-parts/content-three-columns.php:27
+#: template-parts/content-two-columns.php:28
+#: template-parts/content-video.php:76 template-parts/content.php:74
+msgid "Read More"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:80
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:100
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:106
+#: woocommerce/global/quantity-input.php:31
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:124
+msgid "Total"
+msgstr ""
+
+#: woocommerce/cart/cart.php:59
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:95
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:147
+msgid "Update cart"
+msgstr ""
+
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to checkout"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:29
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:55
+msgid "Your order"
+msgstr ""
+
+#. translators: %s: Quantity.
+#: woocommerce/global/quantity-input.php:28
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:41
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr ""
+
+#. translators: %d: total results
+#: woocommerce/loop/result-count.php:31
+#, php-format
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: first result 2: last result 3: total results
+#: woocommerce/loop/result-count.php:36
+#, php-format
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:46
+msgid "There are no reviews yet."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:61
+msgid "Add a Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:62
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:67
+msgid "Name"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:69
+msgid "Email"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:72
+msgid "Add your Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:78
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:82
+msgid "Your rating"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:83
+msgid "Rate&hellip;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:84
+msgid "Perfect"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:85
+msgid "Good"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:86
+msgid "Average"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:87
+msgid "Not that bad"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:88
+msgid "Very poor"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:92
+msgid "YOUR REVIEW"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:102
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:42
+msgid "img"
+msgstr ""
+
+#: woocommerce/single-product/related.php:26
+msgid "Related Products"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:27
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:37
+msgid "verified owner"
+msgstr ""
+
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/single-product/tabs/description.php:25
+msgid "Description"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Medidove"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://bdevs.net/theme/medidove/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "MediDove - Health and Medical WordPress Theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "BasicTheme"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://themeforest.net/user/basictheme/portfolio"
+msgstr ""

@@ -1,0 +1,1785 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Medidove\n"
+"POT-Creation-Date: 2021-06-08 12:30+0600\n"
+"PO-Revision-Date: 2021-06-08 12:30+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: comments.php:29
+msgid " Comments"
+msgstr " تعليقات"
+
+#: comments.php:29
+msgid " Comment "
+msgstr "تعليق"
+
+#: comments.php:53
+msgid "Comment navigation"
+msgstr "تصفح التعليقات"
+
+#: comments.php:56
+msgid "&larr; Older "
+msgstr "‫&larr; الأقدم"
+
+#: comments.php:59
+msgid "Newer &rarr;"
+msgstr "الاحدث &rarr;"
+
+#: functions.php:47
+msgid "Main Menu"
+msgstr "القائمة الرئيسية"
+
+#: functions.php:48
+msgid "Header Top Menu"
+msgstr "القائمة الرئيسية بالاغلى"
+
+#: functions.php:49
+msgid "Footer Menu"
+msgstr "قائمة الفوتر"
+
+#: functions.php:157
+msgid "Right Sidebar"
+msgstr "الشريط الجانبي الأيمن"
+
+#: functions.php:159
+msgid "Add widgets here."
+msgstr "اضف ودجات هنا."
+
+#: functions.php:170
+msgid "Footer Widget"
+msgstr "ودجت التذييل"
+
+#: functions.php:172 functions.php:240
+msgid "Default Footer Widget"
+msgstr ""
+
+#: functions.php:185
+msgid "Footer Style 2 : Left"
+msgstr ""
+
+#: functions.php:187
+msgid "Footer 2 Column Widget"
+msgstr ""
+
+#: functions.php:198 functions.php:200
+msgid "Footer Style 2 : Center"
+msgstr ""
+
+#: functions.php:211 functions.php:213
+msgid "Footer Style 2 : Right"
+msgstr ""
+
+#: functions.php:225
+msgid "Footer Top"
+msgstr "تذييل الأعلى"
+
+#: functions.php:227
+msgid "Footer Top Widget"
+msgstr "الفوتر الأعلى القطعة"
+
+#: functions.php:238
+msgid "Footer Style 3"
+msgstr ""
+
+#: functions.php:254
+msgid "Footer Widget Style 4 : Company Info"
+msgstr ""
+
+#: functions.php:256
+msgid "1st Widget of Footer Widget Style 4"
+msgstr ""
+
+#: functions.php:268
+msgid "Footer Widget Style 4 : More Links"
+msgstr ""
+
+#: functions.php:270
+msgid "2nd Widget of Footer Widget Style 4"
+msgstr ""
+
+#: functions.php:281
+msgid "Footer Widget Style 4 : Recent News"
+msgstr ""
+
+#: functions.php:283
+msgid "3rd Widget of Footer Widget Style 4"
+msgstr ""
+
+#: functions.php:295
+msgid "Footer Widget Style 4 : Opening Hours"
+msgstr ""
+
+#: functions.php:297
+msgid "4th Widget of Footer Widget Style 4"
+msgstr "4th Widget of Footer Widget Style 4"
+
+#: functions.php:310
+msgid "Member Sidebar"
+msgstr ""
+
+#: functions.php:312
+msgid "Widgets in this area will be shown on Member Details Sidebar."
+msgstr ""
+
+#: functions.php:327
+msgid "Service Sidebar"
+msgstr ""
+
+#: functions.php:329
+msgid "Widgets in this area will be shown on Service Details Sidebar."
+msgstr ""
+
+#: functions.php:343
+msgid "Portfolio Sidebar"
+msgstr "الشريط الجانبي للمعرض"
+
+#: functions.php:345
+msgid "Widgets in this area will be shown on Portfolio Details Sidebar."
+msgstr ""
+
+#: functions.php:437
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr "على"
+
+#: functions.php:510
+msgid "Your name *"
+msgstr "اسمك*"
+
+#: functions.php:516
+msgid "Your email *"
+msgstr "بريدك*"
+
+#: functions.php:524 functions.php:538
+msgid "Comments *"
+msgstr "التعليقات*"
+
+#: functions.php:544
+msgid "Post Comment"
+msgstr "أضف تعليقا"
+
+#: functions.php:615
+msgid "Search"
+msgstr "بحث"
+
+#: inc/class-breadcrumb.php:246
+msgid "Browse:"
+msgstr "تصفح:"
+
+#: inc/class-breadcrumb.php:247
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "شريط التسلسل"
+
+#: inc/class-breadcrumb.php:248 inc/medidove_customizer_data.php:530
+#: inc/medidove_customizer_data.php:537 inc/medidove_navwalker.php:366
+msgid "Home"
+msgstr "الرئيسية"
+
+#: inc/class-breadcrumb.php:249
+msgid "404 Not Found"
+msgstr "404 غير موجود"
+
+#: inc/class-breadcrumb.php:250
+msgid "Archives"
+msgstr "الأرشيف"
+
+#: inc/class-breadcrumb.php:252
+#, php-format
+msgid "Search results for: %s"
+msgstr "نتائج البحث عن: %s"
+
+#: inc/class-breadcrumb.php:254
+#, php-format
+msgid "Page %s"
+msgstr "صفحة %s"
+
+#: inc/class-breadcrumb.php:256
+#, php-format
+msgid "Comment Page %s"
+msgstr "صفحة التعليق %s"
+
+#: inc/class-breadcrumb.php:258
+#, php-format
+msgid "Minute %s"
+msgstr "دقيقة %s"
+
+#: inc/class-breadcrumb.php:260
+#, php-format
+msgid "Week %s"
+msgstr "اسبوع %s"
+
+#: inc/class-breadcrumb.php:720
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#: inc/class-breadcrumb.php:737
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "‏i"
+
+#: inc/class-breadcrumb.php:754
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "g e"
+
+#: inc/class-breadcrumb.php:770 inc/class-breadcrumb.php:799
+#: inc/class-breadcrumb.php:826 inc/class-breadcrumb.php:853
+#: inc/class-breadcrumb.php:1194
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/class-breadcrumb.php:771 inc/class-breadcrumb.php:827
+#: inc/class-breadcrumb.php:1198
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: inc/class-breadcrumb.php:772 inc/class-breadcrumb.php:1202
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: inc/class-breadcrumb.php:800
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "ف"
+
+#: inc/class-tgm-plugin-activation.php:290 inc/medidove_add_plugin.php:122
+msgid "Install Required Plugins"
+msgstr "تثبيت الإضافات المطلوبة"
+
+#: inc/class-tgm-plugin-activation.php:291 inc/medidove_add_plugin.php:123
+msgid "Install Plugins"
+msgstr "تثبيت الإضافات"
+
+#. translators: %s: plugin name.
+#: inc/class-tgm-plugin-activation.php:293 inc/medidove_add_plugin.php:124
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "تثبيت الإضافة : %s"
+
+#. translators: %s: plugin name.
+#: inc/class-tgm-plugin-activation.php:295 inc/medidove_add_plugin.php:125
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "تحديث الاضافة  %s"
+
+#: inc/class-tgm-plugin-activation.php:296 inc/medidove_add_plugin.php:126
+msgid "Something went wrong with the plugin API."
+msgstr "حدث خطأ مع API المساعد."
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:299 inc/medidove_add_plugin.php:128
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "هذا القالب يوصى بتركيب الإضافة التالية: %1$s."
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:305 inc/medidove_add_plugin.php:133
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "هذا القالب يوصي بتركيب الإضافة التالية: %1$s."
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:311 inc/medidove_add_plugin.php:138
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"يحتاج البرنامج المساعد التالي إلى تحديث إلى أحدث إصدار لضمان أقصى قدر من "
+"التوافق مع هذا الموضوع: %1$s."
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:317 inc/medidove_add_plugin.php:143
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "هناك تحديث متوفر لل: %1$s."
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:323 inc/medidove_add_plugin.php:148
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "الإضافة المطلوبة التالية غير نشطة حاليا:%1$s."
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: inc/class-tgm-plugin-activation.php:329 inc/medidove_add_plugin.php:153
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: inc/class-tgm-plugin-activation.php:334 inc/medidove_add_plugin.php:158
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "بدأ تنصيب الاضافة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: inc/class-tgm-plugin-activation.php:339 inc/medidove_add_plugin.php:163
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "البدء بتحديث الإضافة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: inc/class-tgm-plugin-activation.php:344 inc/medidove_add_plugin.php:168
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "البدء بتفعيل الإضافة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: inc/class-tgm-plugin-activation.php:348 inc/medidove_add_plugin.php:172
+msgid "Return to Required Plugins Installer"
+msgstr "الرجوع إلى مثبت الإضافات المطلوبة"
+
+#: inc/class-tgm-plugin-activation.php:349
+#: inc/class-tgm-plugin-activation.php:869
+#: inc/class-tgm-plugin-activation.php:2575
+#: inc/class-tgm-plugin-activation.php:3622
+msgid "Return to the Dashboard"
+msgstr "العودة إلى لوحة التحكم الرئيسية"
+
+#: inc/class-tgm-plugin-activation.php:350
+#: inc/class-tgm-plugin-activation.php:3201 inc/medidove_add_plugin.php:173
+msgid "Plugin activated successfully."
+msgstr "تم تفعيل الإضافة بنجاح."
+
+#: inc/class-tgm-plugin-activation.php:351
+#: inc/class-tgm-plugin-activation.php:2994 inc/medidove_add_plugin.php:174
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "الإضافة التالية تم تنشيطها بنجاح:"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:353 inc/medidove_add_plugin.php:175
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "لم يتم اتخاذ أي إجراء. الاضافات نشطه %1$s بالفعل نشط."
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:355 inc/medidove_add_plugin.php:176
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"لم يتم تفعيل الإضافة. إصدار أعلى من %s مطلوب لهذا القالب. يرجى تحديث الإضافة."
+
+#. translators: 1: dashboard link.
+#: inc/class-tgm-plugin-activation.php:357 inc/medidove_add_plugin.php:177
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "جميع الاضافات تم تفعيلها بنجاح . %1$s"
+
+#: inc/class-tgm-plugin-activation.php:358 inc/medidove_add_plugin.php:178
+msgid "Dismiss this notice"
+msgstr "تجاهل هذا الاشعار"
+
+#: inc/class-tgm-plugin-activation.php:359 inc/medidove_add_plugin.php:179
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"هناك واحدة او اكثر من الاضافات المطلوبة او الموصى بها لتثبيتها, تحديثها او "
+"تفعيلها."
+
+#: inc/class-tgm-plugin-activation.php:360 inc/medidove_add_plugin.php:180
+msgid "Please contact the administrator of this site for help."
+msgstr "الرجاء الاتصال بمسؤول هذا الموقع للحصول على المساعدة."
+
+#: inc/class-tgm-plugin-activation.php:564
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "يحتاج هذا البرنامج المساعد لتحديث لتكون متوافقة مع الموضوع الخاص بك."
+
+#: inc/class-tgm-plugin-activation.php:565
+msgid "Update Required"
+msgstr "التحديث مطلوب"
+
+#: inc/class-tgm-plugin-activation.php:976
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:976
+#: inc/class-tgm-plugin-activation.php:979
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"يرجى الاتصال بمزودي الإضافة وسؤالهم عن تجميع الإضافة بما يتناسب مع توجيهات "
+"الووردبرس."
+
+#: inc/class-tgm-plugin-activation.php:979
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"تتكون حزمة الإضافات على أكثر من ملف, لاكن لم يتم جمع الملفات في مجلد واحد."
+
+#: inc/class-tgm-plugin-activation.php:1163
+#: inc/class-tgm-plugin-activation.php:2990
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "و"
+
+#. translators: %s: version number
+#: inc/class-tgm-plugin-activation.php:2024
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: inc/class-tgm-plugin-activation.php:2315
+msgid "Required"
+msgstr "مطلوب"
+
+#: inc/class-tgm-plugin-activation.php:2318
+msgid "Recommended"
+msgstr "موصى به"
+
+#: inc/class-tgm-plugin-activation.php:2334
+msgid "WordPress Repository"
+msgstr "مستودع ووردبريس"
+
+#: inc/class-tgm-plugin-activation.php:2337
+msgid "External Source"
+msgstr "مصدر خارجي"
+
+#: inc/class-tgm-plugin-activation.php:2340
+msgid "Pre-Packaged"
+msgstr "المجموعة مجهزة مسبقا"
+
+#: inc/class-tgm-plugin-activation.php:2357
+msgid "Not Installed"
+msgstr "غير مثبت"
+
+#: inc/class-tgm-plugin-activation.php:2361
+msgid "Installed But Not Activated"
+msgstr "تم التثبيت ولكن لم يفعل"
+
+#: inc/class-tgm-plugin-activation.php:2363
+msgid "Active"
+msgstr "نشط"
+
+#: inc/class-tgm-plugin-activation.php:2369
+msgid "Required Update not Available"
+msgstr "التحديث المطلوب غير متوفر"
+
+#: inc/class-tgm-plugin-activation.php:2372
+msgid "Requires Update"
+msgstr "يتطلب تحديث"
+
+#: inc/class-tgm-plugin-activation.php:2375
+msgid "Update recommended"
+msgstr "تحديث موصى به"
+
+#. translators: 1: install status, 2: update status
+#: inc/class-tgm-plugin-activation.php:2384
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2430
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "الكل <span class=\"count\">(%s)</span>"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2434
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "تنزيل حزمة التثبيت من <span class=“count”>(%s)</span>"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2438
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "تحديث متوفر <span class=“count”>(%s)</span>"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: inc/class-tgm-plugin-activation.php:2442
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "تفعيل <span class=“count”>(%s)</span>"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: inc/class-tgm-plugin-activation.php:2524
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "غير معروف"
+
+#: inc/class-tgm-plugin-activation.php:2532
+msgid "Installed version:"
+msgstr "الإصدار المثبت:"
+
+#: inc/class-tgm-plugin-activation.php:2540
+msgid "Minimum required version:"
+msgstr "الحد الأدنى للإصدار المطلوب:"
+
+#: inc/class-tgm-plugin-activation.php:2552
+msgid "Available version:"
+msgstr "الإصدار المتوفر:"
+
+#: inc/class-tgm-plugin-activation.php:2575
+msgid "No plugins to install, update or activate."
+msgstr "لا توجد إضافات للتثبيت أو التحديث أو التفعيل."
+
+#: inc/class-tgm-plugin-activation.php:2589
+msgid "Plugin"
+msgstr "إضافة"
+
+#: inc/class-tgm-plugin-activation.php:2590
+msgid "Source"
+msgstr "المصدر"
+
+#: inc/class-tgm-plugin-activation.php:2591
+msgid "Type"
+msgstr "النوع"
+
+#: inc/class-tgm-plugin-activation.php:2595
+msgid "Version"
+msgstr "الإصدار"
+
+#: inc/class-tgm-plugin-activation.php:2596
+msgid "Status"
+msgstr "الحالة"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2645
+#, php-format
+msgid "Install %2$s"
+msgstr "تثبيت %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2650
+#, php-format
+msgid "Update %2$s"
+msgstr "تحديث %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/class-tgm-plugin-activation.php:2656
+#, php-format
+msgid "Activate %2$s"
+msgstr "تفعيل %2$s"
+
+#: inc/class-tgm-plugin-activation.php:2726
+msgid "Upgrade message from the plugin author:"
+msgstr "رسالة تحديث من مبرمج  الإضافة:"
+
+#: inc/class-tgm-plugin-activation.php:2759
+msgid "Install"
+msgstr "تثبيت"
+
+#: inc/class-tgm-plugin-activation.php:2765
+msgid "Update"
+msgstr "تحديث"
+
+#: inc/class-tgm-plugin-activation.php:2768
+msgid "Activate"
+msgstr "تفعيل"
+
+#: inc/class-tgm-plugin-activation.php:2799
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "لم يتم تحديد أي إضافات للتثبيت. بناءاً على ذلك لم يتم إتخاذ أي إجراء."
+
+#: inc/class-tgm-plugin-activation.php:2801
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "لم يتم تحديد إضافات للتحديث ، لن يتم اتخاذ أى إجراء."
+
+#: inc/class-tgm-plugin-activation.php:2842
+msgid "No plugins are available to be installed at this time."
+msgstr "لا يوجد اي اضافات للتثبيت في الوقت الحالي."
+
+#: inc/class-tgm-plugin-activation.php:2844
+msgid "No plugins are available to be updated at this time."
+msgstr "لا اضافات متاحة ليتم تحديتها في هذاالوقت"
+
+#: inc/class-tgm-plugin-activation.php:2950
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "لم يتم تحديد أي إضافات للتفعيل. لم يتم إتخاذ أي إجراء."
+
+#: inc/class-tgm-plugin-activation.php:2976
+msgid "No plugins are available to be activated at this time."
+msgstr "لا يوجد اي اضافات للتفعيل في الوقت الحالي."
+
+#: inc/class-tgm-plugin-activation.php:3200
+msgid "Plugin activation failed."
+msgstr "فشل تفعيل الاضافة"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3540
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "تحديث الإضافة %1$s (%2$d/%3$d)"
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/class-tgm-plugin-activation.php:3543
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "حدث خطأ أثناء عملية التثبيت %1$s: <strong>%2$s</strong>."
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3545
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "فشل تثبيت %1$s."
+
+#: inc/class-tgm-plugin-activation.php:3549
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3551
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s تم التثبيت و التفعيل بنجاح ."
+
+#: inc/class-tgm-plugin-activation.php:3551
+#: inc/class-tgm-plugin-activation.php:3559
+msgid "Show Details"
+msgstr "إظهار التفاصيل"
+
+#: inc/class-tgm-plugin-activation.php:3551
+#: inc/class-tgm-plugin-activation.php:3559
+msgid "Hide Details"
+msgstr "إخفاء التفاصيل"
+
+#: inc/class-tgm-plugin-activation.php:3552
+msgid "All installations and activations have been completed."
+msgstr "جميع التنزيلات والتفعيل اكتملت"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3554
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "تثبيت وتفعيل الإضافة %1$s (%2$d/%3$d)"
+
+#: inc/class-tgm-plugin-activation.php:3557
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"عملية التثبيت بدأت. قد تستغرق هذه العملية بعض الوقت، لذا يرجى الانتظار ."
+
+#. translators: 1: plugin name.
+#: inc/class-tgm-plugin-activation.php:3559
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s تم التثبيت بنجاح."
+
+#: inc/class-tgm-plugin-activation.php:3560
+msgid "All installations have been completed."
+msgstr "تم اكتمال جميع عمليات التثبيت."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/class-tgm-plugin-activation.php:3562
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "تثبيت الإضافة %1$s (%2$d/%3$d)"
+
+#: inc/medidove_add_plugin.php:29
+msgid "Elementor Page Builder"
+msgstr "صانع الصفحات اليمنتر"
+
+#: inc/medidove_add_plugin.php:34
+msgid "Bdevs Toolkit "
+msgstr ""
+
+#: inc/medidove_add_plugin.php:41
+msgid "Bdevs Elementor "
+msgstr ""
+
+#: inc/medidove_add_plugin.php:48
+msgid "WPML Multilingual CMS"
+msgstr "WPML Multilingual CMS"
+
+#: inc/medidove_add_plugin.php:55
+msgid "WPML String Translation"
+msgstr "WPML String Translation"
+
+#: inc/medidove_add_plugin.php:62
+msgid "WPML Translation ManagementS"
+msgstr "إدارة الترجمة WPML"
+
+#: inc/medidove_add_plugin.php:69
+msgid "WP Classic Editor"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:74
+msgid "WooCommerce"
+msgstr "ووكومرس"
+
+#: inc/medidove_add_plugin.php:79
+msgid "YITH WooCommerce Wishlist"
+msgstr "YITH WooCommerce قائمة المفضلة"
+
+#: inc/medidove_add_plugin.php:84
+msgid "Contact Form 7"
+msgstr "نموذج الاتصال 7"
+
+#: inc/medidove_add_plugin.php:89
+msgid "Cmb2"
+msgstr "Cmb2"
+
+#: inc/medidove_add_plugin.php:94
+msgid "One Click Demo Import"
+msgstr "ضغطه واحدة لاستيراد المثال التجريبي"
+
+#: inc/medidove_add_plugin.php:99
+msgid "Mailchimp For WP"
+msgstr ""
+
+#: inc/medidove_add_plugin.php:104
+msgid "Instagram Widget For WP"
+msgstr ""
+
+#: inc/medidove_customizer.php:153
+msgid "Yes"
+msgstr "نعم"
+
+#: inc/medidove_customizer.php:154
+msgid "No"
+msgstr "لا"
+
+#: inc/medidove_customizer_data.php:9
+msgid "Medidove Customizer"
+msgstr "مخصص Medidove"
+
+#: inc/medidove_customizer_data.php:13
+msgid "Header Topbar Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:17
+msgid "Header Topbar BG"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:19 inc/medidove_customizer_data.php:377
+msgid "#F4F9FD"
+msgstr "#F4F9FD"
+
+#: inc/medidove_customizer_data.php:23
+msgid "Header Topbar BG Image"
+msgstr "Header Topbar BG Image"
+
+#: inc/medidove_customizer_data.php:30
+msgid "Topbar Swicher"
+msgstr "Topbar Swicher"
+
+#: inc/medidove_customizer_data.php:37
+msgid "Header Top Address"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:44
+msgid "Header Top RTL Address"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:51
+msgid "Header CTA Message Icon"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:58
+msgid "Phone Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:65
+msgid "Phone RTL Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:72
+msgid "Header CTA Phone Icon"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:79
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: inc/medidove_customizer_data.php:86
+msgid "Phone RTL Number"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:93
+msgid "Email Label Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:100
+msgid "Email RTL Label Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:107
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: inc/medidove_customizer_data.php:114
+msgid "Topbar Time Shedule"
+msgstr "Topbar Time Shedule"
+
+#: inc/medidove_customizer_data.php:121
+msgid "Topbar Time RTL Shedule"
+msgstr "Topbar Time RTL Shedule"
+
+#: inc/medidove_customizer_data.php:129
+msgid "Show Button"
+msgstr "إظهار الزر"
+
+#: inc/medidove_customizer_data.php:136
+msgid "Button Text"
+msgstr "نص الزر"
+
+#: inc/medidove_customizer_data.php:138 inc/medidove_customizer_data.php:145
+#: inc/medidove_customizer_data.php:167 inc/medidove_customizer_data.php:174
+msgid "Make Appointment"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:143
+msgid "Button rtl Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:150
+msgid "Button Link"
+msgstr "رابط الزر"
+
+#: inc/medidove_customizer_data.php:158
+msgid "Show Contact Button"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:165
+msgid "Contact Text"
+msgstr "نص الاتصال"
+
+#: inc/medidove_customizer_data.php:172
+msgid "Contact RTL Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:179
+msgid "Contact Link"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:187
+msgid "Show Call Button"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:194
+msgid "Call Text"
+msgstr "نص الاتصال"
+
+#: inc/medidove_customizer_data.php:196 inc/medidove_customizer_data.php:203
+msgid "Make A Call"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:201
+msgid "Call RTL Text"
+msgstr "الاتصال نص RTL"
+
+#: inc/medidove_customizer_data.php:208
+msgid "Call Link"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:217
+msgid "Header Social Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:219
+msgid "To hide the field please use # in text field."
+msgstr ""
+
+#: inc/medidove_customizer_data.php:223
+msgid "Facebook Url"
+msgstr "رابط فيس بوك"
+
+#: inc/medidove_customizer_data.php:230
+msgid "Instagram Url"
+msgstr "رابط لانستجرام"
+
+#: inc/medidove_customizer_data.php:237
+msgid "Youtube Url"
+msgstr "رابط يوتيوب"
+
+#: inc/medidove_customizer_data.php:244
+msgid "Linkin Url"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:251
+msgid "Pinterest Url"
+msgstr "رابط البنترست"
+
+#: inc/medidove_customizer_data.php:261
+msgid "Header Setting"
+msgstr "اعداد الراس"
+
+#: inc/medidove_customizer_data.php:265
+msgid "Choose Header Style"
+msgstr "اختر نسق الترويسة"
+
+#: inc/medidove_customizer_data.php:279
+msgid "Header Logo"
+msgstr "شعار رأس الصفحة"
+
+#: inc/medidove_customizer_data.php:287
+msgid "Header RTL Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:295
+msgid "Header White Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:303
+msgid "Header White RTL Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:311
+msgid "Header Retina Logo"
+msgstr "شعار رأس شبكية"
+
+#: inc/medidove_customizer_data.php:319
+msgid "Header Retina RTL Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:326
+msgid "Header Retina White Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:333
+msgid "Header Retina White RTL Logo"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:340
+msgid "Favicon"
+msgstr "رمز الموقع"
+
+#: inc/medidove_customizer_data.php:347
+msgid "Show Language"
+msgstr "إظهار اللغة"
+
+#: inc/medidove_customizer_data.php:355
+msgid "Show Header Search"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:362
+msgid "Enable Sticky Menu"
+msgstr "تفعيل القائمة الملتصقه"
+
+#: inc/medidove_customizer_data.php:371
+msgid "Breadcrumb Setting"
+msgstr "إعدادات Breadcrumb"
+
+#: inc/medidove_customizer_data.php:375
+msgid "Breadcrumb BG Color"
+msgstr "Breadcrumb BG Color"
+
+#: inc/medidove_customizer_data.php:381
+msgid "Page Title Font Size"
+msgstr "عنوان الصفحة- حجم الخط"
+
+#: inc/medidove_customizer_data.php:383
+msgid "48px"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:388
+msgid "Breadcrumb Padding Top"
+msgstr "Breadcrumb Padding Top"
+
+#: inc/medidove_customizer_data.php:390 inc/medidove_customizer_data.php:397
+msgid "160px"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:395
+msgid "Breadcrumb Bottom Top"
+msgstr "Breadcrumb Bottom Top"
+
+#: inc/medidove_customizer_data.php:402
+msgid "Breadcrumb Background Image"
+msgstr "Breadcrumb Background Image"
+
+#: inc/medidove_customizer_data.php:409
+msgid "Product Details Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:411
+msgid "Product Details"
+msgstr "تفاصيل المنتج"
+
+#: inc/medidove_customizer_data.php:416
+msgid "Department Details Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:418 inc/medidove_customizer_data.php:425
+msgid "Department Details"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:423
+msgid "Department Details RTL Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:430
+msgid "Breadcrumb Archive"
+msgstr "Breadcrumb Archive"
+
+#: inc/medidove_customizer_data.php:432 inc/medidove_customizer_data.php:439
+msgid "Archive for category"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:437
+msgid "Breadcrumb RTL Archive"
+msgstr "Breadcrumb RTL Archive"
+
+#: inc/medidove_customizer_data.php:444
+msgid "Breadcrumb Search"
+msgstr "Breadcrumb Search"
+
+#: inc/medidove_customizer_data.php:446 inc/medidove_customizer_data.php:453
+msgid "Search results for"
+msgstr "نتائج البحث عن"
+
+#: inc/medidove_customizer_data.php:451
+msgid "Breadcrumb RTL Search"
+msgstr "Breadcrumb RTL Search"
+
+#: inc/medidove_customizer_data.php:458
+msgid "Breadcrumb tagged"
+msgstr "Breadcrumb tagged"
+
+#: inc/medidove_customizer_data.php:460 inc/medidove_customizer_data.php:467
+msgid "Posts tagged"
+msgstr "منشورات متعلقة"
+
+#: inc/medidove_customizer_data.php:465
+msgid "Breadcrumb rtl tagged"
+msgstr "Breadcrumb rtl tagged"
+
+#: inc/medidove_customizer_data.php:472
+msgid "Breadcrumb posted by"
+msgstr "Breadcrumb posted by"
+
+#: inc/medidove_customizer_data.php:474 inc/medidove_customizer_data.php:481
+msgid "Articles posted by"
+msgstr "المقالات التي نشرت من قبل"
+
+#: inc/medidove_customizer_data.php:479
+msgid "Breadcrumb rtl posted by "
+msgstr "مسارات التنقل لصفحةتم نشرها بواسطة rtl"
+
+#: inc/medidove_customizer_data.php:486
+msgid "Breadcrumb Page Not Found"
+msgstr "مسارات التنقل لصفحة هذه الصفحة غير موجودة"
+
+#: inc/medidove_customizer_data.php:488 inc/medidove_customizer_data.php:495
+msgid "Page Not Found"
+msgstr "الصفحة غير موجودة"
+
+#: inc/medidove_customizer_data.php:493
+msgid "Breadcrumb rtl Page Not Found"
+msgstr "مسارات التنقل لصفحة هذه الصفحة غير موجودة rtl"
+
+#: inc/medidove_customizer_data.php:500
+msgid "Breadcrumb Page"
+msgstr "مسارات التنقل للصفحة"
+
+#: inc/medidove_customizer_data.php:502 inc/medidove_customizer_data.php:509
+#: template-parts/content-page.php:9
+msgid "Page"
+msgstr "صفحة"
+
+#: inc/medidove_customizer_data.php:507
+msgid "Breadcrumb rtl Page"
+msgstr "مسارات التنقل صفحة rtl"
+
+#: inc/medidove_customizer_data.php:514
+msgid "Breadcrumb Shop"
+msgstr "مسارات التنقل صفحة المتجر"
+
+#: inc/medidove_customizer_data.php:516 inc/medidove_customizer_data.php:523
+#: inc/template-helper.php:1297
+msgid "Shop"
+msgstr "المتجر"
+
+#: inc/medidove_customizer_data.php:521
+msgid "Breadcrumb rtl Shop"
+msgstr "مسارات التنقل صفحة المتجر rtl"
+
+#: inc/medidove_customizer_data.php:528
+msgid "Breadcrumb Home"
+msgstr "مسارات التنقل صفحة الرئيسية"
+
+#: inc/medidove_customizer_data.php:535
+msgid "Breadcrumb rtl Home"
+msgstr "مسارات التنقل صفحة الرئيسية rtl"
+
+#: inc/medidove_customizer_data.php:544
+msgid "Blog Setting"
+msgstr "إعداد المدونة"
+
+#: inc/medidove_customizer_data.php:548
+msgid "Show Blog BTN"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:555
+msgid "Show Blog Btn Icon"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:562
+msgid "Blog Button text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:564 inc/medidove_customizer_data.php:571
+msgid "Read More"
+msgstr "اقرأ المزيد"
+
+#: inc/medidove_customizer_data.php:569
+msgid "Blog Button RTL text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:576
+msgid "Blog Button Icon"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:578
+msgid "fas fa-angle-double-right"
+msgstr "fas fa-angle-double-right"
+
+#: inc/medidove_customizer_data.php:583
+msgid "Blog Title"
+msgstr "عنوان المدونة"
+
+#: inc/medidove_customizer_data.php:585 inc/medidove_customizer_data.php:592
+msgid "Blog"
+msgstr "المدونة"
+
+#: inc/medidove_customizer_data.php:590
+msgid "Blog RTL Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:597
+msgid "Blog Details Title"
+msgstr "تفاصيل عنوان الخبر"
+
+#: inc/medidove_customizer_data.php:599 inc/medidove_customizer_data.php:606
+msgid "Blog Details"
+msgstr "تفاصيل المدونة"
+
+#: inc/medidove_customizer_data.php:604
+msgid "Blog Details RTL Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:613
+msgid "Slider Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:617
+msgid "Slider 1 Height"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:619
+msgid "900px"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:624
+msgid "Slider Transparent Height"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:626
+msgid "1000px"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:631
+msgid "Slider Box Height"
+msgstr "ارتفاع مربع شريط المنزلق"
+
+#: inc/medidove_customizer_data.php:633
+msgid "780px"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:641
+msgid "Footer Setting"
+msgstr "إعداد الفوتر"
+
+#: inc/medidove_customizer_data.php:645
+msgid "Choose Footer Style"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:659
+msgid "Copy Right"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:661 inc/medidove_customizer_data.php:668
+msgid "Copyright &copy;2019 BasicTheme. All Rights Reserved Copyright"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:666
+msgid "Copy Right RTL"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:673
+msgid "Scrollup Hide"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:680
+msgid "Widget Emergency number text"
+msgstr "نص رقم حالة الطوارئ القطعة"
+
+#: inc/medidove_customizer_data.php:682
+msgid "Emergency number"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:689
+msgid "Color Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:693
+msgid "Theme Color"
+msgstr "لون القالب"
+
+#: inc/medidove_customizer_data.php:695 inc/medidove_customizer_data.php:707
+msgid "#e12454"
+msgstr "#e12454"
+
+#: inc/medidove_customizer_data.php:699
+msgid "Theme Sec Color"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:701 inc/medidove_customizer_data.php:713
+msgid "#8fb569"
+msgstr "#8fb569"
+
+#: inc/medidove_customizer_data.php:705
+msgid "Theme btn Color"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:711
+msgid "Theme btn sec Color"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:719
+msgid "404 Setting"
+msgstr "اعدادات صفحة الخطأ 404"
+
+#: inc/medidove_customizer_data.php:723
+msgid "400 Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:725 inc/medidove_customizer_data.php:732
+msgid "404"
+msgstr "404"
+
+#: inc/medidove_customizer_data.php:730
+msgid "400 RTL Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:737
+msgid "Not Found Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:739 inc/medidove_customizer_data.php:746
+msgid "Page not found"
+msgstr "الصفحة غير موجودة"
+
+#: inc/medidove_customizer_data.php:744
+msgid "Not Found RTL Title"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:751
+msgid "404 Description Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:753 inc/medidove_customizer_data.php:760
+msgid ""
+"Oops! The page you are looking for does not exist. It might have been moved "
+"or deleted"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:758
+msgid "404 Description RTL Text"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:765
+msgid "404 Link Text"
+msgstr "نص رابط 404"
+
+#: inc/medidove_customizer_data.php:767
+msgid "Back To Home"
+msgstr "العودة للرئيسية"
+
+#: inc/medidove_customizer_data.php:776
+msgid "Typography Setting"
+msgstr "اعداد الخطوط والكتابة"
+
+#: inc/medidove_customizer_data.php:780
+msgid "Google Font URL"
+msgstr "خط جوجل للرابط"
+
+#: inc/medidove_customizer_data.php:782 inc/medidove_customizer_data.php:790
+msgid "Example: Poppins:200,300,400,500,600,700|Rubik:400,500,700"
+msgstr "Example: Poppins:200,300,400,500,600,700|Rubik:400,500,700"
+
+#: inc/medidove_customizer_data.php:783 inc/medidove_customizer_data.php:791
+msgid "Poppins:200,300,400,500,600,700|Rubik:400,500,700"
+msgstr "Poppins:200,300,400,500,600,700|Rubik:400,500,700"
+
+#: inc/medidove_customizer_data.php:788
+msgid "Google Font RTL URL"
+msgstr "خط جوجل للرابط RTL"
+
+#: inc/medidove_customizer_data.php:796
+msgid "Body Font"
+msgstr "خط جسم الموقع"
+
+#: inc/medidove_customizer_data.php:798 inc/medidove_customizer_data.php:812
+msgid "'Rubik', sans-serif"
+msgstr "'Rubik', sans-serif"
+
+#: inc/medidove_customizer_data.php:803
+msgid "Heading Font"
+msgstr "خط العناوين"
+
+#: inc/medidove_customizer_data.php:805 inc/medidove_customizer_data.php:819
+msgid "'Poppins', sans-serif"
+msgstr "'Poppins', sans-serif"
+
+#: inc/medidove_customizer_data.php:810
+msgid "Body RTL Font"
+msgstr "خط RTL للجسم"
+
+#: inc/medidove_customizer_data.php:817
+msgid "Heading RTL Font"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:826
+msgid "Google Map Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:830
+msgid "Map Api Key"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:840
+msgid "RTL Setting"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:844
+msgid "Switch RTL"
+msgstr ""
+
+#: inc/medidove_customizer_data.php:853
+msgid "Preloader Setting"
+msgstr "اعدادات التحميل المسبق"
+
+#: inc/medidove_customizer_data.php:857
+msgid "Preloader On/Off"
+msgstr "التحميل المسبق - تشغيل/إيقاف التشغيل"
+
+#: inc/medidove_customizer_data.php:864
+msgid "Preloader Text On/Off"
+msgstr "نص التحميل المسبق - تشغيل/إيقاف التشغيل"
+
+#: inc/medidove_customizer_data.php:871
+msgid "Preloader Text"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+#: inc/medidove_customizer_data.php:873
+msgid "Medidove"
+msgstr "Medidove"
+
+#: inc/template-functions.php:33
+msgid "Post Tags"
+msgstr "وسوم المقال"
+
+#: inc/template-helper.php:146 inc/template-helper.php:349
+#: inc/template-helper.php:446 inc/template-helper.php:525
+#: inc/template-helper.php:570
+msgid "EN"
+msgstr "English"
+
+#: inc/template-helper.php:601
+msgid "USA"
+msgstr "الوِلاَيات المُتّحِدَة الأمِيرْكِيّة"
+
+#: inc/template-helper.php:602
+msgid "UK"
+msgstr ""
+
+#: inc/template-helper.php:603
+msgid "CA"
+msgstr "CA"
+
+#: inc/template-helper.php:604
+msgid "AU"
+msgstr ""
+
+#: inc/template-helper.php:751
+msgid "Message Icon"
+msgstr "أيقونة الرسالة"
+
+#: inc/template-helper.php:766
+msgid "Phone Icon"
+msgstr "أيقونة الهاتف"
+
+#: inc/template-helper.php:907
+msgid "+"
+msgstr "+"
+
+#: inc/template-helper.php:1235 inc/template-helper.php:1238
+msgid "Copyright ©2019 BasicTheme. All Rights Reserved"
+msgstr ""
+
+#: inc/template-helper.php:1287
+msgid "Search Results for : "
+msgstr "نتائج البحث: "
+
+#: inc/template-helper.php:1291
+msgid "Page not Found"
+msgstr "الصفحة غير موجودة"
+
+#: inc/template-helper.php:1368
+msgid "Search here..."
+msgstr "ابحث هنا..."
+
+#: search.php:24
+msgid "Search Results For:"
+msgstr ""
+
+#: single.php:37
+msgid "Prev Post"
+msgstr "المشاركة السابقة"
+
+#: single.php:46
+msgid "Next Post"
+msgstr "المقال التالي"
+
+#: template-parts/content-audio.php:34 template-parts/content-gallery.php:37
+#: template-parts/content-image.php:34
+#: template-parts/content-left-sidebar.php:34 template-parts/content-page.php:5
+#: template-parts/content-search.php:34 template-parts/content-video.php:37
+#: template-parts/content.php:37
+msgid "Pages:"
+msgstr "الصفحات:"
+
+#: template-parts/content-gallery.php:16 template-parts/content-gallery.php:56
+#: woocommerce/single-product/product-thumbnails.php:39
+msgid "image"
+msgstr "صورة"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "لم يتم العثور على شيء"
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "جاهز لنشر أول منشوراتك؟ <a href=\"%1$s\">ابدأ هنا</a>."
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"عذرا، ولكن لا شيء يطابق عبارات البحث. أرجو المحاولة مرة أخرى بإستخدام كلمات "
+"أخرى."
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "يبدو أنه لا يمكننا العثور على ما تبحث عنه. ربما البحث يمكن أن يساعد."
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:80
+msgid "Product"
+msgstr "المنتج"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:100
+msgid "Price"
+msgstr "السعر"
+
+#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:106
+#: woocommerce/global/quantity-input.php:31
+msgid "Quantity"
+msgstr "الكمية"
+
+#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:124
+msgid "Total"
+msgstr "المجموع"
+
+#: woocommerce/cart/cart.php:59
+msgid "Remove this item"
+msgstr "إزالة هذا العنصر"
+
+#: woocommerce/cart/cart.php:95
+msgid "Available on backorder"
+msgstr "متوفر على لائحة الرد"
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon:"
+msgstr "القسيمة:"
+
+#: woocommerce/cart/cart.php:142
+msgid "Coupon code"
+msgstr "كود الكوبون"
+
+#: woocommerce/cart/cart.php:142
+msgid "Apply coupon"
+msgstr "استخدام الكوبون"
+
+#: woocommerce/cart/cart.php:147
+msgid "Update cart"
+msgstr "تحديث سلة المشتريات"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to checkout"
+msgstr "إتمام عملية الدفع"
+
+#: woocommerce/checkout/form-checkout.php:29
+msgid "You must be logged in to checkout."
+msgstr "يجب تسجيل الدخول لتتمكن من الدفع."
+
+#: woocommerce/checkout/form-checkout.php:55
+msgid "Your order"
+msgstr "طلبك"
+
+#. translators: %s: Quantity.
+#: woocommerce/global/quantity-input.php:28
+#, php-format
+msgid "%s quantity"
+msgstr "%s الكمية"
+
+#: woocommerce/global/quantity-input.php:41
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "الكمية"
+
+#. translators: %d: total results
+#: woocommerce/loop/result-count.php:31
+#, php-format
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] "عرض نتيجة واحدة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: first result 2: last result 3: total results
+#: woocommerce/loop/result-count.php:36
+#, php-format
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr[0] "عرض نتيجة واحدة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: woocommerce/single-product-reviews.php:46
+msgid "There are no reviews yet."
+msgstr "لا توجد تقييمات بعد."
+
+#: woocommerce/single-product-reviews.php:61
+msgid "Add a Review"
+msgstr "اضافة تعليق"
+
+#: woocommerce/single-product-reviews.php:62
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "اترك تعليق لـ %s"
+
+#: woocommerce/single-product-reviews.php:67
+msgid "Name"
+msgstr "الاسم"
+
+#: woocommerce/single-product-reviews.php:69
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: woocommerce/single-product-reviews.php:72
+msgid "Add your Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:78
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr "يجب عليك <a href=\"%s\">تسجي الدخول</a> لتتمكن من تقييم المنتج."
+
+#: woocommerce/single-product-reviews.php:82
+msgid "Your rating"
+msgstr "تقييمك"
+
+#: woocommerce/single-product-reviews.php:83
+msgid "Rate&hellip;"
+msgstr "تقييم&hellip;"
+
+#: woocommerce/single-product-reviews.php:84
+msgid "Perfect"
+msgstr "ممتاز"
+
+#: woocommerce/single-product-reviews.php:85
+msgid "Good"
+msgstr "جيد"
+
+#: woocommerce/single-product-reviews.php:86
+msgid "Average"
+msgstr "متوسط"
+
+#: woocommerce/single-product-reviews.php:87
+msgid "Not that bad"
+msgstr "ليس سئ"
+
+#: woocommerce/single-product-reviews.php:88
+msgid "Very poor"
+msgstr "سيء جداً"
+
+#: woocommerce/single-product-reviews.php:92
+msgid "YOUR REVIEW"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:102
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr "يسمح فقط للزبائن الذين إشتروا هذا المنتج وسجلوا دخولهم بكتابة رأيهم."
+
+#: woocommerce/single-product/product-image.php:42
+msgid "img"
+msgstr "img"
+
+#: woocommerce/single-product/related.php:28
+msgid "Related Products"
+msgstr "منتجات ذات صله"
+
+#: woocommerce/single-product/review-meta.php:27
+msgid "Your review is awaiting approval"
+msgstr "تعليقك في انتظار المراجعة"
+
+#: woocommerce/single-product/review-meta.php:37
+msgid "verified owner"
+msgstr "مالك موثق"
+
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr "معلومات اضافية"
+
+#: woocommerce/single-product/tabs/description.php:25
+msgid "Description"
+msgstr "الوصف"
+
+#. Theme URI of the plugin/theme
+msgid "https://www.devsnews.com/wp/medidove/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "MediDove | Health and Medical WordPress Theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "BasicTheme"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://themeforest.net/user/basictheme/portfolio"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Page Sidebar"
+msgstr "الشريط الجانبي للصفحة"
