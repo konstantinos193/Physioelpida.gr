@@ -10,11 +10,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Elementor embed handler class is responsible for Elementor embed functionality.
  * The class holds the supported providers with their embed patters, and handles
- * their custom properties to create custom HTML with the embeded content.
+ * their custom properties to create custom HTML with the embedded content.
  *
  * @since 1.5.0
  */
 class Embed {
+
+	/**
+	 * Embeddable background video providers.
+	 *
+	 * Holds the list of providers whose background video is rendered as an embedded
+	 * iframe player (.elementor-background-video-embed) rather than a hosted <video>
+	 * element. This is intentionally a SUBSET of the providers recognized by
+	 * get_video_properties() — the frontend background-video handler only mounts
+	 * YouTube/Vimeo players, so other providers must fall through to hosted rendering.
+	 *
+	 * @access private
+	 * @static
+	 *
+	 * @var array Embeddable background video provider slugs.
+	 */
+	private static $video_embed_providers = [ 'youtube', 'vimeo' ];
+
 
 	/**
 	 * Provider match masks.
@@ -28,9 +45,13 @@ class Embed {
 	 * @var array Provider URL structure regex.
 	 */
 	private static $provider_match_masks = [
-		'youtube' => '/^.*(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:(?:watch)?\?(?:.*&)?vi?=|(?:embed|v|vi|user)\/))([^\?&\"\'>]+)/',
+		'youtube' => '/^.*(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:(?:watch)?\?(?:.*&)?vi?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"\'>]+)/',
 		'vimeo' => '/^.*vimeo\.com\/(?:[a-z]*\/)*([‌​0-9]{6,11})[?]?.*/',
 		'dailymotion' => '/^.*dailymotion.com\/(?:video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/',
+		'videopress' => [
+			'/^(?:http(?:s)?:\/\/)?videos\.files\.wordpress\.com\/([a-zA-Z\d]{8,})\//i',
+			'/^(?:http(?:s)?:\/\/)?(?:www\.)?video(?:\.word)?press\.com\/(?:v|embed)\/([a-zA-Z\d]{8,})(.+)?/i',
+		],
 	];
 
 	/**
@@ -48,6 +69,7 @@ class Embed {
 		'youtube' => 'https://www.youtube{NO_COOKIE}.com/embed/{VIDEO_ID}?feature=oembed',
 		'vimeo' => 'https://player.vimeo.com/video/{VIDEO_ID}#t={TIME}',
 		'dailymotion' => 'https://dailymotion.com/embed/video/{VIDEO_ID}',
+		'videopress' => 'https://videopress.com/embed/{VIDEO_ID}',
 	];
 
 	/**
@@ -65,17 +87,37 @@ class Embed {
 	 */
 	public static function get_video_properties( $video_url ) {
 		foreach ( self::$provider_match_masks as $provider => $match_mask ) {
-			preg_match( $match_mask, $video_url, $matches );
+			if ( ! is_array( $match_mask ) ) {
+				$match_mask = [ $match_mask ];
+			}
 
-			if ( $matches ) {
-				return [
-					'provider' => $provider,
-					'video_id' => $matches[1],
-				];
+			foreach ( $match_mask as $mask ) {
+				if ( preg_match( $mask, $video_url, $matches ) ) {
+					return [
+						'provider' => $provider,
+						'video_id' => $matches[1],
+					];
+				}
 			}
 		}
 
 		return null;
+	}
+
+	/**
+	 * Is embeddable background video.
+	 *
+	 * Whether a given video URL belongs to a provider that the frontend
+	 * background-video handler renders as an embedded iframe player.
+	 *
+	 * @param string $video_url Video URL.
+	 *
+	 * @return bool
+	 **/
+	public static function is_embed_video( $video_url ) {
+		$video_properties = self::get_video_properties( $video_url );
+
+		return null !== $video_properties && in_array( $video_properties['provider'], self::$video_embed_providers, true );
 	}
 
 	/**
@@ -170,6 +212,7 @@ class Embed {
 		$default_frame_attributes = [
 			'class' => 'elementor-video-iframe',
 			'allowfullscreen',
+			'allow' => 'clipboard-write',
 			'title' => sprintf(
 				/* translators: %s: Video provider */
 				__( '%s Video Player', 'elementor' ),
@@ -181,10 +224,14 @@ class Embed {
 		if ( ! $video_embed_url ) {
 			return null;
 		}
-		if ( ! $options['lazy_load'] ) {
+		if ( ! isset( $options['lazy_load'] ) || ! $options['lazy_load'] ) {
 			$default_frame_attributes['src'] = $video_embed_url;
 		} else {
 			$default_frame_attributes['data-lazy-load'] = $video_embed_url;
+		}
+
+		if ( isset( $embed_url_params['autoplay'] ) ) {
+			$default_frame_attributes['allow'] = 'autoplay';
 		}
 
 		$frame_attributes = array_merge( $default_frame_attributes, $frame_attributes );
@@ -213,8 +260,8 @@ class Embed {
 	 * Get oembed data from the cache.
 	 * if not exists in the cache it will fetch from provider and then save to the cache.
 	 *
-	 * @param $oembed_url
-	 * @param $cached_post_id
+	 * @param string $oembed_url
+	 * @param string $cached_post_id
 	 *
 	 * @return array|null
 	 */
@@ -244,8 +291,7 @@ class Embed {
 	/**
 	 * Fetch oembed data from oembed provider.
 	 *
-	 * @param $oembed_url
-	 *
+	 * @param string $oembed_url
 	 * @return array|null
 	 */
 	public static function fetch_oembed_data( $oembed_url ) {
@@ -262,7 +308,7 @@ class Embed {
 	}
 
 	/**
-	 * @param $oembed_url
+	 * @param string          $oembed_url
 	 * @param null|string|int $cached_post_id
 	 *
 	 * @return string|null
@@ -274,6 +320,6 @@ class Embed {
 			return null;
 		}
 
-		return '<div class="elementor-image">' . sprintf( '<img src="%1$s" alt="%2$s" title="%2$s" width="%3$s" />', $oembed_data['thumbnail_url'], esc_attr( $oembed_data['title'] ), '100%' ) . '</div>';
+		return '<div class="elementor-image">' . sprintf( '<img src="%1$s" alt="%2$s" title="%2$s" width="%3$s" loading="lazy" />', $oembed_data['thumbnail_url'], esc_attr( $oembed_data['title'] ), '100%' ) . '</div>';
 	}
 }

@@ -1,5 +1,9 @@
 <?php
 
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 add_filter( 'trp_register_advanced_settings', 'trp_show_opposite_flag_language_switcher_shortcode', 1250 );
 function trp_show_opposite_flag_language_switcher_shortcode( $settings_array ){
     $settings_array[] = array(
@@ -7,6 +11,8 @@ function trp_show_opposite_flag_language_switcher_shortcode( $settings_array ){
         'type'          => 'checkbox',
         'label'         => esc_html__( 'Show opposite language in the language switcher', 'translatepress-multilingual' ),
         'description'   => wp_kses( __( 'Transforms the language switcher into a button showing the other available language, not the current one.<br> Only works when there are exactly two languages, the default one and a translation one.<br>This will affect the shortcode language switcher and floating language switcher as well.<br> To achieve this in menu language switcher go to Appearance->Menus->Language Switcher and select Opposite Language.', 'translatepress-multilingual' ), array( 'br' => array()) ),
+        'id'            => 'miscellaneous_options',
+        'container'     => 'language_switcher'
     );
     return $settings_array;
 }
@@ -47,7 +53,7 @@ function trp_opposite_ls_hide_disabled_language($return, $current_language, $cur
 function trp_enqueue_language_switcher_shortcode_scripts(){
     $trp                 = TRP_Translate_Press::get_trp_instance();
     $trp_languages       = $trp->get_component( 'languages' );
-    $trp_settings        = $trp->get_component( 'settings' );
+    $trp_settings        = $trp->get_component( 'settings' );   
     $published_languages = $trp_languages->get_language_names( $trp_settings->get_settings()['publish-languages'] );
     if(count ( $published_languages ) == 2 ) {
         wp_add_inline_style( 'trp-language-switcher-style', '.trp-language-switcher > div {

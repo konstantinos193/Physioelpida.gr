@@ -2,6 +2,7 @@
 namespace Elementor\Modules\Usage;
 
 use Elementor\Modules\System_Info\Reporters\Base;
+use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -18,7 +19,7 @@ class Usage_Reporter extends Base {
 	const RECALC_ACTION = 'elementor_usage_recalc';
 
 	public function get_title() {
-		return __( 'Elements Usage', 'elementor' );
+		return esc_html__( 'Elements Usage', 'elementor' );
 	}
 
 	public function get_fields() {
@@ -37,7 +38,7 @@ class Usage_Reporter extends Base {
 				'_wpnonce' => $nonce,
 			] );
 
-			$title .= '<a id="elementor-usage-recalc" href="' . esc_url( $url ) . '#elementor-usage-recalc" class="box-title-tool">Recalculate</a>';
+			$title .= '<a id="elementor-usage-recalc" href="' . esc_url( $url ) . '#elementor-usage-recalc" class="box-title-tool">' . esc_html__( 'Recalculate', 'elementor' ) . '</a>';
 		} else {
 			$title .= $this->get_remove_recalc_query_string_script();
 		}
@@ -50,7 +51,10 @@ class Usage_Reporter extends Base {
 		$module = Module::instance();
 
 		if ( ! empty( $_GET[ self::RECALC_ACTION ] ) ) {
-			if ( empty( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], self::RECALC_ACTION ) ) {
+			// phpcs:ignore
+			$nonce = Utils::get_super_global_value( $_GET, '_wpnonce' );
+
+			if ( ! wp_verify_nonce( $nonce, self::RECALC_ACTION ) ) {
 				wp_die( 'Invalid Nonce', 'Invalid Nonce', [
 					'back_link' => true,
 				] );

@@ -33,6 +33,7 @@ $booked_update_check = PucFactory::buildUpdateChecker('http://boxyupdates.com/ge
 require_once('includes/mailer_functions.php');
 
 if(!class_exists('booked_plugin')) {
+	#[\AllowDynamicProperties]
 	class booked_plugin {
 		/**
 		 * Construct the plugin object

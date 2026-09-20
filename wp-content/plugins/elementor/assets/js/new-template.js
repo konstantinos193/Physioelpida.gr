@@ -1,4 +1,3 @@
-/*! elementor - v3.7.3 - 29-08-2022 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -12,38 +11,33 @@
 
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "../node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "../node_modules/@babel/runtime/helpers/classCallCheck.js"));
-
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ "../node_modules/@babel/runtime/helpers/createClass.js"));
-
-var LockPro = /*#__PURE__*/function () {
+var LockPro = exports["default"] = /*#__PURE__*/function () {
   function LockPro(elements) {
     (0, _classCallCheck2.default)(this, LockPro);
     this.elements = elements;
   }
-
-  (0, _createClass2.default)(LockPro, [{
+  return (0, _createClass2.default)(LockPro, [{
     key: "bindEvents",
     value: function bindEvents() {
       var _this$elements = this.elements,
-          form = _this$elements.form,
-          templateType = _this$elements.templateType;
+        form = _this$elements.form,
+        templateType = _this$elements.templateType;
       form.addEventListener('submit', this.onFormSubmit.bind(this));
-      templateType.addEventListener('change', this.onTemplateTypeChange.bind(this)); // Force checking on render, to make sure that default values are also checked.
+      templateType.addEventListener('change', this.onTemplateTypeChange.bind(this));
 
+      // Force checking on render, to make sure that default values are also checked.
       this.onTemplateTypeChange();
     }
   }, {
     key: "onFormSubmit",
     value: function onFormSubmit(e) {
       var lockOptions = this.getCurrentLockOptions();
-
       if (lockOptions.is_locked) {
         e.preventDefault();
       }
@@ -52,7 +46,6 @@ var LockPro = /*#__PURE__*/function () {
     key: "onTemplateTypeChange",
     value: function onTemplateTypeChange() {
       var lockOptions = this.getCurrentLockOptions();
-
       if (lockOptions.is_locked) {
         this.lock(lockOptions);
       } else {
@@ -63,7 +56,7 @@ var LockPro = /*#__PURE__*/function () {
     key: "getCurrentLockOptions",
     value: function getCurrentLockOptions() {
       var templateType = this.elements.templateType,
-          currentOption = templateType.options[templateType.selectedIndex];
+        currentOption = templateType.options[templateType.selectedIndex];
       return JSON.parse(currentOption.dataset.lock || '{}');
     }
   }, {
@@ -84,9 +77,9 @@ var LockPro = /*#__PURE__*/function () {
     key: "showLockBadge",
     value: function showLockBadge(badgeConfig) {
       var _this$elements2 = this.elements,
-          lockBadge = _this$elements2.lockBadge,
-          lockBadgeText = _this$elements2.lockBadgeText,
-          lockBadgeIcon = _this$elements2.lockBadgeIcon;
+        lockBadge = _this$elements2.lockBadge,
+        lockBadgeText = _this$elements2.lockBadgeText,
+        lockBadgeIcon = _this$elements2.lockBadgeIcon;
       lockBadgeText.innerText = badgeConfig.text;
       lockBadgeIcon.className = badgeConfig.icon;
       lockBadge.classList.remove('e-hidden');
@@ -125,10 +118,7 @@ var LockPro = /*#__PURE__*/function () {
       return link.replace(/%%utm_source%%/g, 'wp-add-new').replace(/%%utm_medium%%/g, 'wp-dash');
     }
   }]);
-  return LockPro;
 }();
-
-exports["default"] = LockPro;
 
 /***/ }),
 
@@ -143,11 +133,8 @@ exports["default"] = LockPro;
 
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "../node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
 var _lockPro = _interopRequireDefault(__webpack_require__(/*! ./behaviors/lock-pro */ "../assets/dev/js/admin/new-template/behaviors/lock-pro.js"));
-
 var NewTemplateView = __webpack_require__(/*! elementor-admin/new-template/view */ "../assets/dev/js/admin/new-template/view.js");
-
 module.exports = elementorModules.common.views.modal.Layout.extend({
   getModalOptions: function getModalOptions() {
     return {
@@ -166,10 +153,31 @@ module.exports = elementorModules.common.views.modal.Layout.extend({
     this.initElements();
     this.lockProBehavior = new _lockPro.default(this.elements);
     this.lockProBehavior.bindEvents();
+    this.setupDynamicControlsVisibility();
+  },
+  setupDynamicControlsVisibility: function setupDynamicControlsVisibility() {
+    // eslint-disable-next-line camelcase
+    var isFormControlsDefined = 'undefined' !== typeof elementor_new_template_form_controls;
+    if (!isFormControlsDefined) {
+      return;
+    }
+    var CONTROL_ID_PREFIX = 'elementor-new-template__form__';
+    var templateTypeSelectId = "".concat(CONTROL_ID_PREFIX, "template-type");
+    var dynamicControlsVisibilityListener = function dynamicControlsVisibilityListener() {
+      // eslint-disable-next-line camelcase
+      elementorAdmin.templateControls.setDynamicControlsVisibility(CONTROL_ID_PREFIX, elementor_new_template_form_controls);
+    };
+    this.getModal().onShow = function () {
+      dynamicControlsVisibilityListener();
+      document.getElementById(templateTypeSelectId).addEventListener('change', dynamicControlsVisibilityListener);
+    };
+    this.getModal().onHide = function () {
+      document.getElementById(templateTypeSelectId).removeEventListener('change', dynamicControlsVisibilityListener);
+    };
   },
   initElements: function initElements() {
     var container = this.$el[0],
-        root = '#elementor-new-template__form';
+      root = '#elementor-new-template__form';
     this.elements = {
       form: container.querySelector(root),
       submitButton: container.querySelector("".concat(root, "__submit")),
@@ -206,29 +214,15 @@ module.exports = Marionette.ItemView.extend({
 
 /***/ }),
 
-/***/ "@wordpress/i18n":
-/*!**************************!*\
-  !*** external "wp.i18n" ***!
-  \**************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = wp.i18n;
-
-/***/ }),
-
 /***/ "../node_modules/@babel/runtime/helpers/classCallCheck.js":
 /*!****************************************************************!*\
   !*** ../node_modules/@babel/runtime/helpers/classCallCheck.js ***!
   \****************************************************************/
 /***/ ((module) => {
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
-
 module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
@@ -237,27 +231,20 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 /*!*************************************************************!*\
   !*** ../node_modules/@babel/runtime/helpers/createClass.js ***!
   \*************************************************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
+var toPropertyKey = __webpack_require__(/*! ./toPropertyKey.js */ "../node_modules/@babel/runtime/helpers/toPropertyKey.js");
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey(o.key), o);
   }
 }
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
 }
-
 module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
@@ -268,13 +255,79 @@ module.exports = _createClass, module.exports.__esModule = true, module.exports[
   \***********************************************************************/
 /***/ ((module) => {
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
+function _interopRequireDefault(e) {
+  return e && e.__esModule ? e : {
+    "default": e
   };
 }
-
 module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ "../node_modules/@babel/runtime/helpers/toPrimitive.js":
+/*!*************************************************************!*\
+  !*** ../node_modules/@babel/runtime/helpers/toPrimitive.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(/*! ./typeof.js */ "../node_modules/@babel/runtime/helpers/typeof.js")["default"]);
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r ? String : Number)(t);
+}
+module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ "../node_modules/@babel/runtime/helpers/toPropertyKey.js":
+/*!***************************************************************!*\
+  !*** ../node_modules/@babel/runtime/helpers/toPropertyKey.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(/*! ./typeof.js */ "../node_modules/@babel/runtime/helpers/typeof.js")["default"]);
+var toPrimitive = __webpack_require__(/*! ./toPrimitive.js */ "../node_modules/@babel/runtime/helpers/toPrimitive.js");
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
+}
+module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ "../node_modules/@babel/runtime/helpers/typeof.js":
+/*!********************************************************!*\
+  !*** ../node_modules/@babel/runtime/helpers/typeof.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports, _typeof(o);
+}
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!**************************!*\
+  !*** external "wp.i18n" ***!
+  \**************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = wp.i18n;
 
 /***/ })
 
@@ -306,7 +359,7 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
 /*!***********************************************************!*\
@@ -315,12 +368,11 @@ var __webpack_exports__ = {};
 
 
 var NewTemplateLayout = __webpack_require__(/*! elementor-admin/new-template/layout */ "../assets/dev/js/admin/new-template/layout.js");
-
 var NewTemplateModule = elementorModules.ViewModule.extend({
   getDefaultSettings: function getDefaultSettings() {
     return {
       selectors: {
-        addButton: '.page-title-action:first, #elementor-template-library-add-new'
+        addButton: 'a.page-title-action[href*="post-new.php?post_type=elementor_library"], #elementor-template-library-add-new'
       }
     };
   },
@@ -336,7 +388,8 @@ var NewTemplateModule = elementorModules.ViewModule.extend({
   },
   showModalByHash: function showModalByHash() {
     if ('#add_new' === location.hash) {
-      this.layout.showModal();
+      var _this$layout;
+      (_this$layout = this.layout) === null || _this$layout === void 0 || _this$layout.showModal();
       location.hash = '';
     }
   },
@@ -346,8 +399,9 @@ var NewTemplateModule = elementorModules.ViewModule.extend({
     this.showModalByHash();
   },
   onAddButtonClick: function onAddButtonClick(event) {
+    var _this$layout2;
     event.preventDefault();
-    this.layout.showModal();
+    (_this$layout2 = this.layout) === null || _this$layout2 === void 0 || _this$layout2.showModal();
   }
 });
 jQuery(function () {

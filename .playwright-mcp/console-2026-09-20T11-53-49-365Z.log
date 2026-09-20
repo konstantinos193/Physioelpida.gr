@@ -1,0 +1,4 @@
+[     638ms] [LOG] %c%s color: red; background: yellow; font-size: 24px; ΠΡΟΕΙΔΟΠΟΙΗΣΗ! @ https://www.gstatic.com/_/mss/boq-identity/_/js/k=boq-identity.ConsentUi.el.4L63C55kH_0.2018.O/am=AQAAAACZ/d=1/excm=_b,_tp,mainview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlGgYgSKQ1KgYMbpklQHSHJo2eA8yQ/dti=1/m=_b,_tp:288
+[     638ms] [LOG] %c%s font-size: 18px; Χρησιμοποιώντας αυτή την κονσόλα οι εισβολείς μπορούν να παριστάνουν εσάς και να υποκλέψουν τα στοιχεία σας χρησιμοποιώντας μια μέθοδο που ονομάζεται Self-XSS.
+Αποφύγετε την εισαγωγή ή την επικόλληση κώδικα που δεν κατανοείτε. @ https://www.gstatic.com/_/mss/boq-identity/_/js/k=boq-identity.ConsentUi.el.4L63C55kH_0.2018.O/am=AQAAAACZ/d=1/excm=_b,_tp,mainview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlGgYgSKQ1KgYMbpklQHSHJo2eA8yQ/dti=1/m=_b,_tp:288
+[    5664ms] [WARNING] The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127 @ :0

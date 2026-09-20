@@ -3,7 +3,6 @@ namespace BdevsElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
@@ -100,7 +99,7 @@ class BdevsMap extends \Elementor\Widget_Base {
 
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_content_heading',

@@ -1,10 +1,10 @@
-=== WP Reset - Most Advanced WordPress Reset Tool ===
-Tags: wordpress reset, reset database, reset wordpress database, reset, advanced wordpress reset, restart wordpress, clean wordpress, default wp, default wordpress, reset wp, wp reset, developer, wp-cli, backup, database backup
+=== WP Reset ===
+Tags: wordpress reset, reset database, reset wordpress, reset, advanced wordpress reset
 Contributors: WebFactory
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 6.0
-Stable tag: 1.95
+Tested up to: 7.1
+Stable tag: 2.08
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,13 +14,15 @@ WP Reset resets the entire site or selected parts using advanced reset options t
 
 <a href="https://wpreset.com/">WP Reset</a> quickly resets the site's database to the default installation values without modifying any files. It deletes all customizations and content, or just chosen parts like theme settings. WordPress Reset is fast and safe to use thanks to the built-in snapshots which provide 1-click restore functionality. It has multiple fail-safe mechanisms so you can never accidentally lose data. WP Reset is extremely helpful for plugin and theme developers. It **speeds up testing & debugging** by providing a quick way to reset settings and re-test code. It's the only WP development tool for non-developers that enables advanced reset.
 
+Having **problems with spam**, bots, or AI scrapers? Have a look at our <a href="https://wordpress.org/plugins/advanced-google-recaptcha/">free Captcha plugin</a> used on over 200,000 sites.
+
 https://youtu.be/qMnkCW2PFoI?rel=0
 
-For support please use the <a href="https://wordpress.org/support/plugin/wp-reset">official forum</a>, and if you need more information visit <a href="https://wpreset.com/">wpreset.com</a> and be sure to check out the <a href="https://wpreset.com/">roadmap</a> for the list of upcoming features.
+For support please use the <a href="https://wordpress.org/support/plugin/wp-reset">official forum</a>, and if you need more information visit <a href="https://wpreset.com/">wpreset.com</a>.
 
 Access WP Reset admin page via the "Tools" menu.
 
-**Please read carefully before proceeding to understand what WP Reset does, and remember to always create a snapshot**
+**Please read carefully before proceeding to understand what WP Reset does, and remember to always create a backup or snapshot.**
 
 #### Resetting will delete:
 
@@ -82,6 +84,9 @@ WP Reset has yet to be completely tested with multisite! Please be careful when 
 * Empty or delete custom tables - empties (truncates) or deletes (drops) all custom database tables.
 * Delete .htaccess file - deletes the .htaccess file. If you need to edit .htaccess without FTP use our free <a href="https://wordpress.org/plugins/wp-htaccess-editor/">WP Htaccess Editor</a> plugin.
 
+#### GDPR compatibility
+We are not lawyers. Please do not take any of the following as legal advice.
+WP Reset does not track, collect or process any user data on the front end. Nothing is logged or pushed to any 3rd parties. We also don't use any 3rd party services or CDNs. All actions are performed in the admin and started exclusively on users' request. If you opt to activate your PRO license in the plugin, some data will be shared with WebFactory Ltd; that's clearly noted below the license activation form. Based on that, we feel it's GDPR compatible, but again, please, don't take this as legal advice.
 
 #### Friends who helped us translate WP Reset
 
@@ -115,6 +120,60 @@ Or if needed, upload manually;
 5. Use our 1-click backup feature before running any reset tools
 
 == Changelog ==
+
+= v2.08 =
+* 2026/07/19
+* Minor updates and fixes
+
+= v2.07 =
+* 2026/04/06
+* Minor updates and fixes
+
+= v2.06 =
+* 2025/09/18
+* Disabled license log
+
+= v2.05 =
+* 2025/07/31
+* Minor bug fixes and code improvements
+
+= v2.04 =
+* 2024/10/24
+* Minor bug fixes and code improvements
+
+= v2.03 =
+* 2024/06/04
+* Adjusted HTML escaping on translatable strings
+* Fixed some unescaped HTML output
+
+= v2.02 =
+* 2024/05/13
+* Fixed license ajax security issue
+
+= v2.01 =
+* 2024/04/16
+* Completely unnecessary update we were forced to do
+
+= v2.00 =
+* 2024/03/25
+* More secure snapshot export filename
+
+= v1.99 =
+* 2024/03/13
+* PHP 8.2 compatibility fix
+
+= v1.98 =
+* 2023/09/24
+* RTL GUI fix
+
+= v1.97 =
+* 2023/01/10
+* minor GUI changes
+* new prices
+
+= v1.96 =
+* 2022/11/18
+* security fixes
 
 = v1.95 =
 * 2022/01/06
@@ -301,3 +360,7 @@ We sure do! Just type "wp reset" in your shell to see the list of available comm
 = How long does it take for the reset operation to complete? =
 
 On most installations a second or two. If you have a huge amounts of data in tables then up to ten seconds.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/wp-reset)

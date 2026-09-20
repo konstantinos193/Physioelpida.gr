@@ -5,6 +5,22 @@
  */
 
 ( function() {
+	// Passive event listeners are guaranteed to never call e.preventDefault(),
+	// but they're not supported in all browsers.  Use this feature detection
+	// to determine whether they're available for use.
+	var supportsPassive = false;
+
+	try {
+		var opts = Object.defineProperty( {}, 'passive', {
+			get : function() {
+				supportsPassive = true;
+			}
+		} );
+
+		window.addEventListener( 'testPassive', null, opts );
+		window.removeEventListener( 'testPassive', null, opts );
+	} catch ( e ) {}
+
 	function init() {
 		var input_begin = '';
 
@@ -19,12 +35,15 @@
 		var lastMouseup = null;
 		var lastMousedown = null;
 		var mouseclicks = [];
+		var mouseclickCoordinates = [];
 
 		var mousemoveTimer = null;
 		var lastMousemoveX = null;
 		var lastMousemoveY = null;
+		var lastMousemoveTime = null;
 		var mousemoveStart = null;
 		var mousemoves = [];
+		var intervalsBetweenMousemovesAndClicks = [];
 
 		var touchmoveCountTimer = null;
 		var touchmoveCount = 0;
@@ -44,64 +63,100 @@
 		for ( var i = 0; i < forms.length; i++ ) {
 			var form = forms[i];
 
+			var formAction = form.getAttribute( 'action' );
+
+			// Ignore forms that POST directly to other domains; these could be things like payment forms.
+			if ( formAction ) {
+				// Check that the form is posting to an external URL, not a path.
+				if ( formAction.indexOf( 'http://' ) == 0 || formAction.indexOf( 'https://' ) == 0 ) {
+					if ( formAction.indexOf( 'http://' + window.location.hostname + '/' ) != 0 && formAction.indexOf( 'https://' + window.location.hostname + '/' ) != 0 ) {
+						continue;
+					}
+				}
+			}
+
 			form.addEventListener( 'submit', function () {
-				var ak_bkp = prepare_timestamp_array_for_request( keypresses );
-				var ak_bmc = prepare_timestamp_array_for_request( mouseclicks );
-				var ak_bte = prepare_timestamp_array_for_request( touchEvents );
-				var ak_bmm = prepare_timestamp_array_for_request( mousemoves );
+				var ak_bkp = prepare_array_for_request( keypresses );
+				var ak_bmc = prepare_array_for_request( mouseclicks );
+				var ak_bte = prepare_array_for_request( touchEvents );
+				var ak_bmm = prepare_array_for_request( mousemoves );
+				var ak_bcc = prepare_array_for_request( mouseclickCoordinates );
+				var ak_bibmac = intervalsBetweenMousemovesAndClicks.slice( 0, 100 ).join( ';' );
 
 				var input_fields = {
 					// When did the user begin entering any input?
-					'ak_bib': input_begin,
+					'bib': input_begin,
 
 					// When was the form submitted?
-					'ak_bfs': Date.now(),
+					'bfs': Date.now(),
 
 					// How many keypresses did they make?
-					'ak_bkpc': keypresses.length,
+					'bkpc': keypresses.length,
 
 					// How quickly did they press a sample of keys, and how long between them?
-					'ak_bkp': ak_bkp,
+					'bkp': ak_bkp,
 
 					// How quickly did they click the mouse, and how long between clicks?
-					'ak_bmc': ak_bmc,
+					'bmc': ak_bmc,
 
 					// How many mouseclicks did they make?
-					'ak_bmcc': mouseclicks.length,
+					'bmcc': mouseclicks.length,
 
 					// When did they press modifier keys (like Shift or Capslock)?
-					'ak_bmk': modifierKeys.join( ';' ),
+					'bmk': modifierKeys.join( ';' ),
 
 					// When did they correct themselves? e.g., press Backspace, or use the arrow keys to move the cursor back
-					'ak_bck': correctionKeys.join( ';' ),
+					'bck': correctionKeys.join( ';' ),
 
 					// How many times did they move the mouse?
-					'ak_bmmc': mousemoves.length,
+					'bmmc': mousemoves.length,
 
 					// How many times did they move around using a touchscreen?
-					'ak_btmc': touchmoveCount,
+					'btmc': touchmoveCount,
 
 					// How many times did they scroll?
-					'ak_bsc': scrollCount,
+					'bsc': scrollCount,
 
 					// How quickly did they perform touch events, and how long between them?
-					'ak_bte': ak_bte,
+					'bte': ak_bte,
 
 					// How many touch events were there?
-					'ak_btec' : touchEvents.length,
+					'btec' : touchEvents.length,
 
 					// How quickly did they move the mouse, and how long between moves?
-					'ak_bmm' : ak_bmm
+					'bmm' : ak_bmm,
+
+					// Click coordinates
+					'bcc' : ak_bcc,
+
+					// Milliseconds between last mouse movement and each click
+					'bibmac' : ak_bibmac
 				};
+
+				var akismet_field_prefix = 'ak_';
+
+				if ( this.getElementsByClassName ) {
+					// Check to see if we've used an alternate field name prefix. We store this as an attribute of the container around some of the Akismet fields.
+					var possible_akismet_containers = this.getElementsByClassName( 'akismet-fields-container' );
+
+					for ( var containerIndex = 0; containerIndex < possible_akismet_containers.length; containerIndex++ ) {
+						var container = possible_akismet_containers.item( containerIndex );
+
+						if ( container.getAttribute( 'data-prefix' ) ) {
+							akismet_field_prefix = container.getAttribute( 'data-prefix' );
+							break;
+						}
+					}
+				}
 
 				for ( var field_name in input_fields ) {
 					var field = document.createElement( 'input' );
 					field.setAttribute( 'type', 'hidden' );
-					field.setAttribute( 'name', field_name );
+					field.setAttribute( 'name', akismet_field_prefix + field_name );
 					field.setAttribute( 'value', input_fields[ field_name ] );
 					this.appendChild( field );
 				}
-			} );
+			}, supportsPassive ? { passive: true } : false  );
 
 			form.addEventListener( 'keydown', function ( e ) {
 				// If you hold a key down, some browsers send multiple keydown events in a row.
@@ -129,7 +184,7 @@
 				}
 
 				lastKeydown = keydownTime;
-			} );
+			}, supportsPassive ? { passive: true } : false  );
 
 			form.addEventListener( 'keyup', function ( e ) {
 				if ( ! ( e.key in keydowns ) ) {
@@ -167,24 +222,44 @@
 				delete keydowns[ e.key ];
 
 				lastKeyup = keyupTime;
-			} );
+			}, supportsPassive ? { passive: true } : false  );
 
 			form.addEventListener( "focusin", function ( e ) {
 				lastKeydown = null;
 				lastKeyup = null;
 				keydowns = {};
-			} );
+			}, supportsPassive ? { passive: true } : false  );
 
 			form.addEventListener( "focusout", function ( e ) {
 				lastKeydown = null;
 				lastKeyup = null;
 				keydowns = {};
-			} );
+			}, supportsPassive ? { passive: true } : false  );
 		}
 
 		document.addEventListener( 'mousedown', function ( e ) {
 			lastMousedown = ( new Date() ).getTime();
-		} );
+
+			if ( lastMousemoveTime ) {
+				intervalsBetweenMousemovesAndClicks.push( lastMousedown - lastMousemoveTime );
+			}
+
+			var mouseclickCoordinate = [];
+
+			var rect = e.target.getBoundingClientRect();
+			var relativeX = e.clientX - rect.left;
+			var relativeY = e.clientY - rect.top;
+
+			// Pixel offset of the click within the target element.
+			mouseclickCoordinate.push( Math.round( relativeX ) );
+			mouseclickCoordinate.push( Math.round( relativeY ) );
+
+			// Percentage offset of the click within the target element.
+			mouseclickCoordinate.push( rect.width > 0 ? Math.round( relativeX / rect.width * 100 ) : 0 );
+			mouseclickCoordinate.push( rect.height > 0 ? Math.round( relativeY / rect.height * 100 ) : 0 );
+
+			mouseclickCoordinates.push( mouseclickCoordinate );
+		}, supportsPassive ? { passive: true } : false  );
 
 		document.addEventListener( 'mouseup', function ( e ) {
 			if ( ! lastMousedown ) {
@@ -209,21 +284,23 @@
 			lastKeydown = null;
 			lastKeyup = null;
 			keydowns = {};
-		} );
+		}, supportsPassive ? { passive: true } : false  );
 
 		document.addEventListener( 'mousemove', function ( e ) {
+			lastMousemoveTime = ( new Date() ).getTime();
+
 			if ( mousemoveTimer ) {
 				clearTimeout( mousemoveTimer );
 				mousemoveTimer = null;
 			}
 			else {
-				mousemoveStart = ( new Date() ).getTime();
+				mousemoveStart = lastMousemoveTime;
 				lastMousemoveX = e.offsetX;
 				lastMousemoveY = e.offsetY;
 			}
 
 			mousemoveTimer = setTimeout( function ( theEvent, originalMousemoveStart ) {
-				var now = ( new Date() ).getTime() - 250; // To account for the timer delay.
+				var now = ( new Date() ).getTime() - 500; // To account for the timer delay.
 
 				var mousemove = [];
 				mousemove.push( now - originalMousemoveStart );
@@ -243,8 +320,8 @@
 
 				mousemoveStart = null;
 				mousemoveTimer = null;
-			}, 250, e, mousemoveStart );
-		} );
+			}, 500, e, mousemoveStart );
+		}, supportsPassive ? { passive: true } : false  );
 
 		document.addEventListener( 'touchmove', function ( e ) {
 			if ( touchmoveCountTimer ) {
@@ -253,12 +330,12 @@
 
 			touchmoveCountTimer = setTimeout( function () {
 				touchmoveCount++;
-			}, 250 );
-		} );
+			}, 500 );
+		}, supportsPassive ? { passive: true } : false );
 
 		document.addEventListener( 'touchstart', function ( e ) {
 			lastTouchStart = ( new Date() ).getTime();
-		} );
+		}, supportsPassive ? { passive: true } : false );
 
 		document.addEventListener( 'touchend', function ( e ) {
 			if ( ! lastTouchStart ) {
@@ -283,7 +360,7 @@
 			lastKeydown = null;
 			lastKeyup = null;
 			keydowns = {};
-		} );
+		}, supportsPassive ? { passive: true } : false );
 
 		document.addEventListener( 'scroll', function ( e ) {
 			if ( scrollCountTimer ) {
@@ -292,15 +369,16 @@
 
 			scrollCountTimer = setTimeout( function () {
 				scrollCount++;
-			}, 250 );
-		} );
+			}, 500 );
+		}, supportsPassive ? { passive: true } : false );
 	}
 
 	/**
-	 * For the timestamp data that is collected, don't send more than `limit` data points in the request.
-	 * Choose a random slice and send those.
+	 * For the timing/coordinate data that is collected, don't send more than `limit` data points in the request.
+	 * Choose a random slice and send those, with each batch separated by semicolons and the items in each batch
+	 * separated by commas.
 	 */
-	function prepare_timestamp_array_for_request( a, limit ) {
+	function prepare_array_for_request( a, limit ) {
 		if ( ! limit ) {
 			limit = 100;
 		}
@@ -311,13 +389,8 @@
 			var random_starting_point = Math.max( 0, Math.floor( Math.random() * a.length - limit ) );
 
 			for ( var i = 0; i < limit && i < a.length; i++ ) {
-				rv += a[ random_starting_point + i ][0];
-
-				if ( a[ random_starting_point + i ].length >= 2 ) {
-					rv += "," + a[ random_starting_point + i ][1];
-				}
-
-				rv += ";";
+				var entry = a[ random_starting_point + i ];
+				rv += entry.join( ',' ) + ';';
 			}
 		}
 

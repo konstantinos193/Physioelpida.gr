@@ -1,7 +1,7 @@
 /**
  * WP Reset
  * https://wpreset.com/
- * (c) WebFactory Ltd, 2017-2022
+ * (c) WebFactory Ltd, 2017-2026
  */
 
 jQuery(document).ready(function ($) {
@@ -10,6 +10,8 @@ jQuery(document).ready(function ($) {
     .tabs({
       create: function () {
        $('#loading-tabs').remove();
+       $('#wpr-sidebar-ads').show();
+       wpr_position_sidebar_ads();
       },
       activate: function (event, ui) {
         localStorage.setItem('wp-reset-tabs', $('#wp-reset-tabs').tabs('option', 'active'));
@@ -738,67 +740,68 @@ jQuery(document).ready(function ($) {
     return false;
   }); // dismiss notice
 
-  // turn questions into checkboxes
-  $('.question-wrapper').on('click', function (e) {
-    if ($(this).hasClass('selected')) {
-      $(this).removeClass('selected');
-    } else {
-      if ($('.question-wrapper.selected').length >= 2) {
-        wpr_swal.fire({
-          icon: 'error',
-          allowOutsideClick: false,
-          text: 'You can choose only up to 2 features at a time.',
-        });
-      } else {
-        $(this).addClass('selected');
-      }
-    }
-
-    e.preventDefault();
-    return false;
-  });
-
-  // todo: not finished
+  // open upsell
   $('.tools_page_wp-reset').on('click', '.button-pro-feature, .pro-feature', function (e) {
     e.preventDefault();
     this.blur();
 
     tool_id = $(this).data('feature') || $('.pro-feature', this).data('feature');
-    if (!tool_id) {
-      $('#wp-reset-tabs').tabs('option', 'active', 5);
-      $.scrollTo($('#pro-pricing'), 500, { offset: { top: -50, left: 0 } });
-      return;
-    }
 
-    details = $('#pro-feature-details-' + tool_id);
-    if (details.length != 1) {
-      $('#wp-reset-tabs').tabs('option', 'active', 5);
-      $.scrollTo($('#pro-pricing'), 500, { offset: { top: -50, left: 0 } });
-      return;
-    }
-
-    wpr_swal
-      .fire({
-        title: tool_id,
-        html: 'Dialog content',
-        footer:
-          'See everything WP Reset PRO offers on &nbsp;<a target="_blank" href="https://wpreset.com">wpreset.com</a>',
-        icon: '',
-        showCloseButton: true,
-        focusConfirm: true,
-        confirmButtonText: 'Grab the 30% discount',
-      })
-      .then((result) => {
-        if (result.value) {
-          $('#wp-reset-tabs').tabs('option', 'active', 5);
-          $.scrollTo($('#pro-pricing'), 500, {
-            offset: { top: -50, left: 0 },
-          });
-        }
-      });
+    open_upsell(tool_id);
 
     return false;
   });
+
+  function clean_feature(feature) {
+    feature = feature || 'free-plugin-unknown';
+    feature = feature.toLowerCase().trim();
+    feature = feature.replace(' ', '-');
+
+    return feature;
+  }
+
+  function open_upsell(feature) {
+    feature = clean_feature(feature);
+
+    $('#wpreset-pro-dialog').dialog('open');
+
+    $('#wpreset-pro-dialog .button-buy').each(function(ind, el) {
+      tmp = $(el).data('href-org');
+      tmp = tmp.replace('pricing-table', feature);
+      $(el).attr('href', tmp);
+    });
+  } // open_upsell
+
+  $('#wpreset-pro-dialog').dialog({
+    dialogClass: 'wp-dialog wpreset-pro-dialog',
+    modal: true,
+    resizable: false,
+    width: 800,
+    height: 'auto',
+    show: 'fade',
+    hide: 'fade',
+    close: function (event, ui) {
+    },
+    open: function (event, ui) {
+      $(this).siblings().find('span.ui-dialog-title').html('WP Reset PRO');
+      wpr_fix_dialog_close(event, ui);
+    },
+    autoOpen: false,
+    closeOnEscape: true,
+  });
+
+  // show upsell popup every 3 months
+  if (window.localStorage.getItem('wpreset_upsell_timestamp') === null ||
+      (new Date().getTime() / 1000 - window.localStorage.getItem('wpreset_upsell_timestamp')) > (86400 * 90)) {
+    window.localStorage.setItem('wpreset_upsell_timestamp', Math.round(new Date().getTime() / 1000));
+
+    open_upsell('welcome');
+  }
+
+  if (window.location.hash == '#open-pro-dialog') {
+    open_upsell('url-hash');
+    window.location.hash = '';
+  }
 
   $('#show-table-details').on('click', function (e) {
     e.preventDefault();
@@ -1071,8 +1074,6 @@ jQuery(document).ready(function ($) {
     collections_ajax_queue_index = 0;
     collections_errors = [];
 
-    console.log(wp_reset.collections[collection_id]);
-
     for (item in wp_reset.collections[collection_id]['items']) {
       item_data = wp_reset.collections[collection_id]['items'][item];
       collections_ajax_queue.push({
@@ -1338,25 +1339,27 @@ jQuery(document).ready(function ($) {
     });
   } //run collection ajax
 
-  function wpr_position_wpfssl_ad() {
-    pos_left = Math.round($('#wp_reset_form nav').width()) + 80;
-    pos_top = Math.round($('#wp_reset_form nav').offset().top) - 30;
+  function wpr_position_sidebar_ads() {
+    pos_left = Math.round($('#wp_reset_form nav').width()) + 260;
+    pos_top = Math.round($('#wp_reset_form #logo-icon').offset().top);
+    if($('body').hasClass('rtl')){
+        $('#wpr-sidebar-ads').css('top', pos_top + 'px').css('right', pos_left + 'px');
+    } else {
+        $('#wpr-sidebar-ads').css('top', pos_top + 'px').css('left', pos_left + 'px');
+    }
+    $('#wpr-sidebar-ads').show();
+  } // wpr_position_sidebar_ads
 
-    $('#wpfssl-ad').css('top', pos_top + 'px').css('left', pos_left + 'px');
-    $('#wpfssl-ad').show();
-  } // wpr_position_wpfssl_ad
-
-  wpr_position_wpfssl_ad();
   $(window).on('resize', function() {
-    wpr_position_wpfssl_ad();
+    wpr_position_sidebar_ads();
   })
 
-  $('.install-wpfssl').on('click',function(e){
-    if (!confirm('The free WP Force SSL plugin will be installed & activated from the official WordPress repository.')) {
+  $('.install-wpcaptcha').on('click',function(e){
+    if (!confirm('The free Advanced Google ReCaptcha plugin will be installed & activated from the official WordPress repository.')) {
       return;
     }
 
-    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + wp_reset.wpfssl_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
+    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + wp_reset.wpcaptcha_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
     jQuery('#wpwrap').css('pointer-events', 'none');
 
     e.preventDefault();
@@ -1388,3 +1391,9 @@ function wpr_close_dropdowns() {
   jQuery('.dropdown').removeClass('show');
   jQuery('.dropdown-menu').removeClass('show');
 } // wpr_close_dropdowns
+
+function wpr_fix_dialog_close(event, ui) {
+  jQuery('.ui-widget-overlay').bind('click', function () {
+    jQuery('#' + event.target.id).dialog('close');
+  });
+} // wpr_fix_dialog_close

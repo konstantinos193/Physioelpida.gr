@@ -154,7 +154,7 @@ final class BdevsElementor {
 		// Register Widget Styles
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'register_frontend_styles' ] );
 
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
+		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
 
 		// Register controls
 		//add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
@@ -316,42 +316,42 @@ final class BdevsElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/btn-widget.php';
 
 		// Register widget
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsSlider() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAboutInfo() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAbout() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsServicePost() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsChallenge() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsPring() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsCTA() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsBlogPost() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsCounter() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsFaq() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsMemberPost() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsFact() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsMission() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsSubscribe() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsTestimonials() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAppointment() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsWhatwedo() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsBrand() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsExperience() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsPremiumMembership() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\Bdevs_analysis_tab() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsHeading() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsPortfolio() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsContactInfo() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsContact() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsMap() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsWhyChoose() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsFeatures() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsCarousel() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsMedical() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsDoctorRoutine() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsVideo() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsIconbox() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsMemberlist() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProductPost() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsBtn() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsSlider() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsAboutInfo() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsAbout() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsServicePost() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsChallenge() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsPring() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsCTA() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsBlogPost() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsCounter() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsFaq() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsMemberPost() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsFact() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsMission() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsSubscribe() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsTestimonials() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsAppointment() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsWhatwedo() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsBrand() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsExperience() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsPremiumMembership() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\Bdevs_analysis_tab() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsHeading() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsPortfolio() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsContactInfo() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsContact() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsMap() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsWhyChoose() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsFeatures() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsCarousel() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsMedical() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsDoctorRoutine() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsVideo() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsIconbox() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsMemberlist() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsProductPost() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new \BdevsElementor\Widget\BdevsBtn() );
 	}
 
 	/** 

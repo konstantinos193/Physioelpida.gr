@@ -1,0 +1,195 @@
+- generic [active] [ref=f16e1]:
+  - banner [ref=f16e2]:
+    - generic [ref=f16e5]:
+      - generic [ref=f16e7]:
+        - generic [ref=f16e8]:
+          - generic [ref=f16e9]: 
+          - text: 26810-73248 - 6972876704
+        - generic [ref=f16e10]:
+          - generic [ref=f16e11]: 
+          - text: info@physioelpida.gr
+      - link "ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ" [ref=f16e14] [cursor=pointer]:
+        - /url: https://physioelpida.gr/rantevou/
+    - generic [ref=f16e17]:
+      - link [ref=f16e20] [cursor=pointer]:
+        - /url: http://localhost:8080/
+        - img "logo" [ref=f16e21]
+      - generic [ref=f16e22]:
+        - text: 
+        - list [ref=f16e25]:
+          - listitem [ref=f16e26]:
+            - link "" [ref=f16e27] [cursor=pointer]:
+              - /url: https://www.facebook.com/%CE%95%CF%80%CE%B9%CF%83%CF%84%CE%B7%CE%BC%CE%BF%CE%BD%CE%B9%CE%BA%CF%8C-%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF-%CE%A6%CF%85%CF%83%CE%B9%CE%BA%CE%BF%CE%B8%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CE%AF%CE%B1%CF%82-%CE%95%CE%BB%CF%80%CE%AF%CE%B4%CE%B1-110048058174064
+          - listitem [ref=f16e29]:
+            - link "" [ref=f16e30] [cursor=pointer]:
+              - /url: https://www.instagram.com/physioelpida/
+        - navigation [ref=f16e33]:
+          - list [ref=f16e34]:
+            - listitem [ref=f16e35]:
+              - link "ΑΡΧΙΚΗ" [ref=f16e36] [cursor=pointer]:
+                - /url: https://physioelpida.gr
+            - listitem [ref=f16e37]:
+              - link "ΥΠΗΡΕΣΙΕΣ" [ref=f16e38] [cursor=pointer]:
+                - /url: http://localhost:8080/serv1/
+            - listitem [ref=f16e39]:
+              - link "ΕΞΟΠΛΙΣΜΟΣ" [ref=f16e40] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f16e41]:
+              - link "ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ" [ref=f16e42] [cursor=pointer]:
+                - /url: http://localhost:8080/about/
+            - listitem [ref=f16e43]:
+              - link "ΒΙΟΓΡΑΦΙΚΟ" [ref=f16e44] [cursor=pointer]:
+                - /url: http://localhost:8080/bio/
+            - listitem [ref=f16e45]:
+              - link "ΕΠΙΚΟΙΝΩΝΙΑ" [ref=f16e46] [cursor=pointer]:
+                - /url: http://localhost:8080/contact/
+  - generic [ref=f16e47]:
+    - button "" [ref=f16e48] [cursor=pointer]
+    - link [ref=f16e51] [cursor=pointer]:
+      - /url: http://localhost:8080/
+      - img "logo" [ref=f16e52]
+    - generic [ref=f16e53]:
+      - generic [ref=f16e54]:
+        - heading "Contact Info" [level=4] [ref=f16e55]
+        - list [ref=f16e56]:
+          - listitem [ref=f16e57]:
+            - generic [ref=f16e58]: 
+            - text: Βασιλέως Πύρρου & Πλαστήρα 15
+          - listitem [ref=f16e59]:
+            - generic [ref=f16e60]: 
+            - link "26810-73248 - 6972876704" [ref=f16e61] [cursor=pointer]:
+              - /url: tell:26810-73248 - 6972876704
+          - listitem [ref=f16e62]:
+            - generic [ref=f16e63]: 
+            - link "info@physioelpida.gr" [ref=f16e64] [cursor=pointer]:
+              - /url: mailto:info@physioelpida.gr
+      - list [ref=f16e66]:
+        - listitem [ref=f16e67]:
+          - link "" [ref=f16e68] [cursor=pointer]:
+            - /url: https://www.facebook.com/%CE%95%CF%80%CE%B9%CF%83%CF%84%CE%B7%CE%BC%CE%BF%CE%BD%CE%B9%CE%BA%CF%8C-%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF-%CE%A6%CF%85%CF%83%CE%B9%CE%BA%CE%BF%CE%B8%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CE%AF%CE%B1%CF%82-%CE%95%CE%BB%CF%80%CE%AF%CE%B4%CE%B1-110048058174064
+        - listitem [ref=f16e70]:
+          - link "" [ref=f16e71] [cursor=pointer]:
+            - /url: https://www.instagram.com/physioelpida/
+  - text: 
+  - generic [ref=f16e81]:
+    - generic [ref=f16e85]:
+      - paragraph
+      - generic [ref=f16e87]:
+        - heading "Κράτηση ραντεβού" [level=2] [ref=f16e88]
+        - generic [ref=f16e90]:
+          - generic [ref=f16e91] [cursor=pointer]: Υπηρεσία
+          - combobox [ref=f16e92] [cursor=pointer]:
+            - option "Ραντεβού Φυσικοθεραπείας" [selected]
+        - generic [ref=f16e93]:
+          - generic [ref=f16e99]:
+            - generic [ref=f16e207]:
+              - generic "Προηγούμενος" [ref=f16e208] [cursor=pointer]: ‹
+              - generic "Επόμενος" [ref=f16e209] [cursor=pointer]: ›
+              - generic [ref=f16e210]: Σεπτέμβριος 2026
+            - table [ref=f16e211]:
+              - rowgroup [ref=f16e212]:
+                - row [ref=f16e213]:
+                  - columnheader "Δε" [ref=f16e214]
+                  - columnheader "Τρ" [ref=f16e215]
+                  - columnheader "Τε" [ref=f16e216]
+                  - columnheader "Πε" [ref=f16e217]
+                  - columnheader "Πα" [ref=f16e218]
+                  - columnheader "Σα" [ref=f16e219]
+                  - columnheader "Κυ" [ref=f16e220]
+              - rowgroup [ref=f16e221]:
+                - row [ref=f16e222]:
+                  - cell [ref=f16e223]
+                  - cell "1" [ref=f16e224]
+                  - cell "2" [ref=f16e226]
+                  - cell "3" [ref=f16e228]
+                  - cell "4" [ref=f16e230]
+                  - cell "5" [ref=f16e232]
+                  - cell "6" [ref=f16e234]
+                - row [ref=f16e236]:
+                  - cell "7" [ref=f16e237]
+                  - cell "8" [ref=f16e239]
+                  - cell "9" [ref=f16e241]
+                  - cell "10" [ref=f16e243]
+                  - cell "11" [ref=f16e245]
+                  - cell "12" [ref=f16e247]
+                  - cell "13" [ref=f16e249]
+                - row [ref=f16e251]:
+                  - cell "14" [ref=f16e252]
+                  - cell "15" [ref=f16e254]
+                  - cell "16" [ref=f16e256]
+                  - cell "17" [ref=f16e258]
+                  - cell "18" [ref=f16e260]
+                  - cell "19" [ref=f16e262]
+                  - cell "20" [ref=f16e264]
+                - row [ref=f16e266]:
+                  - cell [ref=f16e267]:
+                    - link "21" [ref=f16e268] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e269]:
+                    - link "22" [ref=f16e270] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e271]:
+                    - link "23" [ref=f16e272] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e273]:
+                    - link "24" [ref=f16e274] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e275]:
+                    - link "25" [ref=f16e276] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e277]:
+                    - link "26" [ref=f16e278] [cursor=pointer]:
+                      - /url: "#"
+                  - cell "27" [ref=f16e279]
+                - row [ref=f16e281]:
+                  - cell [ref=f16e282]:
+                    - link "28" [ref=f16e283] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e284]:
+                    - link "29" [ref=f16e285] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e286]:
+                    - link "30" [ref=f16e287] [cursor=pointer]:
+                      - /url: "#"
+                  - cell [ref=f16e288]
+                  - cell [ref=f16e289]
+                  - cell [ref=f16e290]
+                  - cell [ref=f16e291]
+          - generic:
+            - generic:
+              - heading "Προσωπικές πληροφορίες" [level=3]
+              - generic: Τα πεδία με * είναι υποχρεωτικά
+              - generic:
+                - generic: Email *
+                - generic:
+                  - textbox "Email *":
+                    - /placeholder: ""
+              - generic:
+                - generic: Ονομα *
+                - generic:
+                  - textbox "Ονομα *":
+                    - /placeholder: ""
+              - generic:
+                - generic: Τηλέφωνο *
+                - generic:
+                  - textbox "Τηλέφωνο *":
+                    - /placeholder: ""
+              - generic:
+                - generic: Περιγραφή
+                - generic:
+                  - textbox "Περιγραφή":
+                    - /placeholder: ""
+            - heading "Επισκόπηση κρατήσεων" [level=3]
+        - generic [ref=f16e186]: Επιλέξτε ημερομηνία και ώρα για να συνεχίσετε
+      - paragraph
+    - generic [ref=f16e195]:
+      - paragraph [ref=f16e196]: Επιλέξτε ημερομηνία και την ώρα που θέλετε να ορίσετε το ραντεβού σας.
+      - paragraph [ref=f16e197]: Θα σας έρθει ένα email για την οριστικοποίηση του ραντεβού από την γραμματεία μας
+  - contentinfo [ref=f16e198]:
+    - paragraph [ref=f16e204]:
+      - text: Copyright ©2026 by
+      - link "adinfinity.gr" [ref=f16e205] [cursor=pointer]:
+        - /url: https://adinfinity.gr/
+  - link "" [ref=f16e292] [cursor=pointer]:
+    - /url: "#top"
+  - generic [ref=f16e206]: desktop

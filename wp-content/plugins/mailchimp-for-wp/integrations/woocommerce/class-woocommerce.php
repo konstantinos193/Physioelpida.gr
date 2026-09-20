@@ -1,172 +1,255 @@
 <?php
 
-defined( 'ABSPATH' ) or exit;
+defined('ABSPATH') || exit;
+
+use Automattic\WooCommerce\Blocks\Package;
+use Automattic\WooCommerce\Blocks\Domain\Services\CheckoutFields;
 
 /**
  * Class MC4WP_WooCommerce_Integration
  *
  * @ignore
  */
-class MC4WP_WooCommerce_Integration extends MC4WP_Integration {
+class MC4WP_WooCommerce_Integration extends MC4WP_Integration
+{
+    /**
+     * @var string
+     */
+    public $name = 'WooCommerce Checkout';
 
+    /**
+     * @var string
+     */
+    public $description = "Subscribes people from WooCommerce's Checkout form or Checkout Block.";
 
-	/**
-	 * @var string
-	 */
-	public $name = 'WooCommerce Checkout';
+    /**
+     * @var string[]
+     */
+    public $checkbox_classes = [
+        'input-checkbox',
+    ];
 
-	/**
-	 * @var string
-	 */
-	public $description = "Subscribes people from WooCommerce's checkout form.";
+    public $wrapper_classes = [
+        'form-row',
+        'form-row-wide',
+    ];
 
-	/**
-	 * Add hooks
-	 */
-	public function add_hooks() {
-		if ( ! $this->options['implicit'] ) {
+    /**
+     * Add hooks
+     */
+    public function add_hooks()
+    {
+        if (!$this->options['implicit']) {
+            if ($this->options['position'] !== 'after_email_field') {
+                // create hook name based on position setting
+                $hook = $this->options['position'];
 
-			if ( $this->options['position'] !== 'after_email_field' ) {
+                // prefix hook with woocommerce_ if not already properly prefixed
+                // note: we check for cfw_ prefix here to not override the Checkout for WC hook names
+                if (strpos($hook, 'cfw_') !== 0 && strpos($hook, 'woocommerce_') !== 0) {
+                    $hook = "woocommerce_{$hook}";
+                }
 
-				// create hook name based on position setting
-				$hook = $this->options['position'];
-				if ( strpos( $hook, 'cfw_' ) !== 0 && strpos( $hook, 'woocommerce_' ) !== 0 ) {
-					$hook = sprintf( 'woocommerce_%s', $hook );
-				}
+                add_action($hook, [$this, 'output_checkbox'], 20);
+            } else {
+                add_filter('woocommerce_form_field_email', [$this, 'add_checkbox_after_email_field'], 10, 4);
+            }
 
-				add_action( $hook, array( $this, 'output_checkbox' ), 20 );
-			} else {
-				add_filter( 'woocommerce_form_field_email', array( $this, 'add_checkbox_after_email_field' ), 10, 4 );
-			}
+            add_action('woocommerce_checkout_update_order_meta', [$this, 'save_woocommerce_checkout_checkbox_value']);
 
-			add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'save_woocommerce_checkout_checkbox_value' ) );
+            // specific hooks for klarna
+            add_filter('kco_create_order', [$this, 'add_klarna_field']);
+            add_filter('klarna_after_kco_confirmation', [$this, 'subscribe_from_klarna_checkout'], 10, 2);
 
-			// specific hooks for klarna
-			add_filter( 'kco_create_order', array( $this, 'add_klarna_field' ) );
-			add_filter( 'klarna_after_kco_confirmation', array( $this, 'subscribe_from_klarna_checkout' ), 10, 2 );
+            // hooks for when using WooCommerce Checkout Block
+            add_action('woocommerce_init', [$this, 'add_checkout_block_field']);
+        }
 
-		}
+        add_action('woocommerce_checkout_order_processed', [$this, 'subscribe_from_woocommerce_checkout']);
+        add_action('woocommerce_store_api_checkout_order_processed', [$this, 'subscribe_from_woocommerce_checkout']);
+        if ($this->options['precheck']) {
+            add_filter('woocommerce_get_default_value_for_mc4wp/optin', function ($value) {
+                return '1';
+            });
+        }
+    }
 
-		add_action( 'woocommerce_checkout_order_processed', array( $this, 'subscribe_from_woocommerce_checkout' ) );
-	}
+    /**
+     * Add default value for "position" setting
+     *
+     * @return array
+     */
+    protected function get_default_options()
+    {
+        $defaults             = parent::get_default_options();
+        $defaults['position'] = 'billing';
+        return $defaults;
+    }
 
-	/**
-	 * Add default value for "position" setting
-	 *
-	 * @return array
-	 */
-	protected function get_default_options() {
-		$defaults             = parent::get_default_options();
-		$defaults['position'] = 'billing';
-		return $defaults;
-	}
+    public function add_checkout_block_field()
+    {
+        // for compatibility with older WooCommerce versions
+        // check if function exists before calling
+        if (!function_exists('woocommerce_register_additional_checkout_field')) {
+            return;
+        }
 
-	public function add_klarna_field( $create ) {
-		$create['options']['additional_checkbox']['text']     = $this->get_label_text();
-		$create['options']['additional_checkbox']['checked']  = (bool) $this->options['precheck'];
-		$create['options']['additional_checkbox']['required'] = false;
-		return $create;
-	}
+        woocommerce_register_additional_checkout_field(
+            [
+                'id' => 'mc4wp/optin',
+                'location' => $this->options['position'] === 'after_email_field' ? 'contact' : 'order',
+                'type' => 'checkbox',
+                'label' => $this->get_label_text(),
+                'optionalLabel' => $this->get_label_text(),
+                'show_in_order_confirmation' => false,
+            ]
+        );
+    }
 
-	function add_checkbox_after_email_field( $field, $key, $args, $value ) {
-		if ( $key !== 'billing_email' ) {
-			return $field;
-		}
+    public function add_klarna_field($create)
+    {
+        $create['options']['additional_checkbox']['text']     = $this->get_label_text();
+        $create['options']['additional_checkbox']['checked']  = (bool) $this->options['precheck'];
+        $create['options']['additional_checkbox']['required'] = false;
+        return $create;
+    }
 
-		$field .= PHP_EOL;
-		$field .= $this->get_checkbox_html(
-			array(
-				'class' => 'form-row form-row-wide',
-			)
-		);
-		return $field;
-	}
+    public function add_checkbox_after_email_field($field, $key, $args, $value)
+    {
+        if ($key !== 'billing_email') {
+            return $field;
+        }
 
-	/**
-	* @param int $order_id
-	*/
-	public function save_woocommerce_checkout_checkbox_value( $order_id ) {
-		update_post_meta( $order_id, '_mc4wp_optin', $this->checkbox_was_checked() );
-	}
+        return $field . PHP_EOL . $this->get_checkbox_html();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @param $order_id
-	 *
-	 * @return bool|mixed
-	 */
-	public function triggered( $order_id = null ) {
-		if ( $this->options['implicit'] ) {
-			return true;
-		}
+    /**
+     * @param int $order_id
+     */
+    public function save_woocommerce_checkout_checkbox_value($order_id)
+    {
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return;
+        }
 
-		if ( ! $order_id ) {
-			return false;
-		}
+        $order->update_meta_data('_mc4wp_optin', $this->checkbox_was_checked());
+        $order->save();
+    }
 
-		$do_optin = get_post_meta( $order_id, '_mc4wp_optin', true );
-		return $do_optin;
-	}
+    /**
+     * {@inheritdoc}
+     *
+     * @param int|\WC_Order $order_id
+     * @return bool|mixed
+     */
+    public function triggered($order_id = null)
+    {
+        if ($this->options['implicit']) {
+            return true;
+        }
 
-	public function subscribe_from_klarna_checkout( $order_id, $klarna_order ) {
-		// $klarna_order is the returned object from Klarna
-		if ( false === (bool) $klarna_order['merchant_requested']['additional_checkbox'] ) {
-			return;
-		}
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return false;
+        }
 
-		// get back into regular subscribe flow
-		update_post_meta( $order_id, '_mc4wp_optin', true );
-		$this->subscribe_from_woocommerce_checkout( $order_id );
-		return;
-	}
+        // value from default checkout form (shortcode)
+        $a = $order->get_meta('_mc4wp_optin');
 
-	/**
-	* @param int $order_id
-	* @return boolean
-	*/
-	public function subscribe_from_woocommerce_checkout( $order_id ) {
-		if ( ! $this->triggered( $order_id ) ) {
-			return false;
-		}
+        // alternatively, value from Checkout Block field
+        $b = false;
+        if (class_exists(Package::class) && class_exists(CheckoutFields::class)) {
+            $checkout_fields = Package::container()->get(CheckoutFields::class);
 
-		$order = wc_get_order( $order_id );
+            if (
+                $checkout_fields
 
-		if ( method_exists( $order, 'get_billing_email' ) ) {
-			$data = array(
-				'EMAIL' => $order->get_billing_email(),
-				'NAME'  => "{$order->get_billing_first_name()} {$order->get_billing_last_name()}",
-				'FNAME' => $order->get_billing_first_name(),
-				'LNAME' => $order->get_billing_last_name(),
-			);
-		} else {
-			// NOTE: for compatibility with WooCommerce < 3.0
-			$data = array(
-				'EMAIL' => $order->billing_email,
-				'NAME'  => "{$order->billing_first_name} {$order->billing_last_name}",
-				'FNAME' => $order->billing_first_name,
-				'LNAME' => $order->billing_last_name,
-			);
-		}
+                && method_exists($checkout_fields, 'get_field_from_object')
+                // method was private in earlier versions of WooCommerce, so check if callable
+                && is_callable([$checkout_fields, 'get_field_from_object'])
+            ) {
+                $b = $checkout_fields->get_field_from_object('mc4wp/optin', $order, 'contact');
+            }
+        }
 
-		// TODO: add billing address fields, maybe by finding Mailchimp field of type "address"?
+        return $a || $b;
+    }
 
-		return $this->subscribe( $data, $order_id );
-	}
+    public function subscribe_from_klarna_checkout($order_id, $klarna_order)
+    {
+        // $klarna_order is the returned object from Klarna
+        if (false === (bool) $klarna_order['merchant_requested']['additional_checkbox']) {
+            return;
+        }
 
-	/**
-	 * @return bool
-	 */
-	public function is_installed() {
-		return class_exists( 'WooCommerce' );
-	}
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return;
+        }
 
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @return string
-	 */
-	public function get_object_link( $object_id ) {
-		return sprintf( '<a href="%s">%s</a>', get_edit_post_link( $object_id ), sprintf( __( 'Order #%d', 'mailchimp-for-wp' ), $object_id ) );
-	}
+        // store _mc4wp_optin in order meta
+        $order->update_meta_data('_mc4wp_optin', true);
+        $order->save();
+
+        // continue in regular subscribe flow
+        $this->subscribe_from_woocommerce_checkout($order_id);
+        return;
+    }
+
+    /**
+     * @param int|\WC_Order $order_id
+     * @return boolean
+     */
+    public function subscribe_from_woocommerce_checkout($order_id)
+    {
+        if (!$this->triggered($order_id)) {
+            return false;
+        }
+
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return false;
+        }
+
+        if (method_exists($order, 'get_billing_email')) {
+            $data = [
+                'EMAIL' => $order->get_billing_email(),
+                'NAME'  => "{$order->get_billing_first_name()} {$order->get_billing_last_name()}",
+                'FNAME' => $order->get_billing_first_name(),
+                'LNAME' => $order->get_billing_last_name(),
+            ];
+        } else {
+            // NOTE: for compatibility with WooCommerce < 3.0
+            $data = [
+                'EMAIL' => $order->billing_email,
+                'NAME'  => "{$order->billing_first_name} {$order->billing_last_name}",
+                'FNAME' => $order->billing_first_name,
+                'LNAME' => $order->billing_last_name,
+            ];
+        }
+
+        // TODO: add billing address fields, maybe by finding Mailchimp field of type "address"?
+
+        return $this->subscribe($data, $order_id);
+    }
+
+    /**
+     * @return bool
+     */
+    public function is_installed()
+    {
+        return class_exists('WooCommerce');
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return string
+     */
+    public function get_object_link($object_id)
+    {
+        // translators: %d is the WooCommerce order number.
+        return sprintf('<a href="%s">%s</a>', get_edit_post_link($object_id), sprintf(__('Order #%d', 'mailchimp-for-wp'), $object_id));
+    }
 }

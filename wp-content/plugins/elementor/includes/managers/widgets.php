@@ -3,8 +3,16 @@ namespace Elementor;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use Elementor\Core\Utils\Collection;
-use Elementor\Core\Utils\Exceptions;
 use Elementor\Core\Utils\Force_Locale;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Button\Atomic_Button;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Divider\Atomic_Divider;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Heading\Atomic_Heading;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Image\Atomic_Image;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Paragraph\Atomic_Paragraph;
+use Elementor\Modules\AtomicWidgets\Elements\Atomic_Svg\Atomic_Svg;
+use Elementor\Modules\NestedAccordion\Widgets\Nested_Accordion;
+use Elementor\Modules\NestedElements\Module as NestedElementsModule;
+use Elementor\Modules\NestedTabs\Widgets\NestedTabs;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -33,17 +41,46 @@ class Widgets_Manager {
 	private $_widget_types = null;
 
 	/**
+	 * Promoted widget types.
+	 *
+	 * Holds the list of all the Promoted widget types.
+	 *
+	 * @since 3.15.0
+	 * @access private
+	 *
+	 * @var Widget_Base[]
+	 *
+	 * @return array
+	 */
+	private array $promoted_widgets = [
+		NestedElementsModule::EXPERIMENT_NAME => [
+			NestedTabs::class,
+			Nested_Accordion::class,
+		],
+		'atomic_widgets' => [
+			Atomic_Heading::class,
+			Atomic_Image::class,
+			Atomic_Paragraph::class,
+			Atomic_Button::class,
+			Atomic_Svg::class,
+			Atomic_Divider::class,
+		],
+	];
+
+	/**
 	 * Init widgets.
 	 *
-	 * Initialize Elementor widgets manager. Include all the the widgets files
+	 * Initialize Elementor widgets manager. Include all the widgets files
 	 * and register each Elementor and WordPress widget.
 	 *
 	 * @since 2.0.0
 	 * @access private
-	*/
+	 */
 	private function init_widgets() {
 		$build_widgets_filename = [
+			'common-base',
 			'common',
+			'common-optimized',
 			'inner-section',
 			'heading',
 			'image',
@@ -74,12 +111,15 @@ class Widgets_Manager {
 			'menu-anchor',
 			'sidebar',
 			'read-more',
+			'rating',
 		];
 
 		$this->_widget_types = [];
 
+		$this->register_promoted_widgets();
+
 		foreach ( $build_widgets_filename as $widget_filename ) {
-			include( ELEMENTOR_PATH . 'includes/widgets/' . $widget_filename . '.php' );
+			include ELEMENTOR_PATH . 'includes/widgets/' . $widget_filename . '.php';
 
 			$class_name = str_replace( '-', '_', $widget_filename );
 
@@ -129,24 +169,9 @@ class Widgets_Manager {
 	 *
 	 * @since 2.0.0
 	 * @access private
-	*/
+	 */
 	private function register_wp_widgets() {
 		global $wp_widget_factory;
-
-		// Skip Pojo widgets.
-		$pojo_allowed_widgets = [
-			'Pojo_Widget_Recent_Posts',
-			'Pojo_Widget_Posts_Group',
-			'Pojo_Widget_Gallery',
-			'Pojo_Widget_Recent_Galleries',
-			'Pojo_Slideshow_Widget',
-			'Pojo_Forms_Widget',
-			'Pojo_Widget_News_Ticker',
-
-			'Pojo_Widget_WC_Products',
-			'Pojo_Widget_WC_Products_Category',
-			'Pojo_Widget_WC_Product_Categories',
-		];
 
 		// Allow themes/plugins to filter out their widgets.
 		$black_list = [];
@@ -168,10 +193,6 @@ class Widgets_Manager {
 				continue;
 			}
 
-			if ( $widget_obj instanceof \Pojo_Widget_Base && ! in_array( $widget_class, $pojo_allowed_widgets ) ) {
-				continue;
-			}
-
 			$elementor_widget_class = __NAMESPACE__ . '\Widget_WordPress';
 
 			$this->register(
@@ -189,7 +210,7 @@ class Widgets_Manager {
 	 *
 	 * @since 2.0.0
 	 * @access private
-	*/
+	 */
 	private function require_files() {
 		require ELEMENTOR_PATH . 'includes/base/widget-base.php';
 	}
@@ -212,17 +233,17 @@ class Widgets_Manager {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @deprecated 3.5.0 Use `$this->register()` instead.
+	 * @deprecated 3.5.0 Use `register()` method instead.
 	 *
 	 * @param Widget_Base $widget Elementor widget.
 	 *
 	 * @return true True if the widget was registered.
-	*/
+	 */
 	public function register_widget_type( Widget_Base $widget ) {
 		Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function(
 			__METHOD__,
 			'3.5.0',
-			'register'
+			'register()'
 		);
 
 		return $this->register( $widget );
@@ -233,19 +254,46 @@ class Widgets_Manager {
 	 *
 	 * @param \Elementor\Widget_Base $widget_instance Elementor Widget.
 	 *
-	 * @return true True if the widget was registered.
+	 * @return bool True if the widget was registered.
 	 * @since 3.5.0
 	 * @access public
-	 *
 	 */
 	public function register( Widget_Base $widget_instance ) {
 		if ( is_null( $this->_widget_types ) ) {
 			$this->init_widgets();
 		}
 
+		/**
+		 * Should widget be registered.
+		 *
+		 * @since 3.18.0
+		 *
+		 * @param bool $should_register Should widget be registered. Default is `true`.
+		 * @param \Elementor\Widget_Base $widget_instance Widget instance.
+		 */
+		$should_register = apply_filters( 'elementor/widgets/is_widget_enabled', true, $widget_instance );
+
+		if ( ! $should_register ) {
+			return false;
+		}
+
 		$this->_widget_types[ $widget_instance->get_name() ] = $widget_instance;
 
 		return true;
+	}
+
+	/** Register promoted widgets
+	 *
+	 * Since we cannot allow widgets to place themselves is a specific
+	 * location on our widgets panel we need to use a hard coded solution for this.
+	 *
+	 * @return void
+	 */
+	private function register_promoted_widgets() {
+
+		foreach ( $this->promoted_widgets as $experiment_name => $classes ) {
+			$this->register_promoted_active_widgets( $experiment_name, $classes );
+		}
 	}
 
 	/**
@@ -255,17 +303,17 @@ class Widgets_Manager {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @deprecated 3.5.0 Use `$this->unregister()` instead.
+	 * @deprecated 3.5.0 Use `unregister()` method instead.
 	 *
 	 * @param string $name Widget name.
 	 *
 	 * @return true True if the widget was unregistered, False otherwise.
-	*/
+	 */
 	public function unregister_widget_type( $name ) {
 		Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function(
 			__METHOD__,
 			'3.5.0',
-			'unregister'
+			'unregister()'
 		);
 
 		return $this->unregister( $name );
@@ -304,7 +352,7 @@ class Widgets_Manager {
 	 * @param string $widget_name Optional. Widget name. Default is null.
 	 *
 	 * @return Widget_Base|Widget_Base[]|null Registered widget types.
-	*/
+	 */
 	public function get_widget_types( $widget_name = null ) {
 		if ( is_null( $this->_widget_types ) ) {
 			$this->init_widgets();
@@ -326,7 +374,7 @@ class Widgets_Manager {
 	 * @access public
 	 *
 	 * @return array Registered widget types with each widget config.
-	*/
+	 */
 	public function get_widget_types_config() {
 		$config = [];
 
@@ -337,7 +385,12 @@ class Widgets_Manager {
 		return $config;
 	}
 
+	/**
+	 * @throws \Exception If current user don't have permissions to edit the post.
+	 */
 	public function ajax_get_widget_types_controls_config( array $data ) {
+		Plugin::$instance->documents->check_permissions( $data['editor_post_id'] );
+
 		wp_raise_memory_limit( 'admin' );
 
 		$config = [];
@@ -354,6 +407,33 @@ class Widgets_Manager {
 		}
 
 		return $config;
+	}
+
+	/**
+	 * @throws \Exception If current user don't have permissions to edit the post.
+	 */
+	public function ajax_refresh_widgets_config( array $data ) {
+		Plugin::$instance->documents->check_permissions( $data['editor_post_id'] );
+
+		wp_raise_memory_limit( 'admin' );
+
+		$widgets = [];
+
+		foreach ( $this->get_widget_types() as $widget_key => $widget ) {
+			$widget_config = $widget->get_config();
+
+			// get_config() omits controls when the stack isn't initialized yet (see Widget_Base::get_initial_config).
+			// During an AJAX refresh the instances are fresh, so we force-initialize and merge them explicitly.
+			$widget_config['controls'] = $widget->get_stack( false )['controls'];
+			$widget_config['tabs_controls'] = $widget->get_tabs_controls();
+
+			$widgets[ $widget_key ] = $widget_config;
+		}
+
+		return [
+			'widgets' => $widgets,
+			'categories' => Plugin::$instance->elements_manager->get_categories(),
+		];
 	}
 
 	public function ajax_get_widgets_default_value_translations( array $data = [] ) {
@@ -403,11 +483,7 @@ class Widgets_Manager {
 	 * }
 	 */
 	public function ajax_render_widget( $request ) {
-		$document = Plugin::$instance->documents->get( $request['editor_post_id'] );
-
-		if ( ! $document->is_editable_by_current_user() ) {
-			throw new \Exception( 'Access denied.', Exceptions::FORBIDDEN );
-		}
+		$document = Plugin::$instance->documents->get_with_permissions( $request['editor_post_id'] );
 
 		// Override the global $post for the render.
 		query_posts(
@@ -445,8 +521,11 @@ class Widgets_Manager {
 	 * @param array $request Ajax request.
 	 *
 	 * @return bool|string Rendered widget form.
+	 * @throws \Exception If current user don't have permissions to edit the post.
 	 */
 	public function ajax_get_wp_widget_form( $request ) {
+		Plugin::$instance->documents->check_permissions( $request['editor_post_id'] );
+
 		if ( empty( $request['widget_type'] ) ) {
 			return false;
 		}
@@ -482,7 +561,7 @@ class Widgets_Manager {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	*/
+	 */
 	public function render_widgets_content() {
 		foreach ( $this->get_widget_types() as $widget ) {
 			$widget->print_template();
@@ -499,7 +578,7 @@ class Widgets_Manager {
 	 * @access public
 	 *
 	 * @return array Registered widget types with settings keys for each widget.
-	*/
+	 */
 	public function get_widgets_frontend_settings_keys() {
 		$keys = [];
 
@@ -515,16 +594,77 @@ class Widgets_Manager {
 	}
 
 	/**
+	 * Widgets with styles.
+	 *
+	 * This method returns the list of all the widgets in the `/includes/`
+	 * folder that have styles.
+	 *
+	 * @since 3.24.0
+	 * @access public
+	 *
+	 * @return array The names of the widgets that have styles.
+	 */
+	public function widgets_with_styles(): array {
+		return [
+			'counter',
+			'divider',
+			'google_maps',
+			'heading',
+			'image',
+			'image-carousel',
+			'menu-anchor',
+			'rating',
+			'social-icons',
+			'spacer',
+			'testimonial',
+			'text-editor',
+			'video',
+		];
+	}
+
+	/**
+	 * Widgets with responsive styles.
+	 *
+	 * This method returns the list of all the widgets in the `/includes/`
+	 * folder that have responsive styles.
+	 *
+	 * @since 3.24.0
+	 * @access public
+	 *
+	 * @return array The names of the widgets that have responsive styles.
+	 */
+	public function widgets_with_responsive_styles(): array {
+		return [
+			'accordion',
+			'alert',
+			'icon-box',
+			'icon-list',
+			'image-box',
+			'image-gallery',
+			'progress',
+			'star-rating',
+			'tabs',
+			'toggle',
+		];
+	}
+
+	/**
 	 * Enqueue widgets scripts.
 	 *
 	 * Enqueue all the scripts defined as a dependency for each widget.
 	 *
 	 * @since 1.3.0
 	 * @access public
-	*/
+	 */
 	public function enqueue_widgets_scripts() {
 		foreach ( $this->get_widget_types() as $widget ) {
 			$widget->enqueue_scripts();
+		}
+	}
+
+	public function register_frontend_handlers() {
+		foreach ( $this->get_widget_types() as $widget ) {
+			$widget->register_frontend_handlers();
 		}
 	}
 
@@ -604,7 +744,7 @@ class Widgets_Manager {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	*/
+	 */
 	public function __construct() {
 		$this->require_files();
 
@@ -626,8 +766,25 @@ class Widgets_Manager {
 		$ajax_manager->register_ajax_action( 'editor_get_wp_widget_form', [ $this, 'ajax_get_wp_widget_form' ] );
 		$ajax_manager->register_ajax_action( 'get_widgets_config', [ $this, 'ajax_get_widget_types_controls_config' ] );
 
+		$ajax_manager->register_ajax_action( 'refresh_widgets_config', [ $this, 'ajax_refresh_widgets_config' ] );
+
 		$ajax_manager->register_ajax_action( 'get_widgets_default_value_translations', function ( array $data ) {
 			return $this->ajax_get_widgets_default_value_translations( $data );
 		} );
+	}
+
+	/**
+	 * @param string $experiment_name
+	 * @param array  $classes
+	 * @return void
+	 */
+	public function register_promoted_active_widgets( string $experiment_name, array $classes ): void {
+		if ( ! Plugin::$instance->experiments->is_feature_active( $experiment_name ) || empty( $classes ) ) {
+			return;
+		}
+
+		foreach ( $classes as $class_name ) {
+			$this->register( new $class_name() );
+		}
 	}
 }

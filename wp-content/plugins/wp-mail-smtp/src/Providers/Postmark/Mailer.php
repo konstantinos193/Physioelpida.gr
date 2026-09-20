@@ -2,6 +2,7 @@
 
 namespace WPMailSMTP\Providers\Postmark;
 
+use WPMailSMTP\ConnectionInterface;
 use WPMailSMTP\Helpers\Helpers;
 use WPMailSMTP\WP;
 use WPMailSMTP\MailCatcherInterface;
@@ -28,15 +29,16 @@ class Mailer extends MailerAbstract {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @param MailCatcherInterface $phpmailer The MailCatcher object.
+	 * @param MailCatcherInterface $phpmailer  The MailCatcher object.
+	 * @param ConnectionInterface  $connection The Connection object.
 	 */
-	public function __construct( $phpmailer ) {
+	public function __construct( $phpmailer, $connection = null ) {
 
 		// We want to prefill everything from MailCatcher class, which extends PHPMailer.
-		parent::__construct( $phpmailer );
+		parent::__construct( $phpmailer, $connection );
 
 		// Set mailer specific headers.
-		$this->set_header( 'X-Postmark-Server-Token', $this->options->get( $this->mailer, 'server_api_token' ) );
+		$this->set_header( 'X-Postmark-Server-Token', $this->connection_options->get( $this->mailer, 'server_api_token' ) );
 		$this->set_header( 'Accept', 'application/json' );
 		$this->set_header( 'Content-Type', 'application/json' );
 
@@ -90,10 +92,7 @@ class Mailer extends MailerAbstract {
 		}
 
 		$headers = isset( $this->body['Headers'] ) ? (array) $this->body['Headers'] : [];
-
-		if ( $name !== 'Message-ID' ) {
-			$value = WP::sanitize_value( $value );
-		}
+		$value   = $this->sanitize_header_value( $name, $value );
 
 		// Prevent duplicates.
 		$key = array_search( $name, array_column( $headers, 'Name' ), true );
@@ -373,6 +372,28 @@ class Mailer extends MailerAbstract {
 	}
 
 	/**
+	 * Get the error code from the Postmark API response.
+	 *
+	 * @since 4.8.0
+	 *
+	 * @return string
+	 */
+	public function get_response_error_code() {
+
+		if ( ! empty( $this->response ) ) {
+			$body = wp_remote_retrieve_body( $this->response );
+
+			// phpcs:ignore WordPress.NamingConventions.ValidVariableName
+			if ( ! empty( $body->ErrorCode ) ) {
+				// phpcs:ignore WordPress.NamingConventions.ValidVariableName
+				return $body->ErrorCode;
+			}
+		}
+
+		return parent::get_response_error_code();
+	}
+
+	/**
 	 * Get a Postmark-specific response with a helpful error.
 	 *
 	 * @since 3.1.0
@@ -410,7 +431,7 @@ class Mailer extends MailerAbstract {
 	 */
 	public function get_debug_info() {
 
-		$options = $this->options->get_group( $this->mailer );
+		$options = $this->connection_options->get_group( $this->mailer );
 
 		$text[] = '<strong>' . esc_html__( 'Server API Token:', 'wp-mail-smtp' ) . '</strong> ' .
 							( ! empty( $options['server_api_token'] ) ? 'Yes' : 'No' );
@@ -431,7 +452,7 @@ class Mailer extends MailerAbstract {
 	 */
 	private function get_message_stream() {
 
-		$message_stream = $this->options->get( $this->mailer, 'message_stream' );
+		$message_stream = $this->connection_options->get( $this->mailer, 'message_stream' );
 
 		/**
 		 * Filters Message Stream ID.
@@ -456,7 +477,7 @@ class Mailer extends MailerAbstract {
 	 */
 	public function is_mailer_complete() {
 
-		$options = $this->options->get_group( $this->mailer );
+		$options = $this->connection_options->get_group( $this->mailer );
 
 		if ( ! empty( $options['server_api_token'] ) ) {
 			return true;

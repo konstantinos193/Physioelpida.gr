@@ -3,10 +3,8 @@ namespace BdevsElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-Use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 
 /**
@@ -100,7 +98,7 @@ class BdevsAppointment extends \Elementor\Widget_Base {
 	    return $position_options;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_content_heading',
@@ -326,7 +324,7 @@ class BdevsAppointment extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'title',
 		        'selector' => '{{WRAPPER}} .tp-el-title',
-		        'scheme' => Typography::TYPOGRAPHY_2,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_SECONDARY ),
 		    ]
 		);
 
@@ -368,7 +366,7 @@ class BdevsAppointment extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'subtitle',
 		        'selector' => '{{WRAPPER}} .tp-el-subtitle',
-		        'scheme' => Typography::TYPOGRAPHY_3,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_TEXT ),
 		    ]
 		);
 
@@ -410,7 +408,7 @@ class BdevsAppointment extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'description',
 		        'selector' => '{{WRAPPER}} .tp-el-content p',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 		$this->end_controls_section();

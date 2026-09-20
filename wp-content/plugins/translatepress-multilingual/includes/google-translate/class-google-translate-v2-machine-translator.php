@@ -4,6 +4,16 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator {
+    public function __construct( $settings ) {
+        parent::__construct( $settings );
+
+        add_filter(
+            'trp_add_google_v2_supported_languages_to_the_array',
+            array( $this, 'add_google_v2_supported_languages_that_are_not_returned_by_the_post_response' ),
+            10,
+            1
+        );
+    }
     /**
      * Send request to Google Translation API
      *
@@ -15,7 +25,7 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
      */
     public function send_request( $source_language, $language_code, $strings_array ){
         /* build our translation request */
-        $translation_request = 'key='.$this->settings['trp_machine_translation_settings']['google-translate-key'];
+        $translation_request = 'key=' . $this->get_api_key();
         $translation_request .= '&source='.$source_language;
         $translation_request .= '&target='.$language_code;
         foreach( $strings_array as $new_string ){
@@ -24,7 +34,7 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
         $referer = $this->get_referer();
 
         /* Due to url length restrictions we need so send a POST request faked as a GET request and send the strings in the body of the request and not in the URL */
-        $response = wp_remote_post( "https://www.googleapis.com/language/translate/v2", array(
+        $response = wp_remote_post( "https://translation.googleapis.com/language/translate/v2", array(
                 'headers' => array(
                     'X-HTTP-Method-Override' => 'GET', //this fakes a GET request
                     'timeout'                => 45,
@@ -57,7 +67,7 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
         $translated_strings = array();
 
         /* split our strings that need translation in chunks of maximum 128 strings because Google Translate has a limit of 128 strings */
-        $new_strings_chunks = array_chunk( $new_strings, 128, true );
+        $new_strings_chunks = array_chunk( $new_strings, $this->get_chunk_size(), true );
         /* if there are more than 128 strings we make multiple requests */
         foreach( $new_strings_chunks as $new_strings_chunk ){
             $response = $this->send_request( $source_language, $target_language, $new_strings_chunk );
@@ -74,10 +84,9 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
             if ( is_array( $response ) && ! is_wp_error( $response ) && isset( $response['response'] ) &&
                 isset( $response['response']['code']) && $response['response']['code'] == 200 ) {
 
-                $this->machine_translator_logger->count_towards_quota( $new_strings_chunk );
-
                 $translation_response = json_decode( $response['body'] );
                 if ( empty( $translation_response->error ) ) {
+                    $this->machine_translator_logger->count_towards_quota( $new_strings_chunk );
 
                     /* if we have strings build the translation strings array and make sure we keep the original keys from $new_string */
                     $translations = ( empty( $translation_response->data->translations ) ) ? array() : $translation_response->data->translations;
@@ -109,6 +118,11 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
         return $translated_strings;
     }
 
+    /* maximum strings per request; Google Translate caps at 128 strings */
+    public function get_chunk_size(){
+        return 128;
+    }
+
     /**
      * Send a test request to verify if the functionality is working
      */
@@ -126,27 +140,37 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
 
 
     public function get_supported_languages(){
-        $response = wp_remote_post( "https://www.googleapis.com/language/translate/v2/languages", array(
-                'headers' => array(
-                    'timeout'                => 45,
-                    'Referer'                => $this->get_referer()
-                ),
-                'body' => 'key='.$this->settings['trp_machine_translation_settings']['google-translate-key'],
-            )
-        );
 
-        if ( is_array( $response ) && ! is_wp_error( $response ) && isset( $response['response'] ) &&
-            isset( $response['response']['code']) && $response['response']['code'] == 200 ) {
-            $data = json_decode( $response['body'] );
-            $supported_languages = array();
-            foreach( $data->data->languages as $language ){
-                $supported_languages[] = $language->language;
+        if ( $this->get_api_key() ) {
+            $response = wp_remote_post( "https://translation.googleapis.com/language/translate/v2/languages", array(
+                    'headers' => array(
+                        'timeout' => 45,
+                        'Referer' => $this->get_referer()
+                    ),
+                    'body' => 'key=' . $this->get_api_key(),
+                )
+            );
+
+
+            if ( is_array( $response ) && !is_wp_error( $response ) && isset( $response['response'] ) &&
+                isset( $response['response']['code'] ) && $response['response']['code'] == 200 ) {
+                $data                = json_decode( $response['body'] );
+                $supported_languages = array();
+                foreach ( $data->data->languages as $language ) {
+                    $supported_languages[] = $language->language;
+                }
+                return apply_filters( 'trp_add_google_v2_supported_languages_to_the_array', $supported_languages );
             }
-            return $supported_languages;
-        }else{
-            return array();
         }
+        return array();
     }
+
+    public function add_google_v2_supported_languages_that_are_not_returned_by_the_post_response($supported_language){
+        $supported_language[] = 'fil';
+
+        return $supported_language;
+    }
+
 
     public function get_engine_specific_language_codes($languages){
         return $this->trp_languages->get_iso_codes($languages);

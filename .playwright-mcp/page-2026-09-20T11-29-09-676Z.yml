@@ -1,0 +1,214 @@
+- generic [ref=f1e794]:
+  - banner:
+    - generic [ref=f1e4]:
+      - generic [ref=f1e6]:
+        - generic [aria-hidden]:
+          - button [disabled]
+        - button "Facebook" [ref=f1e8] [cursor=pointer]:
+          - img "Facebook" [ref=f1e9]
+      - generic [ref=f1e14]:
+        - textbox "Email or phone" [ref=f1e17]
+        - textbox "Password" [ref=f1e20]
+        - button "Log In" [ref=f1e23] [cursor=pointer]
+        - link "Forgot Account?" [ref=f1e30] [cursor=pointer]:
+          - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+  - main [ref=f1e37]:
+    - generic [ref=f1e38]:
+      - link [ref=f1e49] [cursor=pointer]:
+        - /url: https://www.facebook.com/photo/?fbid=167270439146066&set=a.167270432479400
+      - generic [ref=f1e57]:
+        - link [ref=f1e60] [cursor=pointer]:
+          - /url: https://www.facebook.com/photo/?fbid=167270449146065&set=a.167270445812732&__tn__=%3C
+        - generic [ref=f1e68]:
+          - heading [level=1] [ref=f1e73]: Επιστημονικό Κέντρο Φυσικοθεραπείας "Ελπίδα"
+          - generic [ref=f1e75]:
+            - link [ref=f1e76] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=100075893336192&sk=followers
+              - strong [ref=f1e77]: "225"
+              - text: followers
+            - text: •
+            - link [ref=f1e78] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=100075893336192&sk=following
+              - strong [ref=f1e79]: "21"
+              - text: following
+    - generic [ref=f1e87]:
+      - tablist [ref=f1e95]:
+        - generic [ref=f1e97]:
+          - generic [ref=f1e98]: More
+          - tab [selected] [ref=f1e104] [cursor=pointer]:
+            - generic [ref=f1e105]: Posts
+          - tab [ref=f1e108] [cursor=pointer]:
+            - generic [ref=f1e109]: About
+          - tab [ref=f1e112] [cursor=pointer]:
+            - generic [ref=f1e113]: Reels
+          - tab [ref=f1e116] [cursor=pointer]:
+            - generic [ref=f1e117]: Photos
+      - button [ref=f1e122] [cursor=pointer]
+    - generic [ref=f1e131]:
+      - generic [ref=f1e134]:
+        - generic [ref=f1e138]:
+          - heading [level=2] [ref=f1e147]:
+            - generic [ref=f1e148]: Intro
+          - generic [ref=f1e150]:
+            - generic [ref=f1e151]: Κέντρο φυσικοθεραπείας & αποκατάστασης στο κέντρο της πόλης. Ολοκληρωμένα προγράμματα θεραπείας σε ένα φιλικό & άνετο περιβάλλον.
+            - list [ref=f1e157]:
+              - button [ref=f1e165] [cursor=pointer]:
+                - generic [ref=f1e166]:
+                  - strong [ref=f1e167]: Page
+                  - text: · Health/beauty
+              - button [ref=f1e171] [cursor=pointer]:
+                - generic [ref=f1e172]: Βασιλέως Πύρρου και Πλαστήρα 15
+              - generic [ref=f1e173]: 2681 073248
+              - generic [ref=f1e179]: tsolasdim@hotmail.com
+              - button [ref=f1e188] [cursor=pointer]:
+                - generic [ref=f1e189]: Closed now
+              - link [ref=f1e197] [cursor=pointer]:
+                - /url: https://www.facebook.com/profile.php?id=100075893336192&sk=reviews
+                - generic [ref=f1e200]:
+                  - text: 100% recommend (19 reviews)
+                  - button [ref=f1e201]
+        - generic [ref=f1e207]:
+          - generic [ref=f1e214]:
+            - heading [level=2] [ref=f1e216]:
+              - link [ref=f1e219] [cursor=pointer]:
+                - /url: https://www.facebook.com/profile.php?id=100075893336192&sk=photos
+                - text: Photos
+            - link [ref=f1e224] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=100075893336192&sk=photos
+              - generic [ref=f1e225]: See all photos
+          - generic [ref=f1e229]:
+            - link [aria-hidden] [ref=f1e232] [cursor=pointer]:
+              - /url: /photo/?fbid=342638774942564&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e237] [cursor=pointer]:
+              - /url: /photo/?fbid=342638344942607&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e242] [cursor=pointer]:
+              - /url: /photo/?fbid=323847190155056&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e247] [cursor=pointer]:
+              - /url: /photo/?fbid=323847003488408&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e252] [cursor=pointer]:
+              - /url: /photo/?fbid=296661839540258&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e257] [cursor=pointer]:
+              - /url: /photo/?fbid=296661552873620&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e262] [cursor=pointer]:
+              - /url: /photo/?fbid=215596267646816&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e267] [cursor=pointer]:
+              - /url: /photo/?fbid=215596137646829&set=pb.100075893336192.-2207520000
+            - link [aria-hidden] [ref=f1e272] [cursor=pointer]:
+              - /url: /photo/?fbid=206473671892409&set=pb.100075893336192.-2207520000
+        - contentinfo [ref=f1e275]:
+          - list [ref=f1e277]:
+            - listitem [ref=f1e278]:
+              - link [ref=f1e279] [cursor=pointer]:
+                - /url: https://www.facebook.com/legal/terms/information_about_page_insights_data
+                - text: Information about Page Insights Data
+              - generic [ref=f1e280]: ·
+            - listitem [ref=f1e282]:
+              - link [ref=f1e283] [cursor=pointer]:
+                - /url: /privacy/policy/?entry_point=comet_dropdown
+                - text: Privacy
+              - generic [ref=f1e284]: ·
+            - listitem [ref=f1e286]:
+              - link [ref=f1e287] [cursor=pointer]:
+                - /url: /policies?ref=pf
+                - text: Terms
+              - generic [ref=f1e288]: ·
+            - listitem [ref=f1e290]:
+              - link [ref=f1e291] [cursor=pointer]:
+                - /url: /business/
+                - text: Advertising
+              - generic [ref=f1e292]: ·
+            - listitem [ref=f1e294]:
+              - link [ref=f1e295] [cursor=pointer]:
+                - /url: /help/568137493302217
+                - text: Ad Choices
+              - generic [ref=f1e300]: ·
+            - listitem [ref=f1e302]:
+              - link [ref=f1e303] [cursor=pointer]:
+                - /url: /policies/cookies/
+                - text: Cookies
+              - generic [ref=f1e304]: ·
+            - listitem [ref=f1e306]:
+              - button [ref=f1e307] [cursor=pointer]: More
+      - generic [ref=f1e309]:
+        - article [ref=f1e316]:
+          - generic [ref=f1e324]:
+            - generic [ref=f1e326]:
+              - link [ref=f1e330] [cursor=pointer]:
+                - /url: https://www.facebook.com/people/%CE%95%CF%80%CE%B9%CF%83%CF%84%CE%B7%CE%BC%CE%BF%CE%BD%CE%B9%CE%BA%CF%8C-%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF-%CE%A6%CF%85%CF%83%CE%B9%CE%BA%CE%BF%CE%B8%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CE%AF%CE%B1%CF%82-%CE%95%CE%BB%CF%80%CE%AF%CE%B4%CE%B1/100075893336192/?__cft__[0]=AZhs6WwswMT-soskaWYk2qZDb3we6oE5e3yMKeikjLV9uUBGABth9U3SJQ21OGeqMVGlB8zY1w0_rkZ5iSXGgG5kMTqaIT2v1uWAiDqwLqjgQSCxQZz6pKWqHaINNYHB9CvAD4jpXWVq8e4qan4Wx4rHZ2iRMbiMmgD2XP1C08YWCpLEW-vsTNe3B_3hFDIFQWYtAA&__tn__=%3C%3C%2CP-R
+              - generic [ref=f1e337]:
+                - heading [level=2] [ref=f1e341]:
+                  - link [ref=f1e346] [cursor=pointer]:
+                    - /url: https://www.facebook.com/people/%CE%95%CF%80%CE%B9%CF%83%CF%84%CE%B7%CE%BC%CE%BF%CE%BD%CE%B9%CE%BA%CF%8C-%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF-%CE%A6%CF%85%CF%83%CE%B9%CE%BA%CE%BF%CE%B8%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CE%AF%CE%B1%CF%82-%CE%95%CE%BB%CF%80%CE%AF%CE%B4%CE%B1/100075893336192/?__cft__[0]=AZhs6WwswMT-soskaWYk2qZDb3we6oE5e3yMKeikjLV9uUBGABth9U3SJQ21OGeqMVGlB8zY1w0_rkZ5iSXGgG5kMTqaIT2v1uWAiDqwLqjgQSCxQZz6pKWqHaINNYHB9CvAD4jpXWVq8e4qan4Wx4rHZ2iRMbiMmgD2XP1C08YWCpLEW-vsTNe3B_3hFDIFQWYtAA&__tn__=-UC%2CP-R
+                    - generic [ref=f1e347]: Επιστημονικό Κέντρο Φυσικοθεραπείας "Ελπίδα"
+                - generic [ref=f1e350]:
+                  - link [ref=f1e354] [cursor=pointer]:
+                    - /url: https://www.facebook.com/100075893336192/videos/2322444658133178/?__cft__[0]=AZhs6WwswMT-soskaWYk2qZDb3we6oE5e3yMKeikjLV9uUBGABth9U3SJQ21OGeqMVGlB8zY1w0_rkZ5iSXGgG5kMTqaIT2v1uWAiDqwLqjgQSCxQZz6pKWqHaINNYHB9CvAD4jpXWVq8e4qan4Wx4rHZ2iRMbiMmgD2XP1C08YWCpLEW-vsTNe3B_3hFDIFQWYtAA&__tn__=%2CO%2CP-R
+                    - text: April 7, 2025
+                  - generic [ref=f1e355]: ·
+              - button [ref=f1e369] [cursor=pointer]
+            - generic [ref=f1e373]:
+              - generic [ref=f1e382]:
+                - text: Διέγερση παρεσης περονιαιων με υπερεπαγωγικο μαγνητικό πεδίο SIS της BTL. Εξαιρετικά αποτελέσματα σε μυϊκή ομάδα περονιαιων μυών που μετά από χειρουργείο μικροδισκεκτομ…
+                - button [ref=f1e383] [cursor=pointer]: See more
+              - group [ref=f1e406]:
+                - button [ref=f1e410] [cursor=pointer]
+                - generic [ref=f1e795]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - button
+                    - generic: 0:00 / 0:08
+                  - generic:
+                    - generic:
+                      - slider
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - button
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - link:
+                            - /url: https://www.facebook.com/100075893336192/videos/2322444658133178/?__cft__[0]=AZhs6WwswMT-soskaWYk2qZDb3we6oE5e3yMKeikjLV9uUBGABth9U3SJQ21OGeqMVGlB8zY1w0_rkZ5iSXGgG5kMTqaIT2v1uWAiDqwLqjgQSCxQZz6pKWqHaINNYHB9CvAD4jpXWVq8e4qan4Wx4rHZ2iRMbiMmgD2XP1C08YWCpLEW-vsTNe3B_3hFDIFQWYtAA&__tn__=%2B%3FFH-R
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - button
+            - generic [ref=f1e416]:
+              - generic [ref=f1e419]:
+                - toolbar [ref=f1e420]:
+                  - button [ref=f1e425] [cursor=pointer]
+                - generic [ref=f1e426]: "All reactions:"
+                - generic [ref=f1e428]: "6"
+              - generic [ref=f1e430]:
+                - button [ref=f1e432] [cursor=pointer]:
+                  - generic [ref=f1e433]: Like
+                - button [ref=f1e439] [cursor=pointer]:
+                  - generic [ref=f1e440]: Comment
+        - generic [ref=f1e446]:
+          - article [ref=f1e447]:
+            - status [ref=f1e448]
+          - article [ref=f1e460]:
+            - status [ref=f1e461]
+  - dialog [ref=f1e478]:
+    - button "Close" [ref=f1e799] [cursor=pointer]
+    - generic [ref=f1e487]:
+      - generic [ref=f1e497]: See more from Επιστημονικό Κέντρο Φυσικοθεραπείας "Ελπίδα"
+      - generic [ref=f1e504]:
+        - generic: Email or phone number
+        - textbox "Email or phone number" [active] [ref=f1e800]
+      - generic [ref=f1e510]:
+        - generic: Password
+        - textbox "Password" [ref=f1e801]
+      - button "Log in to Facebook" [ref=f1e802] [cursor=pointer]:
+        - generic [ref=f1e514]: Log In
+      - link "Forgot password?" [ref=f1e803] [cursor=pointer]:
+        - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+      - generic [ref=f1e520]: or
+      - button "Create new account" [ref=f1e804] [cursor=pointer]

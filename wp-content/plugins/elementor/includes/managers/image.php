@@ -1,6 +1,7 @@
 <?php
 namespace Elementor;
 
+use Elementor\Core\Editor\Editor;
 use Elementor\Core\Utils\Collection;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,8 +29,12 @@ class Images_Manager {
 	 * @access public
 	 */
 	public function get_images_details() {
+		if ( ! current_user_can( 'publish_posts' ) ) {
+			wp_send_json_error( 'Permission denied' );
+		}
+
 		// PHPCS - Already validated by wp_ajax.
-		$items = $_POST['items']; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		$items = Utils::get_super_global_value( $_POST, 'items' ) ?? []; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		$urls  = [];
 
 		foreach ( $items as $item ) {
@@ -76,6 +81,9 @@ class Images_Manager {
 			if ( 0 === strpos( $size, 'custom_' ) ) {
 				preg_match( '/custom_(\d*)x(\d*)/', $size, $matches );
 
+				$matches[1] = (int) $matches[1];
+				$matches[2] = (int) $matches[2];
+
 				$instance = [
 					'image_size' => 'custom',
 					'image_custom_dimension' => [
@@ -114,13 +122,12 @@ class Images_Manager {
 	 *
 	 * Used to retrieve an array of image attributes to be used for displaying an image in Elementor's Light Box module.
 	 *
-	 * @param int $id       The ID of the image
+	 * @param int $id       The ID of the image.
 	 *
 	 * @return array An array of image attributes including `title` and `description`.
 	 * @since 2.9.0
 	 * @access public
 	 */
-
 	public function get_lightbox_image_attributes( $id ) {
 		$attributes = [];
 		$kit = Plugin::$instance->kits_manager->get_active_kit();

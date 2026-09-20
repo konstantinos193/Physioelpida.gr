@@ -1,5 +1,9 @@
 <?php
 
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 /**
  * Class TRP_Error_Manager
  */
@@ -12,6 +16,7 @@ class TRP_Error_Manager{
         $this->settings = $settings;
     }
 
+    
     public function is_error_manager_disabled(){
         return apply_filters( 'trp_disable_error_manager', false );
     }
@@ -25,6 +30,8 @@ class TRP_Error_Manager{
     'disable_automatic_translations' => bool
      */
     public function record_error( $error_details ){
+        global $wpdb;
+
         if ( $this->is_error_manager_disabled() ){
             return;
         }
@@ -33,10 +40,17 @@ class TRP_Error_Manager{
             'notifications' => array(),
             'errors' => array()
         ));
+
+        if ( !isset( $option ) || !is_array( $option['errors'] ) ){
+            $option['errors'] = [];
+        }
+
         if ( count( $option['errors'] ) >= 5 ){
             // only record the last few errors to avoid huge db options
             array_shift($option['errors'] );
         }
+
+        $error_details['last_query'] = $wpdb->last_query;
         $error_details['date_time'] = date('Y-m-d H:i:s');
         $error_details['timestamp'] = time();
 
@@ -56,7 +70,7 @@ class TRP_Error_Manager{
                 update_option('trp_machine_translation_settings', $mt_settings_option );
 
                 // filter is needed to block automatic translation in this execution. The settings don't update throughout the plugin for this request. Only the next request will have machine translation turned off.
-                add_filter( 'trp_disable_automatic_translations_due_to_error', __return_true() );
+                add_filter( 'trp_disable_automatic_translations_due_to_error', '__return_true' );
 
                 $error_message = wp_kses( __('Automatic translation has been disabled.','translatepress-multilingual'), array('strong' => array() ) ) . ' ' . $error_message ;
             }
@@ -76,6 +90,8 @@ class TRP_Error_Manager{
             );
         }
 
+        // this action allows you to trigger an action like send an email with the error details
+        do_action( 'trp_error_details', $error_details );
 
         $option['errors'][] = $error_details;
         update_option( 'trp_db_errors', $option );

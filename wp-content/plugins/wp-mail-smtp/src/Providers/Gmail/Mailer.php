@@ -8,7 +8,6 @@ use WPMailSMTP\MailCatcherInterface;
 use WPMailSMTP\Providers\MailerAbstract;
 use WPMailSMTP\Vendor\Google\Service\Gmail;
 use WPMailSMTP\Vendor\Google\Service\Gmail\Message;
-use WPMailSMTP\Options as PluginOptions;
 use WPMailSMTP\WP;
 
 /**
@@ -38,22 +37,6 @@ class Mailer extends MailerAbstract {
 	protected $message;
 
 	/**
-	 * Mailer constructor.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param MailCatcherInterface $phpmailer The MailCatcher object.
-	 */
-	public function __construct( $phpmailer ) {
-
-	    parent::__construct( $phpmailer );
-
-		if ( ! $this->is_php_compatible() ) {
-			return;
-		}
-	}
-
-	/**
 	 * Re-use the MailCatcher class methods and properties.
 	 *
 	 * @since 1.2.0
@@ -80,7 +63,7 @@ class Mailer extends MailerAbstract {
 		// Include the Google library.
 		require_once wp_mail_smtp()->plugin_path . '/vendor/autoload.php';
 
-		$auth    = new Auth();
+		$auth    = new Auth( $this->connection );
 		$message = new Message();
 
 		// Set the authorized Gmail email address as the "from email" if the set email is not on the list of aliases.
@@ -118,6 +101,15 @@ class Mailer extends MailerAbstract {
 			$this->process_response( $response );
 		} catch ( \Exception $e ) {
 			$this->error_message = $this->process_exception_message( $e->getMessage() );
+
+			// Extract error code from Google API JSON response or exception code.
+			$error_data = json_decode( $e->getMessage() );
+
+			if ( ! empty( $error_data->error ) && is_string( $error_data->error ) ) {
+				$this->error_code = $error_data->error;
+			} elseif ( $e->getCode() ) {
+				$this->error_code = $e->getCode();
+			}
 		}
 	}
 
@@ -181,8 +173,7 @@ class Mailer extends MailerAbstract {
 
 		$gmail_text = array();
 
-		$options  = PluginOptions::init();
-		$gmail    = $options->get_group( 'gmail' );
+		$gmail    = $this->connection_options->get_group( 'gmail' );
 		$curl_ver = 'No';
 		if ( function_exists( 'curl_version' ) ) {
 			$curl     = curl_version();
@@ -227,7 +218,7 @@ class Mailer extends MailerAbstract {
 			return false;
 		}
 
-		$auth = new Auth();
+		$auth = new Auth( $this->connection );
 
 		if (
 			$auth->is_clients_saved() &&
@@ -264,7 +255,7 @@ class Mailer extends MailerAbstract {
 					'invalid_grant',
 				],
 				'explanation' => esc_html__( 'Please re-grant Google app permissions!', 'wp-mail-smtp' ) . ' ' . WP::EOL .
-					esc_html__( 'Go to WP Mail SMTP plugin settings page. Click the “Remove Connection” button.', 'wp-mail-smtp' ) . ' ' . WP::EOL .
+					esc_html__( 'Go to WP Mail SMTP plugin settings page. Click the “Remove OAuth Connection” button.', 'wp-mail-smtp' ) . ' ' . WP::EOL .
 					esc_html__( 'Then click the “Allow plugin to send emails using your Google account” button and re-enable access.', 'wp-mail-smtp' ),
 			],
 		];
@@ -296,7 +287,7 @@ class Mailer extends MailerAbstract {
 
 		_deprecated_function( __CLASS__ . '::' . __METHOD__, '2.1.1 of WP Mail SMTP plugin' );
 
-		$gmail_creds = ( new Auth() )->get_user_info();
+		$gmail_creds = ( new Auth( $this->connection ) )->get_user_info();
 
 		if ( empty( $gmail_creds['email'] ) ) {
 			return [];

@@ -3,10 +3,8 @@ namespace BdevsElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-Use \Elementor\Core\Schemes\Typography;
 use \Elementor\Group_Control_Background;
 
 
@@ -103,7 +101,7 @@ class BdevsHeading extends \Elementor\Widget_Base {
 
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'design_style_section',
@@ -304,7 +302,7 @@ class BdevsHeading extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'title',
 		        'selector' => '{{WRAPPER}} .tp-el-title',
-		        'scheme' => Typography::TYPOGRAPHY_2,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_SECONDARY ),
 		    ]
 		);
 
@@ -346,7 +344,7 @@ class BdevsHeading extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'subtitle',
 		        'selector' => '{{WRAPPER}} .tp-el-subtitle',
-		        'scheme' => Typography::TYPOGRAPHY_3,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_TEXT ),
 		    ]
 		);
 
@@ -388,7 +386,7 @@ class BdevsHeading extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'description',
 		        'selector' => '{{WRAPPER}} .tp-el-content p',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 		$this->end_controls_section();

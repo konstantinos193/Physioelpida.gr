@@ -1,5 +1,9 @@
 <?php
 
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 /**
  * Class TRP_Language_Switcher
  *
@@ -30,6 +34,7 @@ class TRP_Language_Switcher{
         global $TRP_LANGUAGE;
         $TRP_LANGUAGE = $language;
         add_filter( 'get_user_option_metaboxhidden_nav-menus', array( $this, 'cpt_always_visible_in_menus' ), 10, 3 );
+        add_shortcode( 'language-switcher', [ $this, 'language_switcher' ] );
     }
 
 	/**
@@ -100,12 +105,15 @@ class TRP_Language_Switcher{
         if ( $this->url_converter->is_sitemap_path() )
             return;
 
-        $link_to_redirect = apply_filters( 'trp_link_to_redirect_to', $this->url_converter->get_url_for_language( $TRP_NEEDED_LANGUAGE, null, '' ), $TRP_NEEDED_LANGUAGE );
+        $link_to_redirect = sanitize_url(apply_filters( 'trp_link_to_redirect_to', $this->url_converter->get_url_for_language( $TRP_NEEDED_LANGUAGE, null, '' ), $TRP_NEEDED_LANGUAGE ));
 
-        if( isset( $this->settings['add-subdirectory-to-default-language'] ) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && isset( $this->settings['default-language'] ) && $this->settings['default-language'] === $TRP_NEEDED_LANGUAGE )
-            wp_redirect( $link_to_redirect, 301 );
-        else
-            wp_redirect( $link_to_redirect );
+        if( isset( $this->settings['add-subdirectory-to-default-language'] ) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && isset( $this->settings['default-language'] ) && $this->settings['default-language'] === $TRP_NEEDED_LANGUAGE ) {
+            $status = apply_filters( 'trp_redirect_status', 301, 'redirect_to_add_subdirectory_to_default_language' );
+            wp_redirect( $link_to_redirect, $status );
+        }else {
+            $status = apply_filters( 'trp_redirect_status', 302, 'redirect_to_a_different_language_according_to_url_slug' );
+            wp_redirect( $link_to_redirect, $status );
+        }
 
         exit;
 
@@ -121,23 +129,28 @@ class TRP_Language_Switcher{
 	 * @return string                   HTML for shortcode language switcher
 	 */
 	public function language_switcher( $atts ){
+        $loader = $this->trp->get_component( 'loader' );
+        if ( apply_filters( 'trp_allow_tp_to_run', true, $loader ) === false )
+            return '';
+
 		ob_start();
 
 		global $TRP_LANGUAGE;
 
 		$shortcode_attributes = shortcode_atts( array(
 			'display' => 0,
+			'is_editor' => 0,
 		), $atts );
 
 		if ( ! $this->trp_languages ){
 			$trp = TRP_Translate_Press::get_trp_instance();
 			$this->trp_languages = $trp->get_component( 'languages' );
 		}
-		if ( current_user_can(apply_filters( 'trp_translating_capability', 'manage_options' )) ){
-        $languages_to_display = $this->settings['translation-languages'];
-    }else{
-        $languages_to_display = $this->settings['publish-languages'];
-    }
+        if ( current_user_can( apply_filters( 'trp_translating_capability', 'manage_options' ) ) ) {
+            $languages_to_display = $this->settings['translation-languages'];
+        }else{
+            $languages_to_display = $this->settings['publish-languages'];
+        }
 		$published_languages = $this->trp_languages->get_language_names( $languages_to_display );
 
 		$current_language = array();
@@ -165,6 +178,8 @@ class TRP_Language_Switcher{
 			$shortcode_settings = $ls_options[ $this->settings['shortcode-options'] ];
 		}
 
+        $is_editor = isset( $shortcode_attributes['is_editor'] ) && $shortcode_attributes['is_editor'] === 'true';
+
 		require TRP_PLUGIN_DIR . 'partials/language-switcher-shortcode.php';
 
 		return ob_get_clean();
@@ -177,13 +192,18 @@ class TRP_Language_Switcher{
      *
      * Hooked on wp_enqueue_scripts.
      */
-    public function enqueue_language_switcher_scripts( ){
+    public function enqueue_language_switcher_scripts( ) {
 
-        if ( isset( $this->settings['trp-ls-floater'] ) && $this->settings['trp-ls-floater'] == 'yes' ) {
-            wp_enqueue_style('trp-floater-language-switcher-style', TRP_PLUGIN_URL . 'assets/css/trp-floater-language-switcher.css', array(), TRP_PLUGIN_VERSION );
+        if ( apply_filters( 'trp_enqueue_style_language_switcher_css', true ) ) {
+
+            if ( isset( $this->settings['trp-ls-floater'] ) && $this->settings['trp-ls-floater'] == 'yes' ) {
+                $floater_path = apply_filters( 'trp_old_css_styling_for_floater_ls', false ) ? TRP_PLUGIN_URL . 'assets/css/trp-floater-language-switcher-old.css' : TRP_PLUGIN_URL . 'assets/css/trp-floater-language-switcher.css';
+                wp_enqueue_style('trp-floater-language-switcher-style', $floater_path, array(), TRP_PLUGIN_VERSION);
+            }
+
+            $shortcode_path = apply_filters( 'trp_old_css_styling_for_shortcode_ls', false ) ? TRP_PLUGIN_URL . 'assets/css/trp-language-switcher-old.css' : TRP_PLUGIN_URL . 'assets/css/trp-language-switcher.css';
+            wp_enqueue_style( 'trp-language-switcher-style', $shortcode_path, array(), TRP_PLUGIN_VERSION );
         }
-
-        wp_enqueue_style( 'trp-language-switcher-style', TRP_PLUGIN_URL . 'assets/css/trp-language-switcher.css', array(), TRP_PLUGIN_VERSION );
     }
 
     /**
@@ -192,9 +212,8 @@ class TRP_Language_Switcher{
      * Hooked on wp_footer.
      */
     public function add_floater_language_switcher() {
-
         // Check if floater language switcher is active and return if not
-        if( $this->settings['trp-ls-floater'] != 'yes' ) {
+        if( $this->settings['trp-ls-floater'] !== 'yes' ) {
             return;
         }
 
@@ -255,6 +274,7 @@ class TRP_Language_Switcher{
         if( $this->settings['trp-ls-show-poweredby'] == 'yes' ) {
             $floater_class .= ' trp-poweredby';
         }
+        $floater_class .= ' ' . $this->settings['floater-options'];
 
         $current_language = array();
         $other_languages = array();
@@ -296,7 +316,8 @@ class TRP_Language_Switcher{
 
                 <?php
                 if( $this->settings['trp-ls-show-poweredby'] == 'yes' ){
-	                $powered_by = '<div id="trp-floater-poweredby">Powered by TranslatePress <a href="https://translatepress.com/?utm_source=language_switcher&utm_medium=clientsite&utm_campaign=TPLS" rel="nofollow" target="_blank" title="WordPress Translation Plugin">&raquo;</a></div>';
+                    //[utm9]
+	                $powered_by = '<div id="trp-floater-poweredby">Powered by <a href="https://translatepress.com/?utm_source=frontend-ls&utm_medium=client-site&utm_campaign=powered-by-tp" rel="nofollow" target="_blank" title="WordPress Translation Plugin">TranslatePress</a></div>';
                 } else {
 	                $powered_by = '';
                 }
@@ -310,13 +331,15 @@ class TRP_Language_Switcher{
                 $floater_position = 'bottom';
                 if ( !empty( $this->settings['floater-position'] ) && strpos( $this->settings['floater-position'], 'top' ) !== false  ){
 	                  echo $powered_by; // phpcs:ignore
-	                  echo '<div class="trp-language-wrap">';
-	                  echo $disabled_language; // phpcs:ignore
+	                  echo '<div class="trp-language-wrap trp-language-wrap-top">';
+	                  if ( !empty( $disabled_language ) ){
+                          echo $disabled_language;  // phpcs:ignore
+                      }
                     $floater_position = 'top';
                 }
 
                 if ( $floater_position == 'bottom' ){
-                    echo '<div class="trp-language-wrap">';
+                    echo '<div class="trp-language-wrap trp-language-wrap-bottom">';
 	              }
 
                 foreach( $other_languages as $code => $name ) {
@@ -363,6 +386,8 @@ class TRP_Language_Switcher{
 
     /**
      * Return flag html.
+     *
+     * @important This function is used in WP Rocket plugin. Please don't remove it or change its signature.
      *
      * @param string $language_code         Language code.
      * @param string $language_name         Language full name or shortname.
@@ -482,6 +507,27 @@ class TRP_Language_Switcher{
 
         $item_key_to_unset = false;
         $current_language_set = false;
+        $language_labels = [];
+
+        // Get all user defined labels for language names before building the language switcher.
+        // Useful for keeping user labels for Current language and Opposite language
+        foreach ( $items as $key => $item) {
+            if ( $item->object == 'language_switcher' ){
+                $ls_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
+                $ls_post = get_post( $ls_id );
+                if ( $ls_post == null || $ls_post->post_type != 'language_switcher' ) {
+                    continue;
+                }
+                $language_code = $ls_post->post_content;
+
+                // Prefer item title if it exists, otherwise use the corresponding value from $published_languages
+                $language_name = !empty($item->post_title) ? $item->post_title : (isset($published_languages[$language_code]) ? $published_languages[$language_code] : $item->title);
+
+                $language_labels[$language_code] = $language_name;
+            }
+        }
+
+
         foreach ( $items as $key => $item ){
             if ( $item->object == 'language_switcher' ){
                 $ls_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
@@ -502,22 +548,29 @@ class TRP_Language_Switcher{
                     $current_language_set = true;
                 }
 
-                if($language_code == 'opposite_language'){
-                        foreach ( $published_languages as $value => $value_item ) {
-                            if ( $value != $TRP_LANGUAGE ) {
-                                $language_code = $value;
-                            }
+                if ( $language_code == 'opposite_language' ) {
+                    foreach ( $published_languages as $value => $value_item ) {
+                        if ( $value != $TRP_LANGUAGE ) {
+                            $language_code = $value;
                         }
+                    }
                 }
 
-                $language_names = $this->trp_languages->get_language_names( array( $language_code ) );
-                $language_name = $language_names[$language_code];
-	            $items[$key]->url = $this->url_converter->get_url_for_language( $language_code );
+                if ( !isset( $language_labels[ $language_code ] ) ) {
+                    // use language name as defined by WP if user did not add this specific language in the menu
+                    $language_names = $this->trp_languages->get_language_names( array( $language_code ) );
+                    $language_name  = $language_names[ $language_code ];
+                } else {
+                    // use the language label defined by the user in Appearance -> Menu
+                    // applicable for all languages defined in the menu and for Current Language and Opposite Language
+                    $language_name = $language_labels[ $language_code ];
+                }
+                $items[ $key ]->url = esc_url( $this->url_converter->get_url_for_language( $language_code ) );
 
 	            // Output of simple text only menu, for compatibility with certain themes/plugins
                 if ($menu_settings["no_html"] ){
 	                $items[$key]->classes[] = '';
-	                $items[$key]->title =  $language_name;
+	                $items[$key]->title = $language_name;
                 } else {
 	                $items[$key]->classes[] = 'trp-language-switcher-container';
 	                $items[$key]->title = '<span data-no-translation>';
@@ -528,25 +581,27 @@ class TRP_Language_Switcher{
 		                $items[$key]->title .= '<span class="trp-ls-language-name">' . strtoupper( $this->url_converter->get_url_slug( $language_code, false ) ) . '</span>';
 	                }
 	                if ( $menu_settings['full_names'] ) {
-		                $items[$key]->title .= '<span class="trp-ls-language-name">' . $language_name . '</span>';
+		                $items[$key]->title .= '<span class="trp-ls-language-name">' . wp_kses_post( $language_name ) . '</span>';
 	                }
 	                $items[$key]->title .= '</span>';
 
                 }
 
-
                 $items[$key]->title = apply_filters( 'trp_menu_language_switcher', $items[$key]->title, $language_name, $language_code, $menu_settings );
             }
         }
 
-        // removes menu item of current language if "Current Language" language switcher item is present.
-        if ( $current_language_set && $item_key_to_unset ){
+        // Removes menu item of current language if "Current Language" language switcher item is present.
+        if ( $current_language_set && $item_key_to_unset !== false ){
             unset($items[$item_key_to_unset]);
             $items = array_values( $items );
         }
 
-
         return $items;
     }
 
+
 }
+
+
+

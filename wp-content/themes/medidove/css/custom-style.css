@@ -1138,6 +1138,15 @@
 	top: -12px;
 }
 
+/* footer copyright link */
+.footer-copyright a,
+.copyright-text a {
+	color: inherit;
+}
+.footer-copyright a:hover {
+	color: #fff;
+}
+
 .search-input-field input {
 	width: 420px;
 	height: 50px;

@@ -3,11 +3,9 @@ namespace BdevsElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
-Use \Elementor\Core\Schemes\Typography;
 
 /**
  * Bdevs Elementor Widget.
@@ -100,7 +98,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 	    return $position_options;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_content_features',
 			[
@@ -590,7 +588,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'title',
 		        'selector' => '{{WRAPPER}} .tp-el-title',
-		        'scheme' => Typography::TYPOGRAPHY_2,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_SECONDARY ),
 		    ]
 		);
 
@@ -632,7 +630,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'subtitle',
 		        'selector' => '{{WRAPPER}} .tp-el-subtitle',
-		        'scheme' => Typography::TYPOGRAPHY_3,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_TEXT ),
 		    ]
 		);
 
@@ -674,7 +672,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'description',
 		        'selector' => '{{WRAPPER}} .tp-el-content p',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 		$this->end_controls_section();
@@ -705,7 +703,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'button_typography',
 		        'selector' => '{{WRAPPER}} .tp-el-btn',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 
@@ -910,7 +908,7 @@ class BdevsAbout extends \Elementor\Widget_Base {
 								$image_author = $image_src ? $image_src[0] : ''; 
 						   		?>
                                 <div class="author-ava">
-									<img src="<?php print esc_url($image_author); ?>" alt="<?php print wp_kses_post($settings['tab_title']); ?>">
+									<img src="<?php print esc_url($image_author); ?>" alt="<?php print wp_kses_post( $settings['tab_title'] ?? '' ); ?>">
                                 </div>
                                 <?php endif; ?>
 

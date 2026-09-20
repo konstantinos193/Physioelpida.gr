@@ -1,5 +1,9 @@
 <?php
 
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 add_filter( 'trp_register_advanced_settings', 'trp_register_html_lang_attribute', 1001 );
 function trp_register_html_lang_attribute( $settings_array ){
     $settings_array[] = array(
@@ -10,6 +14,8 @@ function trp_register_html_lang_attribute( $settings_array ){
         'labels'        => array( esc_html__( 'Default (example: en-US, fr-CA, etc.)', 'translatepress-multilingual' ), esc_html__( 'Regional (example: en, fr, es, etc.)', 'translatepress-multilingual' ) ),
         'label'         => esc_html__( 'HTML Lang Attribute Format', 'translatepress-multilingual' ),
         'description'   => wp_kses(  __( 'Change lang attribute of the html tag to a format that includes country regional or not. <br>In HTML, the lang attribute (<html lang="en-US">)  should be used to  specify the language of text content so that the  browser can correctly display or process  your content (eg. for  hyphenation, styling, spell checking, etc).', 'translatepress-multilingual' ), array( 'br' => array() ) ),
+        'id'            => 'miscellaneous_options',
+        'container'     => 'miscellaneous_options'
     );
     return $settings_array;
 }

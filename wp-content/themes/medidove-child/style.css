@@ -16,3 +16,207 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 /* =Theme customization starts here
 -------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+ * Easy Appointments — theme-matched booking form (/rantevou/)
+ * ---------------------------------------------------------------------- */
+
+/* Single location & single worker — the selects are redundant noise.
+   They stay in the DOM (the form JS needs them) but hidden.
+   New UI clones the selects into .ea-field-group wrappers. */
+.ea-bootstrap .form-group:has(select[name="worker"]),
+.ea-bootstrap .form-group:has(select[name="location"]),
+.ea-bootstrap .ea-field-group:has(select[name="worker"]),
+.ea-bootstrap .ea-field-group:has(select[name="location"]),
+.ea-bootstrap .ea-field-group:has(.ea-new-ui-select-clone[name="worker"]),
+.ea-bootstrap .ea-field-group:has(.ea-new-ui-select-clone[name="location"]) {
+	display: none !important;
+}
+
+/* Medidove palette & typography on the EA card */
+.ea-bootstrap {
+	--ea-accent: #1071dc;
+	--ea-accent-hover: #0d5cbd;
+	--ea-accent-ink: #0d5cbd;
+	--ea-accent-deep: #0b4ea2;
+	--ea-accent-tint: #eaf3fe;
+	--ea-text: #223645;
+	--ea-paper: #ffffff;
+	--ea-surface: #f4f7fb;
+	--ea-serif: "Poppins", sans-serif;
+	--ea-sans: "Rubik", sans-serif;
+	font-family: var(--ea-sans);
+}
+
+.ea-bootstrap h2,
+.ea-bootstrap h3,
+.ea-bootstrap .ea-heading {
+	font-family: var(--ea-serif);
+	color: var(--ea-text);
+	font-weight: 600;
+}
+
+.ea-bootstrap .ea-label,
+.ea-bootstrap label,
+.ea-bootstrap .control-label {
+	font-family: var(--ea-sans);
+	font-weight: 500;
+	color: #647589;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 0.4px;
+}
+
+.ea-bootstrap select,
+.ea-bootstrap input[type="text"],
+.ea-bootstrap input[type="email"],
+.ea-bootstrap input[type="tel"],
+.ea-bootstrap textarea,
+.ea-bootstrap .form-control {
+	font-family: var(--ea-sans);
+	color: var(--ea-text);
+	border: 1px solid #e7eaee;
+	border-radius: 6px;
+	background: #fff;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.ea-bootstrap .form-control:focus,
+.ea-bootstrap select:focus,
+.ea-bootstrap input:focus,
+.ea-bootstrap textarea:focus {
+	border-color: var(--ea-accent);
+	box-shadow: 0 0 0 3px var(--ea-accent-tint);
+	outline: none;
+}
+
+/* Calendar */
+.ea-bootstrap .ui-datepicker {
+	font-family: var(--ea-sans);
+	border: 1px solid #e7eaee;
+	border-radius: 10px;
+	padding: 12px;
+	box-shadow: 0 2px 12px rgba(34, 54, 69, 0.06);
+}
+
+.ea-bootstrap .ui-datepicker-header {
+	background: transparent;
+	border: none;
+	color: var(--ea-text);
+}
+
+.ea-bootstrap .ui-datepicker-title {
+	font-family: var(--ea-serif);
+	font-weight: 600;
+	font-size: 15px;
+}
+
+.ea-bootstrap .ui-datepicker th {
+	font-family: var(--ea-sans);
+	font-weight: 600;
+	font-size: 11px;
+	color: #647589;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.ea-bootstrap .ui-datepicker td a,
+.ea-bootstrap .ui-datepicker td span {
+	font-family: var(--ea-sans);
+	border-radius: 8px;
+	text-align: center;
+	border: none;
+	background: transparent;
+	color: var(--ea-text);
+	font-weight: 500;
+}
+
+.ea-bootstrap .ui-datepicker td a:hover {
+	background: var(--ea-accent-tint);
+	color: var(--ea-accent);
+}
+
+.ea-bootstrap .ui-datepicker td.ui-datepicker-current-day a,
+.ea-bootstrap .ui-datepicker td a.ui-state-active {
+	background: var(--ea-accent) !important;
+	color: #fff !important;
+}
+
+.ea-bootstrap .ui-datepicker td a.ui-state-highlight {
+	background: var(--ea-accent-tint);
+	color: var(--ea-accent);
+}
+
+/* Time slots */
+.ea-bootstrap .time a,
+.ea-bootstrap .time button,
+.ea-bootstrap .ea-time-slot,
+.ea-bootstrap .time .time-slot {
+	font-family: var(--ea-sans);
+	border-radius: 6px;
+	border: 1px solid #e7eaee;
+	color: var(--ea-text);
+	background: #fff;
+	font-weight: 500;
+}
+
+.ea-bootstrap .time a:hover,
+.ea-bootstrap .time button:hover,
+.ea-bootstrap .ea-time-slot:hover {
+	border-color: var(--ea-accent);
+	color: var(--ea-accent);
+	background: var(--ea-accent-tint);
+}
+
+.ea-bootstrap .time a.selected,
+.ea-bootstrap .time button.selected,
+.ea-bootstrap .ea-time-slot.selected {
+	background: var(--ea-accent);
+	border-color: var(--ea-accent);
+	color: #fff;
+}
+
+/* Buttons — match the theme CTA (ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ header button) */
+.ea-bootstrap .ea-btn,
+.ea-bootstrap button.ea-submit,
+.ea-bootstrap .booking-button {
+	font-family: var(--ea-sans);
+	font-weight: 600;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.6px;
+	border-radius: 6px;
+	padding: 14px 30px;
+	transition: background .2s ease, color .2s ease;
+}
+
+.ea-bootstrap .ea-submit,
+.ea-bootstrap .booking-button {
+	background: var(--ea-accent);
+	border-color: var(--ea-accent);
+	color: #fff;
+}
+
+.ea-bootstrap .ea-submit:hover,
+.ea-bootstrap .booking-button:hover {
+	background: var(--ea-accent-deep);
+	border-color: var(--ea-accent-deep);
+	color: #fff;
+}
+
+.ea-bootstrap .ea-cancel {
+	background: transparent;
+	border: 1px solid #e7eaee;
+	color: #647589;
+}
+
+.ea-bootstrap .ea-cancel:hover {
+	border-color: #e12454;
+	color: #e12454;
+}
+
+/* Loader spinner */
+.ea-bootstrap #ea-loader,
+.ea-bootstrap .ea-loader {
+	border-top-color: var(--ea-accent) !important;
+}

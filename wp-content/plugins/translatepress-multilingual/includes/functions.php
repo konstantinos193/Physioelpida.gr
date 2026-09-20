@@ -1,5 +1,8 @@
 <?php
 
+if ( !defined('ABSPATH' ) )
+    exit();
+
 /**
  * Outputs language switcher.
  *
@@ -62,30 +65,74 @@ function trp_utf8ize($mixed) {
  * function that gets the translation for a string with context directly from a .mo file
  * @TODO this was developped firstly for woocommerce so it maybe needs further development.
 */
-function trp_x( $text, $context, $domain, $language ){
+function trp_x( $text, $context, $domain, $language ) {
     $original_text = $text;
+
+    $cache_key = 'trp_x_' . md5( $text . $context . $domain . $language );
+    $new_text  = wp_cache_get( $cache_key );
+    if ( $new_text !== false ) {
+        return $new_text;
+    }
     /* try to find the correct path for the textdomain */
-    $path = trp_find_translation_location_for_domain( $domain, $language );
-
-    if( !empty( $path ) ) {
-
-        $mo_file = trp_cache_get( 'trp_x_' . $domain .'_'. $language );
-
-        if( false === $mo_file ){
-            $mo_file = new MO();
-            $mo_file->import_from_file( $path );
-            wp_cache_set( 'trp_x_' . $domain .'_'. $language, $mo_file );
-        }
-
-        if ( !$mo_file ) return apply_filters('trp_x', $text, $original_text, $context, $domain, $language );
-
-
-        if (!empty($mo_file->entries[$context . '' . $text]))
-            $text = $mo_file->entries[$context . '' . $text]->translations[0];
+    $path_cache_key = 'trp_x_path_' . md5( $domain . $language );
+    $path           = wp_cache_get( $path_cache_key );
+    if ( $path === false ) {
+        $path = trp_find_translation_location_for_domain( $domain, $language );
+        wp_cache_set( $path_cache_key, $path );
     }
 
-    return apply_filters('trp_x', $text, $original_text,  $context, $domain, $language );
+    if ( !empty( $path ) ) {
+
+        $mo_file = trp_cache_get( 'trp_x_' . $domain . '_' . $language );
+
+        if ( false === $mo_file ) {
+            $mo_file = new MO();
+            $mo_file->import_from_file( $path );
+            wp_cache_set( 'trp_x_' . $domain . '_' . $language, $mo_file );
+        }
+
+        if ( !$mo_file ) {
+            $return = apply_filters( 'trp_x', $text, $original_text, $context, $domain, $language );
+            wp_cache_set( $cache_key, $return );
+            return $return;
+        }
+
+        if ( !empty( $mo_file->entries[ $context . '' . $text ] ) ) {
+            $text = $mo_file->entries[ $context . '' . $text ]->translations[0];
+        }
+    }
+
+    $return = apply_filters( 'trp_x', $text, $original_text, $context, $domain, $language );
+    wp_cache_set( $cache_key, $return );
+    return $return;
 }
+
+/**
+ * updated function that gets the translation for a string with context directly from a .po file
+ * @TODO the initial trp_x function was returning the translation in english  for the slugs I tried to search even if they were translation for them
+ * the trp_x function also searches the .mo file witch doesn't seem to be the right file, but the .po file instead
+ */
+function trp_x_updated( $original_text, $context, $domain, $language ){
+    // Define the base path to the plugin's languages directory
+    $basePath = WP_CONTENT_DIR . '/languages/plugins/';
+
+    // Form the path to the .po file
+    $poFilePath = $basePath . $domain . '-' . $language . '.po';
+
+    if (!file_exists($poFilePath)) {
+        return $original_text;
+    }
+
+    $poContent = file_get_contents($poFilePath);
+
+    $pattern = '/msgctxt\s+"'.preg_quote($context, '/').'"\s+msgid\s+"'.preg_quote($original_text, '/').'"\s+msgstr\s+"(.*?)"/s';
+
+    if (preg_match($pattern, $poContent, $matches)) {
+        return stripslashes($matches[1]);
+    }
+
+    return $original_text;
+    }
 
 /**
  * Function that tries to find the path for a translation file defined by textdomain and language
@@ -153,6 +200,9 @@ function trp_add_affiliate_id_to_link( $link ){
  * Do not confuse with trim.
  */
 function trp_sanitize_string( $filtered, $execute_wp_kses = true ){
+    // Numbers and strings are ok. Unexpected arrays, objects or null are not ok.
+    if (!is_scalar($filtered)) return '';
+
 	$filtered = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $filtered );
 
 	// don't remove \r \n \t. They are part of the translation, they give structure and context to the text.
@@ -178,9 +228,21 @@ function trp_sanitize_string( $filtered, $execute_wp_kses = true ){
 
 function trp_wp_kses($string){
     if ( apply_filters('trp_apply_wp_kses_on_strings', true) ){
+        add_filter( 'wp_kses_allowed_html', 'trp_prevent_kses_from_stripping_trp_wbr_tag', 10, 2 );
         $string = wp_kses_post($string);
+        remove_filter('wp_kses_allowed_html', 'trp_prevent_kses_from_stripping_trp_wbr_tag', 10);
     }
+
     return $string;
+}
+
+function trp_prevent_kses_from_stripping_trp_wbr_tag( $allowedposttags, $context ){
+
+    if ( $context === 'post' ){
+        $allowedposttags['wbr'] = true;
+    }
+
+    return $allowedposttags;
 }
 
 /**
@@ -212,7 +274,9 @@ function trp_remove_accents( $string ){
     if ( !preg_match('/[\x80-\xff]/', $string) )
         return $string;
 
-    if (seems_utf8($string)) {
+    $seems_utf = ( function_exists( 'wp_is_valid_utf8' ) ) ? wp_is_valid_utf8( $string ) : seems_utf8( $string );
+
+    if ( $seems_utf ) {
         $chars = array(
             // Decompositions for Latin-1 Supplement
             'ª' => 'a', 'º' => 'o',
@@ -499,11 +563,20 @@ function trp_bulk_debug($debug = false, $logger = array()){
  * @return bool
  */
 function trp_is_paid_version() {
-	$licence = get_option( 'trp_licence_key' );
+	// Check if TranslatePress paid plugins are active
+	$paid_plugins = array(
+		'TranslatePress - Personal'  => 'translatepress-personal/index.php',
+		'TranslatePress - Business'  => 'translatepress-business/index.php',
+		'TranslatePress - Developer' => 'translatepress-developer/index.php'
+	);
 
-	if ( ! empty( $licence ) ) {
-		return true;
-	}
+
+    $active_plugins = get_option('active_plugins', array());
+    foreach ($paid_plugins as $plugin_file) {
+        if (is_array($active_plugins) && in_array($plugin_file, $active_plugins)) {
+            return true;
+        }
+    }
 
 	//list of class names
 	$addons = apply_filters( 'trp_paid_addons', array(
@@ -528,6 +601,117 @@ function trp_is_paid_version() {
 	}
 
 	return false;
+}
+
+/**
+ * Whether the current TranslatePress installation can still upgrade to a higher plan.
+ *
+ * Free, Personal, and Business can still upgrade. Developer is the top tier and
+ * should not show plan-upgrade CTAs in the settings UI.
+ *
+ * @return bool
+ */
+function trp_can_show_upgrade_now_button() {
+    if ( defined( 'TRANSLATE_PRESS' ) ) {
+        return in_array(
+            TRANSLATE_PRESS,
+            array(
+                'TranslatePress',
+                'TranslatePress - Personal',
+                'TranslatePress - Business',
+            ),
+            true
+        );
+    }
+
+    if ( class_exists( 'TRP_Translate_Press' ) ) {
+        $trp = TRP_Translate_Press::get_trp_instance();
+
+        if ( ! empty( $trp->tp_product_name ) && is_array( $trp->tp_product_name ) ) {
+            $product_slug = key( $trp->tp_product_name );
+
+            return in_array(
+                $product_slug,
+                array(
+                    'translatepress-multilingual',
+                    'translatepress-personal',
+                    'translatepress-business',
+                ),
+                true
+            );
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Returns the labels used on the TranslatePress AI API key pages
+ *
+ * @param string|null $key Optional. Return a single label instead of the whole array.
+ * @return array|string
+ */
+function trp_get_tp_ai_api_key_labels( $key = null ) {
+    $labels = array(
+        // navigation tab (includes/class-settings.php).
+        'tab'                        => __( 'TranslatePress AI', 'translatepress-multilingual' ),
+
+        // settings page (partials/ai-api-key-settings-page.php).
+        'status_valid'               => __( 'Your TranslatePress AI API Key is valid.', 'translatepress-multilingual' ),
+        'status_invalid'             => __( 'Your TranslatePress AI API Key is invalid.', 'translatepress-multilingual' ),
+        'status_expired'             => __( 'Your TranslatePress AI API Key has expired.', 'translatepress-multilingual' ),
+        'activate_button'            => __( 'Activate API Key', 'translatepress-multilingual' ),
+        'deactivate_button'          => __( 'Deactivate API Key', 'translatepress-multilingual' ),
+        'add_heading'                => __( 'Add a TranslatePress AI API Key', 'translatepress-multilingual' ),
+        'field_label'                => __( 'TranslatePress AI API Key', 'translatepress-multilingual' ),
+        'manage'                     => __( 'Manage your TranslatePress AI API Key in your %1$s.', 'translatepress-multilingual' ),
+        'dont_have_heading'          => __( 'Don’t have a TranslatePress AI API Key?', 'translatepress-multilingual' ),
+        'get_free_button'            => __( 'Get a free TranslatePress AI API Key Today', 'translatepress-multilingual' ),
+
+        // Onboarding AI API Key step (includes/onboarding/class-ai-api-key.php).
+        'onboarding_heading'         => __( 'Add your TranslatePress AI API Key', 'translatepress-multilingual' ),
+        'onboarding_subheading'      => __( 'Add your TranslatePress AI API Key to unlock all premium features. Find the TranslatePress AI API Key in your', 'translatepress-multilingual' ),
+        'onboarding_valid'           => __( 'Your TranslatePress AI API Key is valid and active.', 'translatepress-multilingual' ),
+        'onboarding_field_label'     => __( 'TranslatePress AI API Key', 'translatepress-multilingual' ),
+        'onboarding_activate_button' => __( 'Activate TranslatePress AI API Key', 'translatepress-multilingual' ),
+
+        // submenu page title (includes/class-ai-api-key.php).
+        'submenu_page_title'         => __( 'TranslatePress AI', 'translatepress-multilingual' ),
+
+        // Automatic translation settings tab (includes/mtapi/functions.php).
+        'no_active_detected'         => __( 'No Active API Key Detected for this website.', 'translatepress-multilingual' ),
+        'need_key_free_account'      => __( 'In order to enable Automatic Translation using TranslatePress AI, you need an API key by creating a free account.', 'translatepress-multilingual' ),
+        'enter_key'                  => __( 'Enter your API key', 'translatepress-multilingual' ),
+
+        // Onboarding automatic translation step (includes/onboarding/class-autotranslation.php).
+        'enter_key_from'             => __( 'In order to enable Automatic Translation using TranslatePress AI, please enter your API key from', 'translatepress-multilingual' ),
+        'ai_field_label'             => __( 'API Key', 'translatepress-multilingual' ),
+        'ai_activate_button'         => __( 'Activate API Key', 'translatepress-multilingual' ),
+        'no_active_detected_ai'      => __( 'No Active TranslatePress AI API Key Detected for this website.', 'translatepress-multilingual' ),
+        'get_free_ai_heading'        => __( 'Get Your Free TranslatePress AI API Key', 'translatepress-multilingual' ),
+        'generate_button'            => __( 'Generate API Key', 'translatepress-multilingual' ),
+        'valid_product'              => __( 'You have a valid %s <strong>API Key</strong>.', 'translatepress-multilingual' ),
+        'manage_quota'               => __( 'Manage your API Key & quota on the %s', 'translatepress-multilingual' ),
+
+        // "Get a Free AI ..." editor notice (includes/class-translation-manager.php).
+        'get_free_ai_button'         => __( 'Get a Free AI API Key', 'translatepress-multilingual' ),
+
+        // Free-API-key activation limit message (multiple files).
+        'already_on_free'            => __( 'This website is already activated under a free API key. Each website can only use one free API key.', 'translatepress-multilingual' ),
+        'already_on_free_upgrade'    => __( 'This website is already activated under a free API key. Each website can only use one free API key. Please upgrade to a premium plan for more TranslatePress AI words from %1$s your account %2$s.', 'translatepress-multilingual' ),
+
+        // Debug section headings (partials/ai-api-key-settings-page.php).
+        'debug_checking'             => __( 'Debug Data for API Key Checking', 'translatepress-multilingual' ),
+        'debug_activation'           => __( 'Debug Data for API Key Activation', 'translatepress-multilingual' ),
+    );
+
+    $labels = apply_filters( 'trp_ai_api_key_labels', $labels );
+
+    if ( $key !== null ) {
+        return isset( $labels[ $key ] ) ? $labels[ $key ] : '';
+    }
+
+    return $labels;
 }
 
 /**
@@ -697,4 +881,303 @@ function trp_translate( $content, $language = null, $prevent_over_translation = 
     $TRP_LANGUAGE = $lang_backup;
 
     return $translated_custom_content;
+}
+
+/**
+ * Function that returns the license status of the TranslatePress plugin.
+ * @return string
+ */
+function trp_get_license_status(){
+    $license_details = get_option( 'trp_license_details' );
+    $is_demosite = ( strpos(site_url(), 'https://demo.translatepress.com' ) !== false );
+    $status = 'free-version';
+    if( !empty($license_details) && !$is_demosite) {
+        /* if we have any invalid response for any of the addon show just the error notification and ignore any valid responses */
+        if ( !empty( $license_details['invalid'] ) ) {
+            $status = 'invalid';
+            //take the first addon details (it should be the same for the rest of the invalid ones)
+            $license_detail = $license_details['invalid'][0];
+            if( $license_detail->error == 'missing' )
+                $status = 'missing';
+            elseif( $license_detail->error == 'expired' ){
+                $status = 'expired';
+            }elseif( $license_detail->error == 'revoked' ){
+                $status = 'revoked';
+            }
+        }elseif( !empty( $license_details['valid'] ) ){
+            $status = 'valid';
+        }
+    }
+    return $status;
+}
+
+/**
+ * Used by third parties to briefly switch language such as when sending an email
+ * To get a user's preferred language use this code: get_user_meta( $user_id, 'trp_language', true );
+ *
+ * @param $language
+ * @return void
+ */
+function trp_switch_language($language){
+    global $TRP_LANGUAGE, $TRP_LANGUAGE_COPY, $TRP_LANGUAGE_ORIGINAL;
+    $language = trp_validate_language( $language );
+    $TRP_LANGUAGE_ORIGINAL = $TRP_LANGUAGE;
+    $TRP_LANGUAGE = $language;
+    $TRP_LANGUAGE_COPY = $language;
+
+    // Because of 'trp_before_translate_content' filter function is_ajax_frontend() is called and it changes the global $TRP_LANGUAGE according to the url from which it was called.
+    // Function trp_reset_language() is added on the hook in order to set global $TRP_LANGUAGE according to our need for the email language instead.
+    add_filter( 'trp_before_translate_content', 'trp_reset_language', 99999999 );
+
+    switch_to_locale($language);
+    add_filter( 'plugin_locale', 'trp_get_locale', 99999999);
+}
+
+/**
+ * Switch to a user's preferred language based on the recipient email.
+ *
+ * For managerial users (admin-like roles), prefer user->locale with fallback
+ * to WPLANG, then trp_language.
+ *
+ * For non-managerial users, prefer trp_language, with fallback to locale, then WPLANG.
+ *
+ * @param string $email
+ * @return bool True when a preferred-language switch was applied.
+ */
+function trp_switch_to_preffered_language( $email ) {
+    $email = trim( (string) $email );
+
+    if ( $email === '' )
+        return false;
+
+    $user = get_user_by( 'email', $email );
+
+    if ( ! ( $user instanceof WP_User ) )
+        return false;
+
+    $user_roles = is_array( $user->roles ) ? $user->roles : array();
+
+    $trp_settings = TRP_Translate_Press::get_trp_instance()->get_component( 'settings' );
+    $settings     = $trp_settings->get_settings();
+
+    $default_language = $settings["default-language"];
+
+    /**
+     * Roles considered "managerial" for email language purposes.
+     *
+     * @param string[] $roles
+     */
+    $managerial_roles = apply_filters(
+        'trp_managerial_roles_for_email_language',
+        [ 'administrator', 'editor', 'shop_manager' ]
+    );
+
+    $is_managerial = !empty( array_intersect( $managerial_roles, $user_roles ) );
+
+    if ( $is_managerial ) {
+        // Managerial: prefer locale, then WPLANG, then default_language
+        if ( !empty( $user->locale ) ) {
+            $language = $user->locale;
+        } else {
+            $wplang = get_option( 'WPLANG' );
+            $language = !empty( $wplang ) ? $wplang : $default_language;
+        }
+    } else {
+        // Non-managerial: prefer trp_language.
+        $language = get_user_meta( $user->ID, 'trp_language', true );
+
+        if ( empty( $language ) ) {
+            if ( !empty( $user->locale ) ) {
+                $language = $user->locale;
+            } else {
+                $wplang = get_option( 'WPLANG' );
+                $language = !empty( $wplang ) ? $wplang : $default_language;
+            }
+        }
+    }
+
+    if ( empty( $language ) )
+        return false;
+
+    trp_switch_language( $language );
+
+    return true;
+}
+
+/**
+ * Return $TRP_LANGUAGE as plugin locale
+ *
+ * @return mixed
+ */
+function trp_get_locale() {
+    global $TRP_LANGUAGE;
+    return $TRP_LANGUAGE;
+}
+
+/**
+ * The value of $TRP_LANGUAGE is set according to the url, which can be problematic in some cases when sending emails
+ * Restore the $TRP_LANGUAGE value in which email will be sent
+ *
+ * @param $output
+ * @return mixed
+ */
+function trp_reset_language( $output ){
+    global $TRP_LANGUAGE, $TRP_LANGUAGE_COPY;
+    $TRP_LANGUAGE = $TRP_LANGUAGE_COPY;
+    return $output;
+}
+
+/**
+ * Return a valid TRP language in which the email will be sent
+ *
+ * @param $language
+ * @return mixed
+ */
+function trp_validate_language( $language ){
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $trp_settings = $trp->get_component( 'settings' );
+    $settings = $trp_settings->get_settings();
+    if( empty( $language ) || !in_array( $language, $settings['translation-languages'] ) ){
+        $language = $settings['default-language'];
+    }
+    return $language;
+}
+
+/**
+ * Used by third parties to restore original language after using trp_switch_language
+ */
+function trp_restore_language(){
+    global $TRP_LANGUAGE, $TRP_LANGUAGE_ORIGINAL;
+    remove_filter( 'trp_before_translate_content', 'trp_reset_language', 99999999 );
+
+    restore_previous_locale();
+    remove_filter( 'plugin_locale', 'trp_get_locale', 99999999 );
+    $TRP_LANGUAGE = $TRP_LANGUAGE_ORIGINAL;
+}
+
+/**
+ * Determine user language
+ *
+ * @param $user_id
+ * @return mixed
+ */
+function trp_get_user_language( $user_id ){
+    return trp_validate_language( get_user_meta( $user_id, 'trp_language', true ) );
+}
+/**
+ * Wrapper function for WooCommerce HPOS add, delete and update operations
+ * Falls back to the traditional post_meta operations
+ *
+ * @param $order_id         int     Post ID
+ * @param $meta_key         string  Metadata key
+ * @param $meta_value       mixed   Metadata value
+ * @param $operation_type   string  Parameter used to determine the type of operation that needs to be performed.
+ *                                  Accepts: add / delete / update
+ */
+function trp_woo_hpos_manipulate_post_meta( $order_id, $meta_key, $meta_value, $operation_type ){
+
+    if ( class_exists( 'Automattic\WooCommerce\Utilities\OrderUtil' ) && Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() ) {
+        $order    = wc_get_order( $order_id );
+        $function = $operation_type . '_meta_data';
+
+        $order->$function( $meta_key, $meta_value );
+        $order->save();
+
+        return;
+    }
+
+    $function = $operation_type . '_post_meta';
+
+    $function( $order_id, $meta_key, $meta_value );
+}
+
+/**
+ * Wrapper function for WooCommerce HPOS get operation
+ * Falls back to the traditional post_meta operation
+ *
+ * @param  $order_id       int     Post ID
+ * @param  $meta_key       string  Metadata key
+ * @param  $single         bool    Whether to return a single value or not. Default: false
+ * @return                 mixed   An array of values if `$single` is false. The value of the meta field if `$single` is true. False for an invalid `$post_id` (non-numeric, zero, or negative value). An empty string if a valid but non-existing post ID is passed.
+ */
+function trp_woo_hpos_get_post_meta( $order_id, $meta_key, $single = false ){
+    if ( class_exists( 'Automattic\WooCommerce\Utilities\OrderUtil' ) && Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() ) {
+        $order = wc_get_order( $order_id );
+
+        if ( !$order ) return false;
+
+        return $order->get_meta( $meta_key, $single );
+    }
+
+    return get_post_meta( $order_id, $meta_key, $single );
+}
+
+/**
+ * Helper function that determines if we should output the dynamic translation script later than usual
+ *
+ * Some plugins add HTML to the DOM very late in the page load cycle, so the site becomes slow due our mutation observer capturing it
+ *
+ * @return bool
+ */
+function is_late_dom_html_plugin_active(){
+    $classes_array = ['QueryMonitor']; // for the moment, only Query Monitor matches the criteria
+
+    foreach ( $classes_array as $class ){
+        if ( class_exists( $class ) ) return true;
+    }
+
+    return apply_filters( 'trp_delay_dom_changes_script', false );
+}
+
+/**
+ * Helper function to remove a prefix from a string.
+ * If we do str_replace that will remove it from the entire string, wherever it finds it.
+ *
+ * @return string
+ */
+function trp_remove_prefix($prefix = '', $string = '') {
+    // Check if the path starts with the prefix
+    if (!empty($prefix)){
+        if (strpos($string, $prefix) === 0) {
+            // Remove the prefix from the path
+            return substr_replace($string, '', 0, strlen($prefix));
+        }
+    }
+    // If the prefix is not at the start, return the path unchanged
+    return $string;
+}
+
+/**
+ * Obfuscate sensitive data in JSON response strings.
+ *
+ * @param string $string The JSON response string.
+ * @return string The modified JSON response string with obfuscated sensitive data.
+ */
+function trp_obfuscate_sensitive_data_in_json_response( $string ) {
+    $response_data = json_decode( $string, true );
+    if ( json_last_error() === JSON_ERROR_NONE ) {
+        if ( isset( $response_data['customer_name'] ) ) {
+            $response_data['customer_name'] = substr($response_data['customer_name'], 0, 2) . str_repeat('*', strlen($response_data['customer_name']) - 5) . substr($response_data['customer_name'], -3);
+        }
+        if ( isset( $response_data['customer_email'] ) ) {
+            $response_data['customer_email'] = substr($response_data['customer_email'], 0, 2) . str_repeat('*', strlen($response_data['customer_email']) - 5) . substr($response_data['customer_email'], -3);
+        }
+        $string = json_encode( $response_data );
+    }
+    return $string;
+}
+
+/**
+ * Get the original request URI before SEO Pack rewrites translated slugs.
+ *
+ * @param string|null $fallback Used as the filtered value when we hook this function to redirection_request_url and redirection_url_source
+ * @return string
+ */
+function trp_get_original_request_uri( $fallback = null ) {
+    global $TRP_ORIGINAL_REQUEST_URI;
+
+    if ( empty( $TRP_ORIGINAL_REQUEST_URI ) )
+        return $fallback; // Can happen if something goes wrong in translate_request_uri or SEO Pack is not updated
+
+    return $TRP_ORIGINAL_REQUEST_URI;
 }

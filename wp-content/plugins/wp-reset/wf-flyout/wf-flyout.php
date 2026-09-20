@@ -1,7 +1,7 @@
 <?php
 /**
  * Universal fly-out menu for WebFactory plugins
- * (c) WebFactory Ltd, 2022
+ * (c) WebFactory Ltd, 2023 - 2026
  */
 
 
@@ -82,7 +82,7 @@ if (false == class_exists('wf_flyout')) {
       }
 
       wp_enqueue_style('wf_flyout', plugin_dir_url($this->plugin_file) . 'wf-flyout/wf-flyout.css', array(), $this->ver);
-      wp_enqueue_script('wf_flyout', plugin_dir_url($this->plugin_file) . 'wf-flyout/wf-flyout.js', array(), $this->ver, true);;
+      wp_enqueue_script('wf_flyout', plugin_dir_url($this->plugin_file) . 'wf-flyout/wf-flyout.js', array(), $this->ver, true);
     } // admin_enqueue_scripts
 
 

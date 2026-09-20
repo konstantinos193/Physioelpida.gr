@@ -2243,7 +2243,7 @@ function medidove_footer_style_6() {
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="footer-copyright footer-copyright-3 text-center">
-                            <p>Copyright by@ BasicTheme - 2019</p>
+                            <p><?php print medidove_copyright_text(); ?></p>
                         </div>
                     </div>
                 </div>
@@ -2305,7 +2305,11 @@ else{
 
 
 function medidove_copyright_text(){
-    print get_theme_mod('medidove_copyright', esc_html__('Copyright ©2021 ThemePure. All Rights Reserved','medidove'));
+    printf(
+        'Copyright ©%s by <a href="%s" target="_blank" rel="noopener">adinfinity.gr</a>',
+        esc_html( date_i18n( 'Y' ) ),
+        esc_url( 'https://adinfinity.gr/' )
+    );
 }
 
 /** 
@@ -2737,7 +2741,7 @@ function medidove_kses_allowed_html() {
 // theme color
 function medidove_custom_color(){
     $color_code = get_theme_mod( 'medidove_color_option','#e12454');
-    wp_enqueue_style( 'medidove-custom', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-custom', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($color_code!=''){
         $custom_css = '';
         $custom_css .= ".btn,.btn.green-bg-btn:hover,.team-link:hover,#scrollUp,.service-box-3 a.service-link:hover,.pricing-menu a.nav-link.active,.play-btn:hover,.testi-box-2:hover .testi-quato-icon-green,.btn.gray-btn-border:hover,.about-text-list ul li:hover i,.counter-box-white h6::before,.pricing-area nav.pricing-nav .nav-item.nav-link.active,.pink-bg,.pricing-title h6.pink-bg,.price-box-flat:hover .pricing-title h6,.product-action a:hover,.basic-pagination ul li a:hover, .basic-pagination ul li.active a, .basic-pagination-2 ul li span.current,
@@ -2756,7 +2760,7 @@ add_action('wp_enqueue_scripts', 'medidove_custom_color');
 // sec color
 function medidove_sec_custom_color(){
     $color_code = get_theme_mod( 'medidove_sec_color_option','#8fb569');
-    wp_enqueue_style( 'medidove-sec-custom', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-sec-custom', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($color_code!=''){
         $custom_css = '';
         $custom_css .= ".play-btn,.btn-icon:hover,.btn:hover,.service-box-3 .service-link,.btn.green-bg-btn,.team-link,.price-box-flat:hover .price-btn-2 a,.price-box-flat .price-btn-2 a.green-bg,.testi-quato-icon-green,.team-activation .slick-dots li.slick-active button,.professinals-list li:hover i,.contact i,.contact-btn input.btn:hover,.green-bg,.h4service-active .slick-arrow, .h4gallery-active .slick-arrow,.routine__table .table tbody td.active-doctor,#scrollUp:hover,.pro-list-content .product-action a,.pro-list-content a.button.yith-wcqv-button,.cart .site-btn.brand-btn:hover,.gallery-slider-active .slick-arrow:hover,a.btn-icon-green,.h4service-active .slick-dots li.slick-active button,.h4gallery-active .slick-dots li.slick-active button, .h5service-active .slick-dots li.slick-active button { background: ".$color_code."}";
@@ -2772,7 +2776,7 @@ add_action('wp_enqueue_scripts', 'medidove_sec_custom_color');
 // header top bg color
 function medidove_header_top_bg_color(){
     $color_code = get_theme_mod( 'medidove_header_top_bg_color','#F4F9FD');
-    wp_enqueue_style( 'medidove-header-top-bg', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array());
+    wp_enqueue_style( 'medidove-header-top-bg', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($color_code!=''){
         $custom_css = '';
         $custom_css .= ".top-bar{ background: ".$color_code."}";
@@ -2785,7 +2789,7 @@ add_action('wp_enqueue_scripts', 'medidove_header_top_bg_color');
 // header top bg color
 function medidove_breadcrumb_bg_color(){
     $color_code = get_theme_mod( 'medidove_breadcrumb_bg_color','#F4F9FD');
-    wp_enqueue_style( 'medidove-breadcrumb-bg', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-breadcrumb-bg', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($color_code!=''){
         $custom_css = '';
         $custom_css .= ".breadcrumb-bg.gray-bg{ background: ".$color_code."}";
@@ -2798,7 +2802,7 @@ add_action('wp_enqueue_scripts', 'medidove_breadcrumb_bg_color');
 // breadcrumb-spacing top
 function medidove_breadcrumb_spacing(){
     $padding_px = get_theme_mod( 'medidove_breadcrumb_spacing','160px');
-    wp_enqueue_style( 'medidove-breadcrumb-top-spacing', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array());
+    wp_enqueue_style( 'medidove-breadcrumb-top-spacing', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($padding_px!=''){
         $custom_css = '';
         $custom_css .= ".breadcrumb-spacing{ padding-top: ".$padding_px."}";
@@ -2811,7 +2815,7 @@ add_action('wp_enqueue_scripts', 'medidove_breadcrumb_spacing');
 // breadcrumb-spacing bottom
 function medidove_breadcrumb_bottom_spacing(){
     $padding_px = get_theme_mod( 'medidove_breadcrumb_bottom_spacing','160px');
-    wp_enqueue_style( 'medidove-breadcrumb-bottom-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-breadcrumb-bottom-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($padding_px!=''){
         $custom_css = '';
         $custom_css .= ".breadcrumb-spacing{ padding-bottom: ".$padding_px."}";
@@ -2824,7 +2828,7 @@ add_action('wp_enqueue_scripts', 'medidove_breadcrumb_bottom_spacing');
 // slider height
 function medidove_slider_spacing(){
     $slider_height = get_theme_mod( 'medidove_slider_spacing','900px');
-    wp_enqueue_style( 'medidove-slider-spacing', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array());
+    wp_enqueue_style( 'medidove-slider-spacing', MEDIOVE_THEME_CSS_DIR . '/custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($slider_height!=''){
         $custom_css = '';
         $custom_css .= ".slider-active .slider-height{ min-height: ".$slider_height."}";
@@ -2837,7 +2841,7 @@ add_action('wp_enqueue_scripts', 'medidove_slider_spacing');
 // slider 2 height
 function medidove_slider2_spacing(){
     $slider_height = get_theme_mod( 'medidove_slider2_spacing','1000px');
-    wp_enqueue_style( 'medidove-slider2-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-slider2-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($slider_height!=''){
         $custom_css = '';
         $custom_css .= ".slider-active .slider-height-2{ min-height: ".$slider_height."}";
@@ -2850,7 +2854,7 @@ add_action('wp_enqueue_scripts', 'medidove_slider2_spacing');
 // slider 3 height
 function medidove_slider3_spacing(){
     $slider_height = get_theme_mod( 'medidove_slider3_spacing','780px');
-    wp_enqueue_style( 'medidove-slider3-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-slider3-spacing', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($slider_height!=''){
         $custom_css = '';
         $custom_css .= ".slider-height.slider-height-3{ min-height: ".$slider_height."}";
@@ -2863,7 +2867,7 @@ add_action('wp_enqueue_scripts', 'medidove_slider3_spacing');
 // slider 3 height
 function medidove_scrollup_switch(){
     $scrollup_switch = get_theme_mod( 'medidove_scrollup_switch');
-    wp_enqueue_style( 'medidove-scrollup-switch', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-scrollup-switch', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($scrollup_switch){
         $custom_css = '';
         $custom_css .= "#scrollUp{ display: none !important;}";
@@ -2877,7 +2881,7 @@ add_action('wp_enqueue_scripts', 'medidove_scrollup_switch');
 // body font
 function medidove_body_font(){
     $medidove_body_font = get_theme_mod( 'medidove_body_font',"'Rubik', sans-serif");
-    wp_enqueue_style( 'medidove-body-font', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-body-font', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($medidove_body_font!=''){
         $custom_css = '';
         $custom_css .= "body{ font-family: " . $medidove_body_font . "}";
@@ -2889,7 +2893,7 @@ add_action('wp_enqueue_scripts', 'medidove_body_font');
 // Heading font
 function medidove_heading_font(){
     $medidove_heading_font = get_theme_mod( 'medidove_heading_font',"'Poppins', sans-serif");
-    wp_enqueue_style( 'medidove-heading-font', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-heading-font', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($medidove_heading_font!=''){
         $custom_css = '';
         $custom_css .= "h1,h2,h3,h4,h5,h6{ font-family: " . $medidove_heading_font . "}";
@@ -2902,7 +2906,7 @@ add_action('wp_enqueue_scripts', 'medidove_heading_font');
 // breadcrumb font size
 function medidove_breadcrumb_font_size(){
     $bred_font_size = get_theme_mod( 'medidove_breadcrumb_font_size','48px');
-    wp_enqueue_style( 'medidove-breadcrumb-font-size', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array());
+    wp_enqueue_style( 'medidove-breadcrumb-font-size', MEDIOVE_THEME_CSS_DIR . 'custom-style.css', array(), filemtime( get_template_directory() . '/css/custom-style.css' ));
     if($bred_font_size!=''){
         $custom_css = '';
         $custom_css .= ".page-title h2{ font-size: ".$bred_font_size."}";

@@ -1,5 +1,9 @@
 <?php
 
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 /**
  * Class TRP_Search
  *
@@ -10,6 +14,7 @@ class TRP_Search extends WP_Query{
 
     protected $settings;
     protected $db;
+    protected $trp_query;
 
 
     /**
@@ -35,9 +40,17 @@ class TRP_Search extends WP_Query{
     public function trp_search_filter( $query ) {
         global $TRP_LANGUAGE;
 
-        if ( $TRP_LANGUAGE !== $this->settings['default-language'] ) {
-            if ( ( !is_admin() && $query->is_main_query() && $query->is_search() ) || apply_filters( 'trp_force_search', false ) ) {
+        // Detect if this is specifically a REST "search" request
+        $is_search_rest_request = false;
+        if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+            $rest_route = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field($_SERVER['REQUEST_URI']) : '';
+            if ( strpos( $rest_route, '/wp-json/wp/v2/search' ) !== false ) {
+                $is_search_rest_request = true;
+            }
+        }
 
+        if ( $TRP_LANGUAGE !== $this->settings['default-language'] ) {
+            if ( ( !is_admin() && $query->is_main_query() && $query->is_search() ) || $is_search_rest_request || apply_filters( 'trp_force_search', false ) ) {
                 // Get the "s" query arg from the initial search
                 $search_query = get_query_var('s');
                 //in some cases for instance some ajax searches we might need to get it from the query

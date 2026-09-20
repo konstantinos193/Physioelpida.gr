@@ -1,7 +1,7 @@
 /**
  * WP Reset
  * https://wpreset.com/
- * (c) WebFactory Ltd, 2017-2022
+ * (c) WebFactory Ltd, 2017-2026
  */
 
 body.tools_page_wp-reset {
@@ -1098,27 +1098,42 @@ li .pro-feature {
   }
 }
 
-#wpfssl-ad {
-  border: 3px solid #42982e;
+#wpcaptcha-ad {
+  border: 3px solid #253bac;
   min-width: 280px;
   max-width: 400px;
   padding: 10px 20px;
   background: white;
-  position: absolute;
-  top: 75px;
-  left: 950px;
 }
 
-@media screen and (max-width: 1460px) {
-  #wpfssl-ad {
-    display: none !important;
-  }
+@media screen and (max-width: 1520px) {
+    .wpr-container,
+    .tools_page_wp-reset nav{
+        width:700px;
+    }
+
 }
 
-#wpfssl-ad a.button {
+@media screen and (max-width: 1300px) {
+    #wpr-sidebar-ads {
+        display: none !important;
+    }
+
+    .wpr-container,
+    .tools_page_wp-reset nav{
+        width:910px;
+    }
+}
+
+#wpr-sidebar-ads {
+  position: fixed;
+  display: none;
+}
+
+#wpcaptcha-ad a.button {
   padding: 11px 20px;
   color: white;
-  background: #42982e;
+  background: #253bac;
   font-weight: 600;
   border: none;
   line-height: 1.5;
@@ -1128,11 +1143,196 @@ li .pro-feature {
   max-width: 90%;
 }
 
-#wpfssl-ad a.button:hover,
-#wpfssl-ad a.button:active,
-#wpfssl-ad a.button:focus {
+#wpcaptcha-ad a.button:hover,
+#wpcaptcha-ad a.button:active,
+#wpcaptcha-ad a.button:focus {
   box-shadow: 0px 0px 10px 0px rgb(50 138 210 / 52%);
-  background: #42982e;
+  background: #253bac;
   color: white;
   border: none;
 }
+
+#wpr-ad {
+  border: 3px solid #dd3036;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 10px 20px;
+  background: white;
+  margin-bottom: 30px;
+}
+
+#wpr-ad a.button {
+  padding: 11px 20px;
+  color: white;
+  background: #dd3036;
+  font-weight: 600;
+  border: none;
+  line-height: 1.5;
+  height: auto;
+  margin-bottom: 10px;
+  white-space: normal;
+  max-width: 90%;
+}
+
+#wpr-ad a.button:hover,
+#wpr-ad a.button:active,
+#wpr-ad a.button:focus {
+  box-shadow: 0px 0px 10px 0px rgb(50 138 210 / 52%);
+  background: #dd3036;
+  color: white;
+  border: none;
+}
+
+.wpr-main-tab li.tab-pro a {
+  color: #dd3036 !important;
+  font-weight: 700 !important;
+}
+
+.wpreset-pro-dialog .ui-dialog-titlebar {
+  display: none;
+}
+
+.wpreset-pro-dialog .logo img {
+  max-height: 55px;
+}
+
+.wpreset-pro-dialog .logo {
+  text-align: center;
+  background: #f8f8f8;
+  margin: -16px -16px 0 -16px;
+  padding: 15px 15px;
+}
+
+.wpreset-pro-dialog .footer {
+  text-align: center;
+  background: #f8f8f8;
+  margin: 0 -16px -16px -16px;
+  padding: 20px;
+}
+
+.wpreset-pro-dialog .upsell-footer-2 {
+  padding: 10px;
+  text-align: center;
+  background-color: #dd3036;
+  color: white;
+  margin: 0 -16px 0 -16px;
+}
+
+.wpreset-pro-dialog .upsell-footer-2 a {
+  color: white;
+}
+
+.wpreset-pro-dialog .logo span {
+  display: block;
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.wpreset-pro-dialog .logo span b {
+  border-bottom: 3px solid #dd3036;
+}
+
+#wpreset-pro-table {
+  width: 100%;
+  margin: 10px auto 0 auto;
+  border-collapse: collapse;
+}
+
+#wpreset-pro-table td {
+  padding: 4px 10px 4px 34px;
+  border: none;
+  font-size: 14px;
+}
+
+#wpreset-pro-table tr:last-child td {
+  text-align: center;
+}
+
+#wpreset-pro-table .dashicons-yes {
+  color: #dd3036;
+}
+
+#wpreset-pro-table .dashicons {
+  padding-right: 8px;
+  margin-left: -27px;
+}
+
+#wpreset-pro-table .center {
+  text-align: center;
+}
+
+.prices del {
+  color: #00000099;
+}
+
+.prices span {
+  font-weight: 600;
+  font-size: 40px;
+  color: #dd3036;
+  line-height: 1;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+#wpreset-pro-table tr:first-child td {
+  color: #000;
+  font-size: 18px;
+  font-weight: 800 !important;
+  padding: 10px 0 0 0;
+  text-align: center;
+}
+
+#wpreset-pro-table tr:last-child td {
+  padding: 10px 0 10px 0;
+  vertical-align: top;
+}
+
+#wpreset-pro-table tr:last-child td {
+  text-align: center;
+}
+
+
+#wpreset-pro-table a.button.button-buy {
+  padding: 11px 40px;
+  color: white;
+  background: #dd3036;
+  font-weight: 600;
+  border: none;
+  line-height: 1.5;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#wpreset-pro-table a.button.button-buy:hover,
+#wpreset-pro-table a.button.button-buy:active,
+#wpreset-pro-table a.button.button-buy:focus {
+  box-shadow: 0px 0px 10px 0px rgb(50 138 210 / 52%);
+  background: #dd3036;
+  color: white;
+  border: none;
+}
+
+.wp-dialog.ui-widget-content {
+  background: #fff !important;
+}
+
+#wpreset-pro-dialog {
+  overflow: hidden;
+}
+
+div.ui-dialog {
+  position: fixed;
+}
+/* Constrain the outer dialog box container to the screen height */
+.ui-dialog {
+    max-height: 90vh; /* Adjust percentage as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force the internal content area to scroll when it overflows */
+.ui-dialog .ui-dialog-content {
+    overflow-y: auto !important;
+    flex-grow: 1;
+}
+

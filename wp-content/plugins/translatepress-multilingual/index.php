@@ -3,14 +3,14 @@
 Plugin Name: TranslatePress - Multilingual
 Plugin URI: https://translatepress.com/
 Description: Experience a better way of translating your WordPress site using a visual front-end translation editor, with full support for WooCommerce and site builders.
-Version: 2.3.6
+Version: 3.3.6
 Author: Cozmoslabs, Razvan Mocanu, Madalin Ungureanu, Cristophor Hurduban
 Author URI: https://cozmoslabs.com/
 Text Domain: translatepress-multilingual
 Domain Path: /languages
 License: GPL2
 WC requires at least: 2.5.0
-WC tested up to: 6.8.2
+WC tested up to: 11.1
 
 == Copyright ==
 Copyright 2017 Cozmoslabs (www.cozmoslabs.com)
@@ -28,6 +28,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
+
+// Exit if accessed directly
+if ( !defined('ABSPATH' ) )
+    exit();
+
+
 function trp_enable_translatepress(){
 	$enable_translatepress = true;
 	$current_php_version = apply_filters( 'trp_php_version', phpversion() );
@@ -43,12 +49,8 @@ function trp_enable_translatepress(){
 
 if ( trp_enable_translatepress() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'class-translate-press.php';
-
-	/** License classes includes here
-	 * Since version 1.4.6
-	 * It need to be outside of a hook so it load before the classes that are in the addons, that we are trying to phase out
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-edd-sl-plugin-updater.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ai-api-key.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ai-api-key-check.php';
 
 	/* make sure we execute our plugin before other plugins so the changes we make apply across the board */
 	add_action( 'plugins_loaded', 'trp_run_translatepress_hooks', 1 );
@@ -62,7 +64,39 @@ function trp_translatepress_disabled_notice(){
 	echo '<div class="notice notice-error"><p>' . wp_kses( sprintf( __( '<strong>TranslatePress</strong> requires at least PHP version 5.6.20+ to run. It is the <a href="%s">minimum requirement of the latest WordPress version</a>. Please contact your server administrator to update your PHP version.','translatepress-multilingual' ), 'https://wordpress.org/about/requirements/' ), array( 'a' => array( 'href' => array() ), 'strong' => array() ) ) . '</p></div>';
 }
 
+/**
+ * Redirect users to the settings page on plugin activation
+ */
+add_action( 'activated_plugin', 'trp_plugin_activation_redirect' );
+function trp_plugin_activation_redirect( $plugin ){
+
+    $trp_instance_for_tp_product_name = TRP_Translate_Press::get_trp_instance();
+
+    // redirect on free plugin activation - keep simple for now, more conditions to be added
+
+    if ( !wp_doing_ajax() && $plugin == plugin_basename( __FILE__ ) ) {
+
+        if (get_option('trp_onboarding_started') === false ){
+
+        //    this could be used after we make the save settings function in onboarding to check onboarding completion
+        //    || get_option('trp_onboarding_completed') === 'false' || get_option('trp_onboarding_completed') == 'no' ) {
+            add_option('trp_onboarding_started', 'yes');
+            wp_safe_redirect(admin_url('admin.php?page=trp-onboarding&step=welcome') );
+            exit();
+
+        } else {
+
+            wp_safe_redirect(admin_url('options-general.php?page=translate-press'));
+            exit();
+
+        }
+    }
+}
 
 //This is for the DEV version
-if( file_exists(plugin_dir_path( __FILE__ ) . '/index-dev.php') )
-    include_once( plugin_dir_path( __FILE__ ) . '/index-dev.php');
+if( file_exists(plugin_dir_path( __FILE__ ) . '/index-dev.php') ){
+   if(!array_key_exists('translatepress-multilingual', TRP_Translate_Press::set_tp_product_name_static() )){
+        // we only include this in instances where we simulate the business/developer version
+        include_once( plugin_dir_path( __FILE__ ) . '/index-dev.php');
+    }
+}

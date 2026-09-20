@@ -17,34 +17,35 @@ class Agp_Converter
 	 *
 	 * @since    1.0.0
 	 * @since    3.4.0 Added polytonic characters
+	 * @since    4.1.0 Added more polytonic characters
 	 * @access   protected
 	 * @var      array $expressions All the greek letters and their latin counterparts
 	 */
 	protected static $expressions = array(
-		'/[ἀἁἈἉᾶἄἅἌἍἆἇἎἏἂἃἊἋᾳᾼᾴᾲᾀᾈᾁᾉᾷᾆᾎᾇᾏᾂᾊᾃᾋὰαάΑΆ]/u'	=> 'a',
-		'/[βΒ]/u'      									=> 'v',
-		'/[γΓ]/u'      									=> 'g',
-		'/[δΔ]/u'      									=> 'd',
-		'/[ἐἑἘἙἔἕἜἝἒἓἚἛὲεέΕΈ]/u'    					=> 'e',
-		'/[ζΖ]/u'      									=> 'z',
-		'/[ἠἡἨἩἤἥἬἭῆἦἧἮἯἢἣἪἫῃῌῄῂᾐᾑᾘᾙᾖᾗᾞᾟᾒᾒᾚᾛὴηήΗΉ]/u'   => 'i',
-		'/[θΘ]/u'      									=> 'th',
-		'/[ἰἱἸἹἴἵἼἽῖἶἷἾἿἲἳἺἻῒῗὶιίϊΐΙΊΪ]/u' 				=> 'i',
-		'/[κΚ]/u'      									=> 'k',
-		'/[λΛ]/u'      									=> 'l',
-		'/[μΜ]/u'      									=> 'm',
-		'/[νΝ]/u'      									=> 'n',
-		'/[ξΞ]/u'     	 								=> 'x',
-		'/[ὀὁὈὉὄὅὌὍὂὃὊὋὸοόΟΌ]/u'    					=> 'o',
-		'/[πΠ]/u'      									=> 'p',
-		'/[ρΡ]/u'     									=> 'r',
-		'/[σςΣ]/u'     									=> 's',
-		'/[τΤ]/u'      									=> 't',
-		'/[ὐὑὙὔὕὝῦὖὗὒὓὛὺῒῧυύϋΰΥΎΫ]/u' 					=> 'y',
-		'/[φΦ]/iu'     									=> 'f',
-		'/[χΧ]/u'      									=> 'ch',
-		'/[ψΨ]/u'      									=> 'ps',
-		'/[ὠὡὨὩὤὥὬὭῶὦὧὮὯὢὣὪὫῳῼᾠᾡᾨᾩᾤᾥᾬᾭᾦᾧᾮᾯᾢᾣᾪᾫὼωώ]/iu'  => 'o',
+		'/[ἀἁἈἉᾶἄἅἌἍἆἇἎἏἂἃἊἋᾳᾼᾴᾲᾀᾈᾁᾉᾷᾆᾎᾇᾏᾂᾊᾃᾋὰαάΑΆᾄᾅᾌᾍᾺᾰᾱᾸᾹ]/u'	=> 'a',
+		'/[βΒ]/u'      											=> 'v',
+		'/[γΓ]/u'      											=> 'g',
+		'/[δΔ]/u'      											=> 'd',
+		'/[ἐἑἘἙἔἕἜἝἒἓἚἛὲεέΕΈ]/u'    							=> 'e',
+		'/[ζΖ]/u'      											=> 'z',
+		'/[ἠἡἨἩἤἥἬἭῆἦἧἮἯἢἣἪἫῃῌῄῂᾐᾑᾘᾙᾖᾗᾞᾟᾒᾚᾛὴηήΗΉᾓᾔᾕῇᾜᾝῊ]/u'   	=> 'i',
+		'/[θΘ]/u'      											=> 'th',
+		'/[ἰἱἸἹἴἵἼἽῖἶἷἾἿἲἳἺἻῒῗὶιίϊΐΙΊΪΐῐῑῚῘῙ]/u' 				=> 'i',
+		'/[κΚ]/u'      											=> 'k',
+		'/[λΛ]/u'      											=> 'l',
+		'/[μΜ]/u'      											=> 'm',
+		'/[νΝ]/u'      											=> 'n',
+		'/[ξΞ]/u'     	 										=> 'x',
+		'/[ὀὁὈὉὄὅὌὍὂὃὊὋὸοόΟΌῸ]/u'    							=> 'o',
+		'/[πΠ]/u'      											=> 'p',
+		'/[ρΡ]/u'     											=> 'r',
+		'/[σςΣ]/u'     											=> 's',
+		'/[τΤ]/u'      											=> 't',
+		'/[ὐὑὙὔὕὝῦὖὗὒὓὛὺῒῧυύϋΰΥΎΫῢΰῠῡὟῪῨῩ]/u' 					=> 'y',
+		'/[φΦ]/iu'     											=> 'f',
+		'/[χΧ]/u'      											=> 'ch',
+		'/[ψΨ]/u'      											=> 'ps',
+		'/[ὠὡὨὩὤὥὬὭῶὦὧὮὯὢὣὪὫῳῼᾠᾡᾨᾩᾤᾥᾬᾭᾦᾧᾮᾯᾢᾣᾪᾫὼωώῲῷῴ]/iu'  		=> 'o',
 	);
 
 	/**
@@ -59,9 +60,9 @@ class Agp_Converter
 		'/[αΑ][ἰἱἸἹἴἵἼἽῖἶἷἾἿἲἳἺἻὶιίΙΊ]/u'                        => 'ai',
 		'/[οΟ][ἰἱἸἹἴἵἼἽῖἶἷἾἿἲἳἺἻὶιίΙΊ]/u'                        => 'oi',
 		'/[Εε][ἰἱἸἹἴἵἼἽῖἶἷἾἿἲἳἺἻὶιίΙΊ]/u'                        => 'ei',
-		'/[αΑ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]([θΘκΚξΞπΠσςΣτTφΡχΧψΨ]|\s|$)/u' => 'af$1',
+		'/[αΑ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]([θΘκΚξΞπΠσςΣτTφΦχΧψΨ]|\s|$)/u' => 'af$1',
 		'/[αΑ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]/u'                             => 'av',
-		'/[εΕ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]([θΘκΚξΞπΠσςΣτTφΡχΧψΨ]|\s|$)/u' => 'ef$1',
+		'/[εΕ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]([θΘκΚξΞπΠσςΣτTφΦχΧψΨ]|\s|$)/u' => 'ef$1',
 		'/[εΕ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]/u'                             => 'ev',
 		'/[οΟ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυύΥΎ]/u'                             => 'ou',
 		'/(^|\s)[μΜ][πΠ]/u'                         			 => '$1b',
@@ -72,8 +73,8 @@ class Agp_Converter
 		'/[τΤ][ζΖ]/u'                               			 => 'tz',
 		'/[γΓ][γΓ]/u'                               			 => 'ng',
 		'/[γΓ][κΚ]/u'                               			 => 'gk',
-		'/[ηΗ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυΥ]([θΘκΚξΞπΠσςΣτTφΡχΧψΨ]|\s|$)/u'   => 'if$1',
-		'/[ηΗ][υΥ]/u'                               			 => 'iu',
+		'/[ηΗ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυΥ]([θΘκΚξΞπΠσςΣτTφΦχΧψΨ]|\s|$)/u'   => 'if$1',
+		'/[ηΗ][ὐὑὙὔὕὝῦὖὗὒὓὛὺυΥ]/u'                               => 'iu',
 	);
 
 	/**
@@ -82,6 +83,20 @@ class Agp_Converter
 	 * @var      string     Action id
 	 */
 	protected $action = 'agp_convert';
+
+	public static function is_diphthongs_enabled()
+	{
+		return get_option('agp_diphthongs') === 'enabled';
+	}
+
+	public static function getExpressions()
+	{
+		if (self::is_diphthongs_enabled()) {
+			return array_merge(self::$diphthongs, self::$expressions);
+		}
+
+		return self::$expressions;
+	}
 
 	/**
 	 * Queries the database for posts related to specified post types
@@ -252,15 +267,7 @@ class Agp_Converter
 	public static function convertSlug($current_slug)
 	{
 
-		$diphthongs_enabled = get_option('agp_diphthongs') === 'enabled';
-
-		if ($diphthongs_enabled) {
-			$expressions = array_merge(self::$diphthongs, self::$expressions);
-		} else {
-			$expressions = self::$expressions;
-		}
-
-		$expressions = apply_filters('agp_convert_expressions', $expressions);
+		$expressions = apply_filters('agp_convert_expressions', self::getExpressions());
 
 		$current_slug = preg_replace(array_keys($expressions), array_values($expressions), $current_slug);
 

@@ -1,4 +1,9 @@
 <?php
+
+
+if ( !defined('ABSPATH' ) )
+    exit();
+
 add_image_size( 'trp-custom-language-flag', 18, 12 );
 
 // Register country flag size for use in Add Media modal
@@ -159,6 +164,12 @@ function trp_verify_custom_language_codes($is_correct_code, $settings){
                         'correct_code' => $is_correct_code
                     );
                 }
+            }else{
+                $is_correct_code = false;
+                return array(
+                    'message'      => esc_html__('The Language code of the added custom language cannot be empty.', 'translatepress-multilingual'),
+                    'correct_code' => $is_correct_code
+                );
             }
         }
     }
@@ -175,16 +186,6 @@ function trp_verify_custom_language_codes($is_correct_code, $settings){
                     );
                 }
             }
-        }
-    }
-
-    foreach ($settings['custom_language']['cuslangcode'] as $item) {
-        if (empty($item)) {
-            $is_correct_code = false;
-            return array(
-                'message'      => esc_html__('The Language code of the added custom language cannot be empty.', 'translatepress-multilingual'),
-                'correct_code' => $is_correct_code
-            );
         }
     }
 

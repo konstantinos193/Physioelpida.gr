@@ -1,0 +1,51 @@
+# «Ελπίδα» Επιστημονικό Κέντρο Φυσικοθεραπείας
+
+> Scientific physiotherapy center in Arta, Greece. Scientific director: Dimitrios P. Tsolas (Τσώλας Π. Δημήτριος). The site is bilingual: Greek (default) at / and English at /en/.
+
+## Contact
+
+- Address: Βασιλέως Πύρρου 15, Άρτα 47100, Greece (15 Vasileos Pyrrou, Arta)
+- Phone: +30 26810 73248 (landline), +30 697 287 6704 (mobile)
+- Email: info@physioelpida.gr
+- Hours: Monday–Friday 09:00–15:00 and 17:00–21:00, Saturday 09:00–15:00, Sunday closed
+- Facebook: https://www.facebook.com/Επιστημονικό-Κέντρο-Φυσικοθεραπείας-Ελπίδα-110048058174064
+- Instagram: https://www.instagram.com/physioelpida/
+
+## Main pages
+
+- [Home](https://physioelpida.gr/)
+- [About us](https://physioelpida.gr/about/)
+- [Biography](https://physioelpida.gr/bio/)
+- [Services](https://physioelpida.gr/serv1/)
+- [Therapeutic gym](https://physioelpida.gr/gym/)
+- [Book an appointment](https://physioelpida.gr/rantevou/)
+- [Contact](https://physioelpida.gr/contact/)
+- [Blog](https://physioelpida.gr/blog/)
+- [English version](https://physioelpida.gr/en/)
+
+## Equipment & therapies
+
+- [Ψηφιακός πελματογράφος μορφολογίας Amfit (digital pedograph)](https://physioelpida.gr/member/amfit-digital-morphology-pedometer/)
+- [S.I.S. υπερεπαγωγικός μαγνητικός διεγέρτης (magnetic stimulator)](https://physioelpida.gr/member/s-i-s-yperepagogikos-magnitikos-diegertis/)
+- [Laser υψίσυχνο (high-intensity laser)](https://physioelpida.gr/member/laser-ypsisychno/)
+- [Κυκλοφορητής άκρων (limb compression therapy)](https://physioelpida.gr/member/kykloforitis-akron/)
+- [TECAR θεραπεία (radiofrequency therapy)](https://physioelpida.gr/member/tecar-therapeia/)
+- [CPM γόνατος-ισχίου / αγκώνα-ώμου (continuous passive motion)](https://physioelpida.gr/member/cpm-gonatos-ischiou-agkona-omou/)
+- [Tumble Forms – θεραπείες σε παιδιά με ειδικές ανάγκες](https://physioelpida.gr/member/tumble-forms-therapeies-se-paidia-me-eidikes-anagkes/)
+- [ESWT BTL (shockwave therapy)](https://physioelpida.gr/member/eswt-btl/)
+- [Παραφινόλουτρο (paraffin bath)](https://physioelpida.gr/member/parafynoloutro/)
+- [Δινόλουτρο (whirlpool / hydro-massage)](https://physioelpida.gr/member/dinoloutro/)
+- [Αποσυμπίεση σπονδυλικής στήλης (spinal decompression)](https://physioelpida.gr/member/psifiaki-elxi/)
+- [Διαθερμία μικροκυμάτων (microwave diathermy)](https://physioelpida.gr/member/diathermia-mikrokymaton/)
+- [Λάμπα υπερύθρων (infrared lamp)](https://physioelpida.gr/member/laba-yperythron/)
+
+## Services
+
+- [Αποκατάσταση μυοσκελετικών παθήσεων](https://physioelpida.gr/service/rehabilitation-of-musculoskeletal-disorders/)
+- [Αποκατάσταση σε αθλητικές κακώσεις](https://physioelpida.gr/service/rehabilitation-in-sports-injuries/)
+- [Μετεγχειρητική αποκατάσταση](https://physioelpida.gr/service/postoperative-rehabilitation/)
+- [Φυσικοθεραπεία κατ' οίκον](https://physioelpida.gr/service/physiotherapy-at-home/)
+- [Πελματογράφημα](https://physioelpida.gr/service/footprint/)
+- [Θεραπευτική άσκηση](https://physioelpida.gr/service/therapeutic-exercise/)
+- [Λεμφική μάλαξη](https://physioelpida.gr/service/lymphatic-massage/)
+- [Κλινική αξιολόγηση](https://physioelpida.gr/service/clinical-evaluation/)

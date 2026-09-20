@@ -8,7 +8,6 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
-Use \Elementor\Core\Schemes\Typography;
 use \Elementor\Utils;
 use \Elementor\Group_Control_Box_Shadow;
 
@@ -104,7 +103,7 @@ class BdevsSlider extends \Elementor\Widget_Base {
 	    return $position_options;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_content_sliders',
 			[
@@ -440,7 +439,7 @@ class BdevsSlider extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'title',
 		        'selector' => '{{WRAPPER}} .tp-el-title',
-		        'scheme' => Typography::TYPOGRAPHY_2,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_SECONDARY ),
 		    ]
 		);
 
@@ -482,7 +481,7 @@ class BdevsSlider extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'subtitle',
 		        'selector' => '{{WRAPPER}} .tp-el-subtitle',
-		        'scheme' => Typography::TYPOGRAPHY_3,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_TEXT ),
 		    ]
 		);
 
@@ -524,7 +523,7 @@ class BdevsSlider extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'description',
 		        'selector' => '{{WRAPPER}} .tp-el-content p',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 		$this->end_controls_section();
@@ -555,7 +554,7 @@ class BdevsSlider extends \Elementor\Widget_Base {
 		    [
 		        'name' => 'button_typography',
 		        'selector' => '{{WRAPPER}} .tp-el-btn',
-		        'scheme' => Typography::TYPOGRAPHY_4,
+		        'global' => array( 'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_ACCENT ),
 		    ]
 		);
 

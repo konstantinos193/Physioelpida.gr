@@ -97,13 +97,34 @@ class OCDI_Demo_Importer {
     }
 
     private function assign_frontpage_id( $selected_import ) {
-        
-        $front_page = get_page_by_title( $selected_import['import_page_name'] );
-        $blog_page  = get_page_by_title( 'Blog' );
+
+        $front_page = $this->get_page_by_title( $selected_import['import_page_name'] );
+        $blog_page  = $this->get_page_by_title( 'Blog' );
+
+        if ( ! $front_page || ! $blog_page ) {
+            return;
+        }
 
         update_option( 'show_on_front', 'page' );
         update_option( 'page_on_front',  $front_page->ID );
         update_option( 'page_for_posts', $blog_page->ID );
+    }
+
+    private function get_page_by_title( $title ) {
+        $query = new WP_Query( array(
+            'post_type'              => 'page',
+            'title'                  => $title,
+            'post_status'            => 'all',
+            'posts_per_page'         => 1,
+            'no_found_rows'          => true,
+            'ignore_sticky_posts'    => true,
+            'update_post_term_cache' => false,
+            'update_post_meta_cache' => false,
+            'orderby'                => 'post_date ID',
+            'order'                  => 'ASC',
+        ) );
+
+        return ! empty( $query->post ) ? $query->post : null;
     }
 
     private function update_permalinks() {

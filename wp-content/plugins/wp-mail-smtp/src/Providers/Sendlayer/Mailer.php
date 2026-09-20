@@ -2,6 +2,7 @@
 
 namespace WPMailSMTP\Providers\Sendlayer;
 
+use WPMailSMTP\ConnectionInterface;
 use WPMailSMTP\Helpers\Helpers;
 use WPMailSMTP\WP;
 use WPMailSMTP\MailCatcherInterface;
@@ -28,15 +29,16 @@ class Mailer extends MailerAbstract {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param MailCatcherInterface $phpmailer The MailCatcher object.
+	 * @param MailCatcherInterface $phpmailer  The MailCatcher object.
+	 * @param ConnectionInterface  $connection The Connection object.
 	 */
-	public function __construct( $phpmailer ) {
+	public function __construct( $phpmailer, $connection = null ) {
 
 		// We want to prefill everything from MailCatcher class, which extends PHPMailer.
-		parent::__construct( $phpmailer );
+		parent::__construct( $phpmailer, $connection );
 
 		// Set mailer specific headers.
-		$this->set_header( 'Authorization', 'Bearer ' . $this->options->get( $this->mailer, 'api_key' ) );
+		$this->set_header( 'Authorization', 'Bearer ' . $this->connection_options->get( $this->mailer, 'api_key' ) );
 		$this->set_header( 'Accept', 'application/json' );
 		$this->set_header( 'Content-Type', 'application/json' );
 	}
@@ -79,7 +81,7 @@ class Mailer extends MailerAbstract {
 
 		$headers = isset( $this->body['Headers'] ) ? (array) $this->body['Headers'] : [];
 
-		$headers[ $name ] = WP::sanitize_value( $value );
+		$headers[ $name ] = $this->sanitize_header_value( $name, $value );
 
 		$this->set_body_param(
 			[
@@ -389,6 +391,27 @@ class Mailer extends MailerAbstract {
 	}
 
 	/**
+	 * Get the error code from the SendLayer API response.
+	 *
+	 * @since 4.8.0
+	 *
+	 * @return string
+	 */
+	public function get_response_error_code() {
+
+		if ( ! empty( $this->response ) ) {
+			$body = wp_remote_retrieve_body( $this->response );
+
+			// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+			if ( ! empty( $body->Errors ) && is_array( $body->Errors ) && ! empty( $body->Errors[0]->Code ) ) {
+				return $body->Errors[0]->Code; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+			}
+		}
+
+		return parent::get_response_error_code();
+	}
+
+	/**
 	 * Get mailer debug information, that is helpful during support.
 	 *
 	 * @since 3.4.0
@@ -397,7 +420,7 @@ class Mailer extends MailerAbstract {
 	 */
 	public function get_debug_info() {
 
-		$options = $this->options->get_group( $this->mailer );
+		$options = $this->connection_options->get_group( $this->mailer );
 
 		$text[] = '<strong>' . esc_html__( 'API Key:', 'wp-mail-smtp' ) . '</strong> ' .
 							( ! empty( $options['api_key'] ) ? 'Yes' : 'No' );
@@ -416,7 +439,7 @@ class Mailer extends MailerAbstract {
 	 */
 	public function is_mailer_complete() {
 
-		$options = $this->options->get_group( $this->mailer );
+		$options = $this->connection_options->get_group( $this->mailer );
 
 		if ( ! empty( $options['api_key'] ) ) {
 			return true;
