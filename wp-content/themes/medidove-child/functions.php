@@ -466,9 +466,18 @@ function physio_seo_sitemap_post_types( $post_types ) {
 }
 add_filter( 'wp_sitemaps_post_types', 'physio_seo_sitemap_post_types' );
 
-/** Drop thin taxonomy archives from the sitemap. */
+/**
+ * Drop taxonomy archives from the sitemap. service_categories is noindexed
+ * (is_tax) so listing it contradicts the robots meta; the single blog
+ * category (/category/arthra/) duplicates /blog/.
+ */
 function physio_seo_sitemap_taxonomies( $taxonomies ) {
-	unset( $taxonomies['price_tables_categories'], $taxonomies['portfolio_categories'] );
+	unset(
+		$taxonomies['price_tables_categories'],
+		$taxonomies['portfolio_categories'],
+		$taxonomies['service_categories'],
+		$taxonomies['category']
+	);
 	return $taxonomies;
 }
 add_filter( 'wp_sitemaps_taxonomies', 'physio_seo_sitemap_taxonomies' );
