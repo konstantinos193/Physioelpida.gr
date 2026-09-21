@@ -839,3 +839,529 @@ body.search-no-results > footer {
 	text-decoration: underline;
 }
 
+/* -------------------------------------------------------------------------
+ * Layout 2026 — title band, reading column, hub cards (see layout-2026.php)
+ * ---------------------------------------------------------------------- */
+
+/* Page title: plain title + breadcrumb inside the page, no band ---------- */
+.physio-head {
+	padding: 44px 0 0;
+}
+
+.physio-head--narrow .physio-head__inner {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.physio-crumbs ol {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 0 0 10px;
+	padding: 0;
+	font-size: 13.5px;
+	line-height: 1.4;
+	color: #647589;
+}
+
+.physio-crumbs li {
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.physio-crumbs li + li::before {
+	content: "›";
+	margin: 0 9px;
+	color: #9aacbb;
+}
+
+.physio-crumbs a {
+	color: inherit;
+	transition: color .15s ease;
+}
+
+.physio-crumbs a:hover {
+	color: #1071dc;
+}
+
+.physio-crumbs [aria-current="page"] {
+	color: #223645;
+	font-weight: 500;
+}
+
+.physio-head__title {
+	margin: 0;
+	max-width: 860px;
+	font-family: "Poppins", sans-serif;
+	font-size: clamp(28px, 3.4vw, 40px);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -.01em;
+	color: #223645;
+}
+
+/* Content column ----------------------------------------------------------- */
+.physio-page-area {
+	padding: 28px 0 96px;
+}
+
+.physio-article {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.physio-article--hub {
+	max-width: none;
+}
+
+.physio-layout .post-entry--top-margin {
+	margin-top: 0;
+}
+
+/* Typography inside the content wrapper the migration script used. */
+.physio-layout .service-details-text {
+	margin-bottom: 0;
+}
+
+.physio-layout .service-details-text p {
+	margin: 0 0 18px;
+	padding: 0;
+	font-size: 16.5px;
+	line-height: 1.75;
+	color: #4c5b6b;
+}
+
+.physio-layout .service-details-text > p:first-child {
+	font-size: 18.5px;
+	line-height: 1.65;
+	color: #33414f;
+}
+
+.physio-layout .service-details-text h2,
+.physio-layout .service-details-text h3 {
+	margin: 40px 0 16px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: -.01em;
+	color: #223645;
+}
+
+.physio-layout .service-details-text h2 {
+	font-size: 24px;
+}
+
+.physio-layout .service-details-text h3 {
+	margin-top: 28px;
+	font-size: 19px;
+}
+
+.physio-layout .service-details-text h2:first-child,
+.physio-layout .service-details-text h3:first-child {
+	margin-top: 0;
+}
+
+.physio-layout .service-details-text a {
+	color: #1071dc;
+	text-decoration-color: rgba(16, 113, 220, .35);
+	text-underline-offset: 3px;
+}
+
+.physio-layout .service-details-text a:hover {
+	text-decoration: underline;
+}
+
+.physio-layout .service-details-text strong {
+	color: #223645;
+	font-weight: 600;
+}
+
+.physio-layout .service-details-text ul,
+.physio-layout .service-details-text ol {
+	margin: 0 0 24px;
+	padding: 0;
+	list-style: none;
+}
+
+.physio-layout .service-details-text ul li,
+.physio-layout .service-details-text ol li {
+	position: relative;
+	margin: 0 0 10px;
+	padding-left: 26px;
+	font-size: 16px;
+	line-height: 1.65;
+	color: #4c5b6b;
+}
+
+.physio-layout .service-details-text ul li::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: .68em;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #1071dc;
+}
+
+.physio-layout .service-details-text ol {
+	counter-reset: physio-ol;
+}
+
+.physio-layout .service-details-text ol li {
+	padding-left: 32px;
+	counter-increment: physio-ol;
+}
+
+.physio-layout .service-details-text ol li::before {
+	content: counter(physio-ol) ".";
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	color: #1071dc;
+}
+
+/* Legacy pink divider image inside CPT content — clashes with the palette. */
+.physio-layout .section-line {
+	display: none;
+}
+
+/* FAQ: question headings read as a list of entries. */
+.physio-layout--faq .service-details-text h2 {
+	margin: 0;
+	padding: 26px 0 10px;
+	font-size: 20px;
+	border-top: 1px solid #e7eaee;
+}
+
+.physio-layout--faq .service-details-text h2:first-child {
+	padding-top: 0;
+	border-top: 0;
+}
+
+.physio-layout--faq .service-details-text p {
+	margin-bottom: 22px;
+}
+
+/* Hub cards ---------------------------------------------------------------- */
+.physio-layout--hub .service-details-text > p:first-child {
+	max-width: 800px;
+}
+
+.physio-layout--hub .service-details-text h2 {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 48px 0 20px;
+	font-size: 22px;
+}
+
+.physio-layout--hub .service-details-text h2::before {
+	content: "";
+	flex: none;
+	width: 6px;
+	height: 26px;
+	border-radius: 3px;
+	background: #1071dc;
+}
+
+.physio-layout .physio-hub-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	margin: 0 0 12px;
+}
+
+.physio-layout .physio-hub-grid li {
+	margin: 0;
+	padding: 0;
+}
+
+.physio-layout .physio-hub-grid li::before {
+	display: none;
+}
+
+.physio-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	height: 100%;
+	padding: 22px 48px 24px 24px;
+	background: #fff;
+	border: 1px solid #e7eaee;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgba(34, 54, 69, .04);
+	transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.physio-layout .service-details-text a.physio-card {
+	color: #223645;
+	text-decoration: none;
+}
+
+.physio-card strong {
+	font-family: "Poppins", sans-serif;
+	font-size: 16.5px;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #223645;
+}
+
+.physio-card span {
+	font-size: 14.5px;
+	line-height: 1.55;
+	color: #647589;
+}
+
+.physio-card::after {
+	content: "\2192";
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 18px;
+	line-height: 1;
+	color: #c9d4db;
+	transition: color .2s ease, transform .2s ease;
+}
+
+.physio-card:hover {
+	border-color: #1071dc;
+	box-shadow: 0 12px 28px rgba(16, 113, 220, .12);
+	transform: translateY(-2px);
+}
+
+.physio-card:hover::after {
+	color: #1071dc;
+	transform: translateX(3px);
+}
+
+.physio-card:focus-visible {
+	outline: 3px solid rgba(16, 113, 220, .45);
+	outline-offset: 2px;
+}
+
+/* Person page: photo aside + bio ------------------------------------------- */
+.physio-person {
+	display: grid;
+	grid-template-columns: 340px minmax(0, 1fr);
+	gap: 56px;
+	align-items: start;
+}
+
+.physio-person__photo {
+	position: sticky;
+	top: 110px;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	border-radius: 14px;
+	background: #e7eaee;
+	box-shadow: 0 16px 40px rgba(34, 54, 69, .12);
+}
+
+.physio-person__photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 28% 50%;
+}
+
+.physio-article--person {
+	max-width: none;
+	margin: 0;
+}
+
+/* CPT singles (θεραπείες / αποκατάσταση) ----------------------------------- */
+.physio-page-area--cpt .physio-article {
+	max-width: none;
+	margin: 0;
+}
+
+.physio-aside__photo {
+	overflow: hidden;
+	border-radius: 14px;
+	background: #f4f8fc;
+	border: 1px solid #e7eaee;
+}
+
+.physio-aside__photo img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.physio-aside .service-widget,
+.physio-aside .widget {
+	margin-top: 32px;
+}
+
+/* Parent gives .doctor-details-box h1 a 40px size; the band owns the H1 now. */
+.physio-article--member .doctor-details-box h1,
+.physio-article--member h1 {
+	font-size: 24px;
+}
+
+/* Blog: single post + /blog/ listing --------------------------------------- */
+.physio-post-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 28px;
+	font-size: 14px;
+	color: #647589;
+}
+
+.physio-post-meta__sep {
+	color: #c9d4db;
+}
+
+.physio-post-thumb {
+	margin: 0 0 32px;
+	overflow: hidden;
+	border-radius: 14px;
+}
+
+.physio-post-thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.physio-comments {
+	margin-top: 56px;
+}
+
+/* Listing cards: the theme's .postbox with the demo styling toned down. */
+.physio-layout--blog .postbox {
+	margin-bottom: 20px;
+}
+
+.physio-layout--blog .postbox__text {
+	padding: 30px 34px 32px;
+	background: #fff;
+	border: 1px solid #e7eaee;
+	border-radius: 12px;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.physio-layout--blog .postbox:hover .postbox__text {
+	border-color: #c9d4db;
+	box-shadow: 0 10px 24px rgba(34, 54, 69, .06);
+}
+
+.physio-layout--blog .post-meta {
+	margin-bottom: 10px;
+}
+
+.physio-layout--blog .post-meta span {
+	font-size: 13px;
+	letter-spacing: 0;
+	text-transform: none;
+	color: #647589;
+}
+
+.physio-layout--blog .post-meta span i {
+	color: #1071dc;
+}
+
+.physio-layout--blog .blog-title {
+	margin-bottom: 12px;
+	font-size: 22px;
+	line-height: 1.3;
+	text-transform: none;
+}
+
+.physio-layout--blog .blog-title a {
+	color: #223645;
+}
+
+.physio-layout--blog .blog-title a:hover {
+	color: #1071dc;
+}
+
+.physio-layout--blog .post-text {
+	margin-bottom: 0;
+}
+
+.physio-layout--blog .post-text p {
+	margin: 0;
+	font-size: 15.5px;
+	line-height: 1.7;
+	color: #4c5b6b;
+}
+
+.physio-layout--blog .paginations {
+	margin-top: 32px;
+}
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 1199px) {
+	.physio-person {
+		grid-template-columns: 300px minmax(0, 1fr);
+		gap: 40px;
+	}
+}
+
+@media (max-width: 991px) {
+	.physio-layout .physio-hub-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.physio-person {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 32px;
+	}
+
+	.physio-person__photo {
+		position: static;
+		max-width: 420px;
+		aspect-ratio: 5 / 4;
+	}
+
+	.physio-page-area--cpt .physio-aside {
+		margin-top: 40px;
+	}
+}
+
+@media (max-width: 767px) {
+	.physio-head {
+		padding: 30px 0 0;
+	}
+
+	.physio-page-area {
+		padding: 40px 0 72px;
+	}
+
+	.physio-layout .service-details-text > p:first-child {
+		font-size: 17px;
+	}
+
+	.physio-layout .service-details-text h2 {
+		font-size: 21px;
+		margin-top: 32px;
+	}
+
+	.physio-layout--hub .service-details-text h2 {
+		margin-top: 36px;
+	}
+}
+
+@media (max-width: 575px) {
+	.physio-layout .physio-hub-grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+	}
+
+	.physio-card {
+		padding: 18px 44px 20px 20px;
+	}
+
+	.physio-person__photo {
+		max-width: none;
+	}
+}

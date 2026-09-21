@@ -24,6 +24,24 @@ function medidove_child_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'medidove_child_enqueue_scripts', 100 );
 
+/**
+ * Purge the W3TC page cache once after each deploy that touches style.css.
+ * Deploys go over FTP with no hook on the server, so the first uncached
+ * request after the upload does the flush (cached pages never reach init,
+ * but any query-string or logged-in request does).
+ */
+function physio_flush_cache_on_deploy() {
+	$ver = (string) filemtime( get_stylesheet_directory() . '/style.css' );
+	if ( get_option( 'physio_style_ver' ) === $ver ) {
+		return;
+	}
+	update_option( 'physio_style_ver', $ver, false );
+	if ( function_exists( 'w3tc_flush_all' ) ) {
+		w3tc_flush_all();
+	}
+}
+add_action( 'init', 'physio_flush_cache_on_deploy' );
+
 /* -------------------------------------------------------------------------
  * Easy Appointments — Greek strings missing from the bundled el.mo (4.x UI)
  * ---------------------------------------------------------------------- */
@@ -63,6 +81,27 @@ function physio_ea_greek_strings( $translation, $text, $domain ) {
 	return isset( $map[ $text ] ) ? $map[ $text ] : $translation;
 }
 add_filter( 'gettext', 'physio_ea_greek_strings', 10, 3 );
+
+/* -------------------------------------------------------------------------
+ * Parent theme — the comment form labels ship untranslated (no el.mo)
+ * ---------------------------------------------------------------------- */
+function physio_theme_greek_strings( $translation, $text, $domain ) {
+	if ( 'medidove' !== $domain || physio_seo_is_en() ) {
+		return $translation;
+	}
+
+	$map = array(
+		'Your name *'  => 'Το όνομά σας *',
+		'Your email *' => 'Το email σας *',
+		'Comments *'   => 'Σχόλιο *',
+		'Post Comment' => 'Αποστολή σχολίου',
+		'Reply'        => 'Απάντηση',
+		'Pages:'       => 'Σελίδες:',
+	);
+
+	return isset( $map[ $text ] ) ? $map[ $text ] : $translation;
+}
+add_filter( 'gettext', 'physio_theme_greek_strings', 10, 3 );
 
 /* -------------------------------------------------------------------------
  * SEO layer (no SEO plugin installed)
@@ -473,3 +512,4 @@ add_filter( 'robots_txt', 'physio_seo_robots_txt', 10, 2 );
 
 /** 2026 SEO restructure — URL map, redirects, schema, trust blocks, footer. */
 require get_stylesheet_directory() . '/seo-2026.php';
+require get_stylesheet_directory() . '/layout-2026.php';

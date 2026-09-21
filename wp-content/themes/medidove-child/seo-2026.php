@@ -112,51 +112,16 @@ function physio_seo_graph_extra() {
 	$graph = array();
 
 	if ( ! is_front_page() && ( is_singular() || is_home() ) ) {
-		$crumbs = array(
-			array(
-				'@type'    => 'ListItem',
-				'position' => 1,
-				'name'     => 'Αρχική',
-				'item'     => home_url( '/' ),
-			),
-		);
-
-		$post = get_queried_object();
-		$hub  = null;
-		if ( $post instanceof WP_Post ) {
-			if ( 'bdevs-service' === $post->post_type ) {
-				$hub = physio_seo_hub_map()['apokatastasi'];
-			} elseif ( 'bdevs-member' === $post->post_type ) {
-				$hub = physio_seo_hub_map()['therapeies'];
-			} elseif ( 'page' === $post->post_type && $post->post_parent ) {
-				$parent = get_post( $post->post_parent );
-				$hubs   = physio_seo_hub_map();
-				if ( $parent && isset( $hubs[ $parent->post_name ] ) ) {
-					$hub = $hubs[ $parent->post_name ];
-				} elseif ( $parent ) {
-					$hub = array( 'title' => get_the_title( $parent ), 'url' => wp_parse_url( get_permalink( $parent ), PHP_URL_PATH ) );
-				}
-			} elseif ( 'post' === $post->post_type && get_option( 'page_for_posts' ) ) {
-				$hub = array(
-					'title' => get_the_title( get_option( 'page_for_posts' ) ),
-					'url'   => wp_parse_url( get_permalink( get_option( 'page_for_posts' ) ), PHP_URL_PATH ),
-				);
-			}
-		}
-		if ( $hub ) {
+		// Same trail the visible band renders (layout-2026.php).
+		$crumbs = array();
+		foreach ( physio_breadcrumb_trail() as $i => $crumb ) {
 			$crumbs[] = array(
 				'@type'    => 'ListItem',
-				'position' => 2,
-				'name'     => $hub['title'],
-				'item'     => home_url( $hub['url'] ),
+				'position' => $i + 1,
+				'name'     => $crumb['name'],
+				'item'     => $crumb['url'],
 			);
 		}
-		$crumbs[] = array(
-			'@type'    => 'ListItem',
-			'position' => count( $crumbs ) + 1,
-			'name'     => is_home() ? get_the_title( get_option( 'page_for_posts' ) ) : get_the_title(),
-			'item'     => is_home() ? get_permalink( get_option( 'page_for_posts' ) ) : get_permalink(),
-		);
 
 		$graph[] = array(
 			'@context'        => 'https://schema.org',
