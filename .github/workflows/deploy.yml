@@ -14,6 +14,13 @@ on:
         description: 'Base commit to diff against (empty = event.before / HEAD^)'
         required: false
         type: string
+      paths:
+        # Scope a replay to a few prefixes so a small, urgent change
+        # (the theme) doesn't queue behind thousands of plugin files.
+        # Run the wide replay afterwards with this left empty.
+        description: 'Only deploy paths under these prefixes (comma-separated, repo-relative; empty = all)'
+        required: false
+        type: string
       delete:
         # Escape hatch for remote cleanup — e.g. a file uploaded before
         # it was added to the exclusion list. Excluded files can never
@@ -33,7 +40,11 @@ jobs:
   deploy:
     name: Deploy Website
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # A normal push is a handful of files, but a replay after a
+    # cancelled deploy can be thousands (plugin updates) at ~1 file/s
+    # over InfinityFree FTP. The concurrency group above, not this
+    # timeout, is what stops runs from piling up.
+    timeout-minutes: 240
 
     steps:
       - name: Checkout repository
@@ -55,6 +66,7 @@ jobs:
         shell: bash
         env:
           DELETE_PATHS: ${{ inputs.delete }}
+          ONLY_PATHS: ${{ inputs.paths }}
         run: |
           set -euo pipefail
 
@@ -196,6 +208,27 @@ jobs:
                   else:
                       uploads.append(path)
 
+          # Manual-run path scope: keep only files under the given
+          # prefixes. Applied before the extra deletes so those stay
+          # explicit regardless of scope.
+          only = [
+              p.strip().strip("/")
+              for p in os.environ.get("ONLY_PATHS", "").split(",")
+              if p.strip().strip("/")
+          ]
+
+          if only:
+              def in_scope(path):
+                  return any(
+                      path == p or path.startswith(p + "/")
+                      for p in only
+                  )
+
+              uploads = [p for p in uploads if in_scope(p)]
+              deletes = [p for p in deletes if in_scope(p)]
+
+              print(f"Scoped to: {', '.join(only)}")
+
           # Manual-run extra deletes bypass the exclusion list on
           # purpose — they exist to remove files the exclusions
           # accidentally let through (or that predate them).
@@ -232,6 +265,11 @@ jobs:
 
       # InfinityFree allows ~3 FTP connections per account and the
       # control connection uses one — keep --parallel=2, not higher.
+      #
+      # --transfer-all, not --ignore-time: .deploy only holds files git
+      # says changed, and --ignore-time would still skip any whose byte
+      # size happens to match the remote copy (one-char edits, version
+      # bumps like 3.29.0 -> 3.30.0).
       - name: Deploy changed files
         shell: bash
         env:
@@ -254,7 +292,7 @@ jobs:
           set net:timeout 30
           set net:max-retries 3
           set ftp:passive-mode yes
-          mirror --reverse --parallel=2 --ignore-time --no-perms --verbose=1 .deploy ${REMOTE}
+          mirror --reverse --parallel=2 --transfer-all --no-perms --verbose=1 .deploy ${REMOTE}
           EOF
 
           # Remove files deleted/renamed in Git. rm -f won't error on
