@@ -25,13 +25,15 @@ function medidove_child_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'medidove_child_enqueue_scripts', 100 );
 
 /**
- * Purge the W3TC page cache once after each deploy that touches style.css.
- * Deploys go over FTP with no hook on the server, so the first uncached
- * request after the upload does the flush (cached pages never reach init,
- * but any query-string or logged-in request does).
+ * Purge the W3TC page cache once after each deploy that touches any child
+ * theme file. Deploys go over FTP with no hook on the server, so the first
+ * uncached request after the upload does the flush (cached pages never
+ * reach init, but any query-string or logged-in request does).
  */
 function physio_flush_cache_on_deploy() {
-	$ver = (string) filemtime( get_stylesheet_directory() . '/style.css' );
+	$dir   = get_stylesheet_directory();
+	$files = array_merge( (array) glob( $dir . '/*.php' ), (array) glob( $dir . '/*.css' ) );
+	$ver   = (string) max( array_map( 'filemtime', array_filter( $files ) ) );
 	if ( get_option( 'physio_style_ver' ) === $ver ) {
 		return;
 	}
